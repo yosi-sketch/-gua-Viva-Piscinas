@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, Variants, MotionConfig } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -16,64 +16,46 @@ import {
   Star,
   Menu,
   X,
-  Sparkles,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  ExternalLink,
   Users,
   Briefcase,
-  FileCheck2,
-  FileText,
-  Lock,
   Landmark,
-  Building2,
   BookOpen,
-  MessageCircle,
-  Gavel,
-  BadgeCheck,
   Zap,
   HeartHandshake,
-  Heart,
-  Quote,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Firm Information — Juscelino Germano Oliveira — Advogado
-const CLIENT_NAME = "Juscelino Germano Oliveira — Advogado";
-const ADVOGADO_TITLE = "Dr. Juscelino Germano Oliveira";
-const WHATSAPP_NUMBER = "5538998491504";
-const PHONE_DISPLAY = "(38) 99849-1504";
-const PHONE_SECONDARY = "(38) 99847-6504";
-const EMAIL_CONTACT = "contato@juscelinogermano.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/juscelinoadv";
-const INSTAGRAM_HANDLE = "@juscelinoadv";
-const INSTAGRAM_STATS = "Direito de Família, Consumidor & Servidores";
-const INSTAGRAM_SPEAKER_URL = "https://www.instagram.com/ojuscelinogermano/";
-const INSTAGRAM_SPEAKER_HANDLE = "@ojuscelinogermano";
+// Client & Firm Information — Advocacia Dr. Geovane Martins
+const CLIENT_NAME = "Advocacia Dr. Geovane Martins";
+const WHATSAPP_NUMBER = "5537991143595";
+const PHONE_DISPLAY = "(37) 99114-3595";
+const EMAIL_CONTACT = "geovanemartinsadv@gmail.com";
+const INSTAGRAM_URL = "https://www.instagram.com/geovanemartinsadv/";
+const INSTAGRAM_HANDLE = "@geovanemartinsadv";
 
-const ADDRESS_BOCAIUVA =
-  "Rua Luís Inácio Silveira, n° 1385 - Centro, Bocaiúva - MG, 39390-000";
+const ADDRESS_CLAUDIO =
+  "Praça dos Ex-Combatentes, 33 - salas 2 e 3 - Cláudio, MG, 35530-000";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Juscelino+Germano+Oliveira+%E2%80%94+Advogado%0ABocai%C3%BAva+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Geovane+Martins+%E2%80%94+Advocacia%0ACl%C3%A1udio+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/search?sca_esv=0499b66e11e21840&sxsrf=AKL5yDghkhfoP24JpPesdCQWoIAW0c1bJA:1793307159333&q=juscelino+germano+oliveira+-+advogado+bocai%C3%BAva+endere%C3%A7o&ludocid=9883260072375686984&sa=X&ved=2ahUKEwiR0dHhjeCXAxWRppUCHSwcJbwQ6BN6BAg7EAI";
+  "https://www.google.com/search?sca_esv=ea58cd80e616cff1&sxsrf=AKL5yDjQ_OV5OibZOufMUQITVPCzN92_mA:1793309974431&q=advocacia+dr.+geovane+martins+cl%C3%A1udio+endere%C3%A7o&ludocid=16554597364271703796&sa=X&ved=2ahUKEwisqf2fmOCXAxURppUCHS4vOFAQ6BN6BAg0EAI";
 
 // Official assets generated from the new client logo & photoshoot
-const LOGO_SRC = "/logo.png";
-const EMBLEM_SRC = "/emblema-jg.png";
-const FOTO_HERO_SRC = "/juscelino-germano.jpg";
-const FOTO_PORTRAIT_SRC = "/portrait.jpg";
-const FOTO_OFFICE_SRC = "/escritorio.jpg";
+const EMBLEM_SRC = "/emblema-balanca.png";
+const FOTO_HERO_SRC = "/dr-geovane-martins.jpg";
+const FOTO_PORTRAIT_SRC = "/dr-geovane-escritorio.jpg";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá, Dr. Juscelino Germano! Gostaria de agendar uma consulta jurídica especializada sobre o meu caso.";
+    "Olá, Dr. Geovane Martins! Gostaria de agendar uma consulta jurídica especializada sobre o meu caso.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -156,20 +138,6 @@ function GoogleIcon({
   );
 }
 
-const reveal: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
-};
-
 interface PracticeArea {
   id: string;
   title: string;
@@ -184,109 +152,130 @@ interface PracticeArea {
 
 const practiceAreas: PracticeArea[] = [
   {
+    id: "direito-civil-indenizacoes",
+    title: "Direito Cível & Ações Indenizatórias",
+    category: "Contratos · Danos Morais e Materiais · Responsabilidade Civil · Cobranças · Imóveis",
+    icon: Scale,
+    tag: "Defesa Patrimonial · Reparação Integral · Rigor Técnico",
+    summary:
+      "Proteção resolutiva dos seus direitos civis e patrimoniais. Ações de indenização por danos materiais e morais, elaboração e revisão segura de contratos e execução ágil de débitos.",
+    details:
+      "O Direito Civil é a base da segurança nas relações interpessoais e comerciais. Com atuação combativa e atenta a cada detalhe, o Dr. Geovane Martins atua preventivamente e contenciosamente na resolução de litígios contratuais, na obtenção de liminares urgentes e na justa reparação financeira por prejuízos morais e materiais causados a você ou à sua empresa.",
+    topics: [
+      "Ações Indenizatórias por Danos Morais, Materiais e Estéticos com comprovação rigorosa das perdas",
+      "Execução de Títulos Judiciais e Extrajudiciais (contratos, notas promissórias e dívidas inadimplidas)",
+      "Elaboração, Revisão e Due Diligence de Contratos Particulares e Empresariais de Compra e Venda e Locação",
+      "Direito Imobiliário: ações possessórias, regularização de escrituras, usucapião e litígios de posse",
+      "Notificações Extrajudiciais fundamentadas e resolução célere de impasses sem necessidade de litígio desgastante",
+      "Defesa e propositura de ações por Responsabilidade Civil e quebra contratual",
+    ],
+    whatsAppText:
+      "Olá, Dr. Geovane Martins! Gostaria de consultar sobre uma demanda de Direito Cível / Indenização / Contratos.",
+  },
+  {
     id: "direito-de-familia-sucessoes",
     title: "Direito de Família & Sucessões",
     category: "Divórcio Consensual e Litigioso · Guarda & Visitas · Pensão Alimentícia · Inventário em Cartório",
     icon: Users,
-    tag: "Atendimento Humanizado · Agilidade em Cartório · Proteção Familiar",
+    tag: "Acolhimento Humanizado · Agilidade em Cartório · Proteção Familiar",
     summary:
-      "Acolhimento empático e condução jurídica pacificadora para proteger quem você ama e organizar o patrimônio com dignidade, celeridade e segurança.",
+      "Sensibilidade, respeito e segurança jurídica para orientar e solucionar questões familiares delicadas e organizar a transmissão patrimonial com paz de espírito.",
     details:
-      "As questões de família e sucessões exigem sensibilidade humana, equilíbrio emocional e firmeza técnica. Sob a liderança do Dr. Juscelino Germano Oliveira, priorizamos a via consensual para realizar divórcios, partilhas de bens e inventários diretamente em Cartório de Notas, proporcionando economia de tempo, redução de custos e preservação dos vínculos familiares. Quando o litígio for indispensável, garantimos atuação combativa na fixação ou revisão de pensão alimentícia, guarda e justa partilha do patrimônio.",
+      "Conflitos familiares exigem mais do que competência técnica: demandam empatia, escuta acolhedora e pacificação. O Dr. Geovane Martins prioriza a via consensual, realizando divórcios e inventários diretamente em Cartório de Notas para garantir economia de tempo e custos. Quando a via judicial litigiosa for necessária, atua com firmeza inabalável na defesa dos interesses de seus clientes e na proteção das crianças.",
     topics: [
-      "Divórcio Consensual em Cartório de Notas: procedimento ágil, sigiloso e concluído em curto prazo",
-      "Divórcio Litigioso: partilha equilibrada de bens, proteção patrimonial e garantia dos direitos de cada cônjuge",
-      "Pensão Alimentícia: pedido liminar urgente de alimentos provisionais, revisão e cobrança sob pena de prisão",
-      "Guarda Compartilhada e Regulamentação do Regime de Convivência e Visitas dos Filhos",
-      "Reconhecimento e Dissolução de União Estável com partilha de patrimônio adquirido em conjunto",
-      "Inventário Extrajudicial em Cartório: partilha rápida de herança, redução de custos e desembaraço de bens",
-      "Inventário Judicial e Planejamento Sucessório Familiar: doações com reserva de usufruto e testamentos públicos",
+      "Divórcio Consensual em Cartório: procedimento rápido, discreto e desburocratizado",
+      "Divórcio Litigioso: partilha equitativa de bens e proteção contra fraudes patrimoniais",
+      "Fixação, Revisão e Cobrança de Pensão Alimentícia com pedidos liminares urgentes",
+      "Regulamentação de Guarda Compartilhada e Regime de Convivência e Visitas dos Filhos",
+      "Inventário Extrajudicial em Cartório de Notas para partilha rápida de herança e desembaraço de bens",
+      "Inventário Judicial, Testamentos e Planejamento Sucessório Familiar com reserva de usufruto",
+      "Reconhecimento e Dissolução de União Estável com justa partilha de patrimônio comum",
     ],
     whatsAppText:
-      "Olá, Dr. Juscelino Germano! Gostaria de uma consulta sobre Direito de Família (Divórcio, Guarda, Pensão ou Inventário).",
+      "Olá, Dr. Geovane Martins! Gostaria de orientações sobre Direito de Família (Divórcio, Guarda, Pensão ou Inventário).",
   },
   {
     id: "direito-do-consumidor-bancario",
-    title: "Direito do Consumidor & Defesa Patrimonial",
-    category: "Operadoras de Telefonia · Abusos Bancários · Negativação SPC/Serasa · Fraudes · Indenizações",
+    title: "Direito do Consumidor & Defesa Contra Abusos",
+    category: "Instituições Financeiras · Negativação Indevida · Fraudes no Pix · Cobranças Abusivas",
     icon: Shield,
-    tag: "Combate Incisivo · Causa Ganha · Reparação de Danos",
+    tag: "Combate Incisivo · Liminar Urgente · Causa do Cliente",
     summary:
-      "Atuação combativa e incisiva contra práticas abusivas de operadoras de telefonia, instituições financeiras e grandes fornecedores, garantindo o respeito integral aos seus direitos.",
+      "Atuação intransigente contra o poderio econômico de grandes empresas, bancos e operadoras que desrespeitam o consumidor ou causam prejuízos injustos.",
     details:
-      "O consumidor não pode ser lesado pelo poderio econômico de grandes empresas. Com um histórico consolidado de combatividade — inclusive revertendo casos complexos contra grandes operadoras de telefonia e recuperando a dignidade de quem foi ignorado —, o Dr. Juscelino ingressa com medidas rápidas para obter liminares de exclusão de nome no SPC/Serasa, cancelar contratos fraudulentos e conquistar indenizações justas por danos morais e materiais.",
+      "Nenhum cidadão deve se sentir indefeso diante de cobranças arbitrárias, contratos fraudulentos ou cadastramento indevido nos órgãos de proteção ao crédito (SPC/Serasa). O Dr. Geovane Martins ingressa com pedidos liminares para suspensão imediata de cobranças indevidas, exclusão de registros restritivos e obtenção de indenizações justas por danos morais e materiais.",
     topics: [
-      "Ações contra Operadoras de Telefonia por cobranças indevidas, linhas abertas sem consentimento e recusa de atendimento",
-      "Pedido Liminar de Urgência para Exclusão Imediata de Negativação Indevida no SPC, Serasa e Protestos",
-      "Indenizações por Danos Morais e Materiais decorrentes de falhas graves e desrespeito ao consumidor",
-      "Fraudes Bancárias, Golpes do Pix e Empréstimos Consignados Fraudulentos (anulação de contratos e repetição de indébito)",
-      "Cobranças Abusivas e Tarifas Bancárias Não Contratadas com restituição em dobro",
-      "Planos de Saúde: ações com pedido de liminar para fornecimento imediato de tratamentos, cirurgias e exames negados",
+      "Pedido Liminar de Urgência para Exclusão Imediata do Nome no SPC, Serasa e Tabelionatos de Protesto",
+      "Fraudes Bancárias, Golpes do Pix e Empréstimos Consignados Não Autorizados (anulação e restituição)",
+      "Ações Indenizatórias por Danos Morais causados por descaso, má prestação de serviços ou fraudes",
+      "Revisão de Juros Abusivos e Tarifas Bancárias Não Contratadas com devolução em dobro",
+      "Ações contra Operadoras de Telefonia e Grandes Fornecedores por cancelamentos indevidos e cobrança dupla",
+      "Planos de Saúde: ações urgentes com tutela liminar para cobertura de tratamentos e medicamentos recusados",
     ],
     whatsAppText:
-      "Olá, Dr. Juscelino Germano! Gostaria de consultar sobre Direito do Consumidor (Problema com Operadora, Banco ou Nome Negativado).",
+      "Olá, Dr. Geovane Martins! Preciso de ajuda em Direito do Consumidor (Problema Bancário, Negativação ou Cobrança Indevida).",
   },
   {
-    id: "direito-dos-servidores-publicos",
-    title: "Direito dos Servidores Públicos & Defesa Funcional",
-    category: "Direitos Estatutários · Progressões · Processo Administrativo (PAD) · Mandado de Segurança",
+    id: "direito-previdenciario-inss",
+    title: "Direito Previdenciário & Benefícios do INSS",
+    category: "Aposentadorias · Auxílio por Incapacidade · BPC/LOAS · Pensão por Morte · Planejamento",
     icon: Landmark,
-    tag: "Defesa Especializada · Garantia de Direitos · Rigor Técnico",
+    tag: "Planejamento Estratégico · Concessão Segura · Amparo Legal",
     summary:
-      "Defesa intransigente dos direitos e prerrogativas de servidores públicos municipais, estaduais e federais perante a Administração Pública e o Judiciário.",
+      "Assessoria completa e dedicada para conquistar o benefício previdenciário devido pelo INSS ou reverter indeferimentos administrativos injustos na Justiça Federal.",
     details:
-      "O servidor público dedica sua carreira à sociedade e merece ter seus direitos funcionais rigorosamente respeitados. O escritório presta assessoria técnica de ponta em Processos Administrativos Disciplinares (PAD), sindicâncias funcionais, cobrança de adicionais remuneratórios, quinquênios, férias-prêmio e impetração de mandados de segurança contra arbitrariedades da Administração.",
+      "Após uma vida inteira de trabalho e contribuição, ter o benefício do INSS negado ou calculado a menor é uma grande injustiça. Realizamos um diagnóstico documental minucioso, planejamento previdenciário e atuação administrativa e judicial para garantir a melhor renda mensal possível para sua aposentadoria ou benefício assistencial.",
     topics: [
-      "Defesa Técnica em Sindicâncias e Processos Administrativos Disciplinares (PAD)",
-      "Cobrança de Verbas Remuneratórias de servidores (adicionais, férias, quinquênios, horas extras)",
-      "Reclassificação Funcional, Promoções e Progressões de Carreira Estatutária",
-      "Impetração de Mandado de Segurança contra atos ilegais ou abusivos de autoridades públicas",
-      "Ações de Concurso Público: posse de candidatos aprovados, preterição, cotas e anulação de questões abusivas",
-      "Assessoria e Pareceres em Direito Administrativo e Constitucional",
+      "Concessão e Planejamento de Aposentadoria (por Idade, Tempo de Contribuição e Especial com insalubridade)",
+      "Auxílio por Incapacidade Temporária (Auxílio-Doença) e Aposentadoria por Incapacidade Permanente (Invalidez)",
+      "Benefício de Prestação Continuada (BPC/LOAS) para Idosos e Pessoas com Deficiência em vulnerabilidade",
+      "Pensão por Morte e Auxílio-Reclusão para dependentes legais",
+      "Ações Judiciais contra indeferimentos arbitrários do INSS perante a Justiça Federal",
+      "Revisão da Vida Toda e recálculo da Renda Mensal Inicial (RMI) para aumento do valor do benefício",
     ],
     whatsAppText:
-      "Olá, Dr. Juscelino Germano! Preciso de assessoria jurídica especializada em Direito dos Servidores Públicos / PAD / Concurso.",
+      "Olá, Dr. Geovane Martins! Gostaria de consultar sobre Benefício do INSS / Aposentadoria / BPC LOAS.",
   },
   {
-    id: "direito-civel-indenizacoes",
-    title: "Direito Cível & Ações Indenizatórias",
-    category: "Danos Morais e Materiais · Contratos · Cobranças · Responsabilidade Civil · Imóveis",
-    icon: Scale,
-    tag: "Reparação Integral · Resolução Eficaz · Blindagem Patrimonial",
-    summary:
-      "Proteção firme dos seus direitos e do seu patrimônio. Ações de reparação por danos morais e materiais, cobranças eficazes e elaboração de contratos seguros.",
-    details:
-      "No Direito Cível, atuamos com agilidade para obter decisões liminares e reparações integrais em conflitos contratuais, litígios patrimoniais e cobranças. Atuamos com extrema técnica processual na busca de bens, execução de dívidas e blindagem jurídica de negócios familiares e imobiliários.",
-    topics: [
-      "Ações Indenizatórias por Danos Morais, Materiais e Estéticos com comprovação rigorosa das perdas",
-      "Ações de Cobrança e Execução de Títulos Judiciais e Extrajudiciais (cheques, notas e contratos inadimplidos)",
-      "Elaboração, Revisão e Due Diligence de Contratos de Compra e Venda e Locação Imobiliária",
-      "Direito Imobiliário: ações possessórias, usucapião, reintegração de posse e regularização de escrituras",
-      "Resolução de Conflitos e Notificações Extrajudiciais com validade jurídica",
-      "Assessoria em Responsabilidade Civil e Reparação por Acidentes e Inadimplementos",
-    ],
-    whatsAppText:
-      "Olá, Dr. Juscelino Germano! Gostaria de consultar sobre Ação Cível / Indenização / Contratos.",
-  },
-  {
-    id: "consultoria-juridica-preventiva",
-    title: "Consultoria Jurídica & Resolução Sem Burocracia",
-    category: "Prevenção de Conflitos · Mediação de Acordos · Diagnóstico Estratégico · Segurança nos Negócios",
+    id: "direito-trabalhista-empregado-empresa",
+    title: "Direito Trabalhista & Relações de Trabalho",
+    category: "Verbas Rescisórias · Horas Extras · Rescisão Indireta · Acidentes de Trabalho · Consultoria",
     icon: Briefcase,
-    tag: "Prevenção Estratégica · Economia de Tempo · Resolução Ágil",
+    tag: "Rigor Probatório · Equilíbrio · Reparação Justa",
     summary:
-      "Soluções inteligentes, preventivas e amigáveis para solucionar divergências antes que se tornem processos longos e desgastantes. Atendimento próximo e desburocratizado.",
+      "Defesa incisiva das garantias trabalhistas e assessoria preventiva para empresas, construindo soluções seguras e mitigando riscos em litígios laborais.",
     details:
-      "A advocacia contemporânea mais eficiente é aquela que previne litígios e economiza recursos emocionais e financeiros. Conforme destacado pelos nossos clientes, prestamos uma assessoria esclarecedora, atenciosa e ágil, desatando nós burocráticos e trazendo soluções seguras para famílias e negócios de Bocaiúva e região.",
+      "Atuamos com sólido preparo probatório e profundo conhecimento da Consolidação das Leis do Trabalho (CLT) e jurisprudência dos Tribunais Regionais do Trabalho. Defendemos trabalhadores que tiveram seus direitos sonegados e assessoramos empresários na prevenção de passivos trabalhistas.",
     topics: [
-      "Consultoria Jurídica Preventiva: mapeamento prévio de riscos civis, contratuais e familiares",
-      "Mediação e Negociação Extrajudicial de Acordos com homologação jurídica",
-      "Elaboração, Revisão e Pareceres Técnicos em Negócios e Contratos Particulares",
-      "Assessoria para Regularização de Imóveis Urbanos e Rurais e Escrituras Públicas",
-      "Atendimento próximo com acompanhamento contínuo e prestação de contas transparente",
+      "Cobrança de Verbas Rescisórias Não Pagas (aviso prévio, férias proporcionais, 13º e multa do FGTS)",
+      "Ações de Horas Extras, Adicional Noturno, Insalubridade e Periculosidade",
+      "Rescisão Indireta do Contrato de Trabalho por falta grave cometida pelo empregador",
+      "Indenizações por Acidente de Trabalho, Doenças Ocupacionais e Falta de Equipamentos de Proteção (EPI)",
+      "Defesa contra Assédio Moral ou Discriminação no ambiente profissional",
+      "Consultoria Preventiva Trabalhista para empresas locais e empregadores da região",
     ],
     whatsAppText:
-      "Olá, Dr. Juscelino Germano! Gostaria de uma Consultoria Jurídica preventiva e desburocratizada para meu caso.",
+      "Olá, Dr. Geovane Martins! Gostaria de falar sobre uma questão de Direito do Trabalho.",
+  },
+  {
+    id: "consultoria-juridica-preventiva-extrajudicial",
+    title: "Consultoria Preventiva & Soluções Sem Burocracia",
+    category: "Negociação de Acordos · Análise de Riscos · Desburocratização em Cartório · Assessoria Contínua",
+    icon: BookOpen,
+    tag: "Eficiência Prática · Economia de Tempo · Clareza Total",
+    summary:
+      "A advocacia moderna resolve conflitos antes que se transformem em processos longos e onerosos. Atendimento claro, transparente e desburocratizado.",
+    details:
+      "Como frequentemente elogiado pelos clientes em Cláudio e região, o Dr. Geovane Martins tem o talento de traduzir termos jurídicos intrincados em orientações simples, práticas e objetivas. Isso permite tomar decisões com absoluta segurança, evitando litígios demorados e preservando seu patrimônio e tranquilidade.",
+    topics: [
+      "Consultoria Jurídica Estratégica para pessoas físicas, produtores rurais e empresas",
+      "Mediação e Negociação Extrajudicial de acordos particulares com força executiva",
+      "Pareceres Jurídicos e Auditoria Preventiva de riscos e contratos",
+      "Desembaraço de pendências administrativas e cartorárias com agilidade",
+      "Atendimento próximo e humanizado com acompanhamento transparente de cada etapa",
+    ],
+    whatsAppText:
+      "Olá, Dr. Geovane Martins! Gostaria de agendar uma Consultoria Jurídica preventiva e estratégica.",
   },
 ];
 
@@ -295,116 +284,126 @@ interface Review {
   badge: string;
   date: string;
   category:
-    | "Empatia & Humanidade"
-    | "Segurança & Confiança"
-    | "Agilidade & Eficácia"
-    | "Competência & Dedicação";
+    | "Ética & Transparência"
+    | "Dedicação & Empenho"
+    | "Atenção & Humanidade"
+    | "Eficiência & Agilidade";
   content: string;
   ownerReply?: string;
 }
 
 const clientReviews: Review[] = [
   {
-    name: "Danielle Oliveira",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "4 anos atrás",
-    category: "Empatia & Humanidade",
-    content:
-      "É difícil conviver com o sentimento de injustiça, sobretudo quando nos sentimos ou estamos em um local que nos torna incapaz. A um tempo atrás tive um problema com uma operadora de celular, usaram meu nome sem a minha autorização e a operadora simplesmente me ignorou. Após algumas indicações, encontrei o Dr. Juscelino que, sem ao menos me conhecer, se mostrou aberto a acolher a minha demanda, sem que eu pudesse dá-lo nenhuma garantia de retorno da causa. Em uma primeira tentativa perdemos a causa e, ainda assim, ele não desistiu. Correu atrás, como se o problema tivesse ocorrido com ele, e ganhou a minha causa! Empatia é a palavra que define Juscelino, por ter se colocado ao meu lado mesmo sem conhecer e sentido o que eu senti. Obrigada, Juscelino por transbordar humanidade e competência, por sempre ter ido além do que podia e sobretudo por nunca ter desistido!",
-    ownerReply:
-      "Oi, Danielle! Muito obrigado pelo reconhecimento. Você merece essa felicidade. Conte sempre comigo.",
-  },
-  {
-    name: "Thamires Meiriane",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
+    name: "Marcilio Carneiro",
+    badge: "6 avaliações · 5 Estrelas · Google Maps",
     date: "1 ano atrás",
-    category: "Segurança & Confiança",
+    category: "Dedicação & Empenho",
     content:
-      "Excelente profissional, super admiro como pessoa. Sua competência me inspira confiança e segurança. Um advogado incrível, de um trabalho espetacular.",
-    ownerReply:
-      "Obrigado, Thamires! São clientes com você que me permitem ser igualmente dedicado. Gratidão!",
+      "É com grande satisfação que recomendo o Dr. Geovane Martins, advogado altamente competente e dedicado que tive o prazer de conhecer. Dr. Geovane destaca-se pela profundidade de seu conhecimento e por sua habilidade em traduzir conceitos legais complicados em orientações claras e objetivas, o que proporciona grande confiança e tranquilidade aos seus clientes. Sua ética profissional é inquestionável, e ele demonstra uma dedicação notável para garantir que todos os aspectos do caso sejam tratados com rigor e atenção aos detalhes. Além de sua competência técnica, o Dr. Geovane Martins é conhecido por sua empatia e paciência, valores que trazem um diferencial significativo em um campo que exige tanto profissionalismo quanto sensibilidade. Seu compromisso com a defesa dos interesses de seus clientes é genuíno e inabalável, e sua postura profissional assegura que todas as partes envolvidas recebam o respeito e a consideração que merecem. Recomendo o Dr. Geovane Martins sem qualquer hesitação para qualquer pessoa ou empresa que busque um advogado confiável, dedicado e altamente qualificado. Sua atuação exemplar certamente contribuirá para o sucesso e a proteção dos interesses de seus clientes.",
+    ownerReply: "Grato.",
   },
   {
-    name: "Heberth Oliveira",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    name: "Daniel Amaral",
+    badge: "214 avaliações · 5 Estrelas · Google Maps",
     date: "2 anos atrás",
-    category: "Agilidade & Eficácia",
+    category: "Dedicação & Empenho",
     content:
-      "Excelente profissional, super atencioso, procura deixar o cliente sempre calmo com a situação. Resolveu meu problema antes do previsto. Parabéns!",
-    ownerReply:
-      "Muito obrigado, Heberth. Sou privilegiado por ter clientes como você.",
+      "Responsabilidade, dedicação, empenho e excelência na execução de seu trabalho! Doutor Geovane é um ser humano diferenciado na nossa sociedade! Super recomendo 😃",
+    ownerReply: "Muito obrigado pela confiança.",
   },
   {
-    name: "Carlos Roberto Pereira Dias",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "6 anos atrás",
-    category: "Competência & Dedicação",
+    name: "Élida Ferreira",
+    badge: "3 avaliações · 3 fotos · 5 Estrelas · Google Maps",
+    date: "2 anos atrás",
+    category: "Atenção & Humanidade",
     content:
-      "Muito satisfeito com os serviços prestados pelo Juscelino, além de um ótimo atendimento, sucesso total na ação judicial. Já o agradeci pessoalmente, mas fica aqui mais uma vez o meu muito obrigado!!!",
-    ownerReply: "Obrigado, meu irmão! Conte sempre comigo.",
-  },
-  {
-    name: "Fernanda Pereira",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "3 anos atrás",
-    category: "Empatia & Humanidade",
-    content:
-      "Excelente profissional, muita empatia e atenção para com os clientes, tem um papo muito esclarecedor, com um atendimento humanitário... Super recomendo!!!",
-    ownerReply:
-      "Oi, Fernanda, obrigado! Fico contente que esteja satisfeita. Conte sempre comigo.",
-  },
-  {
-    name: "Larissa Vieira",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "4 anos atrás",
-    category: "Segurança & Confiança",
-    content:
-      "Atendimento 100% confiável, todas as informações passadas com segurança e inclusive problemas são resolvidos sem burocracia, a melhor solução para esse problema é com Juscelino...",
-    ownerReply: "Larissa, muito obrigado pela confiança em meu trabalho.",
-  },
-  {
-    name: "Silvanira Borges de Oliveira",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "4 anos atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Super competente, honesto, pessoa confiável, indico pra todos o melhor advogado.",
-    ownerReply: "Obrigado, Silvanira! Conte sempre comigo.",
-  },
-  {
-    name: "Aliny Duarte Veloso Gomes",
-    badge: "4 avaliações · 7 fotos · 5 Estrelas",
-    date: "1 ano atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Dr. Juscelino é um excelente profissional, sempre dedicado e comprometido!",
+      "Super indico, atencioso, ótimo profissional, deu a maior atenção ao meu caso, resolveu tudo que eu precisava com todo empenho.",
     ownerReply: "Obrigado pela confiança.",
   },
   {
-    name: "Carolayne Tayna",
+    name: "Rhayane Cristini Martins da Rosa",
+    badge: "7 avaliações · 5 Estrelas · Google Maps",
+    date: "1 ano atrás",
+    category: "Atenção & Humanidade",
+    content: "O Dr. Geovane é um profissional incrível e o escritório é acolhedor.",
+  },
+  {
+    name: "Luis Carlos G. Santos",
+    badge: "Local Guide · 16 avaliações · 2 fotos · 5 Estrelas",
+    date: "2 anos atrás",
+    category: "Ética & Transparência",
+    content:
+      "Sempre muito sensato e profissional. Passa muita segurança em seu trabalho. Recomendo!",
+    ownerReply: "Grato pelo feedback.",
+  },
+  {
+    name: "Zuleica Martins",
+    badge: "3 avaliações · 5 Estrelas · Google Maps",
+    date: "2 anos atrás",
+    category: "Ética & Transparência",
+    content:
+      "Profissional extremamente ético, responsável e comprometido. Esclareceu todas as minhas dúvidas. Recomendo.",
+    ownerReply: "Obrigado pela confiança.",
+  },
+  {
+    name: "César de Castro Alves",
     badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "4 anos atrás",
-    category: "Empatia & Humanidade",
+    date: "2 anos atrás",
+    category: "Ética & Transparência",
     content:
-      "Melhor advogado, sem dúvidas! Atencioso e responsável, indico fácil. Por mais advogados assim..",
-    ownerReply:
-      "Obrigado, Tayná! Conte sempre comigo. Espero que esteja tudo bem contigo e o seu pequeno.",
+      "Atencioso. Ético. Comprometido com o bem-comum. E acima de tudo, justo conforme deve ser.",
+    ownerReply: "Obrigado.",
   },
   {
-    name: "Gregório Farias",
-    badge: "3 avaliações · 5 Estrelas · Google Maps",
-    date: "4 anos atrás",
-    category: "Agilidade & Eficácia",
+    name: "Leandro Vieira",
+    badge: "Local Guide · 37 avaliações · 7 fotos · 5 Estrelas",
+    date: "2 anos atrás",
+    category: "Eficiência & Agilidade",
     content:
-      "Profissional extremamente educado e atencioso. Resolveu meu problema de forma ágil e eficaz.",
-    ownerReply: "Obrigado, amigo! Conte sempre comigo.",
+      "Sinônimo de eficiência, atenção e comprometimento. Recomendo demais!!",
+    ownerReply: "Obrigado pela confiança.",
   },
   {
-    name: "Fernando Epitacio",
+    name: "Julia Colle",
+    badge: "9 avaliações · 1 foto · 5 Estrelas · Google Maps",
+    date: "2 anos atrás",
+    category: "Eficiência & Agilidade",
+    content:
+      "Advogado excelente! Rápido atendimento e consultoria eficiente. Recomendo.",
+    ownerReply: "Grato.",
+  },
+  {
+    name: "Délia Amaral",
+    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    date: "2 anos atrás",
+    category: "Dedicação & Empenho",
+    content:
+      "Excelente profissional. Trabalha com seriedade e comprometimento.",
+    ownerReply: "Gratidão pela confiança.",
+  },
+  {
+    name: "Débora Amaral",
+    badge: "Local Guide · 35 avaliações · 57 fotos · 5 Estrelas",
+    date: "2 anos atrás",
+    category: "Atenção & Humanidade",
+    content: "Super indico. É dedicado e atencioso.",
+    ownerReply: "Grato pelo feedback.",
+  },
+  {
+    name: "Samanda Ribeiro",
+    badge: "2 avaliações · 3 fotos · 5 Estrelas · Google Maps",
+    date: "2 anos atrás",
+    category: "Dedicação & Empenho",
+    content: "Trabalho excelente!",
+    ownerReply: "Grato.",
+  },
+  {
+    name: "B.claudio Amorim",
     badge: "3 avaliações · 5 Estrelas · Google Maps",
-    date: "3 anos atrás",
-    category: "Segurança & Confiança",
-    content: "Ótimo, fui muito bem atendido!",
+    date: "2 anos atrás",
+    category: "Eficiência & Agilidade",
+    content: "Atendimento de excelencia, pontualidade e atenção.",
+    ownerReply: "Grato.",
   },
 ];
 
@@ -415,74 +414,36 @@ interface FaqItem {
 
 const faqList: FaqItem[] = [
   {
-    question: "Como funciona a primeira consulta jurídica com o Dr. Juscelino Germano?",
+    question: "Como funciona a primeira consulta jurídica com o Dr. Geovane Martins?",
     answer:
-      "Nosso primeiro atendimento pode ser presencial em nossa sede no Centro de Bocaiúva - MG (Rua Luís Inácio Silveira, n° 1385) ou 100% online por meio de chamada de vídeo ou WhatsApp (38) 99849-1504. Durante o atendimento, realizamos uma escuta atenta e humanizada do seu relato, analisamos a documentação disponível e traçamos o caminho jurídico mais ágil, seguro e eficaz para o seu caso.",
+      "Nosso primeiro atendimento pode ser presencial em nosso escritório em Cláudio - MG (Praça dos Ex-Combatentes, 33 - salas 2 e 3) ou 100% digital via WhatsApp (37) 99114-3595 e videochamada, atendendo com total comodidade clientes de qualquer lugar do Brasil. Durante a consulta, realizamos uma escuta humanizada e detalhada do seu relato, avaliamos os documentos disponíveis e apresentamos caminhos claros e desmistificados para a resolução do seu caso.",
   },
   {
-    question: "Tive problemas com operadora de celular ou grande empresa. Realmente vale a pena entrar com ação?",
+    question: "Como o Dr. Geovane Martins atua em Divórcios e Inventários?",
     answer:
-      "Sim, com absoluta certeza! Muitas vezes o cidadão se sente impotente perante grandes empresas e operadoras que ignoram reclamações ou colocam o nome indevidamente no SPC/Serasa. O escritório do Dr. Juscelino possui atuação reconhecida e combativa nessa área, obtendo decisões judiciais liminares e reparações por danos morais e materiais, não desistindo até que a justiça seja restabelecida.",
+      "Sempre que viável e acordado entre as partes, priorizamos a via extrajudicial diretamente em Cartório de Notas. Essa via reduz drasticamente o tempo de tramitação e os custos financeiros e emocionais. Caso haja litígio ou menores envolvidos no inventário, atuamos no âmbito judicial com máxima firmeza na partilha equitativa de bens e proteção dos direitos da família.",
   },
   {
-    question: "Como funciona o divórcio e o inventário em cartório? É mais rápido que na Justiça?",
+    question: "Tive problemas com banco, negativação indevida ou golpe. O que pode ser feito?",
     answer:
-      "Sim, é substancialmente mais rápido! Havendo acordo entre as partes e preenchidos os requisitos legais, o procedimento é formalizado por Escritura Pública diretamente em Cartório de Notas na presença do Dr. Juscelino Germano. O que na via judicial tradicional poderia levar meses ou anos é solucionado com grande celeridade, economia de custos e total segurança jurídica.",
+      "Ingressamos imediatamente com uma medida judicial com pedido de liminar de urgência. O Judiciário pode determinar a imediata exclusão do seu CPF dos cadastros de inadimplentes (SPC/Serasa) sob pena de multa diária, além de requerermos a declaração de inexistência do débito e reparação por danos morais e materiais decorrentes do transtorno.",
   },
   {
-    question: "Quais direitos e medidas podem ser pleiteados por Servidores Públicos?",
+    question: "O escritório atua em pedidos de Aposentadoria e Benefícios do INSS?",
     answer:
-      "Atuamos na defesa integral do servidor em Processos Administrativos Disciplinares (PAD) e sindicâncias, na cobrança de verbas remuneratórias retidas, progressões na carreira, adicionais por tempo de serviço (quinquênios, férias-prêmio), bem como na impetração de Mandados de Segurança contra decisões arbitrárias da Administração Pública.",
+      "Sim. Realizamos a análise documental do seu extrato de contribuições (CNIS), planejamento previdenciário para obter o melhor benefício e requerimento administrativo no INSS. Em caso de indeferimento indevido ou concessão com valor inferior ao devido, ingressamos com ação judicial para restabelecer o seu direito.",
   },
   {
-    question: "Tive meu nome negativado indevidamente ou caí em golpe bancário. O que pode ser feito?",
+    question: "O Dr. Geovane Martins atende apenas em Cláudio ou em outras cidades e estados?",
     answer:
-      "Ingressamos prontamente com uma ação com Pedido Liminar de Urgência ('inaudita altera parte'). O juiz costuma determinar a imediata exclusão do seu CPF dos cadastros de inadimplentes no SPC/Serasa sob pena de multa diária contra a empresa, além de pleitearmos a anulação de cobranças indevidas e indenização por danos morais.",
+      "Nosso escritório físico está localizado na Praça dos Ex-Combatentes, 33 - salas 2 e 3 em Cláudio - MG, onde recebemos presencialmente clientes de Cláudio, Divinópolis, Carmo do Cajuru, Itapecerica, Oliveira e toda a região centro-oeste de Minas. Além disso, através dos sistemas digitais da Justiça (PJe), prestamos atendimento e acompanhamento processual para clientes em todo o território nacional.",
   },
   {
-    question: "O escritório atende apenas em Bocaiúva ou também em outras cidades e estados?",
+    question: "Como acompanho o andamento do meu processo após a contratação?",
     answer:
-      "Nossa sede física está estrategicamente localizada no Centro de Bocaiúva - MG (Rua Luís Inácio Silveira, n° 1385), acolhendo presencialmente clientes de Bocaiúva, Montes Claros, Engenheiro Navarro, Francisco Dumont, Olhos-d'Água e todo o Norte de Minas. Além disso, por meio do processo judicial eletrônico (PJe), atendemos clientes de qualquer cidade de Minas Gerais e do Brasil com máxima agilidade e proximidade digital.",
+      "Prezamos pela transparência absoluta e comunicação constante. Conforme destacado nas avaliações do escritório no Google, o Dr. Geovane mantém os clientes informados a cada movimentação relevante, traduzindo despachos e decisões em linguagem clara para que você tenha total tranquilidade e segurança.",
   },
 ];
-
-function Heading({
-  eyebrow,
-  children,
-  description,
-  dark = false,
-}: {
-  eyebrow?: string;
-  children: React.ReactNode;
-  description?: string;
-  dark?: boolean;
-}) {
-  return (
-    <div className="max-w-2xl">
-      {eyebrow && (
-        <p className={dark ? "eyebrow-dark mb-3.5" : "eyebrow mb-3.5"}>
-          {eyebrow}
-        </p>
-      )}
-      <h2
-        className={`font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.6rem] ${
-          dark ? "text-white" : "text-[#111317]"
-        }`}
-      >
-        {children}
-      </h2>
-      {description && (
-        <p
-          className={`mt-4 text-sm leading-relaxed sm:text-base ${
-            dark ? "text-[#e6e2d8]" : "text-[#535965]"
-          }`}
-        >
-          {description}
-        </p>
-      )}
-    </div>
-  );
-}
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -505,10 +466,10 @@ export default function Home() {
 
   const reviewCategories = [
     "Todas",
-    "Empatia & Humanidade",
-    "Segurança & Confiança",
-    "Agilidade & Eficácia",
-    "Competência & Dedicação",
+    "Ética & Transparência",
+    "Dedicação & Empenho",
+    "Atenção & Humanidade",
+    "Eficiência & Agilidade",
   ];
 
   const filteredReviews =
@@ -522,40 +483,40 @@ export default function Home() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <main className="min-h-screen bg-[#faf9f5] text-[#111317] selection:bg-[#181c22] selection:text-[#f1ce89]">
+      <main className="min-h-screen bg-[#faf8f3] text-[#0f131a] selection:bg-[#151922] selection:text-[#f3d893]">
         {/* ======================================================== */}
-        {/* TOP ANNOUNCEMENT BAR (LUXURY ONYX & METALLIC GOLD ACCENT) */}
+        {/* TOP ANNOUNCEMENT BAR (LUXURY OBSIDIAN & GOLD ACCENT)     */}
         {/* ======================================================== */}
-        <div className="border-b border-[#222731] bg-[#0a0c0f] py-2 text-xs text-[#e6e2d8]">
+        <div className="border-b border-[#1e2430] bg-[#080a0e] py-2 text-xs text-[#e5dfd2]">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 font-medium">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#c89a47] opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#f1ce89]" />
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#d4a843] opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-[#f3d893]" />
               </span>
-              <span className="text-[11px] sm:text-xs text-[#f1ce89] font-semibold">
-                JUSCELINO GERMANO OLIVEIRA — ADVOGADO · Bocaiúva - MG ⚖️
+              <span className="text-[11px] sm:text-xs text-[#f3d893] font-semibold">
+                ADVOCACIA DR. GEOVANE MARTINS · Cláudio - MG ⚖️
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-[11px] text-[#e6e2d8]">
+            <div className="flex items-center gap-4 text-[11px] text-[#e5dfd2]">
               <a
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f1ce89]"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f3d893]"
               >
                 <Star size={12} className="fill-[#f59e0b] text-[#f59e0b]" />
-                <span className="font-bold text-[#f1ce89]">5,0 ★</span> (28 avaliações no Google · Bocaiúva - MG)
+                <span className="font-bold text-[#f3d893]">5,0 ★</span> (26 avaliações no Google · Cláudio - MG)
               </a>
-              <span className="hidden h-3 w-px bg-[#222731] sm:inline-block" />
+              <span className="hidden h-3 w-px bg-[#1e2430] sm:inline-block" />
               <a
-                href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de consultar sobre o meu caso.")}
+                href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de consultar sobre o meu caso.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden items-center gap-1.5 font-semibold text-[#f1ce89] transition-colors hover:text-white sm:inline-flex"
+                className="hidden items-center gap-1.5 font-semibold text-[#f3d893] transition-colors hover:text-white sm:inline-flex"
               >
-                <WhatsAppIcon size={13} className="text-[#c89a47]" />
+                <WhatsAppIcon size={13} className="text-[#d4a843]" />
                 {PHONE_DISPLAY}
               </a>
             </div>
@@ -563,79 +524,68 @@ export default function Home() {
         </div>
 
         {/* ======================================================== */}
-        {/* STICKY HEADER / NAVBAR (OFFICIAL JUSCELINO GERMANO LOGO) */}
+        {/* STICKY HEADER / NAVBAR (OFFICIAL DR. GEOVANE MARTINS)   */}
         {/* ======================================================== */}
         <header
           className={`sticky top-0 z-40 w-full transition-all duration-300 ${
             scrolled
-              ? "border-b border-[#e6e2d8] bg-white/95 py-2.5 shadow-md backdrop-blur-md"
-              : "border-b border-[#e6e2d8]/70 bg-[#faf9f5]/90 py-3 backdrop-blur-sm"
+              ? "border-b border-[#e5dfd2] bg-white/95 py-2.5 shadow-md backdrop-blur-md"
+              : "border-b border-[#e5dfd2]/80 bg-[#faf8f3]/95 py-3.5 backdrop-blur-sm"
           }`}
         >
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-            {/* Left: Official Juscelino Germano Logo Badge + Typography */}
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+            {/* Left: Official Dr. Geovane Martins Horizontal Logo */}
             <a
               href="#"
-              className="group flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-95"
-              aria-label="Juscelino Germano Oliveira Advogado - Início"
+              className="flex shrink-0 items-center transition-opacity hover:opacity-90"
+              aria-label="Advocacia Dr. Geovane Martins - Início"
             >
               <Image
-                src={EMBLEM_SRC}
-                alt="Juscelino Germano Oliveira — Emblema Oficial JG"
-                width={56}
-                height={56}
-                className="h-[44px] sm:h-[48px] md:h-[52px] w-auto object-contain drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+                src="/logo-horizontal.png"
+                alt="Advocacia Dr. Geovane Martins"
+                width={250}
+                height={52}
+                className="h-[42px] sm:h-[48px] md:h-[52px] w-auto object-contain drop-shadow-xs"
                 priority
                 unoptimized
               />
-              <div className="flex flex-col border-l border-[#c89a47]/40 pl-2.5">
-                <span className="font-cinzel text-xs sm:text-sm md:text-base font-bold tracking-wider text-[#111317] leading-tight">
-                  JUSCELINO GERMANO
-                </span>
-                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-[#b88836] uppercase leading-tight">
-                  A D V O G A D O
-                </span>
-                <span className="text-[8.5px] font-semibold text-[#535965] tracking-wider hidden 2xl:block leading-tight">
-                  Família · Consumidor · Servidores
-                </span>
-              </div>
             </a>
 
-            {/* Center: Desktop Navigation (Refined, balanced & elegant) */}
-            <nav className="hidden items-center gap-4 lg:gap-5 xl:gap-6 xl:flex">
-              <a href="#servicos" className="nav-link text-[11px] whitespace-nowrap">
+            {/* Center: Desktop Navigation (Refined, concise & balanced) */}
+            <nav className="hidden items-center gap-5 lg:gap-6 xl:gap-7 lg:flex">
+              <a href="#servicos" className="nav-link">
                 Atuação
               </a>
-              <a href="#sobre" className="nav-link text-[11px] whitespace-nowrap">
+              <a href="#sobre" className="nav-link">
                 Sobre
               </a>
-              <a href="#diferenciais" className="nav-link text-[11px] whitespace-nowrap">
-                Pilares & Diferenciais
+              <a href="#diferenciais" className="nav-link">
+                Diferenciais
               </a>
-              <a href="#depoimentos" className="nav-link text-[11px] whitespace-nowrap">
-                Avaliações (5,0 ★)
+              <a href="#depoimentos" className="nav-link">
+                Avaliações
               </a>
-              <a href="#sede" className="nav-link text-[11px] whitespace-nowrap">
-                Sede em Bocaiúva
+              <a href="#sede" className="nav-link">
+                Escritório
               </a>
-              <a href="#duvidas" className="nav-link text-[11px] whitespace-nowrap">
+              <a href="#duvidas" className="nav-link">
                 Dúvidas
               </a>
-              <a href="#contato" className="nav-link text-[11px] whitespace-nowrap">
+              <a href="#contato" className="nav-link">
                 Contato
               </a>
             </nav>
 
-            {/* Right Action: WhatsApp CTA (Metallic Warm Gold, properly sized & shrink-0) */}
+            {/* Right Action: WhatsApp CTA (Metallic Polished Gold) */}
             <div className="flex shrink-0 items-center gap-2.5">
               <GlowingButton
-                href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de agendar uma consulta sobre o meu caso.")}
+                href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de agendar uma consulta sobre o meu caso.")}
                 target="_blank"
                 variant="gold"
                 size="sm"
-                className="hidden sm:inline-flex whitespace-nowrap shrink-0"
+                className="hidden sm:inline-flex whitespace-nowrap shrink-0 shadow-md"
               >
-                <WhatsAppIcon size={14} className="text-[#0a0c0f]" />
+                <WhatsAppIcon size={15} className="text-[#080a0e]" />
                 <span className="hidden xl:inline">Falar no WhatsApp</span>
                 <span className="xl:hidden">WhatsApp</span>
               </GlowingButton>
@@ -644,7 +594,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#e6e2d8] bg-white text-[#111317] transition-colors hover:border-[#c89a47] hover:text-[#0a0c0f] xl:hidden cursor-pointer shrink-0"
+                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#e5dfd2] bg-white text-[#0f131a] transition-colors hover:border-[#d4a843] hover:text-[#080a0e] lg:hidden cursor-pointer shrink-0"
                 aria-label="Abrir menu principal"
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -659,91 +609,87 @@ export default function Home() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-b border-[#e6e2d8] bg-white px-5 py-6 xl:hidden shadow-xl"
+                className="border-b border-[#e5dfd2] bg-white px-5 py-6 lg:hidden shadow-xl"
               >
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3 pb-3 border-b border-[#e6e2d8]">
+                  <div className="flex items-center gap-3 pb-3 border-b border-[#e5dfd2]">
                     <Image
-                      src={EMBLEM_SRC}
-                      alt="Juscelino Germano Oliveira Advogado"
-                      width={48}
-                      height={48}
-                      className="h-[44px] w-auto object-contain"
+                      src="/logo-horizontal.png"
+                      alt="Advocacia Dr. Geovane Martins"
+                      width={220}
+                      height={46}
+                      className="h-[42px] w-auto object-contain"
                       priority
                       unoptimized
                     />
-                    <div>
-                      <p className="font-cinzel text-sm font-bold text-[#111317]">JUSCELINO GERMANO</p>
-                      <p className="text-[10px] font-bold text-[#b88836] tracking-[0.2em] uppercase">A D V O G A D O</p>
-                    </div>
                   </div>
                   <a
                     href="#servicos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
                     <span>Áreas de Atuação</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
                   <a
                     href="#sobre"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
-                    <span>Sobre Dr. Juscelino Germano</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <span>Sobre Dr. Geovane Martins</span>
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
                   <a
                     href="#diferenciais"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
-                    <span>Nossos Pilares & Atendimento</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <span>Pilares & Ética Profissional</span>
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
                   <a
                     href="#depoimentos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
-                    <span>Avaliações no Google (28 Avaliações · 5,0 ★)</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <span>Avaliações no Google (26 Avaliações · 5,0 ★)</span>
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
                   <a
                     href="#sede"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
-                    <span>Sede em Bocaiúva - MG</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <span>Escritório em Cláudio - MG</span>
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
                   <a
                     href="#duvidas"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
                     <span>Dúvidas Frequentes</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
                   <a
                     href="#contato"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#111317] uppercase transition-colors hover:text-[#c89a47]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#0f131a] uppercase transition-colors hover:text-[#d4a843]"
                   >
                     <span>Contato & Localização</span>
-                    <ArrowRight size={14} className="text-[#c89a47]" />
+                    <ArrowRight size={14} className="text-[#d4a843]" />
                   </a>
 
                   <div className="pt-2">
                     <GlowingButton
-                      href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de tirar dúvidas sobre meu caso pelo WhatsApp.")}
+                      href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de tirar dúvidas sobre meu caso pelo WhatsApp.")}
                       target="_blank"
                       variant="gold"
                       size="md"
                       className="w-full"
                     >
                       <WhatsAppIcon size={16} />
-                      <span>Fale com o Dr. Juscelino no WhatsApp</span>
+                      <span>Falar com o Dr. Geovane no WhatsApp</span>
                     </GlowingButton>
                   </div>
                 </div>
@@ -753,79 +699,62 @@ export default function Home() {
         </header>
 
         {/* ======================================================== */}
-        {/* DOBRA 1: HERO SECTION — COM FOTO DO DR. JUSCELINO GERMANO */}
+        {/* DOBRA 1: HERO SECTION — COM FOTO DO DR. GEOVANE MARTINS  */}
         {/* ======================================================== */}
-        <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-26 bg-[#faf9f5]">
-          {/* Subtle Warm Amber Gold & Onyx Radial Glow */}
-          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[950px] -translate-x-1/2 rounded-full bg-radial from-[#f1ce89]/20 via-[#c89a47]/5 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#c89a47]/10 blur-3xl" />
+        <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-26 bg-[#faf8f3]">
+          {/* Subtle Warm Amber Gold Radial Glow */}
+          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[950px] -translate-x-1/2 rounded-full bg-radial from-[#f3d893]/20 via-[#d4a843]/5 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#d4a843]/10 blur-3xl" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
               {/* Left Column: Copy & Authority */}
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={stagger}
-                className="lg:col-span-7"
-              >
+              <div className="lg:col-span-7">
                 {/* Eyebrow Badge */}
-                <motion.div variants={reveal} className="mb-5">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#e6e2d8] bg-white px-4 py-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-[#181c22] shadow-xs">
-                    <span className="size-1.5 rounded-full bg-[#c89a47] animate-pulse" />
-                    JUSCELINO GERMANO OLIVEIRA — ADVOGADO · BOCAIÚVA - MG
+                <div className="mb-5">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#e5dfd2] bg-white px-4 py-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-[#151922] shadow-xs">
+                    <span className="size-1.5 rounded-full bg-[#d4a843] animate-pulse" />
+                    ADVOCACIA DR. GEOVANE MARTINS · CLÁUDIO - MG
                   </span>
-                </motion.div>
+                </div>
 
                 {/* H1 Headline */}
-                <motion.h1
-                  variants={reveal}
-                  className="font-serif text-3xl leading-[1.16] font-bold tracking-tight text-[#111317] sm:text-5xl lg:text-[3.25rem]"
-                >
-                  Advocacia de Excelência, Empatia e Solidez em{" "}
-                  <span className="bg-gradient-to-r from-[#8a611e] via-[#c89a47] to-[#f1ce89] bg-clip-text text-transparent">
-                    Família, Consumidor e Servidores.
+                <h1 className="font-serif text-3xl leading-[1.16] font-bold tracking-tight text-[#0f131a] sm:text-5xl lg:text-[3.25rem]">
+                  Defesa Jurídica Estratégica, Rigor Ético e Dedicação Integral em{" "}
+                  <span className="bg-gradient-to-r from-[#8c6218] via-[#d4a843] to-[#f3d893] bg-clip-text text-transparent">
+                    Cláudio e em Todo o Brasil.
                   </span>
-                </motion.h1>
+                </h1>
 
                 {/* Subtitle / Value Proposition */}
-                <motion.p
-                  variants={reveal}
-                  className="mt-6 text-base leading-relaxed text-[#535965] sm:text-lg lg:max-w-xl"
-                >
-                  Sob a liderança do <strong className="font-semibold text-[#111317]">Dr. Juscelino Germano Oliveira</strong>, nosso escritório combina combatividade técnica, escuta humanizada e desburocratização ágil para resolver seu problema com segurança, proteger o seu patrimônio e restabelecer a justiça sem que você enfrente litígios desgastantes sozinho.
-                </motion.p>
+                <p className="mt-6 text-base leading-relaxed text-[#4e5564] sm:text-lg lg:max-w-xl">
+                  Sob a liderança do <strong className="font-semibold text-[#0f131a]">Dr. Geovane Martins</strong>, unimos profundidade técnica, acolhimento empático e comunicação clara para traduzir o direito em segurança real, protegendo o seu patrimônio e garantindo a defesa intransigente dos seus direitos.
+                </p>
 
                 {/* Quick Highlights Pills */}
-                <motion.div
-                  variants={reveal}
-                  className="mt-6 flex flex-wrap gap-2.5 sm:gap-3"
-                >
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e6e2d8] bg-white px-3 py-1 text-xs font-semibold text-[#181c22] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c89a47]" />
-                    Direito de Família & Sucessões
+                <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e5dfd2] bg-white px-3 py-1 text-xs font-semibold text-[#151922] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#d4a843]" />
+                    Direito Civil & Indenizações
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e6e2d8] bg-white px-3 py-1 text-xs font-semibold text-[#181c22] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c89a47]" />
-                    Defesa do Consumidor & Operadoras
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e5dfd2] bg-white px-3 py-1 text-xs font-semibold text-[#151922] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#d4a843]" />
+                    Direito de Família & Inventários
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e6e2d8] bg-white px-3 py-1 text-xs font-semibold text-[#181c22] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c89a47]" />
-                    Direito dos Servidores Públicos
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e5dfd2] bg-white px-3 py-1 text-xs font-semibold text-[#151922] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#d4a843]" />
+                    Direito do Consumidor & Bancário
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e6e2d8] bg-white px-3 py-1 text-xs font-semibold text-[#181c22] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c89a47]" />
-                    Resolução Ágil Sem Burocracia
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#e5dfd2] bg-white px-3 py-1 text-xs font-semibold text-[#151922] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#d4a843]" />
+                    Previdenciário & INSS
                   </span>
-                </motion.div>
+                </div>
 
                 {/* Action CTAs */}
-                <motion.div
-                  variants={reveal}
-                  className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center"
-                >
+                <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de agendar uma consulta jurídica sobre o meu caso.")}
+                    href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de agendar uma consulta jurídica sobre o meu caso.")}
                     target="_blank"
                     variant="gold"
                     size="lg"
@@ -844,50 +773,42 @@ export default function Home() {
                     <span>Conhecer Áreas de Atuação</span>
                     <ArrowRight size={15} />
                   </GlowingButton>
-                </motion.div>
+                </div>
 
                 {/* Social Proof Strip underneath CTAs */}
-                <motion.div
-                  variants={reveal}
-                  className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#e6e2d8] pt-6 sm:gap-6"
-                >
+                <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#e5dfd2] pt-6 sm:gap-6">
                   <div className="flex items-center gap-2">
                     <div className="flex text-[#f59e0b]">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} size={15} className="fill-current" />
                       ))}
                     </div>
-                    <span className="text-xs font-bold text-[#111317]">
+                    <span className="text-xs font-bold text-[#0f131a]">
                       5,0 no Google
                     </span>
-                    <span className="text-xs text-[#535965]">
-                      (28 avaliações verificadas)
+                    <span className="text-xs text-[#4e5564]">
+                      (26 avaliações verificadas)
                     </span>
                   </div>
 
-                  <span className="hidden h-3.5 w-px bg-[#e6e2d8] sm:inline-block" />
+                  <span className="hidden h-3.5 w-px bg-[#e5dfd2] sm:inline-block" />
 
-                  <div className="flex items-center gap-2 text-xs text-[#535965]">
-                    <Shield size={14} className="text-[#c89a47]" />
-                    <span>Sede na Rua Luís Inácio Silveira, 1385 - Bocaiúva - MG</span>
+                  <div className="flex items-center gap-2 text-xs text-[#4e5564]">
+                    <Shield size={14} className="text-[#d4a843]" />
+                    <span>Sede na Praça dos Ex-Combatentes, 33 - Cláudio - MG</span>
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
-              {/* Right Column: Photo of Dr. Juscelino Germano Oliveira */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-                className="relative lg:col-span-5"
-              >
+              {/* Right Column: Photo of Dr. Geovane Martins */}
+              <div className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none">
                   {/* Outer Luxury Metallic Border Frame */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#c89a47]/40 bg-white p-2 shadow-2xl shadow-[#181c22]/15">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f3f1ea] to-[#e6e2d8]">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#d4a843]/40 bg-white p-2 shadow-2xl shadow-[#151922]/15">
+                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f3efe6] to-[#e5dfd2]">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dr. Juscelino Germano Oliveira — Advogado em Bocaiúva - MG"
+                        alt="Dr. Geovane Martins — Advogado em Cláudio - MG"
                         fill
                         className="object-cover object-top transition-transform duration-500 hover:scale-102"
                         priority
@@ -895,26 +816,26 @@ export default function Home() {
                       />
 
                       {/* Subtle Bottom Vignette for High-Contrast Typography Badge */}
-                      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0c0f]/90 via-[#0a0c0f]/40 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#080a0e]/95 via-[#080a0e]/50 to-transparent" />
 
                       {/* Overlay Identification Badge */}
-                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#c89a47]/45 bg-[#0a0c0f]/90 p-4 shadow-xl backdrop-blur-md">
+                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#d4a843]/45 bg-[#080a0e]/90 p-4 shadow-xl backdrop-blur-md">
                         <div className="flex items-center justify-between gap-3">
                           <div>
                             <p className="font-cinzel text-base font-bold text-white tracking-wide">
-                              Dr. Juscelino Germano
+                              Dr. Geovane Martins
                             </p>
-                            <p className="text-[11px] font-semibold text-[#f1ce89] uppercase tracking-wider">
+                            <p className="text-[11px] font-semibold text-[#f3d893] uppercase tracking-wider">
                               Advogado · OAB/MG
                             </p>
-                            <p className="text-[10px] text-[#e6e2d8] mt-0.5">
-                              Família · Consumidor · Servidores Públicos
+                            <p className="text-[10px] text-[#e5dfd2] mt-0.5">
+                              Atendimento em Cláudio e em todo o Brasil
                             </p>
                           </div>
-                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-[#c89a47]/40 bg-[#181c22] p-1.5 shadow-md">
+                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-[#d4a843]/40 bg-[#151922] p-1.5 shadow-md">
                             <Image
                               src={EMBLEM_SRC}
-                              alt="Monograma JG"
+                              alt="Balança da Justiça Dr. Geovane Martins"
                               width={40}
                               height={40}
                               className="size-full object-contain"
@@ -927,9 +848,9 @@ export default function Home() {
                   </div>
 
                   {/* Floating Google Review Card on the side */}
-                  <div className="absolute -bottom-6 -left-4 sm:-bottom-7 sm:-left-7 rounded-xl border border-[#c89a47]/40 bg-white/95 p-3.5 shadow-xl backdrop-blur-md sm:max-w-[270px]">
+                  <div className="absolute -bottom-6 -left-4 sm:-bottom-7 sm:-left-7 rounded-xl border border-[#d4a843]/40 bg-white/95 p-3.5 shadow-xl backdrop-blur-md sm:max-w-[275px]">
                     <div className="flex items-center gap-2">
-                      <div className="flex size-7 items-center justify-center rounded-full bg-[#faf9f5] border border-[#e6e2d8]">
+                      <div className="flex size-7 items-center justify-center rounded-full bg-[#faf8f3] border border-[#e5dfd2]">
                         <GoogleIcon size={14} />
                       </div>
                       <div>
@@ -938,43 +859,43 @@ export default function Home() {
                             <Star key={i} size={11} className="fill-current" />
                           ))}
                         </div>
-                        <p className="text-[10px] font-bold text-[#111317]">
+                        <p className="text-[10px] font-bold text-[#0f131a]">
                           5,0 Estrelas no Google
                         </p>
                       </div>
                     </div>
-                    <p className="mt-2 text-[10px] leading-snug text-[#535965] italic">
-                      &quot;Competência, empatia e humanidade. Nunca desistiu da minha causa!&quot;
+                    <p className="mt-2 text-[10px] leading-snug text-[#4e5564] italic">
+                      &quot;Responsabilidade, dedicação, empenho e excelência na execução de seu trabalho!&quot;
                     </p>
-                    <p className="mt-1 text-[9px] font-semibold text-[#8a611e]">
-                      — Danielle Oliveira (Avaliação Real no Google)
+                    <p className="mt-1 text-[9px] font-semibold text-[#8c6218]">
+                      — Daniel Amaral (Avaliação no Google)
                     </p>
                   </div>
 
-                  {/* Floating Badge Top-Right: Sede Própria Bocaiúva */}
-                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#c89a47]/50 bg-[#0a0c0f] px-3.5 py-2 shadow-lg text-white">
-                    <p className="text-[9px] font-bold tracking-widest text-[#f1ce89] uppercase">
-                      BOCAIÚVA · MG
+                  {/* Floating Badge Top-Right: Sede Cláudio */}
+                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#d4a843]/50 bg-[#080a0e] px-3.5 py-2 shadow-lg text-white">
+                    <p className="text-[9px] font-bold tracking-widest text-[#f3d893] uppercase">
+                      CLÁUDIO · MG
                     </p>
                     <p className="text-[11px] font-bold text-white">
-                      R. Luís Inácio Silveira, 1385
+                      Pça. dos Ex-Combatentes, 33
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 2: STRIP DE AUTORIDADE / MÉTRICAS (LUXURY ONYX)    */}
+        {/* DOBRA 2: STRIP DE AUTORIDADE / MÉTRICAS (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section className="border-y border-[#222731] bg-[#0a0c0f] py-9 text-white">
+        <section className="border-y border-[#1e2430] bg-[#080a0e] py-9 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8 text-center">
               {/* Stat 1: Google Rating */}
-              <div className="flex flex-col items-center border-r border-[#222731] pr-4 last:border-r-0 md:pr-0">
-                <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-extrabold text-[#f1ce89]">
+              <div className="flex flex-col items-center border-r border-[#1e2430] pr-4 last:border-r-0 md:pr-0">
+                <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-extrabold text-[#f3d893]">
                   <span>5,0</span>
                   <div className="flex text-[#f59e0b]">
                     <Star size={18} className="fill-current" />
@@ -983,46 +904,46 @@ export default function Home() {
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
                   Avaliação Máxima
                 </p>
-                <p className="text-[11px] text-[#e6e2d8]/70">
-                  28 avaliações 5 estrelas no Google
+                <p className="text-[11px] text-[#e5dfd2]/70">
+                  26 avaliações 5 estrelas no Google
                 </p>
               </div>
 
-              {/* Stat 2: Humanized Care */}
-              <div className="flex flex-col items-center md:border-r md:border-[#222731] md:pr-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f1ce89]">
+              {/* Stat 2: Ética & Compromisso */}
+              <div className="flex flex-col items-center md:border-r md:border-[#1e2430] md:pr-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#f3d893]">
                   100%
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Atendimento Humanizado
+                  Ética Inquestionável
                 </p>
-                <p className="text-[11px] text-[#e6e2d8]/70">
-                  Dedicação integral a cada cliente
+                <p className="text-[11px] text-[#e5dfd2]/70">
+                  Transparência e rigor absoluto
                 </p>
               </div>
 
-              {/* Stat 3: Agility & Bureaucracy-Free */}
-              <div className="flex flex-col items-center border-r border-[#222731] pr-4 last:border-r-0 md:pr-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f1ce89]">
+              {/* Stat 3: Agilidade & Eficiência */}
+              <div className="flex flex-col items-center border-r border-[#1e2430] pr-4 last:border-r-0 md:pr-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#f3d893]">
                   Ágil
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Sem Burocracia
+                  Atendimento Eficiente
                 </p>
-                <p className="text-[11px] text-[#e6e2d8]/70">
-                  Resolução rápida e descomplicada
+                <p className="text-[11px] text-[#e5dfd2]/70">
+                  Respostas rápidas e objetivas
                 </p>
               </div>
 
               {/* Stat 4: Geographic Reach */}
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f1ce89]">
-                  MG & Brasil
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#f3d893]">
+                  Brasil
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Sede em Bocaiúva
+                  Sede em Cláudio - MG
                 </p>
-                <p className="text-[11px] text-[#e6e2d8]/70">
+                <p className="text-[11px] text-[#e5dfd2]/70">
                   Atendimento presencial & online
                 </p>
               </div>
@@ -1033,17 +954,17 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 3: ÁREAS DE ATUAÇÃO (SERVIÇOS ESPECIALIZADOS)      */}
         {/* ======================================================== */}
-        <section id="servicos" className="py-20 sm:py-26 bg-[#faf9f5]">
+        <section id="servicos" className="py-20 sm:py-26 bg-[#faf8f3]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
               <p className="eyebrow justify-center mb-3.5">
                 EXPERTISE JURÍDICA ESTRATÉGICA
               </p>
-              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#111317] sm:text-4xl lg:text-[2.6rem]">
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#0f131a] sm:text-4xl lg:text-[2.6rem]">
                 Áreas de Atuação Especializada
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#535965] sm:text-base">
-                Conheça nossos pilares de atuação. Cada demanda é tratada com profundidade técnica, acolhimento humano e dedicação irrestrita aos seus direitos.
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#4e5564] sm:text-base">
+                Conheça nossos pilares de atuação. Cada demanda é conduzida com profundidade técnica, ética exemplar e dedicação genuína aos seus direitos.
               </p>
             </div>
 
@@ -1056,41 +977,41 @@ export default function Home() {
                     key={area.id}
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#e6e2d8] bg-white p-7 shadow-sm transition-all duration-300 hover:border-[#c89a47]/60 hover:shadow-xl"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#e5dfd2] bg-white p-7 shadow-sm transition-all duration-300 hover:border-[#d4a843]/60 hover:shadow-xl"
                   >
                     <div>
                       {/* Top Row: Icon + Tag */}
                       <div className="flex items-start justify-between gap-3">
-                        <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89a47]/30 bg-[#f1ce89]/15 text-[#8a611e] transition-colors group-hover:bg-[#181c22] group-hover:text-[#f1ce89] group-hover:border-[#c89a47]">
+                        <div className="flex size-12 items-center justify-center rounded-xl border border-[#d4a843]/30 bg-[#f3d893]/15 text-[#8c6218] transition-colors group-hover:bg-[#151922] group-hover:text-[#f3d893] group-hover:border-[#d4a843]">
                           <IconComponent size={24} />
                         </div>
-                        <span className="rounded-full border border-[#e6e2d8] bg-[#faf9f5] px-3 py-1 text-[10px] font-bold text-[#8a611e] uppercase tracking-wider">
+                        <span className="rounded-full border border-[#e5dfd2] bg-[#faf8f3] px-3 py-1 text-[10px] font-bold text-[#8c6218] uppercase tracking-wider">
                           Especialidade
                         </span>
                       </div>
 
                       {/* Area Title */}
-                      <h3 className="mt-5 font-serif text-xl font-bold text-[#111317] transition-colors group-hover:text-[#8a611e]">
+                      <h3 className="mt-5 font-serif text-xl font-bold text-[#0f131a] transition-colors group-hover:text-[#8c6218]">
                         {area.title}
                       </h3>
 
                       {/* Category Subtext */}
-                      <p className="mt-1 text-[11px] font-semibold text-[#b88836] uppercase tracking-wider">
+                      <p className="mt-1 text-[11px] font-semibold text-[#b88628] uppercase tracking-wider">
                         {area.category}
                       </p>
 
                       {/* Summary */}
-                      <p className="mt-3.5 text-xs leading-relaxed text-[#535965]">
+                      <p className="mt-3.5 text-xs leading-relaxed text-[#4e5564]">
                         {area.summary}
                       </p>
 
                       {/* Key Topics List */}
-                      <ul className="mt-4 space-y-2 border-t border-[#e6e2d8]/70 pt-4 text-xs text-[#111317]">
+                      <ul className="mt-4 space-y-2 border-t border-[#e5dfd2]/70 pt-4 text-xs text-[#0f131a]">
                         {area.topics.slice(0, 3).map((topic, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <CheckCircle2
                               size={14}
-                              className="mt-0.5 shrink-0 text-[#c89a47]"
+                              className="mt-0.5 shrink-0 text-[#d4a843]"
                             />
                             <span className="leading-snug">{topic}</span>
                           </li>
@@ -1099,11 +1020,11 @@ export default function Home() {
                     </div>
 
                     {/* Bottom CTA Actions */}
-                    <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#e6e2d8] pt-4">
+                    <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#e5dfd2] pt-4">
                       <button
                         type="button"
                         onClick={() => setSelectedPractice(area)}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8a611e] transition-colors hover:text-[#111317] cursor-pointer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8c6218] transition-colors hover:text-[#0f131a] cursor-pointer"
                       >
                         <span>Ver detalhes completos</span>
                         <ArrowRight size={13} />
@@ -1113,7 +1034,7 @@ export default function Home() {
                         href={getWhatsAppUrl(area.whatsAppText)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex size-8 items-center justify-center rounded-lg bg-[#c89a47]/15 text-[#8a611e] transition-all hover:bg-[#c89a47] hover:text-[#0a0c0f]"
+                        className="inline-flex size-8 items-center justify-center rounded-lg bg-[#d4a843]/15 text-[#8c6218] transition-all hover:bg-[#d4a843] hover:text-[#080a0e]"
                         aria-label={`Consultar sobre ${area.title} no WhatsApp`}
                       >
                         <WhatsAppIcon size={15} />
@@ -1125,28 +1046,28 @@ export default function Home() {
             </div>
 
             {/* Bottom Callout Banner */}
-            <div className="mt-12 rounded-2xl border border-[#c89a47]/40 bg-gradient-to-r from-[#0a0c0f] via-[#12151a] to-[#181c22] p-8 text-white shadow-xl sm:flex sm:items-center sm:justify-between sm:gap-8">
+            <div className="mt-12 rounded-2xl border border-[#d4a843]/40 bg-gradient-to-r from-[#080a0e] via-[#0f131a] to-[#151922] p-8 text-white shadow-xl sm:flex sm:items-center sm:justify-between sm:gap-8">
               <div className="max-w-2xl">
-                <span className="rounded-full border border-[#f1ce89]/30 bg-[#f1ce89]/10 px-3 py-1 text-[10px] font-bold text-[#f1ce89] uppercase tracking-wider">
+                <span className="rounded-full border border-[#f3d893]/30 bg-[#f3d893]/10 px-3 py-1 text-[10px] font-bold text-[#f3d893] uppercase tracking-wider">
                   ATENDIMENTO DIRETO COM O ADVOGADO
                 </span>
                 <h3 className="mt-3 font-serif text-2xl font-bold text-white">
-                  Não encontrou a sua área ou tem dúvidas sobre a viabilidade da causa?
+                  Precisa de uma orientação personalizada para o seu caso?
                 </h3>
-                <p className="mt-2 text-xs leading-relaxed text-[#e6e2d8]">
-                  Cada caso possui particularidades únicas. Entre em contato direto pelo WhatsApp para analisarmos a sua situação com total sigilo e transparência.
+                <p className="mt-2 text-xs leading-relaxed text-[#e5dfd2]">
+                  Cada situação requer um olhar técnico e estratégico único. Entre em contato direto pelo WhatsApp para analisarmos o seu caso com total sigilo e dedicação.
                 </p>
               </div>
 
               <div className="mt-6 sm:mt-0 shrink-0">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de uma avaliação inicial sobre o meu caso.")}
+                  href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de uma avaliação inicial sobre o meu caso.")}
                   target="_blank"
                   variant="gold"
                   size="md"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Conversar com o Dr. Juscelino</span>
+                  <span>Conversar com o Dr. Geovane</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1154,20 +1075,20 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 4: SOBRE DR. JUSCELINO GERMANO OLIVEIRA            */}
+        {/* DOBRA 4: SOBRE DR. GEOVANE MARTINS                      */}
         {/* ======================================================== */}
-        <section id="sobre" className="py-20 sm:py-26 border-t border-[#e6e2d8] bg-[#f3f1ea]">
+        <section id="sobre" className="py-20 sm:py-26 border-t border-[#e5dfd2] bg-[#f3efe6]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Portrait & Sede Picture */}
+              {/* Left Column: Portrait at Office Desk */}
               <div className="lg:col-span-5">
                 <div className="relative mx-auto max-w-[420px] lg:max-w-none">
                   {/* Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#c89a47]/40 bg-white p-2.5 shadow-2xl">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#faf9f5]">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#d4a843]/40 bg-white p-2.5 shadow-2xl">
+                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#faf8f3]">
                       <Image
                         src={FOTO_PORTRAIT_SRC}
-                        alt="Dr. Juscelino Germano Oliveira — Advogado"
+                        alt="Dr. Geovane Martins — Atendimento e Consultoria Jurídica em Cláudio - MG"
                         fill
                         className="object-cover object-top"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 460px"
@@ -1175,19 +1096,17 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Secondary Office Photo Preview */}
-                  <div className="absolute -bottom-7 -right-4 sm:-bottom-8 sm:-right-6 w-44 sm:w-52 overflow-hidden rounded-xl border-2 border-[#c89a47]/60 bg-white p-1.5 shadow-2xl">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
-                      <Image
-                        src={FOTO_OFFICE_SRC}
-                        alt="Fachada do Escritório Juscelino Germano Oliveira em Bocaiúva"
-                        fill
-                        className="object-cover"
-                        sizes="220px"
-                      />
+                  {/* Secondary Office Sede Badge */}
+                  <div className="absolute -bottom-6 -right-4 sm:-bottom-7 sm:-right-5 rounded-xl border border-[#d4a843]/60 bg-[#080a0e] p-3.5 shadow-2xl text-white max-w-[240px]">
+                    <div className="flex items-center gap-2 text-[#f3d893] text-xs font-bold uppercase">
+                      <MapPin size={15} />
+                      <span>Cláudio · MG</span>
                     </div>
-                    <p className="mt-1.5 text-center text-[9px] font-bold text-[#111317]">
-                      Sede em Bocaiúva - MG (n° 1385)
+                    <p className="mt-1 text-xs font-bold text-white">
+                      Praça dos Ex-Combatentes, 33
+                    </p>
+                    <p className="text-[10px] text-[#e5dfd2]/70 mt-0.5">
+                      Salas 2 e 3 · Escritório acolhedor
                     </p>
                   </div>
                 </div>
@@ -1195,74 +1114,65 @@ export default function Home() {
 
               {/* Right Column: Bio & Values */}
               <div className="lg:col-span-7">
-                <p className="eyebrow mb-3.5">TRAJETÓRIA & PROPÓSITO</p>
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#111317] sm:text-4xl lg:text-[2.6rem]">
-                  Sobre o Dr. Juscelino Germano Oliveira
+                <p className="eyebrow mb-3.5">TRAJETÓRIA & VOCAÇÃO</p>
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#0f131a] sm:text-4xl lg:text-[2.6rem]">
+                  Sobre o Dr. Geovane Martins
                 </h2>
-                <p className="mt-2 text-sm font-bold text-[#b88836] tracking-wider uppercase">
-                  Advogado · Palestrante · Defensor Intransigente dos Seus Direitos
+                <p className="mt-2 text-sm font-bold text-[#b88628] tracking-wider uppercase">
+                  Advocacia Ética · Rigor Técnico · Atendimento Humano & Acolhedor
                 </p>
 
-                <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#535965] sm:text-base">
+                <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#4e5564] sm:text-base">
                   <p>
-                    Com escritório sediado no coração de Bocaiúva - MG, o <strong className="font-semibold text-[#111317]">Dr. Juscelino Germano Oliveira</strong> construiu sua trajetória fundamentada na premissa de que a advocacia deve ser, acima de tudo, um instrumento de acolhimento humano, empatia e restauração da justiça.
+                    Com escritório sediado em Cláudio - MG, o <strong className="font-semibold text-[#0f131a]">Dr. Geovane Martins</strong> consolidou sua atuação profissional fundamentada em preceitos inegociáveis: ética profissional inquestionável, rigor aos detalhes e uma dedicação profunda a cada causa que assume.
                   </p>
                   <p>
-                    Especializado em <strong className="font-semibold text-[#111317]">Direito de Família, Direito do Consumidor e Servidores Públicos</strong>, atua com dedicação incansável, buscando desatar conflitos de forma ágil, segura e sem burocracias desnecessárias. Como destacam os próprios clientes, seu diferencial reside em tratar cada caso como se fosse seu próprio problema, não desistindo mesmo diante das causas mais desafiadoras.
+                    Reconhecido pelos próprios clientes e pela comunidade como um profissional que <em className="italic">&quot;traduz conceitos legais complicados em orientações claras e objetivas&quot;</em>, o Dr. Geovane se destaca pela paciência, empatia e sensibilidade para lidar com demandas humanas e patrimoniais complexas.
                   </p>
                   <p>
-                    Além de sua prática jurídica nos tribunais e cartórios, o Dr. Juscelino atua também como palestrante (
-                    <a
-                      href={INSTAGRAM_SPEAKER_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-[#8a611e] underline decoration-[#c89a47] hover:text-[#111317]"
-                    >
-                      {INSTAGRAM_SPEAKER_HANDLE}
-                    </a>
-                    ), compartilhando conhecimento, segurança jurídica e clareza para cidadãos e famílias de toda a região.
+                    Seja em causas cíveis, de família e sucessões, ações consumeristas ou previdenciárias, seu compromisso é assegurar que você receba um atendimento de excelência, com segurança técnica e a tranquilidade de ter um defensor incansável ao seu lado.
                   </p>
                 </div>
 
                 {/* 4 Pillars of Action */}
                 <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#111317] text-xs sm:text-sm">
-                      <HeartHandshake size={16} className="text-[#c89a47]" />
-                      <span>Empatia Genuína</span>
+                  <div className="rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#0f131a] text-xs sm:text-sm">
+                      <Shield size={16} className="text-[#d4a843]" />
+                      <span>Ética Inquestionável</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#535965]">
-                      Escuta atenta e respeito absoluto à sua história de vida.
+                    <p className="mt-1 text-[11px] text-[#4e5564]">
+                      Conduta reta, transparente e alinhada à justiça.
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#111317] text-xs sm:text-sm">
-                      <Zap size={16} className="text-[#c89a47]" />
-                      <span>Agilidade Comprovada</span>
+                  <div className="rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#0f131a] text-xs sm:text-sm">
+                      <HeartHandshake size={16} className="text-[#d4a843]" />
+                      <span>Empatia & Paciência</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#535965]">
-                      Problemas resolvidos antes do prazo previsto e sem rodeios.
+                    <p className="mt-1 text-[11px] text-[#4e5564]">
+                      Acolhimento respeitoso a cada história e pessoa.
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#111317] text-xs sm:text-sm">
-                      <Shield size={16} className="text-[#c89a47]" />
-                      <span>Segurança Total</span>
+                  <div className="rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#0f131a] text-xs sm:text-sm">
+                      <Zap size={16} className="text-[#d4a843]" />
+                      <span>Eficiência & Agilidade</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#535965]">
-                      Informações transparentes e atuação processual firme.
+                    <p className="mt-1 text-[11px] text-[#4e5564]">
+                      Respostas rápidas, objetividade e pontualidade.
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#111317] text-xs sm:text-sm">
-                      <Award size={16} className="text-[#c89a47]" />
-                      <span>Combatividade</span>
+                  <div className="rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#0f131a] text-xs sm:text-sm">
+                      <Award size={16} className="text-[#d4a843]" />
+                      <span>Dedicação Notável</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#535965]">
-                      Nunca desiste de buscar a vitória na causa do cliente.
+                    <p className="mt-1 text-[11px] text-[#4e5564]">
+                      Atenção absoluta aos mínimos detalhes do caso.
                     </p>
                   </div>
                 </div>
@@ -1270,23 +1180,23 @@ export default function Home() {
                 {/* Direct CTA */}
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de conversar diretamente com você sobre uma demanda jurídica.")}
+                    href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de conversar diretamente com você sobre uma demanda jurídica.")}
                     target="_blank"
                     variant="gold"
                     size="md"
                     className="w-full sm:w-auto"
                   >
                     <WhatsAppIcon size={16} />
-                    <span>Falar com o Dr. Juscelino no WhatsApp</span>
+                    <span>Falar com o Dr. Geovane no WhatsApp</span>
                   </GlowingButton>
 
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#535965] transition-colors hover:text-[#111317]"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#4e5564] transition-colors hover:text-[#0f131a]"
                   >
-                    <InstagramIcon size={16} className="text-[#c89a47]" />
+                    <InstagramIcon size={16} className="text-[#d4a843]" />
                     <span>Siga {INSTAGRAM_HANDLE} no Instagram</span>
                   </a>
                 </div>
@@ -1296,72 +1206,72 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 5: NOSSOS PILARES & DIFERENCIAIS (LUXURY ONYX)     */}
+        {/* DOBRA 5: NOSSOS PILARES & DIFERENCIAIS (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section id="diferenciais" className="py-20 sm:py-26 bg-[#0a0c0f] text-white">
+        <section id="diferenciais" className="py-20 sm:py-26 bg-[#080a0e] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
               <p className="eyebrow-dark justify-center mb-3.5">
-                POR QUE ESCOLHER NOSSO ESCRITÓRIO
+                POR QUE CONFIAR EM NOSSO TRABALHO
               </p>
               <h2 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.6rem]">
-                Os Pilares que Conquistaram a Confiança de Bocaiúva
+                Os Valores que Sustentam Nossa Reputação
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#e6e2d8] sm:text-base">
-                Mais do que processos, defendemos vidas, patrimônios e a dignidade de quem confia em nosso trabalho.
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#e5dfd2] sm:text-base">
+                Aprovado com nota máxima 5,0 por clientes em Cláudio e em todo o Brasil.
               </p>
             </div>
 
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {/* Pillar 1 */}
-              <div className="rounded-2xl border border-[#222731] bg-[#12151a] p-7 transition-all duration-300 hover:border-[#c89a47]/50 hover:bg-[#181c22]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89a47]/30 bg-[#c89a47]/10 text-[#f1ce89]">
-                  <HeartHandshake size={22} />
+              <div className="rounded-2xl border border-[#1e2430] bg-[#0f131a] p-7 transition-all duration-300 hover:border-[#d4a843]/50 hover:bg-[#151922]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#d4a843]/30 bg-[#d4a843]/10 text-[#f3d893]">
+                  <Shield size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Empatia & Humanidade
+                  Ética Inquestionável
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#e6e2d8]/75">
-                  Acolhemos sua dor e preocupação com sensibilidade. Aqui você nunca será apenas um número de processo; você tem voz e atenção exclusiva.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#e5dfd2]/75">
+                  &quot;Profissional extremamente ético, responsável e comprometido. Justo conforme deve ser.&quot; — Atuação sempre pautada pela retidão e pelo bem comum.
                 </p>
               </div>
 
               {/* Pillar 2 */}
-              <div className="rounded-2xl border border-[#222731] bg-[#12151a] p-7 transition-all duration-300 hover:border-[#c89a47]/50 hover:bg-[#181c22]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89a47]/30 bg-[#c89a47]/10 text-[#f1ce89]">
-                  <Zap size={22} />
+              <div className="rounded-2xl border border-[#1e2430] bg-[#0f131a] p-7 transition-all duration-300 hover:border-[#d4a843]/50 hover:bg-[#151922]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#d4a843]/30 bg-[#d4a843]/10 text-[#f3d893]">
+                  <HeartHandshake size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Agilidade sem Burocracia
+                  Empatia & Atenção
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#e6e2d8]/75">
-                  Conforme avaliado por nossos clientes, buscamos antecipar prazos e destravar procedimentos cartorários e judiciais com máxima eficiência.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#e5dfd2]/75">
+                  Escuta atenta e respeito integral. O Dr. Geovane dedica tempo para entender cada aspecto da sua demanda, acolhendo você com serenidade.
                 </p>
               </div>
 
               {/* Pillar 3 */}
-              <div className="rounded-2xl border border-[#222731] bg-[#12151a] p-7 transition-all duration-300 hover:border-[#c89a47]/50 hover:bg-[#181c22]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89a47]/30 bg-[#c89a47]/10 text-[#f1ce89]">
-                  <Shield size={22} />
+              <div className="rounded-2xl border border-[#1e2430] bg-[#0f131a] p-7 transition-all duration-300 hover:border-[#d4a843]/50 hover:bg-[#151922]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#d4a843]/30 bg-[#d4a843]/10 text-[#f3d893]">
+                  <BookOpen size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Segurança & Clareza
+                  Clareza & Segurança
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#e6e2d8]/75">
-                  Sem termos herméticos ou falsas ilusões. Informações passadas com clareza, transparência e segurança jurídica em cada etapa.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#e5dfd2]/75">
+                  Habilidade singular em traduzir conceitos jurídicos complexos em orientações transparentes e acessíveis, transmitindo total segurança jurídica.
                 </p>
               </div>
 
               {/* Pillar 4 */}
-              <div className="rounded-2xl border border-[#222731] bg-[#12151a] p-7 transition-all duration-300 hover:border-[#c89a47]/50 hover:bg-[#181c22]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89a47]/30 bg-[#c89a47]/10 text-[#f1ce89]">
-                  <Award size={22} />
+              <div className="rounded-2xl border border-[#1e2430] bg-[#0f131a] p-7 transition-all duration-300 hover:border-[#d4a843]/50 hover:bg-[#151922]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#d4a843]/30 bg-[#d4a843]/10 text-[#f3d893]">
+                  <Zap size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Combatividade Inabalável
+                  Eficiência & Pontualidade
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#e6e2d8]/75">
-                  Não recuamos diante de grandes operadoras ou empresas. Enfrentamos as causas mais difíceis até que o direito do cliente seja vitorioso.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#e5dfd2]/75">
+                  Respostas rápidas, condução diligente e compromisso rigoroso com os prazos e resultados esperados pelo cliente.
                 </p>
               </div>
             </div>
@@ -1371,13 +1281,13 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 6: PROVA SOCIAL / GOOGLE REVIEWS (5,0 ★)           */}
         {/* ======================================================== */}
-        <section id="depoimentos" className="py-20 sm:py-26 bg-[#faf9f5]">
+        <section id="depoimentos" className="py-20 sm:py-26 bg-[#faf8f3]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Header with Google Badge */}
             <div className="flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#e6e2d8] bg-white px-4 py-1.5 shadow-2xs">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#e5dfd2] bg-white px-4 py-1.5 shadow-2xs">
                 <GoogleIcon size={16} />
-                <span className="text-xs font-bold text-[#111317]">
+                <span className="text-xs font-bold text-[#0f131a]">
                   Google Avaliações Verificadas
                 </span>
                 <span className="flex text-[#f59e0b]">
@@ -1385,16 +1295,16 @@ export default function Home() {
                     <Star key={i} size={13} className="fill-current" />
                   ))}
                 </span>
-                <span className="text-xs font-bold text-[#8a611e]">
-                  5,0 / 5,0
+                <span className="text-xs font-bold text-[#8c6218]">
+                  5,0 / 5,0 (26 avaliações)
                 </span>
               </div>
 
-              <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-[#111317] sm:text-4xl lg:text-[2.6rem]">
-                O Reconhecimento de Quem Já Teve Seus Direitos Defendidos
+              <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-[#0f131a] sm:text-4xl lg:text-[2.6rem]">
+                O Reconhecimento de Nossos Clientes
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#535965] sm:text-base">
-                Depoimentos reais de clientes atendidos pelo Dr. Juscelino Germano em Bocaiúva e região.
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#4e5564] sm:text-base">
+                Depoimentos reais registrados no perfil oficial do Google da Advocacia Dr. Geovane Martins em Cláudio - MG.
               </p>
             </div>
 
@@ -1410,8 +1320,8 @@ export default function Home() {
                   }}
                   className={`rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                     selectedReviewCategory === cat
-                      ? "border border-[#c89a47] bg-[#0a0c0f] text-[#f1ce89] shadow-sm"
-                      : "border border-[#e6e2d8] bg-white text-[#535965] hover:border-[#c89a47] hover:text-[#111317]"
+                      ? "border border-[#d4a843] bg-[#080a0e] text-[#f3d893] shadow-sm"
+                      : "border border-[#e5dfd2] bg-white text-[#4e5564] hover:border-[#d4a843] hover:text-[#0f131a]"
                   }`}
                 >
                   {cat}
@@ -1424,7 +1334,7 @@ export default function Home() {
               {displayedReviews.map((review, idx) => (
                 <div
                   key={idx}
-                  className="relative flex flex-col justify-between rounded-2xl border border-[#e6e2d8] bg-white p-6 shadow-sm transition-all hover:border-[#c89a47]/50 hover:shadow-md"
+                  className="relative flex flex-col justify-between rounded-2xl border border-[#e5dfd2] bg-white p-6 shadow-sm transition-all hover:border-[#d4a843]/50 hover:shadow-md"
                 >
                   <div>
                     {/* Top Row: Stars + Date */}
@@ -1434,24 +1344,24 @@ export default function Home() {
                           <Star key={i} size={14} className="fill-current" />
                         ))}
                       </div>
-                      <span className="text-[10px] text-[#535965]">{review.date}</span>
+                      <span className="text-[10px] text-[#4e5564]">{review.date}</span>
                     </div>
 
                     {/* Category Tag */}
-                    <span className="mt-3 inline-block rounded-md bg-[#f1ce89]/20 px-2.5 py-0.5 text-[9px] font-bold text-[#8a611e] uppercase tracking-wider">
+                    <span className="mt-3 inline-block rounded-md bg-[#f3d893]/20 px-2.5 py-0.5 text-[9px] font-bold text-[#8c6218] uppercase tracking-wider">
                       {review.category}
                     </span>
 
                     {/* Review Text */}
-                    <p className="mt-3.5 text-xs leading-relaxed text-[#111317] italic">
+                    <p className="mt-3.5 text-xs leading-relaxed text-[#0f131a] italic">
                       &quot;{review.content}&quot;
                     </p>
 
                     {/* Owner Response if present */}
                     {review.ownerReply && (
-                      <div className="mt-4 rounded-xl border border-[#c89a47]/20 bg-[#faf9f5] p-3 text-[11px] text-[#535965]">
-                        <p className="font-bold text-[#8a611e] text-[10px] uppercase tracking-wider">
-                          Resposta do Dr. Juscelino:
+                      <div className="mt-4 rounded-xl border border-[#d4a843]/20 bg-[#faf8f3] p-3 text-[11px] text-[#4e5564]">
+                        <p className="font-bold text-[#8c6218] text-[10px] uppercase tracking-wider">
+                          Resposta do Dr. Geovane Martins:
                         </p>
                         <p className="mt-1 leading-snug">{review.ownerReply}</p>
                       </div>
@@ -1459,13 +1369,13 @@ export default function Home() {
                   </div>
 
                   {/* Author Info */}
-                  <div className="mt-5 flex items-center gap-3 border-t border-[#e6e2d8]/70 pt-4">
-                    <div className="flex size-9 items-center justify-center rounded-full bg-[#0a0c0f] font-cinzel text-xs font-bold text-[#f1ce89]">
+                  <div className="mt-5 flex items-center gap-3 border-t border-[#e5dfd2]/70 pt-4">
+                    <div className="flex size-9 items-center justify-center rounded-full bg-[#080a0e] font-cinzel text-xs font-bold text-[#f3d893]">
                       {review.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#111317]">{review.name}</p>
-                      <p className="text-[10px] text-[#535965]">{review.badge}</p>
+                      <p className="text-xs font-bold text-[#0f131a]">{review.name}</p>
+                      <p className="text-[10px] text-[#4e5564]">{review.badge}</p>
                     </div>
                   </div>
                 </div>
@@ -1478,11 +1388,11 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() => setShowAllReviews(!showAllReviews)}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#c89a47] bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#111317] transition-all hover:bg-[#0a0c0f] hover:text-[#f1ce89] cursor-pointer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#d4a843] bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#0f131a] transition-all hover:bg-[#080a0e] hover:text-[#f3d893] cursor-pointer"
                 >
                   <span>
                     {showAllReviews
-                      ? "Ver Menos Depoimentos"
+                      ? "Ver Menos Avaliações"
                       : `Ver Todos os Depoimentos (${filteredReviews.length})`}
                   </span>
                   {showAllReviews ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -1493,34 +1403,34 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 7: SEDE FÍSICA EM BOCAIÚVA & ATENDIMENTO DIGITAL    */}
+        {/* DOBRA 7: ESCRITÓRIO EM CLÁUDIO & ATENDIMENTO NACIONAL    */}
         {/* ======================================================== */}
-        <section id="sede" className="border-t border-[#e6e2d8] py-20 sm:py-26 bg-[#f3f1ea]">
+        <section id="sede" className="border-t border-[#e5dfd2] py-20 sm:py-26 bg-[#f3efe6]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Office Entrance Photo */}
+              {/* Left Column: Office Presentation Image */}
               <div className="lg:col-span-6">
-                <div className="relative mx-auto max-w-[480px] lg:max-w-none overflow-hidden rounded-2xl border-2 border-[#c89a47]/50 bg-white p-2 shadow-2xl">
-                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-[#0a0c0f]">
+                <div className="relative mx-auto max-w-[480px] lg:max-w-none overflow-hidden rounded-2xl border-2 border-[#d4a843]/50 bg-white p-2 shadow-2xl">
+                  <div className="relative aspect-[4/3] sm:aspect-[3/4] w-full overflow-hidden rounded-xl bg-[#080a0e]">
                     <Image
-                      src={FOTO_OFFICE_SRC}
-                      alt="Fachada do Escritório Juscelino Germano Oliveira — Advogado em Bocaiúva - MG"
+                      src={FOTO_PORTRAIT_SRC}
+                      alt="Dr. Geovane Martins em seu escritório em Cláudio - MG"
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
                     />
 
                     {/* Gradient Overlay for Address */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0a0c0f] via-[#0a0c0f]/70 to-transparent p-6 text-white">
-                      <div className="flex items-center gap-2 text-[#f1ce89] text-xs font-bold uppercase tracking-wider">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#080a0e] via-[#080a0e]/75 to-transparent p-6 text-white">
+                      <div className="flex items-center gap-2 text-[#f3d893] text-xs font-bold uppercase tracking-wider">
                         <MapPin size={16} />
-                        <span>Sede Própria no Centro de Bocaiúva</span>
+                        <span>Sede em Cláudio - Minas Gerais</span>
                       </div>
                       <p className="mt-1 font-serif text-lg font-bold text-white">
-                        Rua Luís Inácio Silveira, n° 1385
+                        Praça dos Ex-Combatentes, 33
                       </p>
-                      <p className="text-xs text-[#e6e2d8]">
-                        Centro, Bocaiúva - MG, CEP 39390-000
+                      <p className="text-xs text-[#e5dfd2]">
+                        Salas 2 e 3, Cláudio - MG, CEP 35530-000
                       </p>
                     </div>
                   </div>
@@ -1530,31 +1440,31 @@ export default function Home() {
               {/* Right Column: Information & Office Hours */}
               <div className="lg:col-span-6">
                 <p className="eyebrow mb-3.5">ESTRUTURA & LOCALIZAÇÃO</p>
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#111317] sm:text-4xl lg:text-[2.6rem]">
-                  Atendimento Presencial de Excelência e Cobertura Digital
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#0f131a] sm:text-4xl lg:text-[2.6rem]">
+                  Atendimento Presencial Acolhedor e Atuação Digital em Todo o País
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-[#535965] sm:text-base">
-                  Nosso escritório físico em Bocaiúva foi concebido para oferecer total conforto, discrição e segurança aos nossos clientes. Contamos com espaço acolhedor e infraestrutura moderna para tratar de demandas delicadas de família, servidor público e consumidor.
+                <p className="mt-4 text-sm leading-relaxed text-[#4e5564] sm:text-base">
+                  Nosso escritório em Cláudio foi estruturado para proporcionar máxima discrição, acolhimento e conforto. Além das consultas presenciais com agendamento prévio, oferecemos atendimento digital humanizado para clientes em qualquer região do Brasil.
                 </p>
 
                 <div className="mt-8 space-y-4">
                   {/* Address Box */}
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c89a47]/15 text-[#8a611e]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#d4a843]/15 text-[#8c6218]">
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#111317] uppercase tracking-wider">
+                      <p className="text-xs font-bold text-[#0f131a] uppercase tracking-wider">
                         Endereço Completo
                       </p>
-                      <p className="text-xs text-[#535965] mt-0.5">
-                        {ADDRESS_BOCAIUVA}
+                      <p className="text-xs text-[#4e5564] mt-0.5">
+                        {ADDRESS_CLAUDIO}
                       </p>
                       <a
                         href={GOOGLE_MAPS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#8a611e] hover:text-[#111317]"
+                        className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#8c6218] hover:text-[#0f131a]"
                       >
                         <span>Abrir rotas no Google Maps</span>
                         <ArrowUpRight size={13} />
@@ -1563,37 +1473,37 @@ export default function Home() {
                   </div>
 
                   {/* Hours Box */}
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c89a47]/15 text-[#8a611e]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#d4a843]/15 text-[#8c6218]">
                       <Clock size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#111317] uppercase tracking-wider">
+                      <p className="text-xs font-bold text-[#0f131a] uppercase tracking-wider">
                         Horário de Atendimento
                       </p>
-                      <p className="text-xs text-[#535965] mt-0.5">
+                      <p className="text-xs text-[#4e5564] mt-0.5">
                         Segunda a Sexta-feira: <strong>09:00 às 18:00</strong>
                       </p>
-                      <p className="text-[11px] text-[#8a611e] font-semibold mt-0.5">
-                        Atendimento presencial com agendamento prévio ou online imediato.
+                      <p className="text-[11px] text-[#8c6218] font-semibold mt-0.5">
+                        Atendimento com hora marcada ou consulta online imediata.
                       </p>
                     </div>
                   </div>
 
                   {/* Contact Phones */}
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#e6e2d8] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c89a47]/15 text-[#8a611e]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-[#e5dfd2] bg-white p-4 shadow-2xs">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#d4a843]/15 text-[#8c6218]">
                       <Phone size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#111317] uppercase tracking-wider">
-                        Telefones & WhatsApp
+                      <p className="text-xs font-bold text-[#0f131a] uppercase tracking-wider">
+                        Telefone & WhatsApp Oficial
                       </p>
-                      <p className="text-xs text-[#535965] mt-0.5">
-                        WhatsApp Principal: <strong>{PHONE_DISPLAY}</strong>
+                      <p className="text-xs text-[#4e5564] mt-0.5">
+                        WhatsApp / Contato: <strong>{PHONE_DISPLAY}</strong>
                       </p>
-                      <p className="text-xs text-[#535965]">
-                        Telefone da Sede: <strong>{PHONE_SECONDARY}</strong>
+                      <p className="text-xs text-[#4e5564]">
+                        E-mail: <strong>{EMAIL_CONTACT}</strong>
                       </p>
                     </div>
                   </div>
@@ -1602,7 +1512,7 @@ export default function Home() {
                 {/* Sede CTA */}
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dr. Juscelino! Gostaria de agendar um horário para visita em seu escritório de Bocaiúva.")}
+                    href={getWhatsAppUrl("Olá, Dr. Geovane! Gostaria de agendar um horário para visita em seu escritório em Cláudio.")}
                     target="_blank"
                     variant="gold"
                     size="md"
@@ -1616,7 +1526,7 @@ export default function Home() {
                     href={GOOGLE_MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#c89a47] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#111317] transition-all hover:bg-[#0a0c0f] hover:text-[#f1ce89]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#d4a843] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#0f131a] transition-all hover:bg-[#080a0e] hover:text-[#f3d893]"
                   >
                     <MapPin size={15} />
                     <span>Como Chegar</span>
@@ -1630,15 +1540,15 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 8: DÚVIDAS FREQUENTES (FAQ ACCORDION)              */}
         {/* ======================================================== */}
-        <section id="duvidas" className="py-20 sm:py-26 bg-[#faf9f5]">
+        <section id="duvidas" className="py-20 sm:py-26 bg-[#faf8f3]">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
               <p className="eyebrow justify-center mb-3.5">ESCLARECIMENTOS JURÍDICOS</p>
-              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#111317] sm:text-4xl lg:text-[2.6rem]">
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#0f131a] sm:text-4xl lg:text-[2.6rem]">
                 Perguntas Frequentes
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#535965] sm:text-base">
-                Tire suas principais dúvidas sobre procedimentos, atendimento e prazos.
+              <p className="mt-3 text-sm leading-relaxed text-[#4e5564] sm:text-base">
+                Tire suas principais dúvidas sobre nosso atendimento, procedimentos e prazos.
               </p>
             </div>
 
@@ -1648,15 +1558,15 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="overflow-hidden rounded-2xl border border-[#e6e2d8] bg-white transition-all hover:border-[#c89a47]/50"
+                    className="overflow-hidden rounded-2xl border border-[#e5dfd2] bg-white transition-all hover:border-[#d4a843]/50"
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-serif text-base sm:text-lg font-bold text-[#111317] transition-colors hover:text-[#8a611e] cursor-pointer"
+                      className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-serif text-base sm:text-lg font-bold text-[#0f131a] transition-colors hover:text-[#8c6218] cursor-pointer"
                     >
                       <span>{faq.question}</span>
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#faf9f5] border border-[#e6e2d8] text-[#8a611e]">
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#faf8f3] border border-[#e5dfd2] text-[#8c6218]">
                         {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                       </span>
                     </button>
@@ -1668,7 +1578,7 @@ export default function Home() {
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.25 }}
-                          className="border-t border-[#e6e2d8]/70 px-5 pb-6 pt-4 sm:px-6 text-xs sm:text-sm leading-relaxed text-[#535965]"
+                          className="border-t border-[#e5dfd2]/70 px-5 pb-6 pt-4 sm:px-6 text-xs sm:text-sm leading-relaxed text-[#4e5564]"
                         >
                           {faq.answer}
                         </motion.div>
@@ -1681,18 +1591,18 @@ export default function Home() {
 
             {/* Bottom FAQ CTA */}
             <div className="mt-10 text-center">
-              <p className="text-xs text-[#535965]">
+              <p className="text-xs text-[#4e5564]">
                 Ainda tem alguma dúvida específica sobre o seu caso?
               </p>
               <div className="mt-3">
                 <a
-                  href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Tenho uma dúvida sobre meu caso e gostaria de orientação.")}
+                  href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Tenho uma dúvida sobre meu caso e gostaria de orientação.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-bold text-[#8a611e] underline decoration-[#c89a47] hover:text-[#111317] text-xs sm:text-sm"
+                  className="inline-flex items-center gap-1.5 font-bold text-[#8c6218] underline decoration-[#d4a843] hover:text-[#0f131a] text-xs sm:text-sm"
                 >
                   <WhatsAppIcon size={15} />
-                  <span>Converse diretamente com o Dr. Juscelino pelo WhatsApp</span>
+                  <span>Converse diretamente com o Dr. Geovane pelo WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -1700,49 +1610,49 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 9: BANNER DE CONTATO / CTA FINAL (LUXURY ONYX)     */}
+        {/* DOBRA 9: BANNER DE CONTATO / CTA FINAL (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section id="contato" className="py-20 sm:py-26 bg-[#0a0c0f] text-white">
+        <section id="contato" className="py-20 sm:py-26 bg-[#080a0e] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl border border-[#c89a47]/40 bg-gradient-to-b from-[#12151a] to-[#0a0c0f] p-8 sm:p-12 lg:p-16 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl border border-[#d4a843]/40 bg-gradient-to-b from-[#0f131a] to-[#080a0e] p-8 sm:p-12 lg:p-16 shadow-2xl">
               {/* Background Glow */}
-              <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#c89a47]/10 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-[#f1ce89]/10 blur-3xl" />
+              <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#d4a843]/10 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-[#f3d893]/10 blur-3xl" />
 
               <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
                 <div className="lg:col-span-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#f1ce89]/30 bg-[#f1ce89]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#f1ce89]">
-                    <span className="size-1.5 rounded-full bg-[#f1ce89] animate-pulse" />
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#f3d893]/30 bg-[#f3d893]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#f3d893]">
+                    <span className="size-1.5 rounded-full bg-[#f3d893] animate-pulse" />
                     ATENDIMENTO PRIORITÁRIO & SIGILOSO
                   </div>
 
                   <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                    Proteja Seus Direitos e Sua Família com um Advogado Dedicado e Combativo.
+                    Proteja Seus Direitos e Seu Patrimônio com uma Advocacia Dedicada e Combativa.
                   </h2>
 
-                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#e6e2d8] sm:text-base">
-                    Não permita que o sentimento de injustiça ou a burocracia prejudiquem o que você construiu. Agende hoje mesmo uma consulta com o Dr. Juscelino Germano Oliveira.
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#e5dfd2] sm:text-base">
+                    Não adie a resolução do seu impasse jurídico. Agende hoje mesmo uma consulta com o Dr. Geovane Martins e receba uma orientação estratégica e personalizada.
                   </p>
 
-                  <div className="mt-6 flex flex-wrap gap-4 text-xs text-[#e6e2d8]">
+                  <div className="mt-6 flex flex-wrap gap-4 text-xs text-[#e5dfd2]">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f1ce89]" />
+                      <CheckCircle2 size={15} className="text-[#f3d893]" />
                       <span>Atendimento humanizado e sem promessas vazias</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f1ce89]" />
+                      <CheckCircle2 size={15} className="text-[#f3d893]" />
                       <span>Sigilo profissional irrestrito</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f1ce89]" />
-                      <span>Sede própria no Centro de Bocaiúva</span>
+                      <CheckCircle2 size={15} className="text-[#f3d893]" />
+                      <span>Sede na Praça dos Ex-Combatentes em Cláudio - MG</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dr. Juscelino Germano! Gostaria de agendar uma consulta jurídica especializada sobre meu caso.")}
+                    href={getWhatsAppUrl("Olá, Dr. Geovane Martins! Gostaria de agendar uma consulta jurídica especializada sobre meu caso.")}
                     target="_blank"
                     variant="gold"
                     size="lg"
@@ -1754,13 +1664,13 @@ export default function Home() {
 
                   <a
                     href={`tel:+${WHATSAPP_NUMBER}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#c89a47]/50 bg-[#181c22] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f1ce89] transition-all hover:bg-[#c89a47] hover:text-[#0a0c0f]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#d4a843]/50 bg-[#151922] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f3d893] transition-all hover:bg-[#d4a843] hover:text-[#080a0e]"
                   >
                     <Phone size={15} />
                     <span>Ligar: {PHONE_DISPLAY}</span>
                   </a>
 
-                  <p className="text-center text-[10px] text-[#e6e2d8]/60 mt-1">
+                  <p className="text-center text-[10px] text-[#e5dfd2]/60 mt-1">
                     Atendimento de Segunda a Sexta, das 09h às 18h.
                   </p>
                 </div>
@@ -1772,7 +1682,7 @@ export default function Home() {
         {/* ======================================================== */}
         {/* FOOTER (SOFISTICADO, COMPLETO & 100% LIMPO)              */}
         {/* ======================================================== */}
-        <footer className="border-t border-[#222731] bg-[#0a0c0f] pt-16 pb-12 text-[#e6e2d8]">
+        <footer className="border-t border-[#1e2430] bg-[#080a0e] pt-16 pb-12 text-[#e5dfd2]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {/* Col 1: Brand & Logo */}
@@ -1780,31 +1690,31 @@ export default function Home() {
                 <a href="#" className="flex items-center gap-3">
                   <Image
                     src={EMBLEM_SRC}
-                    alt="Juscelino Germano Oliveira — Advogado"
-                    width={50}
-                    height={50}
+                    alt="Advocacia Dr. Geovane Martins"
+                    width={48}
+                    height={48}
                     className="h-11 w-auto object-contain"
                     unoptimized
                   />
                   <div>
                     <p className="font-cinzel text-sm font-bold text-white tracking-wider">
-                      JUSCELINO GERMANO
+                      GEOVANE MARTINS
                     </p>
-                    <p className="text-[9px] font-bold text-[#f1ce89] tracking-[0.2em] uppercase">
-                      A D V O G A D O
+                    <p className="text-[9px] font-bold text-[#f3d893] tracking-[0.2em] uppercase">
+                      A D V O C A C I A
                     </p>
                   </div>
                 </a>
-                <p className="mt-4 text-xs leading-relaxed text-[#e6e2d8]/70">
-                  Advocacia humanizada, ágil e combativa em Direito de Família, Direito do Consumidor e Servidores Públicos. Sede própria em Bocaiúva - MG e atendimento digital para todo o Brasil.
+                <p className="mt-4 text-xs leading-relaxed text-[#e5dfd2]/70">
+                  Advocacia ética, ágil e combativa em Direito Civil, Família & Sucessões, Direito do Consumidor e Previdenciário. Sede física em Cláudio - MG e atendimento digital para todo o Brasil.
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c89a47]/40 bg-[#181c22] text-[#f1ce89] transition-colors hover:bg-[#c89a47] hover:text-[#0a0c0f]"
-                    aria-label="Instagram Juscelino Advogado"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#d4a843]/40 bg-[#151922] text-[#f3d893] transition-colors hover:bg-[#d4a843] hover:text-[#080a0e]"
+                    aria-label="Instagram Dr. Geovane Martins Advogado"
                   >
                     <InstagramIcon size={16} />
                   </a>
@@ -1812,8 +1722,8 @@ export default function Home() {
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c89a47]/40 bg-[#181c22] text-[#f1ce89] transition-colors hover:bg-[#c89a47] hover:text-[#0a0c0f]"
-                    aria-label="WhatsApp Juscelino Germano Advogado"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#d4a843]/40 bg-[#151922] text-[#f3d893] transition-colors hover:bg-[#d4a843] hover:text-[#080a0e]"
+                    aria-label="WhatsApp Dr. Geovane Martins"
                   >
                     <WhatsAppIcon size={16} />
                   </a>
@@ -1821,7 +1731,7 @@ export default function Home() {
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c89a47]/40 bg-[#181c22] text-[#f1ce89] transition-colors hover:bg-[#c89a47] hover:text-[#0a0c0f]"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#d4a843]/40 bg-[#151922] text-[#f3d893] transition-colors hover:bg-[#d4a843] hover:text-[#080a0e]"
                     aria-label="Avaliações no Google"
                   >
                     <GoogleIcon size={16} />
@@ -1834,34 +1744,34 @@ export default function Home() {
                 <p className="font-cinzel text-xs font-bold text-white uppercase tracking-widest">
                   Áreas de Atuação
                 </p>
-                <ul className="mt-4 space-y-2.5 text-xs text-[#e6e2d8]/70">
+                <ul className="mt-4 space-y-2.5 text-xs text-[#e5dfd2]/70">
                   <li>
-                    <a href="#servicos" className="hover:text-[#f1ce89] transition-colors">
+                    <a href="#servicos" className="hover:text-[#f3d893] transition-colors">
+                      Direito Civil & Indenizações
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#servicos" className="hover:text-[#f3d893] transition-colors">
                       Direito de Família & Sucessões
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f1ce89] transition-colors">
-                      Direito do Consumidor & Operadoras
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#servicos" className="hover:text-[#f1ce89] transition-colors">
-                      Direito dos Servidores Públicos (PAD)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#servicos" className="hover:text-[#f1ce89] transition-colors">
+                    <a href="#servicos" className="hover:text-[#f3d893] transition-colors">
                       Divórcio & Inventário em Cartório
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f1ce89] transition-colors">
-                      Ações Cíveis & Indenizatórias
+                    <a href="#servicos" className="hover:text-[#f3d893] transition-colors">
+                      Direito do Consumidor & Bancário
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f1ce89] transition-colors">
+                    <a href="#servicos" className="hover:text-[#f3d893] transition-colors">
+                      Previdenciário & Benefícios do INSS
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#servicos" className="hover:text-[#f3d893] transition-colors">
                       Consultoria Jurídica Preventiva
                     </a>
                   </li>
@@ -1873,34 +1783,34 @@ export default function Home() {
                 <p className="font-cinzel text-xs font-bold text-white uppercase tracking-widest">
                   Navegação Rápida
                 </p>
-                <ul className="mt-4 space-y-2.5 text-xs text-[#e6e2d8]/70">
+                <ul className="mt-4 space-y-2.5 text-xs text-[#e5dfd2]/70">
                   <li>
-                    <a href="#sobre" className="hover:text-[#f1ce89] transition-colors">
-                      Sobre Dr. Juscelino Germano
+                    <a href="#sobre" className="hover:text-[#f3d893] transition-colors">
+                      Sobre Dr. Geovane Martins
                     </a>
                   </li>
                   <li>
-                    <a href="#diferenciais" className="hover:text-[#f1ce89] transition-colors">
-                      Pilares & Diferenciais
+                    <a href="#diferenciais" className="hover:text-[#f3d893] transition-colors">
+                      Pilares & Ética Profissional
                     </a>
                   </li>
                   <li>
-                    <a href="#depoimentos" className="hover:text-[#f1ce89] transition-colors">
+                    <a href="#depoimentos" className="hover:text-[#f3d893] transition-colors">
                       Avaliações no Google (5,0 ★)
                     </a>
                   </li>
                   <li>
-                    <a href="#sede" className="hover:text-[#f1ce89] transition-colors">
-                      Sede em Bocaiúva - MG
+                    <a href="#sede" className="hover:text-[#f3d893] transition-colors">
+                      Escritório em Cláudio - MG
                     </a>
                   </li>
                   <li>
-                    <a href="#duvidas" className="hover:text-[#f1ce89] transition-colors">
+                    <a href="#duvidas" className="hover:text-[#f3d893] transition-colors">
                       Perguntas Frequentes
                     </a>
                   </li>
                   <li>
-                    <a href="#contato" className="hover:text-[#f1ce89] transition-colors">
+                    <a href="#contato" className="hover:text-[#f3d893] transition-colors">
                       Contato & Agendamento
                     </a>
                   </li>
@@ -1912,25 +1822,25 @@ export default function Home() {
                 <p className="font-cinzel text-xs font-bold text-white uppercase tracking-widest">
                   Sede & Contato
                 </p>
-                <ul className="mt-4 space-y-3 text-xs text-[#e6e2d8]/70">
+                <ul className="mt-4 space-y-3 text-xs text-[#e5dfd2]/70">
                   <li className="flex items-start gap-2">
-                    <MapPin size={15} className="text-[#f1ce89] shrink-0 mt-0.5" />
-                    <span>{ADDRESS_BOCAIUVA}</span>
+                    <MapPin size={15} className="text-[#f3d893] shrink-0 mt-0.5" />
+                    <span>{ADDRESS_CLAUDIO}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <WhatsAppIcon size={15} className="text-[#f1ce89] shrink-0" />
+                    <WhatsAppIcon size={15} className="text-[#f3d893] shrink-0" />
                     <span>WhatsApp: {PHONE_DISPLAY}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Phone size={15} className="text-[#f1ce89] shrink-0" />
-                    <span>Telefone: {PHONE_SECONDARY}</span>
+                    <Mail size={15} className="text-[#f3d893] shrink-0" />
+                    <span>{EMAIL_CONTACT}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Clock size={15} className="text-[#f1ce89] shrink-0" />
+                    <Clock size={15} className="text-[#f3d893] shrink-0" />
                     <span>Seg a Sex: 09:00 às 18:00</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <InstagramIcon size={15} className="text-[#f1ce89] shrink-0" />
+                    <InstagramIcon size={15} className="text-[#f3d893] shrink-0" />
                     <span>Instagram: {INSTAGRAM_HANDLE}</span>
                   </li>
                 </ul>
@@ -1938,7 +1848,7 @@ export default function Home() {
             </div>
 
             {/* Bottom Legal Notice & Copyright */}
-            <div className="mt-12 border-t border-[#222731] pt-8 text-center text-[11px] text-[#e6e2d8]/50">
+            <div className="mt-12 border-t border-[#1e2430] pt-8 text-center text-[11px] text-[#e5dfd2]/50">
               <p>
                 © {new Date().getFullYear()} {CLIENT_NAME}. Todos os direitos reservados.
               </p>
@@ -1961,7 +1871,7 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedPractice(null)}
-                className="absolute inset-0 bg-[#0a0c0f]/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-[#080a0e]/80 backdrop-blur-sm"
               />
 
               {/* Modal Box */}
@@ -1969,13 +1879,13 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#c89a47]/50 bg-white p-6 sm:p-8 shadow-2xl text-[#111317]"
+                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#d4a843]/50 bg-white p-6 sm:p-8 shadow-2xl text-[#0f131a]"
               >
                 {/* Close Button */}
                 <button
                   type="button"
                   onClick={() => setSelectedPractice(null)}
-                  className="absolute right-5 top-5 inline-flex size-9 items-center justify-center rounded-full bg-[#faf9f5] border border-[#e6e2d8] text-[#535965] hover:text-[#111317] hover:border-[#c89a47] cursor-pointer"
+                  className="absolute right-5 top-5 inline-flex size-9 items-center justify-center rounded-full bg-[#faf8f3] border border-[#e5dfd2] text-[#4e5564] hover:text-[#0f131a] hover:border-[#d4a843] cursor-pointer"
                   aria-label="Fechar janela"
                 >
                   <X size={18} />
@@ -1983,37 +1893,37 @@ export default function Home() {
 
                 {/* Modal Content */}
                 <div className="flex items-center gap-3">
-                  <div className="flex size-12 items-center justify-center rounded-xl bg-[#c89a47]/15 text-[#8a611e]">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-[#d4a843]/15 text-[#8c6218]">
                     <selectedPractice.icon size={24} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#b88836]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#b88628]">
                       Área Especializada
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-[#111317]">
+                    <h3 className="font-serif text-2xl font-bold text-[#0f131a]">
                       {selectedPractice.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="mt-2 text-xs font-semibold text-[#8a611e] uppercase tracking-wider">
+                <p className="mt-2 text-xs font-semibold text-[#8c6218] uppercase tracking-wider">
                   {selectedPractice.category}
                 </p>
 
-                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#535965]">
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#4e5564]">
                   {selectedPractice.details}
                 </p>
 
                 <div className="mt-6">
-                  <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-[#111317]">
-                    Principais Procedimentos e Demandas:
+                  <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-[#0f131a]">
+                    Principais Procedimentos e Atuação:
                   </p>
-                  <ul className="mt-3 space-y-2 text-xs sm:text-sm text-[#111317]">
+                  <ul className="mt-3 space-y-2 text-xs sm:text-sm text-[#0f131a]">
                     {selectedPractice.topics.map((t, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2
                           size={15}
-                          className="mt-0.5 shrink-0 text-[#c89a47]"
+                          className="mt-0.5 shrink-0 text-[#d4a843]"
                         />
                         <span>{t}</span>
                       </li>
@@ -2022,7 +1932,7 @@ export default function Home() {
                 </div>
 
                 {/* Modal CTA */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#e6e2d8]">
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#e5dfd2]">
                   <GlowingButton
                     href={getWhatsAppUrl(selectedPractice.whatsAppText)}
                     target="_blank"
@@ -2037,7 +1947,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setSelectedPractice(null)}
-                    className="rounded-lg border border-[#e6e2d8] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#535965] hover:bg-[#faf9f5] hover:text-[#111317] cursor-pointer"
+                    className="rounded-lg border border-[#e5dfd2] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#4e5564] hover:bg-[#faf8f3] hover:text-[#0f131a] cursor-pointer"
                   >
                     Fechar
                   </button>

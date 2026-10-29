@@ -3,42 +3,42 @@
 :root {
   color-scheme: light dark;
   
-  /* Brand Luxury Charcoal & Deep Onyx (Extracted from Juscelino Germano's Architectural Facade & Logo) */
-  --brand-onyx-deep: #0a0c0f;
-  --brand-onyx-surface: #12151a;
-  --brand-onyx-card: #181c22;
-  --brand-onyx-card-hover: #222731;
-  --brand-onyx-highlight: #2c323f;
-  --brand-graphite: #384050;
+  /* Brand Luxury Obsidian & Deep Onyx (Extracted from Dr. Geovane Martins' Formal Suit & Backdrop) */
+  --brand-onyx-deep: #080a0e;
+  --brand-onyx-surface: #0f131a;
+  --brand-onyx-card: #151922;
+  --brand-onyx-card-hover: #1e2430;
+  --brand-onyx-highlight: #293142;
+  --brand-graphite: #374256;
   
-  /* Brand Metallic Gold (Extracted directly from the Official JG Emblem & Lettering) */
+  /* Brand Metallic Gold (Extracted directly from the Official Balança da Justiça Emblem & 3D Typography) */
   --brand-gold-glow: #ffffff;
-  --brand-gold-highlight: #f9efcb;
-  --brand-gold-champagne: #f1ce89;
-  --brand-gold-primary: #c89a47;
-  --brand-gold-warm: #b88836;
-  --brand-gold-deep: #8a611e;
-  --brand-gold-shadow: #5a3e10;
+  --brand-gold-highlight: #fdeea6;
+  --brand-gold-champagne: #f3d893;
+  --brand-gold-primary: #d4a843;
+  --brand-gold-warm: #b88628;
+  --brand-gold-deep: #8c6218;
+  --brand-gold-shadow: #5c3f0b;
+  --brand-gold-dark: #3d2105;
   
-  /* Architectural Accent (From the textured facade in Bocaiúva) */
-  --brand-accent-amber: #c5973b;
-  --brand-accent-slate: #475163;
-  --brand-accent-subtle: #f8f6f0;
+  /* Burgundy Accent (Elegantly harmonized from Dr. Geovane's office portrait) */
+  --brand-burgundy-deep: #461421;
+  --brand-burgundy-subtle: #732338;
 
   /* Editorial Alabaster & Warm Linen Canvas (Clean, noble, high legibility) */
-  --brand-canvas-light: #faf9f5;
-  --brand-canvas-alt: #f3f1ea;
+  --brand-canvas-light: #faf8f3;
+  --brand-canvas-alt: #f3efe6;
   --brand-canvas-surface: #ffffff;
-  --brand-canvas-border: #e6e2d8;
-  --brand-canvas-ink: #111317;
-  --brand-canvas-muted: #535965;
+  --brand-canvas-border: #e5dfd2;
+  --brand-canvas-ink: #0f131a;
+  --brand-canvas-muted: #4e5564;
   
   /* Borders & Accents */
-  --brand-border-gold: rgba(200, 154, 71, 0.45);
-  --brand-border-gold-subtle: rgba(241, 206, 137, 0.25);
-  --brand-border-gold-strong: rgba(249, 239, 203, 0.85);
+  --brand-border-gold: rgba(212, 168, 67, 0.45);
+  --brand-border-gold-subtle: rgba(243, 216, 147, 0.25);
+  --brand-border-gold-strong: rgba(253, 238, 166, 0.85);
   --brand-border-dark: rgba(255, 255, 255, 0.12);
-  --brand-border-onyx: rgba(18, 21, 26, 0.35);
+  --brand-border-onyx: rgba(15, 19, 26, 0.35);
 }
 
 @theme inline {
@@ -46,24 +46,24 @@
   --font-cinzel: var(--font-cinzel), "Cinzel", "Times New Roman", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-onyx-deep: #0a0c0f;
-  --color-brand-onyx-surface: #12151a;
-  --color-brand-onyx-card: #181c22;
-  --color-brand-onyx-card-hover: #222731;
+  --color-brand-onyx-deep: #080a0e;
+  --color-brand-onyx-surface: #0f131a;
+  --color-brand-onyx-card: #151922;
+  --color-brand-onyx-card-hover: #1e2430;
   
-  --color-brand-gold-highlight: #f9efcb;
-  --color-brand-gold-champagne: #f1ce89;
-  --color-brand-gold-primary: #c89a47;
-  --color-brand-gold-warm: #b88836;
-  --color-brand-gold-deep: #8a611e;
+  --color-brand-gold-highlight: #fdeea6;
+  --color-brand-gold-champagne: #f3d893;
+  --color-brand-gold-primary: #d4a843;
+  --color-brand-gold-warm: #b88628;
+  --color-brand-gold-deep: #8c6218;
   
-  --color-brand-canvas-light: #faf9f5;
-  --color-brand-canvas-alt: #f3f1ea;
+  --color-brand-canvas-light: #faf8f3;
+  --color-brand-canvas-alt: #f3efe6;
   --color-brand-canvas-surface: #ffffff;
   
-  --shadow-gold: 0 10px 28px -4px rgba(200, 154, 71, 0.35);
-  --shadow-gold-lg: 0 16px 38px -6px rgba(184, 136, 54, 0.45);
-  --shadow-onyx-card: 0 20px 45px -10px rgba(10, 12, 15, 0.94);
+  --shadow-gold: 0 10px 28px -4px rgba(212, 168, 67, 0.35);
+  --shadow-gold-lg: 0 16px 38px -6px rgba(184, 134, 40, 0.45);
+  --shadow-onyx-card: 0 20px 45px -10px rgba(8, 10, 14, 0.94);
 }
 
 html {
@@ -72,15 +72,15 @@ html {
 }
 
 body {
-  background: #faf9f5;
-  color: #111317;
+  background: #faf8f3;
+  color: #0f131a;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #c89a47;
+  caret-color: #d4a843;
 }
 
 ::selection {
-  background: #181c22;
-  color: #f1ce89;
+  background: #151922;
+  color: #f3d893;
 }
 
 .font-cinzel {
@@ -96,7 +96,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8a611e;
+  color: #8c6218;
 }
 
 .eyebrow-dark {
@@ -108,14 +108,14 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #f1ce89;
+  color: #f3d893;
 }
 
 .eyebrow::before {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #b88836, #c89a47);
+  background: linear-gradient(90deg, #b88628, #d4a843);
   content: "";
 }
 
@@ -123,36 +123,38 @@ body {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #f1ce89, #f9efcb);
+  background: linear-gradient(90deg, #f3d893, #fdeea6);
   content: "";
 }
 
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #535965;
-  font-size: 0.72rem;
+  color: #374151;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: color 180ms ease;
+  white-space: nowrap;
 }
 
 .nav-link::after {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   height: 2px;
-  background: #c89a47;
+  background: linear-gradient(90deg, #b88628, #d4a843);
+  border-radius: 999px;
   content: "";
   transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 180ms ease;
+  transform-origin: center;
+  transition: transform 220ms ease;
 }
 
 .nav-link:hover {
-  color: #111317;
+  color: #080a0e;
 }
 
 .nav-link:hover::after {
@@ -162,7 +164,7 @@ body {
 .nav-link-dark {
   position: relative;
   padding-block: 0.5rem;
-  color: #f1ce89;
+  color: #f3d893;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -176,7 +178,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #f9efcb;
+  background: #fdeea6;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -192,7 +194,7 @@ body {
 }
 
 .footer-link {
-  color: #f1ce89;
+  color: #f3d893;
   transition: color 180ms ease;
 }
 
@@ -202,20 +204,20 @@ body {
 
 /* Luxury Metallic Gold Text Shimmer */
 .metallic-gold-text {
-  background: linear-gradient(135deg, #ffffff 0%, #f9efcb 25%, #f1ce89 50%, #c89a47 75%, #f9efcb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fdeea6 25%, #f3d893 50%, #d4a843 75%, #fdeea6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #c89a47 0%, #f1ce89 35%, #b88836 70%, #f9efcb 100%);
+  background: linear-gradient(135deg, #d4a843 0%, #f3d893 35%, #b88628 70%, #fdeea6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .metallic-badge {
-  background: linear-gradient(135deg, rgba(249, 239, 203, 0.15) 0%, rgba(200, 154, 71, 0.08) 100%);
-  border: 1px solid rgba(241, 206, 137, 0.35);
+  background: linear-gradient(135deg, rgba(253, 238, 166, 0.15) 0%, rgba(212, 168, 67, 0.08) 100%);
+  border: 1px solid rgba(243, 216, 147, 0.35);
   backdrop-filter: blur(8px);
 }
 
@@ -224,17 +226,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0c0f;
+  background: #080a0e;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #0a0c0f;
+  border: 2px solid #080a0e;
   border-radius: 999px;
-  background: #181c22;
+  background: #151922;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c89a47;
+  background: #d4a843;
 }
 
 @media (prefers-reduced-motion: reduce) {
