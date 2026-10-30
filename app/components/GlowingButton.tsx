@@ -33,25 +33,25 @@ export default function GlowingButton({
     lg: "px-7 py-4 text-xs tracking-[0.14em]",
   }[size];
 
-  // Visual identity based on Mariana Leão Advocacia
+  // Visual identity based on Guimarães & Santiago Advogados
   // Polished Metallic Champagne Gold, Royal Amber & Architectural Deep Obsidian
   const variantClasses = {
     gold:
-      "border border-[#fcecb1]/90 bg-gradient-to-r from-[#b88440] via-[#d4af37] to-[#c89e63] text-[#0a0908] font-extrabold shadow-md shadow-[#c89e63]/25 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(200,158,99,0.5)]",
+      "border border-[#f8f3e6]/90 bg-gradient-to-r from-[#a1773b] via-[#d4af37] to-[#c2a366] text-[#080502] font-extrabold shadow-md shadow-[#c2a366]/25 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(194,163,102,0.5)]",
     onyx:
-      "border border-[#c89e63]/50 bg-gradient-to-r from-[#0a0908] via-[#120f0c] to-[#1a1612] text-[#fcecb1] font-bold shadow-lg shadow-[#0a0908]/50 hover:-translate-y-0.5 hover:border-[#fcecb1] hover:text-white hover:shadow-[0_12px_30px_-4px_rgba(18,15,12,0.7)]",
+      "border border-[#c2a366]/50 bg-gradient-to-r from-[#080502] via-[#120f0c] to-[#1a1612] text-[#f8f3e6] font-bold shadow-lg shadow-[#080502]/50 hover:-translate-y-0.5 hover:border-[#f8f3e6] hover:text-white hover:shadow-[0_12px_30px_-4px_rgba(18,15,12,0.7)]",
     outline:
-      "border border-[#1a1612] bg-transparent text-[#14110d] font-bold hover:-translate-y-0.5 hover:border-[#c89e63] hover:bg-[#1a1612]/5",
+      "border border-[#1a1612] bg-transparent text-[#14110d] font-bold hover:-translate-y-0.5 hover:border-[#c2a366] hover:bg-[#1a1612]/5",
     outlineGold:
-      "border border-[#c89e63]/80 bg-[#c89e63]/10 text-[#fcecb1] font-bold hover:-translate-y-0.5 hover:border-[#fdf8d4] hover:bg-[#c89e63]/20 hover:text-white",
+      "border border-[#c2a366]/80 bg-[#c2a366]/10 text-[#f8f3e6] font-bold hover:-translate-y-0.5 hover:border-[#fdf8d4] hover:bg-[#c2a366]/20 hover:text-white",
     light:
-      "border border-[#ebe4d8] bg-[#fdfbf7] text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:bg-white hover:border-[#c89e63]",
+      "border border-[#ebe4d8] bg-[#fdfbf7] text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:bg-white hover:border-[#c2a366]",
     white:
-      "border border-[#ebe4d8] bg-white text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:border-[#c89e63] hover:text-[#0a0908]",
+      "border border-[#ebe4d8] bg-white text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:border-[#c2a366] hover:text-[#080502]",
   }[variant];
 
   const classes =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#c89e63] select-none text-center cursor-pointer " +
+    "inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#c2a366] select-none text-center cursor-pointer " +
     sizeClasses +
     " " +
     variantClasses +
