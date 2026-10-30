@@ -3,28 +3,28 @@
 :root {
   color-scheme: light dark;
   
-  /* Brand Luxury Obsidian & Deep Dark Espresso (Derived from Guimarães & Santiago Advogados Official Logo) */
-  --brand-onyx-deep: #080502;
-  --brand-onyx-surface: #120f0c;
+  /* Brand Luxury Obsidian & Warm Espresso (Adv. Laura Melo Lopes Visual Theme) */
+  --brand-onyx-deep: #0a0806;
+  --brand-onyx-surface: #120e0b;
   --brand-onyx-card: #1a1612;
-  --brand-onyx-card-hover: #241f1a;
-  --brand-onyx-highlight: #332b23;
-  --brand-graphite: #453c32;
+  --brand-onyx-card-hover: #241e18;
+  --brand-onyx-highlight: #332b22;
+  --brand-graphite: #453c30;
   
-  /* Brand Metallic Champagne Gold & Royal Bronze (Extracted directly from the Official Logo "Anna Luiza Guimarães Advogados") */
+  /* Brand Metallic Champagne Gold & Amber Bronze (Extracted directly from the Official Logo "Laura Melo Lopes") */
   --brand-gold-glow: #ffffff;
-  --brand-gold-highlight: #fdf8d4;
-  --brand-gold-champagne: #f8f3e6;
-  --brand-gold-light: #e2c98d;
-  --brand-gold-primary: #c2a366;
-  --brand-gold-warm: #a1773b;
-  --brand-gold-deep: #835c32;
-  --brand-gold-shadow: #5b4d38;
+  --brand-gold-highlight: #fdf2cf;
+  --brand-gold-champagne: #f7cd6d;
+  --brand-gold-light: #dba54c;
+  --brand-gold-primary: #bd8028;
+  --brand-gold-warm: #a26417;
+  --brand-gold-deep: #8c4f08;
+  --brand-gold-shadow: #7a4103;
   --brand-gold-dark: #371b05;
   
   /* Warm Honey & Bronze Accent */
-  --brand-warm-honey: #d4af37;
-  --brand-bronze: #835c32;
+  --brand-warm-honey: #d1983c;
+  --brand-bronze: #8c4f08;
 
   /* Editorial Alabaster & Warm Linen Canvas (Clean, noble, high legibility) */
   --brand-canvas-light: #fdfbf7;
@@ -35,9 +35,9 @@
   --brand-canvas-muted: #5c554b;
   
   /* Borders & Accents */
-  --brand-border-gold: rgba(194, 163, 102, 0.45);
-  --brand-border-gold-subtle: rgba(248, 243, 230, 0.25);
-  --brand-border-gold-strong: rgba(212, 175, 55, 0.85);
+  --brand-border-gold: rgba(189, 128, 40, 0.45);
+  --brand-border-gold-subtle: rgba(247, 205, 109, 0.25);
+  --brand-border-gold-strong: rgba(219, 165, 76, 0.85);
   --brand-border-dark: rgba(255, 255, 255, 0.12);
   --brand-border-onyx: rgba(20, 17, 13, 0.35);
 }
@@ -47,25 +47,25 @@
   --font-cinzel: var(--font-cinzel), "Cinzel", "Times New Roman", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-onyx-deep: #080502;
-  --color-brand-onyx-surface: #120f0c;
+  --color-brand-onyx-deep: #0a0806;
+  --color-brand-onyx-surface: #120e0b;
   --color-brand-onyx-card: #1a1612;
-  --color-brand-onyx-card-hover: #241f1a;
+  --color-brand-onyx-card-hover: #241e18;
   
-  --color-brand-gold-highlight: #fdf8d4;
-  --color-brand-gold-champagne: #f8f3e6;
-  --color-brand-gold-light: #e2c98d;
-  --color-brand-gold-primary: #c2a366;
-  --color-brand-gold-warm: #a1773b;
-  --color-brand-gold-deep: #835c32;
+  --color-brand-gold-highlight: #fdf2cf;
+  --color-brand-gold-champagne: #f7cd6d;
+  --color-brand-gold-light: #dba54c;
+  --color-brand-gold-primary: #bd8028;
+  --color-brand-gold-warm: #a26417;
+  --color-brand-gold-deep: #8c4f08;
   
   --color-brand-canvas-light: #fdfbf7;
   --color-brand-canvas-alt: #f7f4ed;
   --color-brand-canvas-surface: #ffffff;
   
-  --shadow-gold: 0 10px 28px -4px rgba(194, 163, 102, 0.35);
-  --shadow-gold-lg: 0 16px 38px -6px rgba(161, 119, 59, 0.45);
-  --shadow-onyx-card: 0 20px 45px -10px rgba(8, 5, 2, 0.94);
+  --shadow-gold: 0 10px 28px -4px rgba(189, 128, 40, 0.35);
+  --shadow-gold-lg: 0 16px 38px -6px rgba(162, 100, 23, 0.45);
+  --shadow-onyx-card: 0 20px 45px -10px rgba(10, 8, 6, 0.94);
 }
 
 html {
@@ -77,12 +77,12 @@ body {
   background: #fdfbf7;
   color: #14110d;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #c2a366;
+  caret-color: #bd8028;
 }
 
 ::selection {
   background: #1a1612;
-  color: #f8f3e6;
+  color: #f7cd6d;
 }
 
 .font-cinzel {
@@ -98,7 +98,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #835c32;
+  color: #8c4f08;
 }
 
 .eyebrow-dark {
@@ -110,14 +110,14 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #f8f3e6;
+  color: #f7cd6d;
 }
 
 .eyebrow::before {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #a1773b, #c2a366);
+  background: linear-gradient(90deg, #a26417, #bd8028);
   content: "";
 }
 
@@ -125,7 +125,7 @@ body {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #f8f3e6, #e2c98d);
+  background: linear-gradient(90deg, #f7cd6d, #dba54c);
   content: "";
 }
 
@@ -147,7 +147,7 @@ body {
   bottom: -2px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, #a1773b, #c2a366);
+  background: linear-gradient(90deg, #a26417, #bd8028);
   border-radius: 999px;
   content: "";
   transform: scaleX(0);
@@ -156,7 +156,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #080502;
+  color: #0a0806;
 }
 
 .nav-link:hover::after {
@@ -166,7 +166,7 @@ body {
 .nav-link-dark {
   position: relative;
   padding-block: 0.5rem;
-  color: #f8f3e6;
+  color: #f7cd6d;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -180,7 +180,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #e2c98d;
+  background: #dba54c;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -196,7 +196,7 @@ body {
 }
 
 .footer-link {
-  color: #f8f3e6;
+  color: #f7cd6d;
   transition: color 180ms ease;
 }
 
@@ -206,20 +206,20 @@ body {
 
 /* Luxury Metallic Gold Text Shimmer (Inspired by the logo) */
 .metallic-gold-text {
-  background: linear-gradient(135deg, #ffffff 0%, #fdf8d4 20%, #f8f3e6 45%, #c2a366 75%, #e2c98d 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fdf2cf 20%, #f7cd6d 45%, #bd8028 75%, #dba54c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #f8f3e6 0%, #e2c98d 30%, #c2a366 65%, #835c32 100%);
+  background: linear-gradient(135deg, #f7cd6d 0%, #dba54c 30%, #bd8028 65%, #8c4f08 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .metallic-badge {
-  background: linear-gradient(135deg, rgba(226, 201, 141, 0.15) 0%, rgba(194, 163, 102, 0.08) 100%);
-  border: 1px solid rgba(248, 243, 230, 0.35);
+  background: linear-gradient(135deg, rgba(219, 165, 76, 0.15) 0%, rgba(189, 128, 40, 0.08) 100%);
+  border: 1px solid rgba(247, 205, 109, 0.35);
   backdrop-filter: blur(8px);
 }
 
@@ -228,17 +228,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080502;
+  background: #0a0806;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #080502;
+  border: 2px solid #0a0806;
   border-radius: 999px;
   background: #1a1612;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c2a366;
+  background: #bd8028;
 }
 
 @media (prefers-reduced-motion: reduce) {

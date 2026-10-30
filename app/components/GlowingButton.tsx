@@ -33,25 +33,25 @@ export default function GlowingButton({
     lg: "px-7 py-4 text-xs tracking-[0.14em]",
   }[size];
 
-  // Visual identity based on Guimarães & Santiago Advogados
-  // Polished Metallic Champagne Gold, Royal Amber & Architectural Deep Obsidian
+  // Visual identity based on Adv. Laura Melo Lopes
+  // Radiant Metallic Warm Gold, Amber Bronze & Deep Obsidian
   const variantClasses = {
     gold:
-      "border border-[#f8f3e6]/90 bg-gradient-to-r from-[#a1773b] via-[#d4af37] to-[#c2a366] text-[#080502] font-extrabold shadow-md shadow-[#c2a366]/25 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(194,163,102,0.5)]",
+      "border border-[#fdf2cf]/90 bg-gradient-to-r from-[#a26417] via-[#dba54c] to-[#bd8028] text-[#0a0806] font-extrabold shadow-md shadow-[#bd8028]/25 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(189,128,40,0.5)]",
     onyx:
-      "border border-[#c2a366]/50 bg-gradient-to-r from-[#080502] via-[#120f0c] to-[#1a1612] text-[#f8f3e6] font-bold shadow-lg shadow-[#080502]/50 hover:-translate-y-0.5 hover:border-[#f8f3e6] hover:text-white hover:shadow-[0_12px_30px_-4px_rgba(18,15,12,0.7)]",
+      "border border-[#bd8028]/50 bg-gradient-to-r from-[#0a0806] via-[#120e0b] to-[#1a1612] text-[#f7cd6d] font-bold shadow-lg shadow-[#0a0806]/50 hover:-translate-y-0.5 hover:border-[#fdf2cf] hover:text-white hover:shadow-[0_12px_30px_-4px_rgba(18,14,11,0.7)]",
     outline:
-      "border border-[#1a1612] bg-transparent text-[#14110d] font-bold hover:-translate-y-0.5 hover:border-[#c2a366] hover:bg-[#1a1612]/5",
+      "border border-[#1a1612] bg-transparent text-[#14110d] font-bold hover:-translate-y-0.5 hover:border-[#bd8028] hover:bg-[#1a1612]/5",
     outlineGold:
-      "border border-[#c2a366]/80 bg-[#c2a366]/10 text-[#f8f3e6] font-bold hover:-translate-y-0.5 hover:border-[#fdf8d4] hover:bg-[#c2a366]/20 hover:text-white",
+      "border border-[#bd8028]/80 bg-[#bd8028]/10 text-[#f7cd6d] font-bold hover:-translate-y-0.5 hover:border-[#fdf2cf] hover:bg-[#bd8028]/20 hover:text-white",
     light:
-      "border border-[#ebe4d8] bg-[#fdfbf7] text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:bg-white hover:border-[#c2a366]",
+      "border border-[#ebe4d8] bg-[#fdfbf7] text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:bg-white hover:border-[#bd8028]",
     white:
-      "border border-[#ebe4d8] bg-white text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:border-[#c2a366] hover:text-[#080502]",
+      "border border-[#ebe4d8] bg-white text-[#14110d] font-bold shadow-xs hover:-translate-y-0.5 hover:border-[#bd8028] hover:text-[#0a0806]",
   }[variant];
 
   const classes =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#c2a366] select-none text-center cursor-pointer " +
+    "inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#bd8028] select-none text-center cursor-pointer " +
     sizeClasses +
     " " +
     variantClasses +

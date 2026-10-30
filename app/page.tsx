@@ -19,51 +19,50 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  Briefcase,
-  Landmark,
-  BookOpen,
-  Zap,
   HeartHandshake,
   FileText,
-  Users,
+  Activity,
+  Gavel,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Professional Information — Guimarães & Santiago Advogados
-const CLIENT_NAME = "Guimarães & Santiago Advogados";
-const BRAND_LABEL = "Anna Luiza Guimarães Advogados";
-const LAWYERS_NAMES = "Dra. Anna Luiza Guimarães & Dr. Vitor Santiago";
-const LAWYER_PRIMARY = "Dra. Anna Luiza Guimarães";
-const LAWYER_PARTNER = "Dr. Vitor Santiago";
-const LAWYER_TITLE = "Advocacia Especializada · Atendimento Presencial em Salinas - MG & On-line em Todo o País";
-const WHATSAPP_NUMBER = "5538999587416";
-const PHONE_DISPLAY = "(38) 99958-7416";
-const EMAIL_CONTACT = "contato@guimaraessantiago.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/guimaraes.santiagoadv/";
-const INSTAGRAM_HANDLE = "@guimaraes.santiagoadv";
+// Client & Professional Information — Adv. Laura Melo Lopes
+const CLIENT_NAME = "Adv. Laura Melo Lopes";
+const BRAND_LABEL = "Laura Melo Lopes — Advocacia & Consultoria Jurídica";
+const LAWYER_NAME = "Dra. Laura Melo Lopes";
+const LAWYER_OAB = "OAB/MG 248.197";
+const LAWYER_ROLE = "Advocacia & Consultoria Jurídica";
+const LAWYER_TITLE = "Previdenciário · Médico · Criminal · Família e Sucessões · OAB/MG 248.197";
+const WHATSAPP_NUMBER = "5535998763350";
+const PHONE_DISPLAY = "(35) 99876-3350";
+const EMAIL_CONTACT = "contato@lauramelolopes.adv.br";
+const INSTAGRAM_URL = "https://www.instagram.com/adv.lauramelolopes/";
+const INSTAGRAM_HANDLE = "@adv.lauramelolopes";
+const BIOSITE_URL = "https://bio.site/adv.lauramelolopes";
 
-const ADDRESS_SALINAS = "Av. João Pena Sobrinho, 115 - Centro, Salinas - MG, 39560-000";
+const ADDRESS_CARMO = "Rua Monsenhor Mário, 405 - Carmo do Rio Claro, MG, 37150-000";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Guimar%C3%A3es+%26+Santiago+Advogados%0ASalinas+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Laura+Melo+Lopes+%E2%80%94+Advogada%0ACarmo+do+Rio+Claro+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+Jo%C3%A3o+Pena+Sobrinho,+115+-+Centro,+Salinas+-+MG,+39560-000";
+  "https://www.google.com/maps/search/?api=1&query=Rua+Monsenhor+M%C3%A1rio%2C+405+-+Carmo+do+Rio+Claro%2C+MG%2C+37150-000";
 
 // Official assets from public folder
 const LOGO_SRC = "/logo.png";
 const LOGO_HORIZONTAL_SRC = "/logo-horizontal.png";
 const LOGO_WHITE_SRC = "/logo-white.png";
 const EMBLEM_SRC = "/emblem.png";
-const FOTO_HERO_SRC = "/dra-anna-luiza.jpg?v=gs2";
-const FOTO_ESCRITORIO_SRC = "/escritorio-salinas.jpg?v=gs2";
+const FOTO_HERO_SRC = "/dra-laura.jpg?v=lml2";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá! Gostaria de agendar uma consulta jurídica com o escritório Guimarães & Santiago Advogados.";
+    "Olá, Dra. Laura! Gostaria de agendar uma consulta jurídica especializada.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -160,130 +159,130 @@ interface PracticeArea {
 
 const practiceAreas: PracticeArea[] = [
   {
-    id: "inventarios-sucessoes",
-    title: "Inventários, Partilhas & Sucessões",
-    category: "Inventário Judicial e Extrajudicial · Desbloqueio de Bens · Planejamento Sucessório · Herança",
-    icon: Scale,
-    tag: "Alta Celeridade · Desbloqueio Patrimonial · Resolução",
+    id: "direito-previdenciario",
+    title: "Direito Previdenciário & Benefícios do INSS",
+    category: "Aposentadorias · Auxílio-Doença · BPC/LOAS · Pensão por Morte · Planejamento Previdenciário",
+    icon: ShieldCheck,
+    tag: "Segurança Financeira · Planejamento · Concessão de Benefícios",
     summary:
-      "Especialistas em resolver inventários complexos e travados há anos em tempo recorde, com segurança documental tanto em cartório quanto pela via judicial.",
+      "Conquista e restabelecimento de benefícios do INSS pela via administrativa ou judicial, com cálculo prévio detalhado para garantir o melhor valor de benefício.",
     details:
-      "Inventários paralisados causam desgastes familiares e desvalorização patrimonial. A Dra. Anna Luiza Guimarães é amplamente reconhecida pela resolutividade surpreendente — como no caso comprovado por cliente em que concluiu em 5 meses um processo que se arrastava há 16 anos. Atuamos com extrema técnica na partilha amigável ou contenciosa, minutas notariais em cartório, apuração de haveres, levantamento de alvarás e planejamento sucessório patrimonial.",
+      "A Dra. Laura Melo Lopes atua de forma estratégica em todas as fases perante a Previdência Social. Realizamos o planejamento previdenciário minucioso para identificar o melhor momento e a regra de transição mais vantajosa, além de ações judiciais ágeis contra indeferimentos indevidos do INSS em auxílio por incapacidade temporária (auxílio-doença), aposentadoria por invalidez, aposentadoria especial, pensão por morte, salário-maternidade e BPC/LOAS para idosos e pessoas com deficiência.",
     topics: [
-      "Inventário Extrajudicial em Cartório de Notas rápido e sem litígio",
-      "Inventário Judicial e resolução de processos antigos ou paralisados",
-      "Alvarás judiciais para levantamento de valores, contas bancárias e veículos",
-      "Partilha de bens móveis, imóveis rurais e urbanos e participações societárias",
-      "Planejamento Sucessório para proteção do patrimônio familiar e economia tributária (ITCMD)",
-      "Ações de sonegados, anulação de testamento e destituição de inventariante",
+      "Aposentadoria por Idade, Tempo de Contribuição, Especial (insalubridade) e Rural",
+      "Auxílio por Incapacidade Temporária (auxílio-doença) e Aposentadoria por Invalidez",
+      "BPC/LOAS para idosos em vulnerabilidade e pessoas com deficiência",
+      "Pensão por morte urbana e rural e auxílio-reclusão",
+      "Planejamento Previdenciário completo com projeção de renda futura",
+      "Revisões judiciais de benefícios e correção de tempo de serviço no CNIS",
     ],
     whatsAppText:
-      "Olá, Dra. Anna Luiza! Gostaria de uma consultoria especializada em Inventário / Partilha de Bens.",
+      "Olá, Dra. Laura! Gostaria de uma consultoria especializada em Direito Previdenciário / Benefício do INSS.",
   },
   {
-    id: "direito-civil-contratos",
-    title: "Direito Civil & Contratos Estratégicos",
-    category: "Contratos · Ações Indenizatórias · Responsabilidade Civil · Recuperação de Crédito",
-    icon: FileText,
-    tag: "Segurança Jurídica · Prevenção · Proteção de Direitos",
+    id: "direito-medico-saude",
+    title: "Direito Médico & Direito da Saúde",
+    category: "Medicamentos de Alto Custo · Cirurgias e Tratamentos · Negativas de Planos de Saúde e SUS",
+    icon: Activity,
+    tag: "Direito à Vida · Tutela de Urgência (Liminares) · Firmeza Técnica",
     summary:
-      "Assessoria jurídica consultiva e contenciosa para proteger seus negócios, indenizações por danos morais e materiais e elaboração de contratos robustos.",
+      "Medidas jurídicas rápidas e pedidos de liminar para fornecimento imediato de medicamentos de alto custo, cirurgias urgentes e tratamentos negados pelo SUS ou convênios.",
     details:
-      "Sob a liderança do Dr. Vitor Santiago e da Dra. Anna Luiza Guimarães, conduzimos disputas cíveis com apurada estratégia processual e clareza informativa. Atuamos na redação e revisão minuciosa de instrumentos contratuais, notificações premonitórias, execução de títulos de crédito, recuperação de haveres e reparações integrais por ilícitos civis ou descumprimento contratual.",
+      "A saúde e a vida não podem esperar pela burocracia. Quando operadoras de planos de saúde ou o poder público negam cobertura a procedimentos indispensáveis, tratamentos oncológicos, exames de alta complexidade ou medicamentos de alto custo não padronizados, a Dra. Laura Melo Lopes ajuíza medidas de urgência com pedidos liminares para compelir a liberação rápida. Atuamos também em casos de erro médico e reparação integral por danos à saúde do paciente.",
     topics: [
-      "Elaboração, análise de riscos e blindagem de contratos civis e comerciais",
-      "Ações de indenização por perdas e danos, danos morais e lucros cessantes",
-      "Execução de dívidas, notas promissórias, cheques e recuperação de crédito",
-      "Ações rescisórias e revisionais de cláusulas abusivas em contratos",
-      "Notificações extrajudiciais estratégicas com efeito probatório incontestável",
-      "Defesa dos direitos do consumidor em vícios de produtos e fraudes bancárias",
+      "Ações com pedido de liminar para fornecimento de medicamentos de alto custo pelo SUS ou plano",
+      "Cobertura obrigatória para cirurgias de urgência, próteses, órteses e internações em UTI",
+      "Terapias especiais e contínuas (tratamentos oncológicos, TEA, terapias multidisciplinares)",
+      "Ações contra reajustes abusivos e cancelamentos unilaterais de planos de saúde",
+      "Responsabilidade civil médica, erro de diagnóstico e falhas na prestação de serviços hospitalares",
+      "Consultoria jurídica preventiva para clínicas e profissionais da área da saúde",
     ],
     whatsAppText:
-      "Olá, Dr. Vitor e Dra. Anna! Gostaria de consultar sobre uma demanda de Direito Civil / Contratos.",
+      "Olá, Dra. Laura! Preciso de orientação urgente sobre negativa de plano de saúde / medicamento / tratamento.",
   },
   {
-    id: "direito-familia",
-    title: "Direito de Família & Proteção de Vínculos",
-    category: "Divórcios · Partilha de Bens · Pensão Alimentícia · Guarda e Convivência",
+    id: "direito-criminal",
+    title: "Direito Criminal & Penal Estratégico",
+    category: "Defesa Técnica · Audiências de Custódia · Flagrantes · Tribunal do Júri · Inquéritos Policiais",
+    icon: Gavel,
+    tag: "Garantias Fundamentais · Prontidão · Defesa Combativa",
+    summary:
+      "Atuação técnica e combativa na defesa da liberdade e do devido processo legal, desde a prisão em flagrante e inquérito até recursos em tribunais superiores.",
+    details:
+      "Em matéria criminal, cada minuto conta para a garantia da ampla defesa e integridade do cidadão. A Dra. Laura Melo Lopes atua com firmeza e preparo técnico em acompanhamento de flagrantes, requerimentos de liberdade provisória e revogação de prisões preventivas, audiências de custódia, defesas prévias, memoriais, plenário do Tribunal do Júri, bem como em habeas corpus perante o TJMG, STJ e STF.",
+    topics: [
+      "Acompanhamento em delegacias de polícia e autos de prisão em flagrante",
+      "Atuação em audiências de custódia e pedidos de revogação de prisão preventiva",
+      "Impetração de Habeas Corpus perante os Tribunais Estaduais e Superiores (STJ e STF)",
+      "Defesa integral em processos penais comuns, especiais e Tribunal do Júri",
+      "Consultoria jurídica criminal preventiva e defesa em crimes contra a pessoa e patrimônio",
+      "Execução penal: progressão de regime, livramento condicional e remição de pena",
+    ],
+    whatsAppText:
+      "Olá, Dra. Laura! Preciso de atendimento especializado em Direito Criminal / Defesa Penal.",
+  },
+  {
+    id: "direito-familia-sucessoes",
+    title: "Direito de Família & Sucessões",
+    category: "Inventários · Partilhas de Bens · Divórcios · Pensão Alimentícia · Guarda e Convivência",
     icon: HeartHandshake,
-    tag: "Atendimento Humanizado · Discrição Total · Equilíbrio",
+    tag: "Acolhimento Humano · Discrição Absoluta · Segurança Patrimonial",
     summary:
-      "Solução ética e humanizada para momentos delicados da vida familiar, assegurando os direitos patrimoniais e o bem-estar dos filhos com discrição absoluta.",
+      "Resolução equilibrada, ética e célere para questões familiares e sucessórias, resguardando o bem-estar dos filhos e o patrimônio da família.",
     details:
-      "Demandas familiares exigem sensibilidade sem abrir mão da firmeza técnica. Atuamos em divórcios consensuais (em cartório de forma célere) e litigiosos, garantindo partilhas justas de patrimônio, estipulação e revisão de pensão alimentícia com base no binômio necessidade-possibilidade, regulamentação de guarda compartilhada e acordos de convivência harmoniosos.",
+      "Momentos delicados exigem condução jurídica acolhedora, sensível e tecnicamente impecável. A Dra. Laura Melo Lopes atua na condução de inventários extrajudiciais em cartório (rápidos e sem atritos) e judiciais, partilha justa de patrimônio, divórcios consensuais e litigiosos, fixação e revisão de pensão alimentícia, guarda compartilhada e planejamento sucessório para evitar conflitos futuros entre herdeiros.",
     topics: [
-      "Divórcio Extrajudicial em cartório (rápido e discreto) e Divórcio Judicial litigioso",
-      "Ações de alimentos (fixação, revisão, exoneração e execução com pedido de prisão)",
+      "Inventário Extrajudicial em Cartório de Notas rápido e Inventário Judicial litigioso",
+      "Divórcio consensual e litigioso com partilha equilibrada de bens",
+      "Ações de alimentos (fixação, revisão, exoneração e execução)",
       "Guarda compartilhada, regulamentação de visitas e convivência familiar",
-      "Reconhecimento e dissolução de união estável com partilha justa de patrimônio",
-      "Pacto antenupcial, alteração de regime de bens no casamento e proteção de bens",
-      "Interdição judicial, curatela e amparo legal a pessoas vulneráveis",
+      "Reconhecimento e dissolução de união estável e pactos antenupciais",
+      "Planejamento sucessório, testamentos e doações com reserva de usufruto",
     ],
     whatsAppText:
-      "Olá! Gostaria de atendimento com sigilo sobre Direito de Família / Divórcio / Partilha.",
+      "Olá, Dra. Laura! Gostaria de consultar sobre Inventário / Família / Divórcio / Partilha.",
   },
   {
-    id: "direito-imobiliario",
-    title: "Direito Imobiliário & Regularização de Imóveis",
-    category: "Usucapião · Regularização Fundiária · Posse · Compra e Venda Segura · Escrituras",
-    icon: Landmark,
-    tag: "Segurança de Bens · Titulação Definitiva · Valorização",
+    id: "direito-civil-consultoria",
+    title: "Direito Civil & Consultoria Jurídica",
+    category: "Contratos · Reparação de Danos · Cobranças · Obrigações · Assessoria Preventiva",
+    icon: FileText,
+    tag: "Prevenção de Riscos · Clareza Contratual · Resguardo Patrimonial",
     summary:
-      "Regularização documental de propriedades urbanas e rurais em Salinas e região, usucapião, reintegração de posse e segurança em transações imobiliárias.",
+      "Elaboração de contratos seguros, ações de indenização por perdas e danos e consultoria jurídica preventiva para pessoas físicas e empreendedores.",
     details:
-      "Um imóvel sem escritura definitiva representa insegurança jurídica e desvalorização. Nosso escritório atua ativamente na condução de usucapião extrajudicial e judicial, retificação de áreas em cartório de registro de imóveis, defesa da posse, contratos seguros de compra e venda e assessoria completa para produtores rurais e proprietários urbanos no Norte de Minas.",
+      "Uma consultoria jurídica preventiva evita prejuízos que levam anos para serem reparados na justiça. A Dra. Laura Melo Lopes elabora e revisa instrumentos contratuais personalizados, atua em cobranças judiciais e extrajudiciais de créditos, reparações cíveis por descumprimento de acordos e orienta decisões estratégicas com transparência e clareza informativa em cada etapa.",
     topics: [
-      "Usucapião Judicial e Extrajudicial em cartório para obtenção da escritura definitiva",
-      "Regularização documental de fazendas, sítios, lotes e casas urbanas",
-      "Ações de reintegração e manutenção de posse contra turbações ou esbulhos",
-      "Auditoria jurídica (due diligence) para compra e venda segura de imóveis",
-      "Rescisão de compromissos de compra e venda e restituição de valores pagos",
-      "Desmembramento, unificação de matrículas e extinção de condomínio sobre bens",
+      "Elaboração, análise e revisão criteriosa de contratos civis e comerciais",
+      "Ações de indenização por danos morais, materiais e lucros cessantes",
+      "Ações de cobrança, execuções de títulos executivos (notas promissórias, cheques)",
+      "Rescisões contratuais e defesas em ações cíveis e de inadimplemento",
+      "Notificações extrajudiciais formais com forte peso probatório",
+      "Consultoria jurídica preventiva personalizada para proteção de direitos e bens",
     ],
     whatsAppText:
-      "Olá! Preciso de orientação sobre regularização de imóvel / usucapião / posse.",
-  },
-  {
-    id: "consultoria-empresarial",
-    title: "Assessoria Jurídica Empresarial & Agro",
-    category: "Prevenção de Passivos · Contratos Comerciais · Cobrança · Apoio ao Produtor Rural",
-    icon: Briefcase,
-    tag: "Gestão de Riscos · Eficiência · Parceria de Longo Prazo",
-    summary:
-      "Parceria jurídica contínua para empresas e produtores de Salinas e Norte de Minas, prevenindo litígios caros e garantindo sustentabilidade nos negócios.",
-    details:
-      "Conforme destacados por nossos clientes há mais de 4 anos, mantemos uma advocacia preventiva que gera previsibilidade financeira e segurança nas tomadas de decisão. Auxiliamos empreendedores na revisão de contratos de fornecimento, relações trabalhistas preventivas, cobranças amigáveis e judiciais de inadimplentes e estruturação de operações comerciais.",
-    topics: [
-      "Consultoria contínua para empresas, comércios locais e produtores rurais",
-      "Revisão e elaboração de contratos comerciais, parcerias e arrendamentos rurais",
-      "Cobrança extrajudicial e judicial estratégica de títulos vencidos e duplicatas",
-      "Diagnóstico preventivo para mitigação de passivos trabalhistas e cíveis",
-      "Representação combativa em audiências de conciliação e processos judiciais",
-      "Elaboração de acordos de sócios e resolução amigável de controvérsias societárias",
-    ],
-    whatsAppText:
-      "Olá! Gostaria de conhecer a consultoria jurídica para minha empresa / negócio.",
+      "Olá, Dra. Laura! Gostaria de consultar sobre Contratos / Direito Civil / Indenizações.",
   },
   {
     id: "resolucao-extrajudicial",
     title: "Resolução Extrajudicial & Mediação",
-    category: "Acordos Céleres · Menos Custos · Validade Jurídica Executiva · Agilidade",
+    category: "Acordos Rápidos · Menos Desgaste · Força Executiva Legal · Agilidade e Sigilo",
     icon: Zap,
-    tag: "Sem Demora · Economia Financeira · Eficácia Total",
+    tag: "Sem Demora · Economia de Custos · Resolução Pacífica",
     summary:
-      "Estratégia inteligente para solucionar conflitos sem a morosidade do Judiciário, por meio de acordos formais com força executiva e total sigilo.",
+      "Soluções inteligentes para resolver conflitos sem a morosidade do Judiciário, por meio de negociações amigáveis e acordos com plena validade jurídica.",
     details:
-      "Nem todo problema precisa esperar anos na Justiça para ser resolvido. Nossa equipe prioriza a via extrajudicial sempre que oportuno, negociando diretamente com a parte contrária para alcançar acordos equilibrados, rápidos e homologados com peso de título executivo judicial, poupando tempo, recursos e estresse para nossos clientes.",
+      "Nem todo problema precisa se arrastar por anos nos tribunais. Com postura diplomática e firmeza técnica, a Dra. Laura Melo Lopes conduz mesas de negociação e mediação entre as partes, construindo acordos justos com peso de título executivo, poupando tempo, custos financeiros e o desgaste emocional de um processo litigioso.",
     topics: [
-      "Mediação e condução de rodadas de negociação amigável entre partes",
-      "Redação de termos de confissão de dívida e compromissos com garantias reais",
-      "Homologação judicial rápida de acordos extrajudiciais",
-      "Solução célere de impasses sucessórios e societários antes do litígio",
-      "Procedimentos diretos perante Cartórios de Notas e Registros",
-      "Orientação estratégica com pareceres prévios sobre viabilidade e custos",
+      "Condução de negociações diretas e amigáveis entre partes com equilíbrio",
+      "Redação de termos de acordo, transações e confissões de dívida",
+      "Homologação judicial rápida de termos e acordos extrajudiciais",
+      "Resolução célere de pendências sucessórias e familiares sem litígio",
+      "Mediação preventiva de impasses contratuais e interpessoais",
+      "Orientação prévia e pareceres sobre riscos processuais e vantagens do consenso",
     ],
     whatsAppText:
-      "Olá! Gostaria de orientação para uma negociação extrajudicial amigável do meu caso.",
+      "Olá, Dra. Laura! Gostaria de orientação para um acordo extrajudicial do meu caso.",
   },
 ];
 
@@ -292,83 +291,96 @@ interface Review {
   badge: string;
   date: string;
   category:
-    | "Inventários & Agilidade"
-    | "Parceria de Longos Anos"
-    | "Atendimento Impecável & Clareza"
-    | "Competência & Qualidade";
+    | "Segurança & Clareza"
+    | "Domínio Técnico & Impecável"
+    | "Atendimento & Confiança"
+    | "Eficiência & Competência";
   content: string;
   ownerReply?: string;
 }
 
 const clientReviews: Review[] = [
   {
-    name: "Antonella Gomes Sarmento",
-    badge: "3 avaliações · 5 Estrelas · Google Maps",
-    date: "2 anos atrás",
-    category: "Inventários & Agilidade",
+    name: "Carolina Balestra Silva",
+    badge: "7 avaliações · 2 fotos · 5 Estrelas · Google Maps",
+    date: "6 meses atrás",
+    category: "Segurança & Clareza",
     content:
-      "Dra Ana resolveu um inventário que estava fazendo aniversário de 16 anos. Vários advogados não conseguiram concluir o processo. Ela conseguiu resolver em 5 meses. A mulher é boa e sabe o que faz , super competente. Virei fã.",
+      "Excelente profissional! Atenciosa, clara nas orientações e muito segura na condução do processo. Sempre disponível para esclarecer dúvidas e passa muita confiança em todas as etapas. Recomendo!",
     ownerReply:
-      "Muito obrigada pelo carinho e pelas palavras, Antonella! Destravar inventários que pareciam sem solução e devolver a tranquilidade patrimonial à família é a nossa maior missão! ⚖️🤝",
+      "Muito obrigada pelas palavras, Carolina, e pela confiança. Permaneço à disposição sempre que precisar. 🙏🏼⚖️",
   },
   {
-    name: "Felipe Lemes",
-    badge: "Local Guide · 16 avaliações · 3 fotos · 5 Estrelas",
-    date: "2 anos atrás",
-    category: "Parceria de Longos Anos",
-    content:
-      "Dr. Vitor é nosso Advogado a anos e presta um serviço de excelência. Se você precisar de um Advogado profissional, competente, que vai resolver o seu problema, sendo justo e esclarecendo suas dúvidas. Podem confiar",
-    ownerReply:
-      "Agradecemos muito pela confiança de longa data em nossa advocacia, Felipe! Atuar com ética, transparência e justiça sempre foi e sempre será o nosso maior compromisso!",
-  },
-  {
-    name: "Jonatas Roncolato",
-    badge: "8 avaliações · 4 fotos · 5 Estrelas · Google Maps",
-    date: "2 anos atrás",
-    category: "Parceria de Longos Anos",
-    content:
-      "Sou cliente a mais de 4 anos e sempre fui muito bem atendido com muita agilidade e competência! Indico seguramente o serviços dessa equipe! Trabalho impecável.🙏🏻",
-    ownerReply:
-      "Gratidão imensa pela parceria de mais de 4 anos, Jonatas! É uma satisfação honrosa prestar um serviço impecável para você!",
-  },
-  {
-    name: "Karenn Sarmento",
-    badge: "3 avaliações · 5 Estrelas · Google Maps",
-    date: "Editado · 2 anos atrás",
-    category: "Competência & Qualidade",
-    content:
-      "Advogados de qualidade: muito capacitados e compromissados em resolver os problemas. Clareza na explicação e pontuais nas demandas. Recomendo com tranquilidade.",
-    ownerReply:
-      "Muito obrigado pela avaliação, Karenn! A clareza nas informações e a pontualidade nas ações são premissas fundamentais de nossa atuação diária.",
-  },
-  {
-    name: "Andre Noga",
+    name: "Igor Lopes",
     badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 anos atrás",
-    category: "Competência & Qualidade",
+    date: "6 meses atrás",
+    category: "Domínio Técnico & Impecável",
     content:
-      "Excelente profissional, cumpre com o combinado, conclui todo trabalho com perfeição.",
+      "A Laura é uma profissional impecável. Além de dominar tecnicamente o que faz, traz uma segurança e uma clareza que fazem toda a diferença. Recomendo de olhos fechados para quem busca excelência e comprometimento.",
     ownerReply:
-      "Obrigado pelo reconhecimento e pela confiança depositada em nossa equipe, Andre!",
+      "Muito obrigada pelas palavras e pela confiança, Igor. É gratificante saber que meu trabalho transmite segurança e clareza. Sigo à disposição sempre que precisar. 🙏🏼⚖️",
   },
   {
-    name: "Lucimaire Scheuer",
+    name: "Maria Luiza Freire Andrade",
+    badge: "5 avaliações · 1 foto · 5 Estrelas · Google Maps",
+    date: "5 meses atrás",
+    category: "Atendimento & Confiança",
+    content:
+      "Profissional de extrema qualidade e que passa total confiança. Recomendo muito!",
+  },
+  {
+    name: "Gabriela Carielo",
     badge: "3 avaliações · 5 Estrelas · Google Maps",
-    date: "2 anos atrás",
-    category: "Atendimento Impecável & Clareza",
-    content:
-      "Agilidade, competência, confiança,clareza nas informações.Eu indico com certeza.",
+    date: "6 meses atrás",
+    category: "Eficiência & Competência",
+    content: "Ótima profissional e muito competente!",
     ownerReply:
-      "Ficamos imensamente honrados com o seu depoimento, Lucimaire! Conte sempre conosco!",
+      "Muito obrigada pela confiança, Gabriela. É um prazer poder atendê-la. Permaneço à disposição. 🙏🏼⚖️",
   },
   {
-    name: "Nathalia Cavalcante",
-    badge: "8 avaliações · 5 Estrelas · Google Maps",
-    date: "Editado · 6 anos atrás",
-    category: "Atendimento Impecável & Clareza",
-    content: "Ótima profissional. Competente e dedicada!",
+    name: "Stéfanie Sabrine Silva Santos",
+    badge: "Local Guide · 5 avaliações · 5 Estrelas · Google Maps",
+    date: "6 meses atrás",
+    category: "Atendimento & Confiança",
+    content: "Excelente profissional!",
+    ownerReply: "Muito obrigada pela confiança, Stéfanie⚖️😄",
+  },
+  {
+    name: "eduardo barros",
+    badge: "Local Guide · 13 avaliações · 17 fotos · 5 Estrelas",
+    date: "5 meses atrás",
+    category: "Eficiência & Competência",
+    content: "Otima advogada essa eu indico muito top",
+  },
+  {
+    name: "Bruno Melo",
+    badge: "5 avaliações · 1 foto · 5 Estrelas · Google Maps",
+    date: "6 meses atrás",
+    category: "Domínio Técnico & Impecável",
+    content: "Excelente serviço!",
     ownerReply:
-      "Obrigada Nathalia Cavalcante por confiar em nossos serviços! — Guimarães & Santiago Advogados",
+      "Obrigada pela confiança no meu trabalho, Bruno! 🙏🏼⚖️ Permaneço à disposição sempre que precisar. 🙏🏼⚖️",
+  },
+  {
+    name: "Lucas Mendes",
+    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    date: "5 meses atrás",
+    category: "Segurança & Clareza",
+    content: "Excelente profissional.",
+  },
+  {
+    name: "Tulio Avelino",
+    badge: "3 avaliações · 5 Estrelas · Google Maps",
+    date: "5 meses atrás",
+    category: "Eficiência & Competência",
+    content: "Excelente profissional",
+  },
+  {
+    name: "Marilda Elias",
+    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    date: "6 meses atrás",
+    category: "Domínio Técnico & Impecável",
+    content: "Eficiência e profissionalismo.",
   },
 ];
 
@@ -380,39 +392,45 @@ interface FaqItem {
 const faqList: FaqItem[] = [
   {
     question:
-      "Como funciona a consulta jurídica com a Dra. Anna Luiza Guimarães e o Dr. Vitor Santiago?",
+      "Como funciona a consulta jurídica com a Dra. Laura Melo Lopes?",
     answer:
-      "Nosso atendimento é planejado para oferecer acolhimento, sigilo e diagnóstico imediato. Você pode ser atendido presencialmente em nosso moderno escritório no Centro de Salinas - MG (Av. João Pena Sobrinho, 115) ou de forma 100% on-line via WhatsApp e videoconferência para qualquer cidade do Brasil. Na reunião, analisamos documentos, tiramos todas as dúvidas em linguagem acessível e traçamos o plano de ação mais vantajoso e célere para o seu caso.",
+      "O atendimento é estruturado para oferecer acolhimento, escuta atenta, sigilo absoluto e diagnóstico técnico preciso. Você pode ser atendido presencialmente em nosso escritório em Carmo do Rio Claro - MG (Rua Monsenhor Mário, 405) ou de forma 100% on-line via WhatsApp e videoconferência em qualquer cidade de Minas Gerais e do Brasil. Analisamos documentos, esclarecemos todas as dúvidas em linguagem acessível e traçamos o plano de ação mais seguro e eficiente para o seu direito.",
   },
   {
     question:
-      "Por que o escritório é referência comprovada na resolução ágil de inventários?",
+      "Como o escritório atua na conquista e revisão de benefícios do INSS (Previdenciário)?",
     answer:
-      "Muitos inventários ficam travados por décadas devido a divergências entre herdeiros, falhas documentais ou falta de iniciativa processual. Nossa equipe atua com metodologia focada na celeridade — seja por meio de acordos em cartório (inventário extrajudicial) ou mediante intervenção técnica cirúrgica no processo judicial. Um de nossos casos públicos mais emblemáticos envolveu a conclusão em apenas 5 meses de um inventário que se arrastava há 16 anos.",
+      "Atuamos desde o planejamento previdenciário prévio — simulando o melhor momento para se aposentar e a regra mais vantajosa — até o requerimento administrativo e o ajuizamento de ações judiciais contra o INSS. Seja para aposentadorias (tempo de contribuição, idade, especial, rural), auxílio-doença, BPC/LOAS ou pensão por morte, conduzimos o processo com técnica apurada e combate contra indeferimentos indevidos.",
   },
   {
     question:
-      "Quais são as principais áreas de atuação de Guimarães & Santiago Advogados?",
+      "O que fazer caso um plano de saúde ou o SUS negue medicamentos, cirurgias ou tratamentos?",
     answer:
-      "Atuamos com sólida especialização em Direito Civil e Patrimonial: Inventários judiciais e extrajudiciais, Partilhas de bens, Direito de Família (divórcios, pensão, guarda), Direito Imobiliário (usucapião, regularização fundiária e posse), Contratos Comerciais, Indenizações e Consultoria Jurídica Preventiva para empresas e produtores rurais.",
+      "Negativas de cobertura para tratamentos essenciais, remédios de alto custo, internações em UTI ou procedimentos cirúrgicos prescritos pelo médico assistente são frequentemente ilegais e abusivas. Nesses casos, a Dra. Laura Melo Lopes ingressa com ações judiciais com pedido de tutela de urgência (liminar), buscando que o juiz determine o fornecimento imediato em poucos dias ou horas.",
   },
   {
     question:
-      "Moro fora de Salinas ou em outro estado. Posso ter meu processo conduzido pelo escritório?",
+      "Como é a atuação em Direito Criminal e audiências de custódia?",
     answer:
-      "Perfeitamente! Atualmente, quase a totalidade dos processos judiciais no Brasil tramita pelo processo eletrônico (PJe, Projudi, E-Proc). Realizamos reuniões virtuais seguras, coleta de assinaturas com validade jurídica pelo celular e protocolamos petições em qualquer Tribunal de Minas Gerais ou do Brasil, com a mesma proximidade, transparência e presteza do atendimento presencial.",
+      "Em matéria penal, atuamos com prontidão e defesa combativa das garantias constitucionais. Prestamos assistência em delegacias de polícia, autos de prisão em flagrante, pedidos de liberdade provisória, audiências de custódia, defesas em processos judiciais, Tribunal do Júri e recursos nos Tribunais Superiores (STJ e STF), assegurando que o devido processo legal seja rigorosamente respeitado.",
+  },
+  {
+    question:
+      "Moro fora de Carmo do Rio Claro ou em outro estado. Posso ser atendido pelo escritório?",
+    answer:
+      "Com certeza! Quase a totalidade dos processos judiciais e procedimentos no Brasil tramita pelo processo eletrônico (PJe, Projudi, E-Proc). Realizamos reuniões virtuais seguras, coleta de assinaturas digitais com validade legal pelo celular e peticionamos em qualquer tribunal de Minas Gerais ou do país, mantendo o mesmo padrão de clareza, transparência e proximidade.",
   },
   {
     question:
       "Como sou informado sobre o andamento e as fases do meu processo?",
     answer:
-      "Nossos clientes ressaltam frequentemente no Google a 'clareza na explicação, agilidade e pontualidade'. Você recebe relatórios periódicos em linguagem descomplicada a cada movimentação relevante, com canal direto no WhatsApp para esclarecer dúvidas sem precisar decifrar termos técnicos complicados.",
+      "A clareza e a transparência são os maiores diferenciais destacados por nossos clientes nas avaliações do Google. Você recebe atualizações a cada movimentação relevante em linguagem descomplicada, sem juridiquês indecifrável, e conta com canal direto no WhatsApp para tirar dúvidas sempre que precisar.",
   },
   {
     question:
-      "Como agendar um horário com os advogados do escritório?",
+      "Como agendar um horário com a Dra. Laura Melo Lopes?",
     answer:
-      "O agendamento é rápido e prático: basta clicar em qualquer botão de WhatsApp nesta página ou enviar uma mensagem para o número (38) 99958-7416. Nossa equipe confirmará o dia e horário que melhor se adapta à sua disponibilidade presencial ou virtual.",
+      "O agendamento é imediato e prático: basta clicar em qualquer botão de WhatsApp nesta página ou enviar uma mensagem para o número (35) 99876-3350. Nossa equipe responderá prontamente para agendar o melhor horário presencial ou virtual para o seu caso.",
   },
 ];
 
@@ -436,10 +454,10 @@ export default function Home() {
 
   const reviewCategories = [
     "Todas",
-    "Inventários & Agilidade",
-    "Parceria de Longos Anos",
-    "Atendimento Impecável & Clareza",
-    "Competência & Qualidade",
+    "Segurança & Clareza",
+    "Domínio Técnico & Impecável",
+    "Atendimento & Confiança",
+    "Eficiência & Competência",
   ];
 
   const filteredReviews =
@@ -449,19 +467,19 @@ export default function Home() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <main className="min-h-screen bg-[#fdfbf7] text-[#14110d] selection:bg-[#1a1612] selection:text-[#f8f3e6]">
+      <main className="min-h-screen bg-[#fdfbf7] text-[#14110d] selection:bg-[#1a1612] selection:text-[#f7cd6d]">
         {/* ======================================================== */}
         {/* TOP ANNOUNCEMENT BAR (LUXURY OBSIDIAN & METALLIC GOLD)   */}
         {/* ======================================================== */}
-        <div className="border-b border-[#241f1a] bg-[#080502] py-2 text-xs text-[#ebe4d8]">
+        <div className="border-b border-[#241e18] bg-[#0a0806] py-2 text-xs text-[#ebe4d8]">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 font-medium">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#c2a366] opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#f8f3e6]" />
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#bd8028] opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-[#f7cd6d]" />
               </span>
-              <span className="text-[11px] sm:text-xs text-[#f8f3e6] font-semibold tracking-wide">
-                GUIMARÃES & SANTIAGO ADVOGADOS · SALINAS - MG · ATENDIMENTO EM TODO O BRASIL ⚖️
+              <span className="text-[11px] sm:text-xs text-[#f7cd6d] font-semibold tracking-wide">
+                ADV. LAURA MELO LOPES · CARMO DO RIO CLARO - MG · OAB/MG 248.197 ⚖️
               </span>
             </div>
 
@@ -470,19 +488,19 @@ export default function Home() {
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f8f3e6]"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f7cd6d]"
               >
-                <Star size={12} className="fill-[#d4af37] text-[#d4af37]" />
-                <span className="font-bold text-[#f8f3e6]">5,0 ★</span> (11 avaliações no Google · Salinas - MG)
+                <Star size={12} className="fill-[#dba54c] text-[#dba54c]" />
+                <span className="font-bold text-[#f7cd6d]">5,0 ★</span> (10 avaliações no Google · Carmo do Rio Claro - MG)
               </a>
-              <span className="hidden h-3 w-px bg-[#241f1a] sm:inline-block" />
+              <span className="hidden h-3 w-px bg-[#241e18] sm:inline-block" />
               <a
-                href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com Guimarães & Santiago Advogados.")}
+                href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de agendar uma consulta jurídica.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden items-center gap-1.5 font-semibold text-[#f8f3e6] transition-colors hover:text-white sm:inline-flex"
+                className="hidden items-center gap-1.5 font-semibold text-[#f7cd6d] transition-colors hover:text-white sm:inline-flex"
               >
-                <WhatsAppIcon size={13} className="text-[#c2a366]" />
+                <WhatsAppIcon size={13} className="text-[#bd8028]" />
                 {PHONE_DISPLAY}
               </a>
             </div>
@@ -490,28 +508,32 @@ export default function Home() {
         </div>
 
         {/* ======================================================== */}
-        {/* STICKY HEADER / NAVBAR (GUIMARÃES & SANTIAGO ADVOGADOS)  */}
+        {/* STICKY HEADER / NAVBAR (ADV. LAURA MELO LOPES)           */}
         {/* ======================================================== */}
         <header
           className={`sticky top-0 z-40 w-full transition-all duration-300 ${
             scrolled
-              ? "border-b border-[#ebe4d8] bg-white/95 py-2.5 shadow-md backdrop-blur-md"
-              : "border-b border-[#ebe4d8]/80 bg-[#fdfbf7]/95 py-3 backdrop-blur-sm"
+              ? "border-b border-[#ebe4d8] bg-white/95 py-1.5 shadow-md backdrop-blur-md"
+              : "border-b border-[#ebe4d8]/80 bg-[#fdfbf7]/95 py-2 sm:py-2.5 backdrop-blur-sm"
           }`}
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-            {/* Left: Official Brand Logo */}
+            {/* Left: Official Brand Logo (Equilibrado e Sofisticado) */}
             <a
               href="#"
-              className="flex shrink-0 items-center transition-opacity hover:opacity-90"
-              aria-label="Guimarães & Santiago Advogados - Início"
+              className="flex shrink-0 items-center transition-transform hover:scale-102"
+              aria-label="Adv. Laura Melo Lopes - Início"
             >
               <Image
                 src={LOGO_HORIZONTAL_SRC}
-                alt="Guimarães & Santiago Advogados — Anna Luiza Guimarães"
-                width={300}
-                height={70}
-                className="h-[46px] sm:h-[52px] md:h-[60px] w-auto object-contain drop-shadow-xs"
+                alt="Adv. Laura Melo Lopes — Advocacia & Consultoria Jurídica"
+                width={320}
+                height={90}
+                className={`w-auto object-contain drop-shadow-xs transition-all duration-300 ${
+                  scrolled
+                    ? "h-[48px] sm:h-[54px] md:h-[60px] lg:h-[66px]"
+                    : "h-[58px] sm:h-[66px] md:h-[74px] lg:h-[82px]"
+                }`}
                 priority
                 unoptimized
               />
@@ -523,7 +545,7 @@ export default function Home() {
                 Áreas de Atuação
               </a>
               <a href="#sobre" className="nav-link">
-                Sobre a Equipe
+                Sobre a Advogada
               </a>
               <a href="#diferenciais" className="nav-link">
                 Diferenciais
@@ -532,7 +554,7 @@ export default function Home() {
                 Avaliações
               </a>
               <a href="#sede" className="nav-link">
-                Sede em Salinas
+                Escritório
               </a>
               <a href="#duvidas" className="nav-link">
                 Dúvidas
@@ -545,13 +567,13 @@ export default function Home() {
             {/* Right Action: WhatsApp CTA (Metallic Gold) */}
             <div className="flex shrink-0 items-center gap-2.5">
               <GlowingButton
-                href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta jurídica especializada.")}
+                href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de agendar uma consulta jurídica especializada.")}
                 target="_blank"
                 variant="gold"
                 size="sm"
                 className="hidden sm:inline-flex whitespace-nowrap shrink-0 shadow-md"
               >
-                <WhatsAppIcon size={15} className="text-[#080502]" />
+                <WhatsAppIcon size={15} className="text-[#0a0806]" />
                 <span className="hidden xl:inline">Falar no WhatsApp</span>
                 <span className="xl:hidden">WhatsApp</span>
               </GlowingButton>
@@ -560,7 +582,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#ebe4d8] bg-white text-[#14110d] transition-colors hover:border-[#c2a366] hover:text-[#080502] lg:hidden cursor-pointer shrink-0"
+                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#ebe4d8] bg-white text-[#14110d] transition-colors hover:border-[#bd8028] hover:text-[#0a0806] lg:hidden cursor-pointer shrink-0"
                 aria-label="Abrir menu principal"
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -578,13 +600,13 @@ export default function Home() {
                 className="border-b border-[#ebe4d8] bg-white px-5 py-6 lg:hidden shadow-xl"
               >
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3 pb-3 border-b border-[#ebe4d8]">
+                  <div className="flex items-center justify-center py-2 pb-4 border-b border-[#ebe4d8]">
                     <Image
                       src={LOGO_SRC}
-                      alt="Guimarães & Santiago Advogados"
-                      width={240}
-                      height={55}
-                      className="h-[46px] w-auto object-contain"
+                      alt="Adv. Laura Melo Lopes"
+                      width={280}
+                      height={75}
+                      className="h-[58px] sm:h-[66px] w-auto object-contain"
                       priority
                       unoptimized
                     />
@@ -592,63 +614,63 @@ export default function Home() {
                   <a
                     href="#servicos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
-                    <span>Áreas de Atuação (Civil, Inventários, Família, Imóveis)</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <span>Áreas de Atuação (Previdenciário, Médico, Criminal, Família)</span>
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
                   <a
                     href="#sobre"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
-                    <span>Sobre os Advogados (Dra. Anna & Dr. Vitor)</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <span>Sobre a Dra. Laura Melo Lopes</span>
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
                   <a
                     href="#diferenciais"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
-                    <span>Pilares & Celeridade Comprovada</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <span>Pilares & Excelência Comprovada</span>
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
                   <a
                     href="#depoimentos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
-                    <span>Avaliações no Google (11 Avaliações · 5,0 ★)</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <span>Avaliações no Google (10 Avaliações · 5,0 ★)</span>
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
                   <a
                     href="#sede"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
-                    <span>Escritório em Salinas - MG</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <span>Escritório em Carmo do Rio Claro - MG</span>
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
                   <a
                     href="#duvidas"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
                     <span>Perguntas Frequentes</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
                   <a
                     href="#contato"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c2a366]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#bd8028]"
                   >
                     <span>Contato & Localização</span>
-                    <ArrowRight size={14} className="text-[#c2a366]" />
+                    <ArrowRight size={14} className="text-[#bd8028]" />
                   </a>
 
                   <div className="pt-2">
                     <GlowingButton
-                      href={getWhatsAppUrl("Olá! Gostaria de conversar com a equipe de Guimarães & Santiago Advogados pelo WhatsApp.")}
+                      href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de conversar com você pelo WhatsApp.")}
                       target="_blank"
                       variant="gold"
                       size="md"
@@ -665,12 +687,12 @@ export default function Home() {
         </header>
 
         {/* ======================================================== */}
-        {/* DOBRA 1: HERO SECTION — COM DRA. ANNA LUIZA GUIMARÃES    */}
+        {/* DOBRA 1: HERO SECTION — COM DRA. LAURA MELO LOPES        */}
         {/* ======================================================== */}
         <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-26 bg-[#fdfbf7]">
           {/* Subtle Royal Metallic Gold Radial Glow */}
-          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[950px] -translate-x-1/2 rounded-full bg-radial from-[#f8f3e6]/50 via-[#c2a366]/12 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#c2a366]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[950px] -translate-x-1/2 rounded-full bg-radial from-[#fdf2cf]/50 via-[#bd8028]/12 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#bd8028]/15 blur-3xl" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
@@ -679,55 +701,55 @@ export default function Home() {
                 {/* Eyebrow Badge */}
                 <div className="mb-5">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#ebe4d8] bg-white px-4 py-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-[#1a1612] shadow-xs">
-                    <span className="size-1.5 rounded-full bg-[#c2a366] animate-pulse" />
-                    GUIMARÃES & SANTIAGO ADVOGADOS · SALINAS - MG · 5,0 ★ NO GOOGLE
+                    <span className="size-1.5 rounded-full bg-[#bd8028] animate-pulse" />
+                    ADV. LAURA MELO LOPES · CARMO DO RIO CLARO - MG · 5,0 ★ NO GOOGLE
                   </span>
                 </div>
 
                 {/* H1 Headline */}
                 <h1 className="font-serif text-3xl leading-[1.16] font-bold tracking-tight text-[#14110d] sm:text-5xl lg:text-[3.25rem]">
-                  Advocacia de Alta Performance, Clareza e Resolutividade Comprovada em{" "}
-                  <span className="bg-gradient-to-r from-[#835c32] via-[#c2a366] to-[#e2c98d] bg-clip-text text-transparent">
-                    Salinas e em Todo o Brasil.
+                  Em Defesa do Seu Direito: Excelência Jurídica, Clareza e Firmeza em{" "}
+                  <span className="bg-gradient-to-r from-[#8c4f08] via-[#bd8028] to-[#dba54c] bg-clip-text text-transparent">
+                    Carmo do Rio Claro e em Todo o Brasil.
                   </span>
                 </h1>
 
                 {/* Subtitle / Value Proposition */}
                 <p className="mt-6 text-base leading-relaxed text-[#5c554b] sm:text-lg lg:max-w-xl">
-                  Sob a liderança da <strong className="font-semibold text-[#14110d]">{LAWYER_PRIMARY}</strong> e do <strong className="font-semibold text-[#14110d]">{LAWYER_PARTNER}</strong>, desatamos nós burocráticos de anos com agilidade, técnica apurada e ética intransigente em <strong className="text-[#835c32]">Direito Civil, Inventários, Família, Contratos e Regularização de Imóveis</strong>.
+                  Sob a liderança da <strong className="font-semibold text-[#14110d]">{LAWYER_NAME}</strong> (<strong className="text-[#8c4f08]">{LAWYER_OAB}</strong>), unimos rigor técnico, sensibilidade e resolutividade comprovada em <strong className="text-[#8c4f08]">Direito Previdenciário (INSS), Direito Médico e da Saúde, Defesa Criminal, Família e Sucessões</strong>.
                 </p>
 
                 {/* Quick Highlights Pills */}
                 <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c2a366]" />
-                    Inventários & Sucessões (Resolução Rápida)
+                    <CheckCircle2 size={13} className="text-[#bd8028]" />
+                    Previdenciário & Benefícios do INSS
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c2a366]" />
-                    Direito Civil & Contratos Estratégicos
+                    <CheckCircle2 size={13} className="text-[#bd8028]" />
+                    Direito Médico & Ações contra Planos/SUS
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c2a366]" />
-                    Família & Divórcios com Discrição
+                    <CheckCircle2 size={13} className="text-[#bd8028]" />
+                    Defesa Criminal & Custódia Estratégica
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#c2a366]" />
-                    Regularização Imobiliária & Usucapião
+                    <CheckCircle2 size={13} className="text-[#bd8028]" />
+                    Família, Divórcios & Inventários
                   </span>
                 </div>
 
                 {/* Action CTAs */}
                 <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com a equipe de Guimarães & Santiago Advogados.")}
+                    href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de agendar uma consulta com você.")}
                     target="_blank"
                     variant="gold"
                     size="lg"
                     className="w-full sm:w-auto"
                   >
                     <WhatsAppIcon size={18} />
-                    <span>Falar com os Advogados no WhatsApp</span>
+                    <span>Falar com a Advogada no WhatsApp</span>
                   </GlowingButton>
 
                   <GlowingButton
@@ -744,7 +766,7 @@ export default function Home() {
                 {/* Social Proof Strip underneath CTAs */}
                 <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#ebe4d8] pt-6 sm:gap-6">
                   <div className="flex items-center gap-2">
-                    <div className="flex text-[#d4af37]">
+                    <div className="flex text-[#dba54c]">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} size={15} className="fill-current" />
                       ))}
@@ -753,28 +775,28 @@ export default function Home() {
                       5,0 no Google
                     </span>
                     <span className="text-xs text-[#5c554b]">
-                      (11 avaliações 5 estrelas verificadas · Salinas - MG)
+                      (10 avaliações 5 estrelas verificadas · Carmo do Rio Claro - MG)
                     </span>
                   </div>
 
                   <span className="hidden h-3.5 w-px bg-[#ebe4d8] sm:inline-block" />
 
                   <div className="flex items-center gap-2 text-xs text-[#5c554b]">
-                    <Shield size={14} className="text-[#c2a366]" />
-                    <span>Sede na Av. João Pena Sobrinho, 115 - Centro · Salinas - MG</span>
+                    <Shield size={14} className="text-[#bd8028]" />
+                    <span>Sede na Rua Monsenhor Mário, 405 · Carmo do Rio Claro - MG</span>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Official Portrait of Dra. Anna Luiza Guimarães */}
+              {/* Right Column: Official Portrait of Dra. Laura Melo Lopes */}
               <div className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none">
                   {/* Outer Luxury Metallic Border Frame */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#c2a366]/40 bg-white p-2 shadow-2xl shadow-[#1a1612]/15">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#bd8028]/40 bg-white p-2 shadow-2xl shadow-[#1a1612]/15">
                     <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f7f4ed] to-[#ebe4d8]">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Anna Luiza Guimarães — Guimarães & Santiago Advogados"
+                        alt="Dra. Laura Melo Lopes — Advocacia & Consultoria Jurídica"
                         fill
                         className="object-cover object-top transition-transform duration-500 hover:scale-102"
                         priority
@@ -783,28 +805,28 @@ export default function Home() {
                       />
 
                       {/* Subtle Bottom Vignette for High-Contrast Typography Badge */}
-                      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#080502]/95 via-[#080502]/60 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0a0806]/95 via-[#0a0806]/60 to-transparent" />
 
                       {/* Overlay Identification Badge */}
-                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#c2a366]/45 bg-[#080502]/90 p-4 shadow-xl backdrop-blur-md">
+                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#bd8028]/45 bg-[#0a0806]/90 p-4 shadow-xl backdrop-blur-md">
                         <div className="flex items-center justify-between gap-3">
                           <div>
                             <p className="font-cinzel text-base font-bold text-white tracking-wide">
-                              {LAWYER_PRIMARY}
+                              {LAWYER_NAME}
                             </p>
-                            <p className="text-[11px] font-semibold text-[#f8f3e6] uppercase tracking-wider">
-                              {CLIENT_NAME}
+                            <p className="text-[11px] font-semibold text-[#f7cd6d] uppercase tracking-wider">
+                              {LAWYER_OAB} · {LAWYER_ROLE}
                             </p>
                             <p className="text-[10px] text-[#ebe4d8] mt-0.5">
-                              {LAWYER_TITLE}
+                              Carmo do Rio Claro - MG · Atendimento Nacional
                             </p>
                           </div>
-                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-[#c2a366]/40 bg-[#1a1612] p-1.5 shadow-md">
+                          <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-[#bd8028]/45 bg-[#1a1612] p-1.5 shadow-md">
                             <Image
                               src={EMBLEM_SRC}
-                              alt="Monograma ALG"
-                              width={40}
-                              height={40}
+                              alt="Monograma LML Balança da Justiça"
+                              width={52}
+                              height={52}
                               className="size-full object-contain"
                               unoptimized
                             />
@@ -814,26 +836,26 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Floating Badge Top-Right: Sede Salinas */}
-                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#c2a366]/50 bg-[#080502] px-3.5 py-2 shadow-lg text-white">
-                    <p className="text-[9px] font-bold tracking-widest text-[#f8f3e6] uppercase">
-                      SALINAS · MG
+                  {/* Floating Badge Top-Right: Sede Carmo do Rio Claro */}
+                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#bd8028]/50 bg-[#0a0806] px-3.5 py-2 shadow-lg text-white">
+                    <p className="text-[9px] font-bold tracking-widest text-[#f7cd6d] uppercase">
+                      CARMO DO RIO CLARO · MG
                     </p>
                     <p className="text-[11px] font-bold text-white">
-                      Av. João Pena Sobrinho, 115
+                      Rua Monsenhor Mário, 405
                     </p>
                   </div>
                 </div>
 
                 {/* Google 5,0 Verified Review Card (Anchored cleanly right below the photo, leaving face and name badge 100% unobstructed) */}
-                <div className="mt-4 mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none rounded-2xl border border-[#c2a366]/40 bg-white p-4 shadow-xl">
+                <div className="mt-4 mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none rounded-2xl border border-[#bd8028]/40 bg-white p-4 shadow-xl">
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2.5">
                       <div className="flex size-8 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8]">
                         <GoogleIcon size={16} />
                       </div>
                       <div>
-                        <div className="flex items-center gap-1 text-[#d4af37]">
+                        <div className="flex items-center gap-1 text-[#dba54c]">
                           {[...Array(5)].map((_, i) => (
                             <Star key={i} size={12} className="fill-current" />
                           ))}
@@ -843,19 +865,19 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-                    <span className="rounded-full border border-[#c2a366]/30 bg-[#f8f3e6] px-2.5 py-0.5 text-[10px] font-bold text-[#835c32] uppercase tracking-wider">
-                      Caso Verificado
+                    <span className="rounded-full border border-[#bd8028]/30 bg-[#fdf2cf] px-2.5 py-0.5 text-[10px] font-bold text-[#8c4f08] uppercase tracking-wider">
+                      Avaliação Verificada
                     </span>
                   </div>
                   <p className="mt-2.5 text-xs leading-relaxed text-[#5c554b] italic">
-                    &quot;Dra Ana resolveu um inventário que estava fazendo aniversário de 16 anos. Vários advogados não conseguiram concluir o processo. Ela conseguiu resolver em 5 meses. A mulher é boa e sabe o que faz, super competente. Virei fã.&quot;
+                    &quot;A Laura é uma profissional impecável. Além de dominar tecnicamente o que faz, traz uma segurança e uma clareza que fazem toda a diferença. Recomendo de olhos fechados para quem busca excelência e comprometimento.&quot;
                   </p>
                   <div className="mt-2.5 flex items-center justify-between border-t border-[#ebe4d8]/70 pt-2 text-[10px]">
-                    <span className="font-semibold text-[#835c32]">
-                      — Antonella Gomes Sarmento (Google Maps)
+                    <span className="font-semibold text-[#8c4f08]">
+                      — Igor Lopes (Google Maps)
                     </span>
                     <span className="text-[#5c554b]">
-                      Inventário em 5 meses ⚖️
+                      Excelência e Segurança ⚖️
                     </span>
                   </div>
                 </div>
@@ -867,61 +889,61 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 2: STRIP DE AUTORIDADE / MÉTRICAS (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section className="border-y border-[#241f1a] bg-[#080502] py-9 text-white">
+        <section className="border-y border-[#241e18] bg-[#0a0806] py-9 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8 text-center">
               {/* Stat 1: Google Rating */}
-              <div className="flex flex-col items-center border-r border-[#241f1a] pr-4 last:border-r-0 md:pr-0">
-                <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-extrabold text-[#f8f3e6]">
+              <div className="flex flex-col items-center border-r border-[#241e18] pr-4 last:border-r-0 md:pr-0">
+                <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-extrabold text-[#f7cd6d]">
                   <span>5,0</span>
-                  <div className="flex text-[#d4af37]">
+                  <div className="flex text-[#dba54c]">
                     <Star size={18} className="fill-current" />
                   </div>
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Avaliação Máxima
+                  Nota Máxima 5,0
                 </p>
                 <p className="text-[11px] text-[#ebe4d8]/70">
-                  11 avaliações 5 estrelas no Google
+                  10 avaliações 5 estrelas no Google
                 </p>
               </div>
 
-              {/* Stat 2: Resolutividade & Agilidade */}
-              <div className="flex flex-col items-center md:border-r md:border-[#241f1a] md:pr-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f8f3e6]">
-                  Recorde
+              {/* Stat 2: OAB e Qualificação */}
+              <div className="flex flex-col items-center md:border-r md:border-[#241e18] md:pr-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#f7cd6d]">
+                  248.197
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Agilidade Comprovada
+                  OAB/MG Ativa
                 </p>
                 <p className="text-[11px] text-[#ebe4d8]/70">
-                  Inventários travados solucionados com rapidez
+                  Rigor técnico e ética inegociável
                 </p>
               </div>
 
-              {/* Stat 3: Parceria de Confiança */}
-              <div className="flex flex-col items-center border-r border-[#241f1a] pr-4 last:border-r-0 md:pr-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f8f3e6]">
-                  +4 Anos
+              {/* Stat 3: Segurança e Clareza */}
+              <div className="flex flex-col items-center border-r border-[#241e18] pr-4 last:border-r-0 md:pr-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#f7cd6d]">
+                  100%
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Fidelidade de Clientes
+                  Clareza & Segurança
                 </p>
                 <p className="text-[11px] text-[#ebe4d8]/70">
-                  Parcerias duradouras com clareza e justiça
+                  Orientações seguras em todas as etapas
                 </p>
               </div>
 
               {/* Stat 4: Geographic Reach */}
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f8f3e6]">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#f7cd6d]">
                   Nacional
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Salinas & Todo o Brasil
+                  Carmo do Rio Claro & Brasil
                 </p>
                 <p className="text-[11px] text-[#ebe4d8]/70">
-                  Sede própria & processos 100% digitais
+                  Sede presencial & processos 100% digitais
                 </p>
               </div>
             </div>
@@ -941,7 +963,7 @@ export default function Home() {
                 Áreas de Atuação & Pilares de Excelência
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#5c554b] sm:text-base">
-                Conheça nossos principais ramos de atuação. Cada demanda é tratada com profundidade técnica, atenção minuciosa aos detalhes e compromisso absoluto com o resultado.
+                Conheça nossos principais ramos de atuação. Cada demanda é tratada com profundidade técnica, atenção minuciosa aos detalhes e compromisso absoluto com o seu direito.
               </p>
             </div>
 
@@ -954,26 +976,26 @@ export default function Home() {
                     key={area.id}
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#ebe4d8] bg-white p-7 shadow-sm transition-all duration-300 hover:border-[#c2a366]/60 hover:shadow-xl"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#ebe4d8] bg-white p-7 shadow-sm transition-all duration-300 hover:border-[#bd8028]/60 hover:shadow-xl"
                   >
                     <div>
                       {/* Top Row: Icon + Tag */}
                       <div className="flex items-start justify-between gap-3">
-                        <div className="flex size-12 items-center justify-center rounded-xl border border-[#c2a366]/30 bg-[#f8f3e6]/40 text-[#835c32] transition-colors group-hover:bg-[#1a1612] group-hover:text-[#f8f3e6] group-hover:border-[#c2a366]">
+                        <div className="flex size-12 items-center justify-center rounded-xl border border-[#bd8028]/30 bg-[#fdf2cf]/40 text-[#8c4f08] transition-colors group-hover:bg-[#1a1612] group-hover:text-[#f7cd6d] group-hover:border-[#bd8028]">
                           <IconComponent size={24} />
                         </div>
-                        <span className="rounded-full border border-[#ebe4d8] bg-[#fdfbf7] px-3 py-1 text-[10px] font-bold text-[#835c32] uppercase tracking-wider">
+                        <span className="rounded-full border border-[#ebe4d8] bg-[#fdfbf7] px-3 py-1 text-[10px] font-bold text-[#8c4f08] uppercase tracking-wider">
                           Especialidade
                         </span>
                       </div>
 
                       {/* Area Title */}
-                      <h3 className="mt-5 font-serif text-xl font-bold text-[#14110d] transition-colors group-hover:text-[#835c32]">
+                      <h3 className="mt-5 font-serif text-xl font-bold text-[#14110d] transition-colors group-hover:text-[#8c4f08]">
                         {area.title}
                       </h3>
 
                       {/* Category Subtext */}
-                      <p className="mt-1 text-[11px] font-semibold text-[#a1773b] uppercase tracking-wider">
+                      <p className="mt-1 text-[11px] font-semibold text-[#a26417] uppercase tracking-wider">
                         {area.category}
                       </p>
 
@@ -988,7 +1010,7 @@ export default function Home() {
                           <li key={i} className="flex items-start gap-2">
                             <CheckCircle2
                               size={14}
-                              className="mt-0.5 shrink-0 text-[#c2a366]"
+                              className="mt-0.5 shrink-0 text-[#bd8028]"
                             />
                             <span className="leading-snug">{topic}</span>
                           </li>
@@ -1001,7 +1023,7 @@ export default function Home() {
                       <button
                         type="button"
                         onClick={() => setSelectedPractice(area)}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#835c32] transition-colors hover:text-[#14110d] cursor-pointer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8c4f08] transition-colors hover:text-[#14110d] cursor-pointer"
                       >
                         <span>Ver detalhes completos</span>
                         <ArrowRight size={13} />
@@ -1011,7 +1033,7 @@ export default function Home() {
                         href={getWhatsAppUrl(area.whatsAppText)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex size-8 items-center justify-center rounded-lg bg-[#c2a366]/15 text-[#835c32] transition-all hover:bg-[#c2a366] hover:text-[#080502]"
+                        className="inline-flex size-8 items-center justify-center rounded-lg bg-[#bd8028]/15 text-[#8c4f08] transition-all hover:bg-[#bd8028] hover:text-[#0a0806]"
                         aria-label={`Consultar sobre ${area.title} no WhatsApp`}
                       >
                         <WhatsAppIcon size={15} />
@@ -1023,28 +1045,28 @@ export default function Home() {
             </div>
 
             {/* Bottom Callout Banner */}
-            <div className="mt-12 rounded-2xl border border-[#c2a366]/40 bg-gradient-to-r from-[#080502] via-[#120f0c] to-[#1a1612] p-8 text-white shadow-xl sm:flex sm:items-center sm:justify-between sm:gap-8">
+            <div className="mt-12 rounded-2xl border border-[#bd8028]/40 bg-gradient-to-r from-[#0a0806] via-[#120e0b] to-[#1a1612] p-8 text-white shadow-xl sm:flex sm:items-center sm:justify-between sm:gap-8">
               <div className="max-w-2xl">
-                <span className="rounded-full border border-[#f8f3e6]/30 bg-[#f8f3e6]/10 px-3 py-1 text-[10px] font-bold text-[#f8f3e6] uppercase tracking-wider">
-                  ATENDIMENTO DIRETO COM OS ADVOGADOS
+                <span className="rounded-full border border-[#f7cd6d]/30 bg-[#f7cd6d]/10 px-3 py-1 text-[10px] font-bold text-[#f7cd6d] uppercase tracking-wider">
+                  ATENDIMENTO DIRETO COM A ADVOGADA
                 </span>
                 <h3 className="mt-3 font-serif text-2xl font-bold text-white">
-                  Precisa de uma avaliação imediata da sua demanda patrimonial ou familiar?
+                  Precisa de uma avaliação imediata da sua demanda jurídica?
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-[#ebe4d8]">
-                  Inventários demorados, contratos de risco e disputas familiares exigem posicionamento técnico firme e estratégia apurada. Entre em contato direto pelo WhatsApp para analisarmos o seu caso com total sigilo.
+                  Benefícios negados pelo INSS, negativas de saúde, processos criminais ou partilhas familiares exigem intervenção técnica rápida e estratégica. Entre em contato direto pelo WhatsApp para analisarmos o seu caso com total sigilo.
                 </p>
               </div>
 
               <div className="mt-6 sm:mt-0 shrink-0">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de uma avaliação inicial do meu caso com os advogados.")}
+                  href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de uma avaliação inicial do meu caso com você.")}
                   target="_blank"
                   variant="gold"
                   size="md"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Conversar com a Equipe</span>
+                  <span>Conversar com a Advogada</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1052,20 +1074,20 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 4: SOBRE A EQUIPE (DRA. ANNA LUIZA & DR. VITOR)    */}
+        {/* DOBRA 4: SOBRE A PROFISSIONAL (DRA. LAURA MELO LOPES)    */}
         {/* ======================================================== */}
         <section id="sobre" className="py-20 sm:py-26 border-t border-[#ebe4d8] bg-[#f7f4ed]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Portrait at Office Desk */}
+              {/* Left Column: Portrait at Office */}
               <div className="lg:col-span-5">
                 <div className="relative mx-auto max-w-[420px] lg:max-w-none">
                   {/* Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#c2a366]/40 bg-white p-2.5 shadow-2xl">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#bd8028]/40 bg-white p-2.5 shadow-2xl">
                     <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#fdfbf7]">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Anna Luiza Guimarães em atendimento"
+                        alt="Dra. Laura Melo Lopes em atendimento"
                         fill
                         className="object-cover object-top"
                         unoptimized
@@ -1075,16 +1097,16 @@ export default function Home() {
                   </div>
 
                   {/* Secondary Office Sede Badge */}
-                  <div className="absolute -bottom-6 -right-4 sm:-bottom-7 sm:-right-5 rounded-xl border border-[#c2a366]/60 bg-[#080502] p-3.5 shadow-2xl text-white max-w-[260px]">
-                    <div className="flex items-center gap-2 text-[#f8f3e6] text-xs font-bold uppercase">
+                  <div className="absolute -bottom-6 -right-4 sm:-bottom-7 sm:-right-5 rounded-xl border border-[#bd8028]/60 bg-[#0a0806] p-3.5 shadow-2xl text-white max-w-[260px]">
+                    <div className="flex items-center gap-2 text-[#f7cd6d] text-xs font-bold uppercase">
                       <MapPin size={15} />
-                      <span>Salinas · Minas Gerais</span>
+                      <span>Carmo do Rio Claro · MG</span>
                     </div>
                     <p className="mt-1 text-xs font-bold text-white">
-                      Av. João Pena Sobrinho, 115
+                      Rua Monsenhor Mário, 405
                     </p>
                     <p className="text-[10px] text-[#ebe4d8]/70 mt-0.5">
-                      Centro · Sede moderna & acolhedora
+                      Atendimento presencial & virtual acolhedor
                     </p>
                   </div>
                 </div>
@@ -1092,26 +1114,26 @@ export default function Home() {
 
               {/* Right Column: Bio & Values */}
               <div className="lg:col-span-7">
-                <p className="eyebrow mb-3.5">COMPETÊNCIA, JUSTIÇA & DEDICAÇÃO INEGOCIÁVEL</p>
+                <p className="eyebrow mb-3.5">COMPETÊNCIA, SEGURANÇA & DEDICAÇÃO INEGOCIÁVEL</p>
                 <h2 className="font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
-                  Sobre Guimarães & Santiago Advogados
+                  Sobre a Dra. Laura Melo Lopes
                 </h2>
-                <p className="mt-2 text-sm font-bold text-[#a1773b] tracking-wider uppercase">
-                  {LAWYERS_NAMES} · Atendimento Presencial em Salinas - MG e On-line em Todo o País
+                <p className="mt-2 text-sm font-bold text-[#a26417] tracking-wider uppercase">
+                  {LAWYER_OAB} · Atendimento Presencial em Carmo do Rio Claro - MG e On-line em Todo o País
                 </p>
 
                 <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#5c554b] sm:text-base">
                   <p>
-                    O escritório <strong className="font-semibold text-[#14110d]">{CLIENT_NAME}</strong> nasceu da união de profissionais vocacionados a oferecer uma advocacia de alta performance, transparente e resolutiva, contrapondo-se à morosidade e à burocracia tradicional.
+                    A advocacia exercida pela <strong className="font-semibold text-[#14110d]">{LAWYER_NAME}</strong> é guiada por uma premissa fundamental: <strong className="text-[#14110d]">unir o mais rigoroso preparo técnico à humanidade e clareza no atendimento</strong>. Cada cliente que chega ao escritório encontra não apenas uma advogada competente, mas uma defensora incansável dos seus direitos.
                   </p>
                   <p>
-                    A <strong className="font-semibold text-[#14110d]">{LAWYER_PRIMARY}</strong> é referência em Direito Civil, Sucessões e Família, reconhecida pela extraordinária capacidade de desatar nós processuais complexos — como o inventário concluído em apenas 5 meses após 16 anos paralisado, relatado espontaneamente por clientes.
+                    Com atuação especializada em <strong className="text-[#8c4f08]">Direito Previdenciário (INSS)</strong>, <strong className="text-[#8c4f08]">Direito Médico e da Saúde</strong>, <strong className="text-[#8c4f08]">Direito Criminal</strong> e <strong className="text-[#8c4f08]">Direito de Família e Sucessões</strong>, a Dra. Laura é amplamente reconhecida pela condução segura de processos delicados — passando aos clientes a tranquilidade de quem realmente domina a matéria e está ao seu lado em todas as etapas.
                   </p>
                   <p>
-                    Ao lado, o <strong className="font-semibold text-[#14110d]">{LAWYER_PARTNER}</strong> complementa a bancada com visão estratégica, justiça e proximidade técnica, construindo relacionamentos de confiança que perduram por anos a fio, garantindo a cada cliente a segurança de ser assessorado por profissionais que cumprem com exatidão o que prometem.
+                    Como atestam os depoimentos públicos e espontâneos no Google: <em className="italic text-[#14110d]">&quot;A Laura é uma profissional impecável. Além de dominar tecnicamente o que faz, traz uma segurança e uma clareza que fazem toda a diferença.&quot;</em> e <em className="italic text-[#14110d]">&quot;Atenciosa, clara nas orientações e muito segura na condução do processo. Sempre disponível para esclarecer dúvidas e passa muita confiança em todas as etapas.&quot;</em>
                   </p>
                   <p>
-                    Reconhecido com <strong className="font-semibold text-[#14110d]">nota máxima 5,0 no Google</strong> com avaliações unânimes, o escritório alia modernidade, acolhimento humano e rigor técnico irrestrito em cada causa assumida.
+                    Com <strong className="font-semibold text-[#14110d]">nota máxima 5,0 no Google</strong> com avaliações 100% cinco estrelas, nosso compromisso é oferecer uma advocacia acessível, transparente e de altíssima resolutividade.
                   </p>
                 </div>
 
@@ -1119,18 +1141,18 @@ export default function Home() {
                 <div className="mt-8 grid grid-cols-2 gap-4">
                   <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
                     <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
-                      <Zap size={16} className="text-[#c2a366]" />
-                      <span>Agilidade Comprovada</span>
+                      <Shield size={16} className="text-[#bd8028]" />
+                      <span>Segurança na Condução</span>
                     </div>
                     <p className="mt-1 text-[11px] text-[#5c554b]">
-                      Processos que duravam anos resolvidos com celeridade técnica.
+                      &quot;Muito segura na condução do processo e passa muita confiança.&quot;
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
                     <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
-                      <BookOpen size={16} className="text-[#c2a366]" />
-                      <span>Clareza nas Informações</span>
+                      <Scale size={16} className="text-[#bd8028]" />
+                      <span>Clareza nas Orientações</span>
                     </div>
                     <p className="mt-1 text-[11px] text-[#5c554b]">
                       Explicações transparentes sem juridiquês indecifrável.
@@ -1139,21 +1161,21 @@ export default function Home() {
 
                   <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
                     <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
-                      <Users size={16} className="text-[#c2a366]" />
-                      <span>Parceria Duradoura</span>
+                      <Award size={16} className="text-[#bd8028]" />
+                      <span>Domínio Técnico Total</span>
                     </div>
                     <p className="mt-1 text-[11px] text-[#5c554b]">
-                      Clientes assessorados há mais de 4 anos com fidelidade total.
+                      &quot;Profissional impecável que domina tecnicamente o que faz.&quot;
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
                     <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
-                      <Award size={16} className="text-[#c2a366]" />
-                      <span>Perfeição no Cumprido</span>
+                      <HeartHandshake size={16} className="text-[#bd8028]" />
+                      <span>Acolhimento & Presença</span>
                     </div>
                     <p className="mt-1 text-[11px] text-[#5c554b]">
-                      &quot;Cumpre com o combinado, conclui com perfeição.&quot;
+                      Sempre disponível para esclarecer dúvidas em todas as etapas.
                     </p>
                   </div>
                 </div>
@@ -1161,14 +1183,14 @@ export default function Home() {
                 {/* Direct CTA */}
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de conversar com a Dra. Anna Luiza e o Dr. Vitor Santiago sobre minha situação jurídica.")}
+                    href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de conversar com você sobre a minha situação jurídica.")}
                     target="_blank"
                     variant="gold"
                     size="md"
                     className="w-full sm:w-auto"
                   >
                     <WhatsAppIcon size={16} />
-                    <span>Falar com os Advogados no WhatsApp</span>
+                    <span>Falar com a Advogada no WhatsApp</span>
                   </GlowingButton>
 
                   <a
@@ -1177,7 +1199,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-bold text-[#5c554b] transition-colors hover:text-[#14110d]"
                   >
-                    <InstagramIcon size={16} className="text-[#c2a366]" />
+                    <InstagramIcon size={16} className="text-[#bd8028]" />
                     <span>Siga {INSTAGRAM_HANDLE} no Instagram</span>
                   </a>
                 </div>
@@ -1189,70 +1211,70 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 5: NOSSOS PILARES & DIFERENCIAIS (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section id="diferenciais" className="py-20 sm:py-26 bg-[#080502] text-white">
+        <section id="diferenciais" className="py-20 sm:py-26 bg-[#0a0806] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
               <p className="eyebrow-dark justify-center mb-3.5">
-                POR QUE CONFIAR SUA CAUSA A GUIMARÃES & SANTIAGO ADVOGADOS
+                POR QUE CONFIAR SUA CAUSA À DRA. LAURA MELO LOPES
               </p>
               <h2 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.6rem]">
                 Os Pilares que Sustentam Nossa Reputação 5 Estrelas
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#ebe4d8] sm:text-base">
-                Avaliação máxima 5,0 no Google com depoimentos autênticos que atestam a competência, ética e celeridade de nossa equipe.
+                Avaliação máxima 5,0 no Google com depoimentos autênticos que atestam a competência, ética e clareza de nossa atuação.
               </p>
             </div>
 
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {/* Pillar 1 */}
-              <div className="rounded-2xl border border-[#241f1a] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c2a366]/50 hover:bg-[#1a1612]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c2a366]/30 bg-[#c2a366]/10 text-[#f8f3e6]">
-                  <Zap size={22} />
+              <div className="rounded-2xl border border-[#241e18] bg-[#120e0b] p-7 transition-all duration-300 hover:border-[#bd8028]/50 hover:bg-[#1a1612]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#bd8028]/30 bg-[#bd8028]/10 text-[#f7cd6d]">
+                  <ShieldCheck size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Celeridade & Resolução
+                  Segurança na Condução
                 </h3>
                 <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
-                  &quot;Ela conseguiu resolver em 5 meses um inventário de 16 anos.&quot; — Não deixamos processos parados na gaveta; buscamos soluções ativas e imediatas.
+                  &quot;Muito segura na condução do processo e passa total confiança em todas as etapas.&quot; — Defesa firme e sem vacilos.
                 </p>
               </div>
 
               {/* Pillar 2 */}
-              <div className="rounded-2xl border border-[#241f1a] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c2a366]/50 hover:bg-[#1a140e]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c2a366]/30 bg-[#c2a366]/10 text-[#f8f3e6]">
-                  <BookOpen size={22} />
+              <div className="rounded-2xl border border-[#241e18] bg-[#120e0b] p-7 transition-all duration-300 hover:border-[#bd8028]/50 hover:bg-[#1a140e]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#bd8028]/30 bg-[#bd8028]/10 text-[#f7cd6d]">
+                  <Scale size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Clareza nas Informações
+                  Clareza & Transparência
                 </h3>
                 <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
-                  &quot;Clareza na explicação e pontuais nas demandas.&quot; — Você sabe exatamente em que pé está o seu processo, sem surpresas ou inseguranças.
+                  &quot;Atenciosa e clara nas orientações, sempre disponível para esclarecer dúvidas.&quot; — Você sabe exatamente cada passo da sua ação.
                 </p>
               </div>
 
               {/* Pillar 3 */}
-              <div className="rounded-2xl border border-[#241f1a] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c2a366]/50 hover:bg-[#1a1612]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c2a366]/30 bg-[#c2a366]/10 text-[#f8f3e6]">
-                  <Shield size={22} />
+              <div className="rounded-2xl border border-[#241e18] bg-[#120e0b] p-7 transition-all duration-300 hover:border-[#bd8028]/50 hover:bg-[#1a1612]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#bd8028]/30 bg-[#bd8028]/10 text-[#f7cd6d]">
+                  <Award size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Justiça & Confiança
+                  Domínio Técnico Impecável
                 </h3>
                 <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
-                  &quot;Sendo justo e esclarecendo suas dúvidas. Podem confiar!&quot; — Ética intransigente e compromisso estrito com a verdade dos fatos.
+                  &quot;Profissional impecável que domina tecnicamente o que faz com excelência e comprometimento.&quot; — Alta performance jurídica.
                 </p>
               </div>
 
               {/* Pillar 4 */}
-              <div className="rounded-2xl border border-[#241f1a] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c2a366]/50 hover:bg-[#1a1612]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c2a366]/30 bg-[#c2a366]/10 text-[#f8f3e6]">
-                  <Award size={22} />
+              <div className="rounded-2xl border border-[#241e18] bg-[#120e0b] p-7 transition-all duration-300 hover:border-[#bd8028]/50 hover:bg-[#1a1612]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#bd8028]/30 bg-[#bd8028]/10 text-[#f7cd6d]">
+                  <Zap size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Trabalho Impecável
+                  Eficiência & Agilidade
                 </h3>
                 <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
-                  &quot;Excelente profissional, cumpre com o combinado, conclui todo trabalho com perfeição.&quot; — Rigor técnico e pontualidade exemplar.
+                  &quot;Eficiência e profissionalismo. Ótima advogada, essa eu indico muito top!&quot; — Celeridade para entregar resultados reais.
                 </p>
               </div>
             </div>
@@ -1271,13 +1293,13 @@ export default function Home() {
                 <span className="text-xs font-bold text-[#14110d]">
                   Google Avaliações Verificadas
                 </span>
-                <span className="flex text-[#d4af37]">
+                <span className="flex text-[#dba54c]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={13} className="fill-current" />
                   ))}
                 </span>
-                <span className="text-xs font-bold text-[#835c32]">
-                  5,0 / 5,0 (11 avaliações)
+                <span className="text-xs font-bold text-[#8c4f08]">
+                  5,0 / 5,0 (10 avaliações)
                 </span>
               </div>
 
@@ -1285,7 +1307,7 @@ export default function Home() {
                 O Que Dizem Quem Já Teve Seus Direitos Defendidos
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5c554b] sm:text-base">
-                Depoimentos públicos registrados no perfil oficial de Guimarães & Santiago Advogados no Google em Salinas - MG.
+                Depoimentos públicos e autênticos registrados no perfil oficial de Laura Melo Lopes — Advogada no Google em Carmo do Rio Claro - MG.
               </p>
             </div>
 
@@ -1298,8 +1320,8 @@ export default function Home() {
                   onClick={() => setSelectedReviewCategory(cat)}
                   className={`rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                     selectedReviewCategory === cat
-                      ? "border border-[#c2a366] bg-[#080502] text-[#f8f3e6] shadow-sm"
-                      : "border border-[#ebe4d8] bg-white text-[#5c554b] hover:border-[#c2a366] hover:text-[#14110d]"
+                      ? "border border-[#bd8028] bg-[#0a0806] text-[#f7cd6d] shadow-sm"
+                      : "border border-[#ebe4d8] bg-white text-[#5c554b] hover:border-[#bd8028] hover:text-[#14110d]"
                   }`}
                 >
                   {cat}
@@ -1312,12 +1334,12 @@ export default function Home() {
               {filteredReviews.map((review, idx) => (
                 <div
                   key={idx}
-                  className="relative flex flex-col justify-between rounded-2xl border border-[#ebe4d8] bg-white p-6 shadow-sm transition-all hover:border-[#c2a366]/50 hover:shadow-md"
+                  className="relative flex flex-col justify-between rounded-2xl border border-[#ebe4d8] bg-white p-6 shadow-sm transition-all hover:border-[#bd8028]/50 hover:shadow-md"
                 >
                   <div>
                     {/* Top Row: Stars + Date */}
                     <div className="flex items-center justify-between gap-2">
-                      <div className="flex text-[#d4af37]">
+                      <div className="flex text-[#dba54c]">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} size={14} className="fill-current" />
                         ))}
@@ -1326,7 +1348,7 @@ export default function Home() {
                     </div>
 
                     {/* Category Tag */}
-                    <span className="mt-3 inline-block rounded-md bg-[#f8f3e6] px-2.5 py-0.5 text-[9px] font-bold text-[#835c32] uppercase tracking-wider">
+                    <span className="mt-3 inline-block rounded-md bg-[#fdf2cf] px-2.5 py-0.5 text-[9px] font-bold text-[#8c4f08] uppercase tracking-wider">
                       {review.category}
                     </span>
 
@@ -1337,9 +1359,9 @@ export default function Home() {
 
                     {/* Owner Response if present */}
                     {review.ownerReply && (
-                      <div className="mt-4 rounded-xl border border-[#c2a366]/25 bg-[#fdfbf7] p-3 text-[11px] text-[#5c554b]">
-                        <p className="font-bold text-[#835c32] text-[10px] uppercase tracking-wider">
-                          Resposta de Guimarães & Santiago Advogados:
+                      <div className="mt-4 rounded-xl border border-[#bd8028]/25 bg-[#fdfbf7] p-3 text-[11px] text-[#5c554b]">
+                        <p className="font-bold text-[#8c4f08] text-[10px] uppercase tracking-wider">
+                          Resposta de Adv. Laura Melo Lopes:
                         </p>
                         <p className="mt-1 leading-snug">{review.ownerReply}</p>
                       </div>
@@ -1348,7 +1370,7 @@ export default function Home() {
 
                   {/* Author Info */}
                   <div className="mt-5 flex items-center gap-3 border-t border-[#ebe4d8]/70 pt-4">
-                    <div className="flex size-9 items-center justify-center rounded-full bg-[#080502] font-cinzel text-xs font-bold text-[#f8f3e6]">
+                    <div className="flex size-9 items-center justify-center rounded-full bg-[#0a0806] font-cinzel text-xs font-bold text-[#f7cd6d]">
                       {review.name.charAt(0)}
                     </div>
                     <div>
@@ -1363,36 +1385,70 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 7: ESCRITÓRIO EM SALINAS & ATENDIMENTO NACIONAL    */}
+        {/* DOBRA 7: ESCRITÓRIO EM CARMO DO RIO CLARO & ATENDIMENTO  */}
         {/* ======================================================== */}
         <section id="sede" className="border-t border-[#ebe4d8] py-20 sm:py-26 bg-[#f7f4ed]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Real Meeting Room Photo */}
+              {/* Left Column: Sede Card Presentation */}
               <div className="lg:col-span-6">
-                <div className="relative mx-auto max-w-[480px] lg:max-w-none overflow-hidden rounded-2xl border-2 border-[#c2a366]/50 bg-white p-2 shadow-2xl">
-                  <div className="relative aspect-[4/3] sm:aspect-[3/4] w-full overflow-hidden rounded-xl bg-[#080502]">
-                    <Image
-                      src={FOTO_ESCRITORIO_SRC}
-                      alt="Sala de Reuniões de Guimarães & Santiago Advogados em Salinas - MG"
-                      fill
-                      className="object-cover object-center"
-                      unoptimized
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
-                    />
+                <div className="relative mx-auto max-w-[480px] lg:max-w-none overflow-hidden rounded-2xl border-2 border-[#bd8028]/50 bg-white p-2 shadow-2xl">
+                  <div className="relative min-h-[380px] sm:min-h-[420px] w-full overflow-hidden rounded-xl bg-gradient-to-br from-[#0a0806] via-[#120e0b] to-[#1a1612] p-8 text-white flex flex-col justify-between">
+                    {/* Background Emblem Watermark */}
+                    <div className="pointer-events-none absolute right-4 bottom-4 opacity-15">
+                      <Image
+                        src={EMBLEM_SRC}
+                        alt="Emblema Laura Melo Lopes"
+                        width={220}
+                        height={220}
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </div>
 
-                    {/* Gradient Overlay for Address */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#080502] via-[#080502]/80 to-transparent p-6 text-white">
-                      <div className="flex items-center gap-2 text-[#f8f3e6] text-xs font-bold uppercase tracking-wider">
-                        <MapPin size={16} />
-                        <span>Sede em Salinas - Minas Gerais</span>
+                    {/* Top Sede Badge */}
+                    <div className="relative z-10">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-[#f7cd6d]/40 bg-[#f7cd6d]/10 px-3.5 py-1 text-[11px] font-bold text-[#f7cd6d] uppercase tracking-wider">
+                        <MapPin size={14} />
+                        <span>Sede Própria em Minas Gerais</span>
                       </div>
-                      <p className="mt-1 font-serif text-lg font-bold text-white">
-                        Av. João Pena Sobrinho, 115 - Centro
+                      <h3 className="mt-4 font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
+                        Laura Melo Lopes — Advocacia & Consultoria Jurídica
+                      </h3>
+                      <p className="mt-2 text-xs text-[#ebe4d8]/80 leading-relaxed max-w-md">
+                        Estrutura planejada para garantir atendimento privativo, sigilo irrestrito e acolhimento humano a cada cliente e sua família.
                       </p>
-                      <p className="text-xs text-[#ebe4d8]">
-                        Salinas - MG, CEP 39560-000, Brasil
-                      </p>
+                    </div>
+
+                    {/* Bottom Details */}
+                    <div className="relative z-10 mt-8 rounded-xl border border-[#bd8028]/35 bg-[#0a0806]/90 p-5 backdrop-blur-md">
+                      <div className="flex items-start gap-3">
+                        <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#bd8028]/20 text-[#f7cd6d]">
+                          <MapPin size={18} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold text-[#f7cd6d] uppercase tracking-wider">
+                            Endereço Oficial
+                          </p>
+                          <p className="text-sm font-bold text-white mt-0.5">
+                            Rua Monsenhor Mário, 405
+                          </p>
+                          <p className="text-xs text-[#ebe4d8]">
+                            Carmo do Rio Claro - MG, CEP 37150-000, Brasil
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-[#241e18] pt-3 text-[11px] text-[#ebe4d8]/80">
+                        <div className="flex items-center gap-1.5">
+                          <Clock size={13} className="text-[#bd8028]" />
+                          <span>Seg. a Sex. das 08:00 às 18:00</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[#f7cd6d] font-semibold">
+                          <Star size={13} className="fill-current text-[#dba54c]" />
+                          <span>5,0 ★ no Google</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1400,18 +1456,18 @@ export default function Home() {
 
               {/* Right Column: Information & Office Details */}
               <div className="lg:col-span-6">
-                <p className="eyebrow mb-3.5">ESTRUTURA DE ALTO PADRÃO & LOCALIZAÇÃO PRIVILEGIADA</p>
+                <p className="eyebrow mb-3.5">ATENDIMENTO PRESENCIAL & DIGITAL NACIONAL</p>
                 <h2 className="font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
-                  Atendimento Presencial em Salinas e 100% On-line em Todo o País
+                  Atendimento Presencial em Carmo do Rio Claro e 100% On-line em Todo o País
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-[#5c554b] sm:text-base">
-                  Nosso escritório no Centro de Salinas - MG conta com uma estrutura executiva completa, sala de reuniões privativa e ambiente planejado para garantir sigilo total e conforto absoluto para você e sua família. E por meio de processos eletrônicos e plataformas digitais seguras, atendemos com a mesma eficácia clientes em Taiobeiras, Rubelita, Montes Claros, Belo Horizonte e qualquer região do Brasil.
+                  Nosso escritório em Carmo do Rio Claro - MG conta com um ambiente acolhedor, planejado para garantir sigilo total e conforto absoluto. E por meio de processos eletrônicos e plataformas digitais seguras, atendemos com a mesma proximidade e eficácia clientes em Alpinópolis, Passos, Belo Horizonte e qualquer região do Brasil.
                 </p>
 
                 <div className="mt-8 space-y-4">
                   {/* Address Box */}
                   <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c2a366]/15 text-[#835c32]">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#bd8028]/15 text-[#8c4f08]">
                       <MapPin size={20} />
                     </div>
                     <div>
@@ -1419,13 +1475,13 @@ export default function Home() {
                         Endereço da Sede
                       </p>
                       <p className="text-xs text-[#5c554b] mt-0.5">
-                        {ADDRESS_SALINAS}
+                        {ADDRESS_CARMO}
                       </p>
                       <a
                         href={GOOGLE_MAPS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#835c32] hover:text-[#14110d]"
+                        className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#8c4f08] hover:text-[#14110d]"
                       >
                         <span>Abrir rotas no Google Maps</span>
                         <ArrowUpRight size={13} />
@@ -1435,7 +1491,7 @@ export default function Home() {
 
                   {/* Hours Box */}
                   <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c2a366]/15 text-[#835c32]">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#bd8028]/15 text-[#8c4f08]">
                       <Clock size={20} />
                     </div>
                     <div>
@@ -1445,7 +1501,7 @@ export default function Home() {
                       <p className="text-xs text-[#5c554b] mt-0.5">
                         Segunda a Sexta-feira: <strong>08:00 às 18:00</strong>
                       </p>
-                      <p className="text-[11px] text-[#835c32] font-semibold mt-0.5">
+                      <p className="text-[11px] text-[#8c4f08] font-semibold mt-0.5">
                         Atendimento presencial com agendamento prévio ou via WhatsApp.
                       </p>
                     </div>
@@ -1453,7 +1509,7 @@ export default function Home() {
 
                   {/* Contact Phones */}
                   <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c2a366]/15 text-[#835c32]">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#bd8028]/15 text-[#8c4f08]">
                       <Phone size={20} />
                     </div>
                     <div>
@@ -1473,7 +1529,7 @@ export default function Home() {
                 {/* Sede CTA */}
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar um atendimento presencial no escritório de Salinas.")}
+                    href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de agendar um atendimento no escritório de Carmo do Rio Claro.")}
                     target="_blank"
                     variant="gold"
                     size="md"
@@ -1487,7 +1543,7 @@ export default function Home() {
                     href={GOOGLE_MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#c2a366] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#14110d] transition-all hover:bg-[#080502] hover:text-[#f8f3e6]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#bd8028] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#14110d] transition-all hover:bg-[#0a0806] hover:text-[#f7cd6d]"
                   >
                     <MapPin size={15} />
                     <span>Como Chegar (Google Maps)</span>
@@ -1519,15 +1575,15 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="overflow-hidden rounded-2xl border border-[#ebe4d8] bg-white transition-all hover:border-[#c2a366]/50"
+                    className="overflow-hidden rounded-2xl border border-[#ebe4d8] bg-white transition-all hover:border-[#bd8028]/50"
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-serif text-base sm:text-lg font-bold text-[#14110d] transition-colors hover:text-[#835c32] cursor-pointer"
+                      className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-serif text-base sm:text-lg font-bold text-[#14110d] transition-colors hover:text-[#8c4f08] cursor-pointer"
                     >
                       <span>{faq.question}</span>
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8] text-[#835c32]">
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8] text-[#8c4f08]">
                         {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                       </span>
                     </button>
@@ -1557,13 +1613,13 @@ export default function Home() {
               </p>
               <div className="mt-3">
                 <a
-                  href={getWhatsAppUrl("Olá! Tenho uma dúvida sobre meu caso e gostaria de conversar com os advogados.")}
+                  href={getWhatsAppUrl("Olá, Dra. Laura! Tenho uma dúvida sobre meu caso e gostaria de conversar com você.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-bold text-[#835c32] underline decoration-[#c2a366] hover:text-[#14110d] text-xs sm:text-sm"
+                  className="inline-flex items-center gap-1.5 font-bold text-[#8c4f08] underline decoration-[#bd8028] hover:text-[#14110d] text-xs sm:text-sm"
                 >
                   <WhatsAppIcon size={15} />
-                  <span>Converse diretamente com os advogados no WhatsApp</span>
+                  <span>Converse diretamente com a advogada no WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -1573,47 +1629,47 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 9: BANNER DE CONTATO / CTA FINAL (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section id="contato" className="py-20 sm:py-26 bg-[#080502] text-white">
+        <section id="contato" className="py-20 sm:py-26 bg-[#0a0806] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl border border-[#c2a366]/40 bg-gradient-to-b from-[#120f0c] to-[#080502] p-8 sm:p-12 lg:p-16 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl border border-[#bd8028]/40 bg-gradient-to-b from-[#120e0b] to-[#0a0806] p-8 sm:p-12 lg:p-16 shadow-2xl">
               {/* Background Glow */}
-              <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#c2a366]/12 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-[#f8f3e6]/10 blur-3xl" />
+              <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#bd8028]/12 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-[#f7cd6d]/10 blur-3xl" />
 
               <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
                 <div className="lg:col-span-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#f8f3e6]/30 bg-[#f8f3e6]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#f8f3e6]">
-                    <span className="size-1.5 rounded-full bg-[#f8f3e6] animate-pulse" />
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#f7cd6d]/30 bg-[#f7cd6d]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#f7cd6d]">
+                    <span className="size-1.5 rounded-full bg-[#f7cd6d] animate-pulse" />
                     ATENDIMENTO PRIORITÁRIO & DISCRETO
                   </div>
 
                   <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                    Proteja Seu Patrimônio e Sua Família com Advogados que Realmente Resolvem.
+                    Proteja Seus Direitos e Seu Futuro com Quem Realmente Luta por Você.
                   </h2>
 
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#ebe4d8] sm:text-base">
-                    Não deixe seu inventário, seu imóvel ou seus direitos à mercê do tempo. Agende hoje mesmo sua consulta com a Dra. Anna Luiza Guimarães e o Dr. Vitor Santiago e tenha um direcionamento seguro, resolutivo e transparente.
+                    Não deixe seu benefício do INSS, seu tratamento de saúde ou seus direitos familiares à mercê do tempo. Agende hoje mesmo sua consulta com a Dra. Laura Melo Lopes e tenha uma orientação segura, clara e altamente resolutiva.
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-4 text-xs text-[#ebe4d8]">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f8f3e6]" />
-                      <span>Agilidade e pontualidade exemplar</span>
+                      <CheckCircle2 size={15} className="text-[#f7cd6d]" />
+                      <span>Atendimento seguro e clareza nas orientações</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f8f3e6]" />
+                      <CheckCircle2 size={15} className="text-[#f7cd6d]" />
                       <span>Sigilo profissional irrestrito</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f8f3e6]" />
-                      <span>Sede na Av. João Pena Sobrinho, 115 - Salinas · MG</span>
+                      <CheckCircle2 size={15} className="text-[#f7cd6d]" />
+                      <span>Sede na Rua Monsenhor Mário, 405 · Carmo do Rio Claro · MG</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta jurídica especializada com Guimarães & Santiago Advogados.")}
+                    href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de agendar uma consulta jurídica especializada com você.")}
                     target="_blank"
                     variant="gold"
                     size="lg"
@@ -1625,7 +1681,7 @@ export default function Home() {
 
                   <a
                     href={`tel:+${WHATSAPP_NUMBER}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#c2a366]/50 bg-[#1a1612] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f8f3e6] transition-all hover:bg-[#c2a366] hover:text-[#080502]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#bd8028]/50 bg-[#1a1612] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f7cd6d] transition-all hover:bg-[#bd8028] hover:text-[#0a0806]"
                   >
                     <Phone size={15} />
                     <span>Ligar: {PHONE_DISPLAY}</span>
@@ -1643,39 +1699,31 @@ export default function Home() {
         {/* ======================================================== */}
         {/* FOOTER (SOFISTICADO, COMPLETO & 100% LIMPO)              */}
         {/* ======================================================== */}
-        <footer className="border-t border-[#241f1a] bg-[#080502] pt-16 pb-12 text-[#ebe4d8]">
+        <footer className="border-t border-[#241e18] bg-[#0a0806] pt-16 pb-12 text-[#ebe4d8]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {/* Col 1: Brand & Logo */}
               <div>
-                <a href="#" className="flex items-center gap-3">
+                <a href="#" className="inline-block transition-opacity hover:opacity-90">
                   <Image
-                    src={EMBLEM_SRC}
-                    alt="Guimarães & Santiago Advogados"
-                    width={48}
-                    height={48}
-                    className="h-11 w-auto object-contain"
+                    src={LOGO_WHITE_SRC}
+                    alt="Adv. Laura Melo Lopes — Advocacia & Consultoria Jurídica"
+                    width={300}
+                    height={80}
+                    className="h-16 sm:h-18 w-auto object-contain"
                     unoptimized
                   />
-                  <div>
-                    <p className="font-cinzel text-sm font-bold text-white tracking-wider">
-                      GUIMARÃES & SANTIAGO
-                    </p>
-                    <p className="text-[9px] font-bold text-[#f8f3e6] tracking-[0.2em] uppercase">
-                      ADVOGADOS
-                    </p>
-                  </div>
                 </a>
                 <p className="mt-4 text-xs leading-relaxed text-[#ebe4d8]/70">
-                  Advocacia de excelência em Salinas - MG e em todo o Brasil. Direito Civil, Inventários rápidos, Direito de Família, Direito Imobiliário e Consultoria Estratégica. Sede executiva própria no Centro de Salinas.
+                  Advocacia de excelência em Carmo do Rio Claro - MG e em todo o Brasil. Direito Previdenciário (INSS), Direito Médico e da Saúde, Defesa Criminal, Família e Sucessões e Consultoria Civil.
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c2a366]/40 bg-[#1a1612] text-[#f8f3e6] transition-colors hover:bg-[#c2a366] hover:text-[#080502]"
-                    aria-label="Instagram Guimarães & Santiago Advogados"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#bd8028]/40 bg-[#1a1612] text-[#f7cd6d] transition-colors hover:bg-[#bd8028] hover:text-[#0a0806]"
+                    aria-label="Instagram Adv. Laura Melo Lopes"
                   >
                     <InstagramIcon size={16} />
                   </a>
@@ -1683,8 +1731,8 @@ export default function Home() {
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c2a366]/40 bg-[#1a1612] text-[#f8f3e6] transition-colors hover:bg-[#c2a366] hover:text-[#080502]"
-                    aria-label="WhatsApp Guimarães & Santiago Advogados"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#bd8028]/40 bg-[#1a1612] text-[#f7cd6d] transition-colors hover:bg-[#bd8028] hover:text-[#0a0806]"
+                    aria-label="WhatsApp Adv. Laura Melo Lopes"
                   >
                     <WhatsAppIcon size={16} />
                   </a>
@@ -1692,10 +1740,19 @@ export default function Home() {
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c2a366]/40 bg-[#1a1612] text-[#f8f3e6] transition-colors hover:bg-[#c2a366] hover:text-[#080502]"
-                    aria-label="Avaliações no Google Guimarães & Santiago Advogados"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#bd8028]/40 bg-[#1a1612] text-[#f7cd6d] transition-colors hover:bg-[#bd8028] hover:text-[#0a0806]"
+                    aria-label="Avaliações no Google Adv. Laura Melo Lopes"
                   >
                     <GoogleIcon size={16} />
+                  </a>
+                  <a
+                    href={BIOSITE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 px-2.5 items-center justify-center rounded-lg border border-[#bd8028]/40 bg-[#1a1612] text-[#f7cd6d] text-[10px] font-bold uppercase tracking-wider transition-colors hover:bg-[#bd8028] hover:text-[#0a0806]"
+                    aria-label="Bio Site Adv. Laura Melo Lopes"
+                  >
+                    Bio Site
                   </a>
                 </div>
               </div>
@@ -1707,33 +1764,33 @@ export default function Home() {
                 </p>
                 <ul className="mt-4 space-y-2.5 text-xs text-[#ebe4d8]/70">
                   <li>
-                    <a href="#servicos" className="hover:text-[#f8f3e6] transition-colors">
-                      Inventários, Partilhas & Sucessões
+                    <a href="#servicos" className="hover:text-[#f7cd6d] transition-colors">
+                      Direito Previdenciário (INSS)
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f8f3e6] transition-colors">
+                    <a href="#servicos" className="hover:text-[#f7cd6d] transition-colors">
+                      Direito Médico & Negativas de Saúde
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#servicos" className="hover:text-[#f7cd6d] transition-colors">
+                      Direito Criminal & Defesa Penal
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#servicos" className="hover:text-[#f7cd6d] transition-colors">
+                      Família, Divórcios & Inventários
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#servicos" className="hover:text-[#f7cd6d] transition-colors">
                       Direito Civil & Contratos Estratégicos
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f8f3e6] transition-colors">
-                      Direito de Família & Divórcios
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#servicos" className="hover:text-[#f8f3e6] transition-colors">
-                      Direito Imobiliário & Usucapião
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#servicos" className="hover:text-[#f8f3e6] transition-colors">
-                      Assessoria Empresarial & Agronegócio
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#servicos" className="hover:text-[#f8f3e6] transition-colors">
-                      Resolução Extrajudicial & Acordos
+                    <a href="#servicos" className="hover:text-[#f7cd6d] transition-colors">
+                      Resolução Extrajudicial & Mediação
                     </a>
                   </li>
                 </ul>
@@ -1746,32 +1803,32 @@ export default function Home() {
                 </p>
                 <ul className="mt-4 space-y-2.5 text-xs text-[#ebe4d8]/70">
                   <li>
-                    <a href="#sobre" className="hover:text-[#f8f3e6] transition-colors">
-                      Sobre os Advogados
+                    <a href="#sobre" className="hover:text-[#f7cd6d] transition-colors">
+                      Sobre a Dra. Laura Melo Lopes
                     </a>
                   </li>
                   <li>
-                    <a href="#diferenciais" className="hover:text-[#f8f3e6] transition-colors">
-                      Pilares & Celeridade
+                    <a href="#diferenciais" className="hover:text-[#f7cd6d] transition-colors">
+                      Pilares & Reputação 5,0 ★
                     </a>
                   </li>
                   <li>
-                    <a href="#depoimentos" className="hover:text-[#f8f3e6] transition-colors">
-                      Avaliações no Google (5,0 ★)
+                    <a href="#depoimentos" className="hover:text-[#f7cd6d] transition-colors">
+                      Avaliações no Google (10 Avaliações)
                     </a>
                   </li>
                   <li>
-                    <a href="#sede" className="hover:text-[#f8f3e6] transition-colors">
-                      Sede em Salinas - MG
+                    <a href="#sede" className="hover:text-[#f7cd6d] transition-colors">
+                      Escritório em Carmo do Rio Claro - MG
                     </a>
                   </li>
                   <li>
-                    <a href="#duvidas" className="hover:text-[#f8f3e6] transition-colors">
+                    <a href="#duvidas" className="hover:text-[#f7cd6d] transition-colors">
                       Perguntas Frequentes
                     </a>
                   </li>
                   <li>
-                    <a href="#contato" className="hover:text-[#f8f3e6] transition-colors">
+                    <a href="#contato" className="hover:text-[#f7cd6d] transition-colors">
                       Contato & WhatsApp
                     </a>
                   </li>
@@ -1785,23 +1842,23 @@ export default function Home() {
                 </p>
                 <ul className="mt-4 space-y-3 text-xs text-[#ebe4d8]/70">
                   <li className="flex items-start gap-2">
-                    <MapPin size={15} className="text-[#f8f3e6] shrink-0 mt-0.5" />
-                    <span>{ADDRESS_SALINAS}</span>
+                    <MapPin size={15} className="text-[#f7cd6d] shrink-0 mt-0.5" />
+                    <span>{ADDRESS_CARMO}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <WhatsAppIcon size={15} className="text-[#f8f3e6] shrink-0" />
-                    <span>WhatsApp / Telefone: {PHONE_DISPLAY}</span>
+                    <WhatsAppIcon size={15} className="text-[#f7cd6d] shrink-0" />
+                    <span>WhatsApp: {PHONE_DISPLAY}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Mail size={15} className="text-[#f8f3e6] shrink-0" />
+                    <Mail size={15} className="text-[#f7cd6d] shrink-0" />
                     <span>{EMAIL_CONTACT}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Clock size={15} className="text-[#f8f3e6] shrink-0" />
+                    <Clock size={15} className="text-[#f7cd6d] shrink-0" />
                     <span>Seg. a Sex. das 08:00 às 18:00</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <InstagramIcon size={15} className="text-[#f8f3e6] shrink-0" />
+                    <InstagramIcon size={15} className="text-[#f7cd6d] shrink-0" />
                     <span>Instagram: {INSTAGRAM_HANDLE}</span>
                   </li>
                 </ul>
@@ -1809,9 +1866,9 @@ export default function Home() {
             </div>
 
             {/* Bottom Legal Notice & Copyright */}
-            <div className="mt-12 border-t border-[#241f1a] pt-8 text-center text-[11px] text-[#ebe4d8]/50">
+            <div className="mt-12 border-t border-[#241e18] pt-8 text-center text-[11px] text-[#ebe4d8]/50">
               <p>
-                © {new Date().getFullYear()} {CLIENT_NAME} ({BRAND_LABEL}). Todos os direitos reservados.
+                © {new Date().getFullYear()} {BRAND_LABEL} (OAB/MG 248.197). Todos os direitos reservados.
               </p>
               <p className="mt-1">
                 Atuação em estrita conformidade com o Provimento nº 205/2021 e o Código de Ética e Disciplina da OAB.
@@ -1832,7 +1889,7 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedPractice(null)}
-                className="absolute inset-0 bg-[#080502]/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-[#0a0806]/80 backdrop-blur-sm"
               />
 
               {/* Modal Box */}
@@ -1840,13 +1897,13 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#c2a366]/50 bg-white p-6 sm:p-8 shadow-2xl text-[#14110d]"
+                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#bd8028]/50 bg-white p-6 sm:p-8 shadow-2xl text-[#14110d]"
               >
                 {/* Close Button */}
                 <button
                   type="button"
                   onClick={() => setSelectedPractice(null)}
-                  className="absolute right-5 top-5 inline-flex size-9 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8] text-[#5c554b] hover:text-[#14110d] hover:border-[#c2a366] cursor-pointer"
+                  className="absolute right-5 top-5 inline-flex size-9 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8] text-[#5c554b] hover:text-[#14110d] hover:border-[#bd8028] cursor-pointer"
                   aria-label="Fechar janela"
                 >
                   <X size={18} />
@@ -1854,11 +1911,11 @@ export default function Home() {
 
                 {/* Modal Content */}
                 <div className="flex items-center gap-3">
-                  <div className="flex size-12 items-center justify-center rounded-xl bg-[#c2a366]/15 text-[#835c32]">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-[#bd8028]/15 text-[#8c4f08]">
                     <selectedPractice.icon size={24} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#a1773b]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#a26417]">
                       Área de Atuação
                     </span>
                     <h3 className="font-serif text-2xl font-bold text-[#14110d]">
@@ -1867,7 +1924,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <p className="mt-2 text-xs font-semibold text-[#835c32] uppercase tracking-wider">
+                <p className="mt-2 text-xs font-semibold text-[#8c4f08] uppercase tracking-wider">
                   {selectedPractice.category}
                 </p>
 
@@ -1884,7 +1941,7 @@ export default function Home() {
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2
                           size={15}
-                          className="mt-0.5 shrink-0 text-[#c2a366]"
+                          className="mt-0.5 shrink-0 text-[#bd8028]"
                         />
                         <span>{t}</span>
                       </li>
@@ -1923,15 +1980,15 @@ export default function Home() {
         {/* ======================================================== */}
         <div className="fixed bottom-6 right-6 z-40">
           <a
-            href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta jurídica especializada com Guimarães & Santiago Advogados.")}
+            href={getWhatsAppUrl("Olá, Dra. Laura! Gostaria de agendar uma consulta jurídica especializada com você.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 rounded-full border border-[#f8f3e6] bg-gradient-to-r from-[#a1773b] via-[#d4af37] to-[#c2a366] p-3.5 sm:px-5 sm:py-3.5 text-[#080502] font-extrabold shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_28px_-4px_rgba(194,163,102,0.6)] cursor-pointer"
-            aria-label="Falar com Guimarães & Santiago Advogados no WhatsApp"
+            className="group flex items-center gap-2 rounded-full border border-[#fdf2cf] bg-gradient-to-r from-[#a26417] via-[#dba54c] to-[#bd8028] p-3.5 sm:px-5 sm:py-3.5 text-[#0a0806] font-extrabold shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_28px_-4px_rgba(189,128,40,0.6)] cursor-pointer"
+            aria-label="Falar com Adv. Laura Melo Lopes no WhatsApp"
           >
-            <WhatsAppIcon size={22} className="text-[#080502]" />
-            <span className="hidden sm:inline text-xs uppercase tracking-wider font-extrabold text-[#080502]">
-              Falar com Advogados
+            <WhatsAppIcon size={22} className="text-[#0a0806]" />
+            <span className="hidden sm:inline text-xs uppercase tracking-wider font-extrabold text-[#0a0806]">
+              Falar com a Advogada
             </span>
           </a>
         </div>
