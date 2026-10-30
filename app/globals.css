@@ -3,43 +3,43 @@
 :root {
   color-scheme: light dark;
   
-  /* Brand Luxury Obsidian & Deep Warm Espresso (Derived from Dra. Nayara Medina's Brand Identity) */
-  --brand-onyx-deep: #0a0704;
-  --brand-onyx-surface: #130e09;
-  --brand-onyx-card: #1a140e;
-  --brand-onyx-card-hover: #261e16;
-  --brand-onyx-highlight: #33271d;
-  --brand-graphite: #45372a;
+  /* Brand Luxury Obsidian & Deep Warm Espresso (Derived from Dra. Mariana Leão's Brand Identity) */
+  --brand-onyx-deep: #0a0908;
+  --brand-onyx-surface: #120f0c;
+  --brand-onyx-card: #1a1612;
+  --brand-onyx-card-hover: #251f19;
+  --brand-onyx-highlight: #332b23;
+  --brand-graphite: #453c32;
   
-  /* Brand Metallic Amber Gold & Radiant Champagne (Extracted directly from the Official Logo "Nayara MEDINA") */
+  /* Brand Metallic Champagne Gold & Royal Bronze (Extracted directly from the Official Logo "Mariana Leão Advocacia") */
   --brand-gold-glow: #ffffff;
-  --brand-gold-highlight: #fff4e6;
-  --brand-gold-champagne: #f7dfb8;
-  --brand-gold-light: #fbaf53;
-  --brand-gold-primary: #df7418;
-  --brand-gold-warm: #c25b0e;
-  --brand-gold-deep: #8e3d06;
-  --brand-gold-shadow: #5c2403;
-  --brand-gold-dark: #381502;
+  --brand-gold-highlight: #fdf8d4;
+  --brand-gold-champagne: #fcecb1;
+  --brand-gold-light: #e6be78;
+  --brand-gold-primary: #c89e63;
+  --brand-gold-warm: #b88440;
+  --brand-gold-deep: #8a551e;
+  --brand-gold-shadow: #5c350d;
+  --brand-gold-dark: #371b05;
   
-  /* Warm Sunflower & Terracotta Accent */
-  --brand-warm-sunflower: #f59e0b;
-  --brand-terracotta: #8a340a;
+  /* Warm Honey & Bronze Accent */
+  --brand-warm-honey: #d4af37;
+  --brand-bronze: #8a551e;
 
   /* Editorial Alabaster & Warm Linen Canvas (Clean, noble, high legibility) */
   --brand-canvas-light: #fdfbf7;
-  --brand-canvas-alt: #f7f2ea;
+  --brand-canvas-alt: #f7f3eb;
   --brand-canvas-surface: #ffffff;
-  --brand-canvas-border: #ebe3d7;
-  --brand-canvas-ink: #140f0b;
-  --brand-canvas-muted: #5c5249;
+  --brand-canvas-border: #ebe4d8;
+  --brand-canvas-ink: #14110d;
+  --brand-canvas-muted: #5c554b;
   
   /* Borders & Accents */
-  --brand-border-gold: rgba(223, 116, 24, 0.45);
-  --brand-border-gold-subtle: rgba(247, 223, 184, 0.25);
-  --brand-border-gold-strong: rgba(251, 175, 83, 0.85);
+  --brand-border-gold: rgba(200, 158, 99, 0.45);
+  --brand-border-gold-subtle: rgba(252, 236, 177, 0.25);
+  --brand-border-gold-strong: rgba(230, 190, 120, 0.85);
   --brand-border-dark: rgba(255, 255, 255, 0.12);
-  --brand-border-onyx: rgba(20, 15, 11, 0.35);
+  --brand-border-onyx: rgba(20, 17, 13, 0.35);
 }
 
 @theme inline {
@@ -47,25 +47,25 @@
   --font-cinzel: var(--font-cinzel), "Cinzel", "Times New Roman", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-onyx-deep: #0a0704;
-  --color-brand-onyx-surface: #130e09;
-  --color-brand-onyx-card: #1a140e;
-  --color-brand-onyx-card-hover: #261e16;
+  --color-brand-onyx-deep: #0a0908;
+  --color-brand-onyx-surface: #120f0c;
+  --color-brand-onyx-card: #1a1612;
+  --color-brand-onyx-card-hover: #251f19;
   
-  --color-brand-gold-highlight: #fff4e6;
-  --color-brand-gold-champagne: #f7dfb8;
-  --color-brand-gold-light: #fbaf53;
-  --color-brand-gold-primary: #df7418;
-  --color-brand-gold-warm: #c25b0e;
-  --color-brand-gold-deep: #8e3d06;
+  --color-brand-gold-highlight: #fdf8d4;
+  --color-brand-gold-champagne: #fcecb1;
+  --color-brand-gold-light: #e6be78;
+  --color-brand-gold-primary: #c89e63;
+  --color-brand-gold-warm: #b88440;
+  --color-brand-gold-deep: #8a551e;
   
   --color-brand-canvas-light: #fdfbf7;
-  --color-brand-canvas-alt: #f7f2ea;
+  --color-brand-canvas-alt: #f7f3eb;
   --color-brand-canvas-surface: #ffffff;
   
-  --shadow-gold: 0 10px 28px -4px rgba(223, 116, 24, 0.35);
-  --shadow-gold-lg: 0 16px 38px -6px rgba(194, 91, 14, 0.45);
-  --shadow-onyx-card: 0 20px 45px -10px rgba(10, 7, 4, 0.94);
+  --shadow-gold: 0 10px 28px -4px rgba(200, 158, 99, 0.35);
+  --shadow-gold-lg: 0 16px 38px -6px rgba(184, 132, 64, 0.45);
+  --shadow-onyx-card: 0 20px 45px -10px rgba(10, 9, 8, 0.94);
 }
 
 html {
@@ -75,14 +75,14 @@ html {
 
 body {
   background: #fdfbf7;
-  color: #140f0b;
+  color: #14110d;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #df7418;
+  caret-color: #c89e63;
 }
 
 ::selection {
-  background: #1a140e;
-  color: #f7dfb8;
+  background: #1a1612;
+  color: #fcecb1;
 }
 
 .font-cinzel {
@@ -98,7 +98,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8e3d06;
+  color: #8a551e;
 }
 
 .eyebrow-dark {
@@ -110,14 +110,14 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #f7dfb8;
+  color: #fcecb1;
 }
 
 .eyebrow::before {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #c25b0e, #df7418);
+  background: linear-gradient(90deg, #b88440, #c89e63);
   content: "";
 }
 
@@ -125,14 +125,14 @@ body {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #f7dfb8, #fbaf53);
+  background: linear-gradient(90deg, #fcecb1, #e6be78);
   content: "";
 }
 
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #3b3229;
+  color: #3b352c;
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -147,7 +147,7 @@ body {
   bottom: -2px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, #c25b0e, #df7418);
+  background: linear-gradient(90deg, #b88440, #c89e63);
   border-radius: 999px;
   content: "";
   transform: scaleX(0);
@@ -156,7 +156,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #0a0704;
+  color: #0a0908;
 }
 
 .nav-link:hover::after {
@@ -166,7 +166,7 @@ body {
 .nav-link-dark {
   position: relative;
   padding-block: 0.5rem;
-  color: #f7dfb8;
+  color: #fcecb1;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -180,7 +180,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #fbaf53;
+  background: #e6be78;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -196,7 +196,7 @@ body {
 }
 
 .footer-link {
-  color: #f7dfb8;
+  color: #fcecb1;
   transition: color 180ms ease;
 }
 
@@ -206,20 +206,20 @@ body {
 
 /* Luxury Metallic Gold Text Shimmer (Inspired by the logo) */
 .metallic-gold-text {
-  background: linear-gradient(135deg, #ffffff 0%, #fff4e6 20%, #f7dfb8 45%, #df7418 75%, #fbaf53 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fdf8d4 20%, #fcecb1 45%, #c89e63 75%, #e6be78 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #fbaf53 0%, #f7dfb8 30%, #df7418 65%, #c25b0e 100%);
+  background: linear-gradient(135deg, #fcecb1 0%, #e6be78 30%, #c89e63 65%, #8a551e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .metallic-badge {
-  background: linear-gradient(135deg, rgba(251, 175, 83, 0.15) 0%, rgba(223, 116, 24, 0.08) 100%);
-  border: 1px solid rgba(247, 223, 184, 0.35);
+  background: linear-gradient(135deg, rgba(230, 190, 120, 0.15) 0%, rgba(200, 158, 99, 0.08) 100%);
+  border: 1px solid rgba(252, 236, 177, 0.35);
   backdrop-filter: blur(8px);
 }
 
@@ -228,17 +228,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0704;
+  background: #0a0908;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #0a0704;
+  border: 2px solid #0a0908;
   border-radius: 999px;
-  background: #1a140e;
+  background: #1a1612;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #df7418;
+  background: #c89e63;
 }
 
 @media (prefers-reduced-motion: reduce) {

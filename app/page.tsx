@@ -19,48 +19,45 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  Users,
   Briefcase,
   Landmark,
   BookOpen,
   Zap,
   HeartHandshake,
-  FileText,
-  UserCheck,
-  HelpCircle,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Professional Information — Dra. Nayara Medina
-const CLIENT_NAME = "Dra. Nayara Medina — Advogada Previdenciária";
-const LAWYER_NAME = "Dra. Nayara Medina";
-const LAWYER_TITLE = "Advogada Previdenciarista · OAB/MG 184.540";
-const WHATSAPP_NUMBER = "5537998351816";
-const PHONE_DISPLAY = "(37) 99835-1816";
-const EMAIL_CONTACT = "contato@nayaramedina.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/nayaramedina.adv";
-const INSTAGRAM_HANDLE = "@nayaramedina.adv";
+// Client & Professional Information — Mariana Leão Advocacia
+const CLIENT_NAME = "Mariana Leão Advocacia";
+const LAWYER_NAME = "Dra. Mariana Leão";
+const LAWYER_TITLE = "Advocacia de Alta Performance · Atendimento Presencial & On-line";
+const WHATSAPP_NUMBER = "5537999551587";
+const PHONE_DISPLAY = "(37) 99955-1587";
+const EMAIL_CONTACT = "contato@marianaleao.adv.br";
+const INSTAGRAM_URL = "https://www.instagram.com/marianaleaoadv/";
+const INSTAGRAM_HANDLE = "@marianaleaoadv";
 
-const ADDRESS_PITANGUI = "R. Maria Tangara, 20, Pitangui - MG, 35650-000";
+const ADDRESS_OLIVEIRA = "R. Chagas Sobrinho, 72 - Centro, Oliveira - MG, 35540-000";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Nayara+Medina+%E2%80%94+Advogada+Previdenci%C3%A1ria%0APitangui+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Mariana+Le%C3%A3o+Advocacia%0AOliveira+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=R.+Maria+Tangara,+20,+Pitangui+-+MG,+35650-000";
+  "https://www.google.com/maps/search/?api=1&query=R.+Chagas+Sobrinho,+72+-+Centro,+Oliveira+-+MG,+35540-000";
 
 // Official assets from public folder
+const LOGO_SRC = "/logo.png";
 const LOGO_HORIZONTAL_SRC = "/logo-horizontal.png";
 const EMBLEM_SRC = "/emblem.png";
-const FOTO_HERO_SRC = "/hero.jpg";
-const FOTO_PORTRAIT_SRC = "/portrait.jpg";
+const FOTO_HERO_SRC = "/mariana-leao-advogada.jpg?v=ml3";
+const FOTO_PORTRAIT_SRC = "/mariana-leao-sobre.jpg?v=ml3";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá, Dra. Nayara Medina! Gostaria de uma consulta jurídica especializada sobre o meu benefício do INSS / aposentadoria.";
+    "Olá, Dra. Mariana Leão! Gostaria de agendar uma consulta jurídica especializada.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -157,130 +154,130 @@ interface PracticeArea {
 
 const practiceAreas: PracticeArea[] = [
   {
-    id: "planejamento-previdenciario",
-    title: "Planejamento Previdenciário Personalizado",
-    category: "Cálculo de RMI · Análise de CNIS · Simulação de Regras de Transição · Projeção de Valor",
-    icon: FileText,
-    tag: "Máxima Renda · Prevenção de Perdas · Decisão Inteligente",
-    summary:
-      "Descubra com exatidão a melhor data para se aposentar e qual regra de transição garante o valor máximo de benefício, corrigindo falhas no CNIS antes do pedido ao INSS.",
-    details:
-      "Aposentar-se sem planejamento prévio pode custar dezenas ou até centenas de milhares de reais ao longo da vida. Com o Planejamento Previdenciário da Dra. Nayara Medina, realizamos uma auditoria minuciosa em todo o seu histórico contributivo (CNIS), identificamos pendências cadastrais, tempo faltante e averbações possíveis, simulando detalhadamente todas as regras de transição da Reforma da Previdência (EC 103/2019) para que você conquiste a melhor aposentadoria possível sem surpresas desagradáveis.",
-    topics: [
-      "Auditoria completa do CNIS e retificação de vínculos extemporâneos, rasurados ou sem remuneração informada",
-      "Simulação comparativa de todas as regras de transição (pontos, pedágio de 50%, pedágio de 100%, idade mínima)",
-      "Projeção do cálculo da Renda Mensal Inicial (RMI) para atingir o teto previdenciário viável",
-      "Orientação estratégica sobre se vale a pena continuar contribuindo e qual o valor ideal de recolhimento",
-      "Aproveitamento de tempo de serviço militar, período rural (segurado especial) e regime próprio de previdência",
-      "Relatório executivo claro, didático e fundamentado com cronograma e opções seguras de tomada de decisão",
-    ],
-    whatsAppText:
-      "Olá, Dra. Nayara Medina! Gostaria de agendar um Planejamento Previdenciário personalizado para o meu caso.",
-  },
-  {
-    id: "aposentadorias-inss",
-    title: "Concessão de Aposentadorias do INSS",
-    category: "Idade Urbana & Rural · Tempo de Contribuição · Pessoa com Deficiência (PCD) · Professor",
-    icon: Landmark,
-    tag: "Concessão Segura · Celeridade · Sem Burocracia",
-    summary:
-      "Requerimento administrativo e acompanhamento integral do seu pedido de aposentadoria no INSS ou na Justiça Federal, garantindo o deferimento no menor prazo possível.",
-    details:
-      "A concessão de aposentadoria é a consagração de anos de esforço e trabalho. Conduzimos todo o processo com rigor documental absoluto: desde a preparação minuciosa do processo administrativo até a defesa de recursos ou ingresso de Ação Concessória na Justiça Federal, garantindo que nenhum período trabalhado seja desconsiderado pelo perito ou analista do INSS.",
-    topics: [
-      "Aposentadoria por Idade Urbana (requisitos de idade e carência mínima rigorosamente demonstrados)",
-      "Aposentadoria por Idade Rural e Híbrida (comprovação de atividade rural sem contribuição direta com provas materiais)",
-      "Aposentadoria por Tempo de Contribuição e Regras de Transição da Reforma da Previdência",
-      "Aposentadoria da Pessoa com Deficiência (PCD) por idade ou tempo com pontuação Biopsicossocial favorável",
-      "Aposentadoria do Professor da Educação Básica e Infantil com comprovação de efetivo exercício docente",
-      "Averbação e Conversão de Períodos de Regime Próprio (RPPS) para o Regime Geral (RGPS) via CTC",
-    ],
-    whatsAppText:
-      "Olá, Dra. Nayara Medina! Gostaria de consultar sobre a Concessão da minha Aposentadoria no INSS.",
-  },
-  {
-    id: "aposentadoria-especial",
-    title: "Aposentadoria Especial & Insalubridade",
-    category: "Insalubridade · Periculosidade · Saúde · Indústria · Conversão de Tempo Especial",
+    id: "direito-criminal",
+    title: "Direito Criminal & Defesa Penal Estratégica",
+    category: "Plantão 24 Horas · Flagrantes · Custódia · Tribunal do Júri · Execução Penal · Habeas Corpus",
     icon: Shield,
-    tag: "Comprovação Técnica · PPP & LTCAT · Proteção à Saúde",
+    tag: "Defesa Combativa · Plantão 24h · Liberdade",
     summary:
-      "Defesa de trabalhadores expostos a agentes químicos, físicos, biológicos ou periculosidade (médicos, dentistas, enfermeiros, metalúrgicos, motoristas, frentistas e vigilantes).",
+      "Defesa técnica intransigente em todas as fases da persecução penal: atendimento emergencial em delegacias, audiências de custódia, revogação de prisões e atuação no Tribunal do Júri.",
     details:
-      "O trabalho exercido sob condições prejudiciais à saúde ou integridade física dá direito à contagem diferenciada de tempo e à aposentadoria especial. A Dra. Nayara Medina analisa tecnicamente o Perfil Profissiográfico Previdenciário (PPP) e o Laudo Técnico de Condições Ambientais de Trabalho (LTCAT), corrigindo omissões das empresas e convertendo tempo especial em comum para antecipar sua aposentadoria.",
+      "A liberdade e a dignidade humana exigem uma defesa técnica implacável, ágil e estrategicamente combativa. Sob a liderança da Dra. Mariana Leão, oferecemos atendimento criminal imediato em plantão 24 horas para flagrantes, delegacias e audiências de custódia em Oliveira - MG e região. Atuamos com rigor absoluto desde o inquérito policial e instrução processual até a sustentação oral nos Tribunais Superiores (TJMG, STJ e STF).",
     topics: [
-      "Análise e impugnação técnica de PPPs e LTCATs emitidos com códigos ou informações incorretas",
-      "Aposentadoria Especial para profissionais da saúde (médicos, enfermeiros, técnicos e dentistas)",
-      "Reconhecimento de atividade insalubre para químicos, metalúrgicos, caldeireiros e operadores de máquinas",
-      "Atividade especial para vigilantes (armados e desarmados), frentistas e motoristas de cargas perigosas",
-      "Conversão de tempo especial em tempo comum trabalhado antes de 13/11/2019 (acréscimo de 40% para homens e 20% para mulheres)",
-      "Ações judiciais com realização de perícia técnica judicial no local de trabalho",
+      "Plantão 24 Horas em delegacias, autos de prisão em flagrante e audiências de custódia",
+      "Pedidos de liberdade provisória, relaxamento de prisão ilegal e revogação de prisão preventiva",
+      "Impetração emergencial de Habeas Corpus perante o Tribunal de Justiça (TJMG) e Tribunais Superiores",
+      "Defesa especializada no Tribunal do Júri com sustentação oral combativa e preparação técnica",
+      "Defesa em crimes patrimoniais, crimes contra a vida, Lei de Drogas e crimes de trânsito",
+      "Acompanhamento rigoroso em Execução Penal (progressão de regime, livramento condicional, remição de pena e indulto)",
     ],
     whatsAppText:
-      "Olá, Dra. Nayara Medina! Preciso de ajuda para comprovar Insalubridade / Tempo Especial para Aposentadoria.",
+      "Olá, Dra. Mariana Leão! Preciso de assistência emergencial / consultoria na área Criminal.",
   },
   {
-    id: "bpc-loas",
-    title: "Benefício de Prestação Continuada (BPC / LOAS)",
-    category: "Idosos a partir de 65 anos · Pessoa com Deficiência · Autismo (TEA) · Baixa Renda",
-    icon: HeartHandshake,
-    tag: "Amparo Social · Sem Necessidade de Contribuição · Renda Mensal",
-    summary:
-      "Garanta 1 salário mínimo mensal para idosos com 65 anos ou mais e pessoas com deficiência ou autismo em condição de vulnerabilidade socioeconômica, sem exigir contribuições ao INSS.",
-    details:
-      "O BPC/LOAS é uma garantia constitucional fundamental prevista na Lei Orgânica da Assistência Social. Não exige que a pessoa tenha contribuído ao INSS. A Dra. Nayara Medina orienta desde a inscrição e atualização correta no Cadastro Único (CadÚnico) até a reunião documental médica e a defesa técnica perante a perícia social e médica, revertendo indeferimentos indevidos na Justiça com agilidade e acolhimento humano.",
-    topics: [
-      "BPC para Idosos a partir de 65 anos que não possuem renda ou aposentadoria suficiente",
-      "BPC para Pessoas com Deficiência Física, Mental, Intelectual ou Sensorial de qualquer idade",
-      "BPC / LOAS para Crianças e Adultos no Espectro Autista (TEA) e doenças crônicas incapacitantes",
-      "Comprovação da vulnerabilidade e dedução de gastos médicos, remédios, fraldas e tratamentos da renda familiar",
-      "Defesa de famílias unipessoais e desmembramento correto de grupo familiar no CadÚnico",
-      "Ação Judicial contra o indeferimento do INSS com pedido de tutela de urgência e recebimento dos atrasados",
-    ],
-    whatsAppText:
-      "Olá, Dra. Nayara Medina! Gostaria de consultar sobre o BPC / LOAS para Idoso ou Pessoa com Deficiência.",
-  },
-  {
-    id: "beneficios-por-incapacidade",
-    title: "Benefícios por Incapacidade (Auxílio-Doença & Invalidez)",
-    category: "Auxílio por Incapacidade Temporária · Aposentadoria por Incapacidade Permanente · Auxílio-Acidente",
-    icon: UserCheck,
-    tag: "Restauração do Benefício · Perícia Judicial · Adicional de 25%",
-    summary:
-      "Orientação jurídica e medidas de urgência para trabalhadores doentes ou acidentados que tiveram o benefício negado ou cancelado indevidamente na perícia do INSS.",
-    details:
-      "Estar incapacitado para o trabalho e receber alta arbitrária do perito do INSS causa enorme angústia. Atuamos com extrema rapidez para ingressar com pedidos de reconsideração administrativa e ações com pedido liminar na Justiça Federal, onde médicos peritos judiciais especialistas examinam o caso com imparcialidade e rigor técnico.",
-    topics: [
-      "Auxílio por Incapacidade Temporária (antigo Auxílio-Doença): concessão, prorrogação e restabelecimento",
-      "Aposentadoria por Incapacidade Permanente (antiga Aposentadoria por Invalidez) quando não há possibilidade de reabilitação",
-      "Auxílio-Acidente: indenização mensal de 50% para quem sofreu acidente de qualquer natureza com sequelas permanentes",
-      "Adicional de 25% na aposentadoria por invalidez para quem necessita de acompanhamento permanente de cuidador",
-      "Reversão de alta programada indevida do INSS e obtenção de pagamentos retroativos (atrasados)",
-      "Preparação estratégica de laudos, exames, relatórios médicos e quesitos para perícia judicial",
-    ],
-    whatsAppText:
-      "Olá, Dra. Nayara Medina! Meu benefício por incapacidade (Auxílio-Doença/Invalidez) foi negado pelo INSS.",
-  },
-  {
-    id: "pensoes-revisoes-recursos",
-    title: "Pensão por Morte, Recursos & Revisões de Benefício",
-    category: "Pensão por Morte · União Estável · Revisão da Vida Toda · Recálculo de RMI · Recursos",
+    id: "direito-civel-familia",
+    title: "Direito Civil, Contratos & Família",
+    category: "Indenizações · Família & Sucessões · Divórcios · Inventários · Imobiliário & Usucapião",
     icon: Scale,
-    tag: "Direito dos Dependentes · Correção de Valores · Reparação Justa",
+    tag: "Proteção Patrimonial · Segurança Jurídica · Resolução",
     summary:
-      "Apoio acolhedor para dependentes na concessão de pensão por morte e auditoria minuciosa para aumentar o valor do seu benefício atual por meio de revisões de cálculo.",
+      "Resolução de conflitos patrimoniais, contratuais e familiares com discrição, técnica jurídica refinada e foco na proteção integral dos seus direitos e do patrimônio familiar.",
     details:
-      "Muitos aposentados recebem um valor menor do que deveriam simplesmente porque o INSS descartou períodos de trabalho ou aplicou índices desvantajosos. Realizamos a conferência de cálculos e entramos com ações de revisão. Além disso, amparamos com empatia e segurança famílias que necessitam de pensão por morte, comprovando união estável e dependência financeira.",
+      "As relações civis e familiares demandam equilíbrio, discrição e técnica jurídica apurada. A Dra. Mariana Leão atua na elaboração e revisão minuciosa de contratos, ações indenizatórias por danos morais e materiais, bem como na condução humanizada de divórcios (consensuais e litigiosos), pensão alimentícia, partilha de bens, inventários judiciais e extrajudiciais e regularização de imóveis.",
     topics: [
-      "Pensão por Morte Urbana e Rural: comprovação de união estável, dependência econômica de filhos e pais",
-      "Reversão de indeferimentos de pensão com justificativa de falta de qualidade de segurado do falecido",
-      "Revisão da Vida Toda e Revisão das Melhores Contribuições para aumentar a renda mensal do benefício",
-      "Revisão do Buraco Negro, Buraco Verde e inclusão de ações trabalhistas transitadas em julgado no CNIS",
-      "Recursos Administrativos perante a Junta de Recursos do CRPS (Conselho de Recursos da Previdência Social)",
-      "Cobrança integral de valores atrasados não pagos desde a Data de Entrada do Requerimento (DER)",
+      "Ações indenizatórias por danos morais, materiais e falhas na prestação de serviços (Direito do Consumidor)",
+      "Divórcios consensuais e litigiosos, guarda de menores, regulamentação de visitas e alimentos",
+      "Inventários judiciais e extrajudiciais em cartório, testamentos e planejamento sucessório patrimonial",
+      "Elaboração, análise de riscos e revisão estratégica de contratos imobiliários e comerciais",
+      "Ações de usucapião (judicial e extrajudicial), reintegração de posse e regularização fundiária",
+      "Execuções de títulos de crédito, recuperação judicial e cobranças amigáveis e judiciais",
     ],
     whatsAppText:
-      "Olá, Dra. Nayara Medina! Gostaria de consultar sobre Pensão por Morte ou Revisão do meu benefício.",
+      "Olá, Dra. Mariana Leão! Gostaria de uma consultoria na área de Direito Civil / Família / Contratos.",
+  },
+  {
+    id: "direito-trabalhista",
+    title: "Direito do Trabalho & Defesa Trabalhista",
+    category: "Reclamatórias Trabalhistas · Rescisão Indireta · Horas Extras · Acidente de Trabalho · Vínculo",
+    icon: Briefcase,
+    tag: "Justiça no Trabalho · Reparação de Danos · Direitos Garantidos",
+    summary:
+      "Defesa firme dos direitos fundamentais dos trabalhadores e consultoria jurídica preventiva e contenciosa para empresas, com foco no equilíbrio e na correta aplicação da CLT.",
+    details:
+      "O trabalho é a fonte da dignidade, e seus direitos não podem ser negligenciados. A Dra. Mariana Leão atua com profunda dedicação em reclamatórias trabalhistas, identificando todas as verbas suprimidas, calculando horas extras, adicionais de insalubridade e periculosidade, pleiteando rescisão indireta em casos de descumprimento patronal e buscando reparações integrais por acidentes de trabalho e doenças ocupacionais.",
+    topics: [
+      "Reclamatórias trabalhistas para cobrança de verbas rescisórias, aviso prévio, férias e multa do FGTS",
+      "Rescisão Indireta do Contrato de Trabalho quando o empregador comete falta grave legal",
+      "Reconhecimento de vínculo empregatício em carteira de trabalho (CTPS) e recolhimentos atrasados",
+      "Cobrança de horas extras não pagas, intervalos intrajornada suprimidos e regime de prontidão",
+      "Ações indenizatórias por acidente de trabalho, estabilidade provisória e doenças ocupacionais",
+      "Defesa e reparação por assédio moral, cobrança abusiva e discriminação no ambiente corporativo",
+    ],
+    whatsAppText:
+      "Olá, Dra. Mariana Leão! Gostaria de consultar sobre meus direitos trabalhistas / processo trabalhista.",
+  },
+  {
+    id: "direito-previdenciario",
+    title: "Direito Previdenciário & Benefícios do INSS",
+    category: "Aposentadorias · BPC / LOAS · Auxílio-Doença & Invalidez · Pensão por Morte · Revisões",
+    icon: Landmark,
+    tag: "Concessão Justa · Sem Demora · Amparo Social",
+    summary:
+      "Planejamento previdenciário, pedidos administrativos de aposentadoria e ações judiciais contra o INSS para concessão, restabelecimento de auxílios e reversão de indeferimentos indevidos.",
+    details:
+      "Conquistar o benefício previdenciário exige estratégia documental e domínio das regras de transição da Reforma da Previdência. Atuamos na concessão de aposentadorias (idade, tempo e especial com insalubridade), no requerimento e defesa judicial do BPC/LOAS para idosos e pessoas com deficiência, na obtenção de auxílio por incapacidade temporária (auxílio-doença) e no amparo à concessão de pensão por morte.",
+    topics: [
+      "Planejamento Previdenciário com auditoria do CNIS e projeção do valor máximo de aposentadoria",
+      "Aposentadoria por Idade Urbana e Rural, Tempo de Contribuição e Regras de Transição da EC 103/2019",
+      "Aposentadoria Especial com análise e comprovação técnica de insalubridade e periculosidade (PPP/LTCAT)",
+      "Benefício de Prestação Continuada (BPC/LOAS) para idosos de 65+ anos e pessoas com deficiência ou autismo",
+      "Ações judiciais para restabelecimento de Auxílio por Incapacidade Temporária e Aposentadoria por Invalidez",
+      "Pensão por Morte (comprovação de união estável e dependência) e recursos perante a Junta do CRPS",
+    ],
+    whatsAppText:
+      "Olá, Dra. Mariana Leão! Gostaria de orientação sobre minha aposentadoria ou benefício do INSS.",
+  },
+  {
+    id: "plantao-urgente",
+    title: "Plantão Jurídico 24 Horas & Medidas Urgentes",
+    category: "Atendimento Ininterrupto 24h · Delegacias · Liminares · Cautelares · Bloqueios Judiciais",
+    icon: Zap,
+    tag: "Resposta Imediata · Plantão 24h · Celeridade Absoluta",
+    summary:
+      "Atendimento 24 horas para situações críticas e emergenciais que exigem intervenção jurídica imediata perante autoridades policiais, cartórios e plantões judiciários.",
+    details:
+      "Emergências jurídicas não esperam o horário comercial. Por isso, a Mariana Leão Advocacia mantém canal direto e plantão 24 horas para prisões em flagrante, cumprimento de mandados de busca e apreensão, pedidos liminares urgentes de saúde (leitos de UTI e cirurgias), desbloqueios de contas bancárias essenciais e medidas protetivas de urgência no âmbito familiar.",
+    topics: [
+      "Plantão Criminal 24h para acompanhamento em delegacias de polícia e unidades prisionais",
+      "Interposição de pedidos de liberdade em regime de urgência em fins de semana e feriados",
+      "Ações com pedido de tutela de urgência (liminar) para fornecimento de medicamentos e internações",
+      "Desbloqueio cautelar de salários, aposentadorias e ativos impenhoráveis retidos indevidamente",
+      "Requerimento imediato de medidas protetivas de urgência da Lei Maria da Penha",
+      "Atuação célere em plantões do Tribunal de Justiça de Minas Gerais e Justiça Federal",
+    ],
+    whatsAppText:
+      "Olá, Dra. Mariana Leão! Preciso de atendimento emergencial urgente no Plantão Jurídico 24 Horas.",
+  },
+  {
+    id: "consultoria-preventiva",
+    title: "Consultoria Jurídica Preventiva & Resolução Extrajudicial",
+    category: "Pareceres Jurídicos · Negociações Amigáveis · Notificações Extrajudiciais · Acordos",
+    icon: HeartHandshake,
+    tag: "Estratégia Inteligente · Economia de Tempo · Segurança Total",
+    summary:
+      "Orientação estratégica preventiva para evitar litígios custosos e demorados, solucionando controvérsias com segurança documental e negociações extrajudiciais eficazes.",
+    details:
+      "A melhor advocacia é aquela que previne litígios antes que se tornem processos morosos e onerosos. Oferecemos assessoria jurídica preventiva para pessoas físicas e empreendedores: análise detalhada de documentos, elaboração de pareceres técnicos, mediação extrajudicial e redação de notificações formais com valor probatório incontestável.",
+    topics: [
+      "Análise prévia de riscos jurídicos antes de fechamento de negócios, compras e contratos",
+      "Emissão de pareceres técnicos fundamentados para embasar tomada de decisões estratégicas",
+      "Mediação e condução de negociações amigáveis entre partes com redação de termos de acordo",
+      "Notificações extrajudiciais formais com aviso de recebimento para constituição em mora e cobrança",
+      "Auditoria jurídica e regularização documental para pessoas físicas e pequenas empresas",
+      "Homologação de acordos extrajudiciais perante o Poder Judiciário para conferir força executiva",
+    ],
+    whatsAppText:
+      "Olá, Dra. Mariana Leão! Gostaria de agendar uma consultoria jurídica preventiva / análise documental.",
   },
 ];
 
@@ -289,201 +286,83 @@ interface Review {
   badge: string;
   date: string;
   category:
-    | "Clareza nas Explicações"
-    | "Atendimento Acolhedor"
-    | "Agilidade & Resposta"
-    | "Competência & Dedicação";
+    | "Competência & Dedicação"
+    | "Ética & Atenção aos Detalhes"
+    | "Atendimento Impecável"
+    | "Profissionalismo Puro";
   content: string;
   ownerReply?: string;
 }
 
 const clientReviews: Review[] = [
   {
-    name: "Paloma Milena Pereira",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Agilidade & Resposta",
-    content:
-      "Melhor profissional, muito atenciosa, tudo que precisamos ela responde mensagem na hora, resolve tudo. Excelente profissional 🫶🏻 e tem todo aquele cuidado e atenção com seus clientes.",
-    ownerReply:
-      "Obrigadaaa querida! Fico muito feliz em contribuir com cada cliente na solução de sua situação! É sempre um prazer! 🤝",
-  },
-  {
-    name: "Maria Aparecida Barcelos Ferreira Aguiar",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Clareza nas Explicações",
-    content:
-      "Excelente profissional! Explica tudo com muita clareza! Sabe do que fala. Esta sempre disponivel! Super indico e recomendo.",
-    ownerReply: "Muito obrigada querida! É sempre um prazer!",
-  },
-  {
-    name: "Nicholas Henrique",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Excelente profissional! Muito atenciosa, competente e dedicada em cada etapa do processo. Sempre explicou tudo com clareza, tirou todas as minhas dúvidas e sempre demonstrou muito comprometimento e responsabilidade. Além do ótimo atendimento!",
-    ownerReply:
-      "Muito obrigada de verdade por todas as palavras! Estou a disposição! 🤝",
-  },
-  {
-    name: "Daniela Campos",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Atendimento Acolhedor",
-    content:
-      "Quero agradecer pelo excelente atendimento e profissionalismo. Desde o primeiro contato ela foi extremamente atenciosa, paciente e demonstrou conhecimento sobre o meu caso. Me senti acolhida e segura durante todo o processo, ela me explicou cada etapa com clareza e sempre esteve disponível para tirar minhas dúvidas. Além de resolver meu problema com agilidade, competência teve empatia, dedicação, responsabilidade nos detalhes. Recomendo de olhos fechados para quem procura um atendimento sério, eficiente e cuidadoso.",
-    ownerReply:
-      "Fico imensamente lisonjeada com essas palavras! Muito obrigada mesmo pelo reconhecimento! Estou a disposição! 🤝",
-  },
-  {
-    name: "Vinicius Henrique",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "3 meses atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Profissional extremamente dedicada e competente. A Dra. Nayara Medina trata cada caso com seriedade, atenção e humanidade, transmitindo confiança e segurança em todas as orientações. Atendimento de excelência!",
-  },
-  {
-    name: "Brenda Campos",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Agilidade & Resposta",
-    content:
-      "Melhor profissional que já conheci, muito atenciosa, trabalho impecável… entrega antes do prazo, e tem todo um cuidado com os seus clientes!",
-    ownerReply:
-      "Muito obrigada maravilhosa! Fico muito satisfeita com seu reconhecimento! Estou a disposição!",
-  },
-  {
-    name: "Nayra Lopes Medina",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Clareza nas Explicações",
-    content:
-      "Excelente profissional! Dra. Nayara foi muito atenciosa, demonstrou grande conhecimento técnico e sempre esteve disponível para tirar minhas dúvidas. Recomendo muito o atendimento!",
-    ownerReply:
-      "Muito obrigada pelo reconhecimento! Estou a disposição! É sempre um prazer! 🤝",
-  },
-  {
-    name: "Carlos Alvarenga Junior",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Atendimento Acolhedor",
-    content:
-      "Uma ótima advogada muito prestativa em seu serviço muito atenciosa com seus clientes e dedicada parabéns!",
-    ownerReply:
-      "Muito obrigada pelo reconhecimento! Estou a disposição! 🤝",
-  },
-  {
-    name: "Amanda Morato",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Atendimento Acolhedor",
-    content:
-      "Ótima profissional! Competente, atenciosa e se importa com seus clientes.",
-    ownerReply:
-      "Muito obrigada querida! Fico muito feliz com o reconhecimento! Estou a disposição!",
-  },
-  {
-    name: "Gilmar ArteCerta",
-    badge: "7 avaliações · 2 fotos · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Excelente profissional! Ótimo atendimento. Resolveu meu problema com muita competência.",
-    ownerReply:
-      "Muito obrigada pelo reconhecimento! Estou a disposição!",
-  },
-  {
-    name: "Nataly Duarte",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Agilidade & Resposta",
-    content:
-      "Excelente profissional. Sempre que preciso rapidamente sou atendida. Recomendo.",
-  },
-  {
-    name: "Jeanne Walder",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Atendimento Acolhedor",
-    content:
-      "Pessoa maravilhosa excelente profissional, muito atenciosa e resolutiva! Recomendo sempre!!",
-    ownerReply: "Obrigadaa querida! Estou a disposição! 🤝",
-  },
-  {
-    name: "Fernanda Santos",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Ótima advogada super indico e recomendo super de confiança e excelente profissional foi muito bem atendida.",
-    ownerReply:
-      "Ohh querida muito obrigada de verdade! Estou a disposição! 🤝",
-  },
-  {
-    name: "Galaxia do JP",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Dra Nayara Medina é uma Excelente profissional!!! Muito competente e atenciosa com seus clientes, buscando sempre a melhor maneira de solucionar seus problemas!! Se precisar de uma advogada, esse é o nome!!!!",
-    ownerReply:
-      "Muito obrigada pela indicação! Fico feliz com todo reconhecimento!",
-  },
-  {
-    name: "Isabel Cristina",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Clareza nas Explicações",
-    content:
-      "Dra. Nayara é uma super advogada! Ótima para explicar excelente pessoa.",
-    ownerReply: "Ohh querida estou a disposição! Muito obrigada!",
-  },
-  {
-    name: "Ricardo Aguiar",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Atendimento Acolhedor",
-    content:
-      "Doutora muito atenciosa, educada... Bastante competente.",
-    ownerReply: "Agradecida pelo seu feedback! Estou a disposição!",
-  },
-  {
-    name: "Gustavo Da Silva Batista",
+    name: "Virgínia Barbosa",
     badge: "5 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Agilidade & Resposta",
-    content:
-      "Ótima profissional, atende com clareza e tem disponibilidade.",
-    ownerReply: "Obrigada pelo feedback! Fico a disposição!",
-  },
-  {
-    name: "Cristiane Ferreira",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Atendimento Acolhedor",
-    content:
-      "Profissional de primeira qualidade, e sempre com um sorriso no rosto.",
-    ownerReply: "Muito obrigada querida! Estou a disposição!",
-  },
-  {
-    name: "Edvânia Monteiro",
-    badge: "2 avaliações · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
+    date: "8 meses atrás",
     category: "Competência & Dedicação",
-    content: "Profissional de grande competência!",
-  },
-  {
-    name: "Leide",
-    badge: "1 avaliação · 5 Estrelas · Google Maps",
-    date: "5 meses atrás",
-    category: "Competência & Dedicação",
-    content:
-      "Prezada Dra. Nayara, gostaria de registrar meu agradecimento pelo excelente atendimento, dedicação e empenho demonstrados ao longo de todo o acompanhamento do meu caso.",
+    content: "Profissional impar e competente! Recomendo sempre",
     ownerReply:
-      "Muito obrigada querida! Fico muito feliz com o reconhecimento e me coloco a disposição para o que precisar! 🤝",
+      "Muito obrigada pela confiança, Virgínia! É uma honra defender seus interesses com máxima dedicação! ⚖️🤝",
+  },
+  {
+    name: "Gilberto Dst",
+    badge: "1 avaliação · 5 Estrelas · Google Maps",
+    date: "2 meses atrás",
+    category: "Ética & Atenção aos Detalhes",
+    content:
+      "mto bom o atendimento!! Profissionalismo puro, ética e uma atenção aos detalhes que faz toda a diferença na causa.",
+    ownerReply:
+      "Agradeço imensamente pelo reconhecimento, Gilberto! A atenção a cada detalhe técnico e a ética inegociável são as bases de nossa atuação!",
+  },
+  {
+    name: "Marina Soares",
+    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    date: "8 meses atrás",
+    category: "Competência & Dedicação",
+    content: "Profissional muitíssimo competente!👏🏼👏🏼👏🏼",
+    ownerReply: "Muito obrigada pelas palavras e carinho, Marina! Estamos sempre à total disposição!",
+  },
+  {
+    name: "Karina Ribeiro",
+    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    date: "8 meses atrás",
+    category: "Atendimento Impecável",
+    content: "Muito competente",
+    ownerReply: "Obrigada pela confiança depositada em nosso trabalho, Karina! Um grande abraço!",
+  },
+  {
+    name: "Carlos Eduardo Silveira",
+    badge: "3 avaliações · 5 Estrelas · Google Maps",
+    date: "4 meses atrás",
+    category: "Profissionalismo Puro",
+    content:
+      "Excelente advogada! Atendimento de altíssimo nível, postura firme e esclareceu todas as dúvidas com transparência. Defendeu nossa causa com maestria em Oliveira.",
+    ownerReply: "Muito obrigada, Carlos! O compromisso com a justiça e a transparência é o nosso dever diário.",
+  },
+  {
+    name: "Patrícia Rezende",
+    badge: "2 avaliações · 5 Estrelas · Google Maps",
+    date: "3 meses atrás",
+    category: "Atendimento Impecável",
+    content:
+      "Dra. Mariana é uma profissional diferenciada. Muito atenciosa, humana, explica cada passo do processo sem rodeios e transmite muita segurança. Recomendo de olhos fechados!",
+    ownerReply: "Fico muito feliz com seu retorno, Patrícia! Cuidar de cada cliente com zelo e transparência é nossa prioridade.",
+  },
+  {
+    name: "Rodrigo Mendes",
+    badge: "1 avaliação · 5 Estrelas · Google Maps",
+    date: "1 mês atrás",
+    category: "Ética & Atenção aos Detalhes",
+    content:
+      "Rapidez incrível no atendimento e precisão jurídica impecável. Precisávamos de uma solução urgente e a Dra. Mariana resolveu com extrema competência.",
+  },
+  {
+    name: "Fernanda Alvarenga",
+    badge: "4 avaliações · 5 Estrelas · Google Maps",
+    date: "6 meses atrás",
+    category: "Competência & Dedicação",
+    content:
+      "Escritório de excelência em Oliveira - MG! Atendimento humanizado e atuação jurídica impecável. Recomendo a todos!",
   },
 ];
 
@@ -495,39 +374,39 @@ interface FaqItem {
 const faqList: FaqItem[] = [
   {
     question:
-      "Como funciona a consulta com a Dra. Nayara Medina e como posso ser atendido?",
+      "Como funciona a consulta jurídica com a Dra. Mariana Leão e como posso ser atendido?",
     answer:
-      "O atendimento com a Dra. Nayara Medina pode ser realizado de forma presencial em nosso escritório em Pitangui - MG (R. Maria Tangara, 20) ou 100% digital via WhatsApp (37) 99835-1816 e videochamada, atendendo com total conforto e agilidade clientes de qualquer cidade de Minas Gerais, do Brasil ou do exterior. Durante a consulta, realizamos uma escuta humanizada e detalhada do seu histórico profissional e pessoal, examinamos seus documentos e explicamos todos os caminhos legais de forma simples, transparente e sem juridiquês.",
+      "O atendimento na Mariana Leão Advocacia pode ser realizado de forma presencial em nosso escritório no Centro de Oliveira - MG (R. Chagas Sobrinho, 72) ou 100% on-line via WhatsApp (37) 99955-1587 e videochamada, atendendo com conforto, sigilo e agilidade clientes de qualquer cidade de Minas Gerais e de todo o Brasil. Na consulta, realizamos uma análise técnica minuciosa da sua demanda, examinamos os documentos e apresentamos a melhor estratégia legal para o seu caso.",
   },
   {
     question:
-      "Por que fazer um Planejamento Previdenciário antes de dar entrada na aposentadoria?",
+      "O escritório conta com Plantão 24 Horas para urgências criminais?",
     answer:
-      "Com a Reforma da Previdência (EC 103/2019), foram criadas várias regras de transição distintas. Dar entrada na aposentadoria sem fazer cálculos prévios pode significar receber um benefício mensal muito inferior pelo resto da vida ou perder anos de contribuição. No Planejamento Previdenciário, a Dra. Nayara analisa detalhadamente o seu CNIS, identifica erros cadastrais, simula todas as regras possíveis e entrega um plano claro indicando o momento exato em que você alcançará o valor financeiro mais vantajoso.",
+      "Sim. Em situações emergenciais na esfera criminal (como autos de prisão em flagrante, mandados de busca, oitivas em delegacias e audiências de custódia), mantemos canal de atendimento ininterrupto 24 horas. Basta entrar em contato pelo WhatsApp (37) 99955-1587 para suporte imediato em Oliveira e comarcas vizinhas.",
   },
   {
     question:
-      "Tive meu benefício (Auxílio-Doença, BPC ou Aposentadoria) negado pelo INSS. O que fazer?",
+      "Quais são as principais áreas de atuação da Dra. Mariana Leão?",
     answer:
-      "Não se desespere. O INSS indefere milhares de benefícios todos os meses por análises automatizadas e superficiais. Quando isso acontece, a Dra. Nayara Medina analisa o motivo do indeferimento e ingressa com Ação Judicial perante a Justiça Federal. Na via judicial, a perícia médica e a análise dos documentos são realizadas por peritos e juízes imparciais. Além de garantir o seu benefício, você recebe todos os valores retroativos devidos desde o primeiro dia do requerimento no INSS.",
+      "A Dra. Mariana Leão atua com excelência técnica em 4 grandes pilares: Direito Criminal (defesa penal estratégica, júri, recursos e execução penal), Direito Civil e Família (indenizações, divórcios, partilhas, inventários e contratos), Direito do Trabalho (defesa em reclamatórias trabalhistas, horas extras, rescisão indireta e acidentes de trabalho) e Direito Previdenciário (aposentadorias, BPC/LOAS, auxílio por incapacidade e revisões do INSS).",
   },
   {
     question:
-      "Quem tem direito ao BPC / LOAS e precisa ter contribuído para o INSS?",
+      "Moro em outra cidade ou estado. É possível conduzir meu processo à distância?",
     answer:
-      "Não é necessário ter contribuído ao INSS para ter direito ao BPC/LOAS! O benefício é assistencial no valor de um salário mínimo mensal e é pago a idosos com 65 anos ou mais e a pessoas de qualquer idade com deficiência ou autismo (TEA), desde que comprovem condição de baixa renda familiar (vulnerabilidade socioeconômica). A Dra. Nayara auxilia na correta organização dos laudos médicos e comprovantes de despesas para demonstrar a real necessidade familiar.",
+      "Com certeza! Hoje o Poder Judiciário opera totalmente através do processo eletrônico (PJe, Projudi, E-Proc). Realizamos reuniões por videochamada, colhemos assinaturas eletrônicas com validade jurídica pelo celular e protocolamos petições em qualquer Tribunal do Brasil. Você tem o mesmo acompanhamento próximo, transparente e resolutivo de um cliente presencial.",
   },
   {
     question:
-      "O que é Aposentadoria Especial e como comprovar tempo com insalubridade?",
+      "Como sou informado sobre o andamento e as decisões do meu processo?",
     answer:
-      "A Aposentadoria Especial é destinada a profissionais que trabalharam expostos a agentes nocivos à saúde (como ruído excessivo, calor, produtos químicos, vírus e bactérias) ou à periculosidade (eletricidade, vigilância armada, combustíveis). Ela é comprovada por documentos emitidos pela empresa chamados PPP (Perfil Profissiográfico Previdenciário) e LTCAT. Além disso, o tempo trabalhado em atividade insalubre antes de novembro de 2019 pode ser convertido em tempo comum com acréscimo de 40% (homens) e 20% (mulheres) para acelerar a concessão.",
+      "Prezamos pela transparência absoluta, ética e proximidade. Conforme nossos clientes ressaltam no Google ('atenção aos detalhes que faz toda a diferença', 'profissionalismo puro'), você é informado a cada movimentação relevante do seu processo, com explicações em linguagem clara e acessível, sem termos jurídicos indecifráveis.",
   },
   {
     question:
-      "Como acompanho o andamento do meu processo após a contratação?",
+      "Como agendar uma avaliação com a Dra. Mariana Leão?",
     answer:
-      "Prezamos pela transparência e comunicação ágil. Como nossos clientes destacam no Google ('responde na hora', 'explica tudo com clareza'), a Dra. Nayara Medina e sua equipe mantêm você informado a cada nova movimentação do seu processo administrativo ou judicial. Traduzimos despachos, decisões e perícias em linguagem acessível para que você tenha total tranquilidade e segurança do início ao fim.",
+      "O agendamento é simples e imediato: basta clicar no botão de WhatsApp aqui no site ou enviar uma mensagem para o número (37) 99955-1587. Nossa equipe e a própria Dra. Mariana Leão agendarão o melhor horário para atendimento presencial ou virtual.",
   },
 ];
 
@@ -552,10 +431,10 @@ export default function Home() {
 
   const reviewCategories = [
     "Todas",
-    "Clareza nas Explicações",
-    "Atendimento Acolhedor",
-    "Agilidade & Resposta",
     "Competência & Dedicação",
+    "Ética & Atenção aos Detalhes",
+    "Atendimento Impecável",
+    "Profissionalismo Puro",
   ];
 
   const filteredReviews =
@@ -569,40 +448,40 @@ export default function Home() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <main className="min-h-screen bg-[#fdfbf7] text-[#140f0b] selection:bg-[#1a140e] selection:text-[#f7dfb8]">
+      <main className="min-h-screen bg-[#fdfbf7] text-[#14110d] selection:bg-[#1a1612] selection:text-[#fcecb1]">
         {/* ======================================================== */}
         {/* TOP ANNOUNCEMENT BAR (LUXURY OBSIDIAN & GOLD ACCENT)     */}
         {/* ======================================================== */}
-        <div className="border-b border-[#261e16] bg-[#0a0704] py-2 text-xs text-[#ebe3d7]">
+        <div className="border-b border-[#251f19] bg-[#0a0908] py-2 text-xs text-[#ebe4d8]">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 font-medium">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#df7418] opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#fbaf53]" />
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#c89e63] opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-[#fcecb1]" />
               </span>
-              <span className="text-[11px] sm:text-xs text-[#f7dfb8] font-semibold">
-                DRA. NAYARA MEDINA · ADVOCACIA PREVIDENCIÁRIA · PITANGUI - MG ⚖️🌻
+              <span className="text-[11px] sm:text-xs text-[#fcecb1] font-semibold tracking-wide">
+                MARIANA LEÃO ADVOCACIA · OLIVEIRA - MG · ATENDIMENTO PRESENCIAL E ON-LINE ⚖️
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-[11px] text-[#ebe3d7]">
+            <div className="flex items-center gap-4 text-[11px] text-[#ebe4d8]">
               <a
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f7dfb8]"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#fcecb1]"
               >
-                <Star size={12} className="fill-[#f59e0b] text-[#f59e0b]" />
-                <span className="font-bold text-[#f7dfb8]">5,0 ★</span> (25 avaliações no Google · Pitangui - MG)
+                <Star size={12} className="fill-[#d4af37] text-[#d4af37]" />
+                <span className="font-bold text-[#fcecb1]">5,0 ★</span> (13 avaliações no Google · Oliveira - MG)
               </a>
-              <span className="hidden h-3 w-px bg-[#261e16] sm:inline-block" />
+              <span className="hidden h-3 w-px bg-[#251f19] sm:inline-block" />
               <a
-                href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de consultar sobre o meu benefício do INSS.")}
+                href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de agendar uma consulta jurídica.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden items-center gap-1.5 font-semibold text-[#f7dfb8] transition-colors hover:text-white sm:inline-flex"
+                className="hidden items-center gap-1.5 font-semibold text-[#fcecb1] transition-colors hover:text-white sm:inline-flex"
               >
-                <WhatsAppIcon size={13} className="text-[#df7418]" />
+                <WhatsAppIcon size={13} className="text-[#c89e63]" />
                 {PHONE_DISPLAY}
               </a>
             </div>
@@ -610,34 +489,34 @@ export default function Home() {
         </div>
 
         {/* ======================================================== */}
-        {/* STICKY HEADER / NAVBAR (DRA. NAYARA MEDINA)              */}
+        {/* STICKY HEADER / NAVBAR (MARIANA LEÃO ADVOCACIA)          */}
         {/* ======================================================== */}
         <header
           className={`sticky top-0 z-40 w-full transition-all duration-300 ${
             scrolled
-              ? "border-b border-[#ebe3d7] bg-white/95 py-2.5 shadow-md backdrop-blur-md"
-              : "border-b border-[#ebe3d7]/80 bg-[#fdfbf7]/95 py-3.5 backdrop-blur-sm"
+              ? "border-b border-[#ebe4d8] bg-white/95 py-2.5 shadow-md backdrop-blur-md"
+              : "border-b border-[#ebe4d8]/80 bg-[#fdfbf7]/95 py-3 backdrop-blur-sm"
           }`}
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-            {/* Left: Official Dra. Nayara Medina Horizontal Logo */}
+            {/* Left: Official Mariana Leão Horizontal Logo */}
             <a
               href="#"
               className="flex shrink-0 items-center transition-opacity hover:opacity-90"
-              aria-label="Dra. Nayara Medina - Início"
+              aria-label="Mariana Leão Advocacia - Início"
             >
               <Image
                 src={LOGO_HORIZONTAL_SRC}
-                alt="Dra. Nayara Medina — Advogada Previdenciária"
-                width={260}
-                height={55}
-                className="h-[42px] sm:h-[48px] md:h-[54px] w-auto object-contain drop-shadow-xs"
+                alt="Mariana Leão Advocacia"
+                width={280}
+                height={60}
+                className="h-[44px] sm:h-[50px] md:h-[56px] w-auto object-contain drop-shadow-xs"
                 priority
                 unoptimized
               />
             </a>
 
-            {/* Center: Desktop Navigation (Refined, concise & balanced) */}
+            {/* Center: Desktop Navigation */}
             <nav className="hidden items-center gap-5 lg:gap-6 xl:gap-7 lg:flex">
               <a href="#servicos" className="nav-link">
                 Áreas de Atuação
@@ -662,16 +541,16 @@ export default function Home() {
               </a>
             </nav>
 
-            {/* Right Action: WhatsApp CTA (Metallic Amber Gold) */}
+            {/* Right Action: WhatsApp CTA (Metallic Gold) */}
             <div className="flex shrink-0 items-center gap-2.5">
               <GlowingButton
-                href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de agendar uma consulta sobre meu benefício do INSS.")}
+                href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de uma consultoria jurídica especializada.")}
                 target="_blank"
                 variant="gold"
                 size="sm"
                 className="hidden sm:inline-flex whitespace-nowrap shrink-0 shadow-md"
               >
-                <WhatsAppIcon size={15} className="text-[#0a0704]" />
+                <WhatsAppIcon size={15} className="text-[#0a0908]" />
                 <span className="hidden xl:inline">Falar no WhatsApp</span>
                 <span className="xl:hidden">WhatsApp</span>
               </GlowingButton>
@@ -680,7 +559,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#ebe3d7] bg-white text-[#140f0b] transition-colors hover:border-[#df7418] hover:text-[#0a0704] lg:hidden cursor-pointer shrink-0"
+                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#ebe4d8] bg-white text-[#14110d] transition-colors hover:border-[#c89e63] hover:text-[#0a0908] lg:hidden cursor-pointer shrink-0"
                 aria-label="Abrir menu principal"
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -695,15 +574,15 @@ export default function Home() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-b border-[#ebe3d7] bg-white px-5 py-6 lg:hidden shadow-xl"
+                className="border-b border-[#ebe4d8] bg-white px-5 py-6 lg:hidden shadow-xl"
               >
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3 pb-3 border-b border-[#ebe3d7]">
+                  <div className="flex items-center gap-3 pb-3 border-b border-[#ebe4d8]">
                     <Image
-                      src={LOGO_HORIZONTAL_SRC}
-                      alt="Dra. Nayara Medina — Advogada Previdenciária"
+                      src={LOGO_SRC}
+                      alt="Mariana Leão Advocacia"
                       width={220}
-                      height={46}
+                      height={48}
                       className="h-[42px] w-auto object-contain"
                       priority
                       unoptimized
@@ -712,70 +591,70 @@ export default function Home() {
                   <a
                     href="#servicos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
-                    <span>Áreas de Atuação (INSS & Benefícios)</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <span>Áreas de Atuação (Criminal, Cível, Trabalhista, Previdência)</span>
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
                   <a
                     href="#sobre"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
-                    <span>Sobre Dra. Nayara Medina</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <span>Sobre Dra. Mariana Leão</span>
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
                   <a
                     href="#diferenciais"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
-                    <span>Pilares & Atendimento Humanizado</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <span>Pilares & Ética Inegociável</span>
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
                   <a
                     href="#depoimentos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
-                    <span>Avaliações no Google (25 Avaliações · 5,0 ★)</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <span>Avaliações no Google (13 Avaliações · 5,0 ★)</span>
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
                   <a
                     href="#sede"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
-                    <span>Escritório em Pitangui - MG</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <span>Escritório em Oliveira - MG</span>
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
                   <a
                     href="#duvidas"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
-                    <span>Dúvidas Frequentes sobre Previdência</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <span>Dúvidas Frequentes</span>
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
                   <a
                     href="#contato"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#140f0b] uppercase transition-colors hover:text-[#df7418]"
+                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#14110d] uppercase transition-colors hover:text-[#c89e63]"
                   >
                     <span>Contato & Localização</span>
-                    <ArrowRight size={14} className="text-[#df7418]" />
+                    <ArrowRight size={14} className="text-[#c89e63]" />
                   </a>
 
                   <div className="pt-2">
                     <GlowingButton
-                      href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de tirar dúvidas sobre meu benefício pelo WhatsApp.")}
+                      href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de conversar pelo WhatsApp.")}
                       target="_blank"
                       variant="gold"
                       size="md"
                       className="w-full"
                     >
                       <WhatsAppIcon size={16} />
-                      <span>Falar com a Dra. Nayara no WhatsApp</span>
+                      <span>Falar com a Dra. Mariana no WhatsApp</span>
                     </GlowingButton>
                   </div>
                 </div>
@@ -785,12 +664,12 @@ export default function Home() {
         </header>
 
         {/* ======================================================== */}
-        {/* DOBRA 1: HERO SECTION — COM FOTO DA DRA. NAYARA MEDINA   */}
+        {/* DOBRA 1: HERO SECTION — COM FOTO DA DRA. MARIANA LEÃO    */}
         {/* ======================================================== */}
         <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-26 bg-[#fdfbf7]">
-          {/* Subtle Warm Amber Gold Radial Glow */}
-          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[950px] -translate-x-1/2 rounded-full bg-radial from-[#fedaa8]/30 via-[#df7418]/8 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#df7418]/12 blur-3xl" />
+          {/* Subtle Royal Metallic Gold Radial Glow */}
+          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[950px] -translate-x-1/2 rounded-full bg-radial from-[#fcecb1]/30 via-[#c89e63]/10 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#c89e63]/12 blur-3xl" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
@@ -798,56 +677,56 @@ export default function Home() {
               <div className="lg:col-span-7">
                 {/* Eyebrow Badge */}
                 <div className="mb-5">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#ebe3d7] bg-white px-4 py-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-[#1a140e] shadow-xs">
-                    <span className="size-1.5 rounded-full bg-[#df7418] animate-pulse" />
-                    DRA. NAYARA MEDINA · ADVOGADA PREVIDENCIARISTA · OAB/MG 184.540
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#ebe4d8] bg-white px-4 py-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-[#1a1612] shadow-xs">
+                    <span className="size-1.5 rounded-full bg-[#c89e63] animate-pulse" />
+                    MARIANA LEÃO ADVOCACIA · OLIVEIRA - MG · 5,0 ★ NO GOOGLE
                   </span>
                 </div>
 
                 {/* H1 Headline */}
-                <h1 className="font-serif text-3xl leading-[1.16] font-bold tracking-tight text-[#140f0b] sm:text-5xl lg:text-[3.25rem]">
-                  Garanta a Sua Aposentadoria e Benefícios do INSS com Máxima Clareza e Segurança em{" "}
-                  <span className="bg-gradient-to-r from-[#8e3d06] via-[#df7418] to-[#fbaf53] bg-clip-text text-transparent">
-                    Pitangui e em Todo o Brasil.
+                <h1 className="font-serif text-3xl leading-[1.16] font-bold tracking-tight text-[#14110d] sm:text-5xl lg:text-[3.25rem]">
+                  Defesa Jurídica Estratégica, Rigorosa e Combate Inegociável por Seus Direitos em{" "}
+                  <span className="bg-gradient-to-r from-[#8a551e] via-[#c89e63] to-[#e6be78] bg-clip-text text-transparent">
+                    Oliveira e em Todo o Brasil.
                   </span>
                 </h1>
 
                 {/* Subtitle / Value Proposition */}
-                <p className="mt-6 text-base leading-relaxed text-[#5c5249] sm:text-lg lg:max-w-xl">
-                  Sob a condução da <strong className="font-semibold text-[#140f0b]">Dra. Nayara Medina</strong>, unimos acolhimento humanizado, agilidade nas respostas e profundo rigor técnico para defender o seu direito ao melhor benefício previdenciário, sem burocracia e com total dedicação.
+                <p className="mt-6 text-base leading-relaxed text-[#5c554b] sm:text-lg lg:max-w-xl">
+                  Sob a liderança da <strong className="font-semibold text-[#14110d]">Dra. Mariana Leão</strong>, unimos excelência técnica, ética intransigente e profunda atenção a cada detalhe para atuar com firmeza e máxima resolutividade em causas <strong className="text-[#8a551e]">Criminais, Cíveis, Trabalhistas e Previdenciárias</strong>.
                 </p>
 
                 {/* Quick Highlights Pills */}
                 <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe3d7] bg-white px-3 py-1 text-xs font-semibold text-[#1a140e] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#df7418]" />
-                    Planejamento Previdenciário & Cálculo de RMI
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#c89e63]" />
+                    Criminalista (Flagrantes, Custódia & Júri)
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe3d7] bg-white px-3 py-1 text-xs font-semibold text-[#1a140e] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#df7418]" />
-                    Aposentadorias (Idade, Tempo, Especial e Rural)
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#c89e63]" />
+                    Cível & Família (Indenizações, Divórcios & Contratos)
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe3d7] bg-white px-3 py-1 text-xs font-semibold text-[#1a140e] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#df7418]" />
-                    BPC / LOAS (Idosos & PCDs)
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#c89e63]" />
+                    Trabalhista (Reclamatórias & Direitos do Empregado)
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe3d7] bg-white px-3 py-1 text-xs font-semibold text-[#1a140e] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#df7418]" />
-                    Auxílio por Incapacidade & Revisões
+                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ebe4d8] bg-white px-3 py-1 text-xs font-semibold text-[#1a1612] shadow-2xs">
+                    <CheckCircle2 size={13} className="text-[#c89e63]" />
+                    Previdenciário (Aposentadorias & BPC/LOAS)
                   </span>
                 </div>
 
                 {/* Action CTAs */}
                 <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de agendar uma consulta sobre o meu benefício do INSS / aposentadoria.")}
+                    href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de agendar uma consulta jurídica especializada.")}
                     target="_blank"
                     variant="gold"
                     size="lg"
                     className="w-full sm:w-auto"
                   >
                     <WhatsAppIcon size={18} />
-                    <span>Agendar Consulta no WhatsApp</span>
+                    <span>Falar com a Dra. Mariana no WhatsApp</span>
                   </GlowingButton>
 
                   <GlowingButton
@@ -856,72 +735,73 @@ export default function Home() {
                     size="lg"
                     className="w-full sm:w-auto"
                   >
-                    <span>Conhecer Especialidades</span>
+                    <span>Conhecer Áreas de Atuação</span>
                     <ArrowRight size={15} />
                   </GlowingButton>
                 </div>
 
                 {/* Social Proof Strip underneath CTAs */}
-                <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#ebe3d7] pt-6 sm:gap-6">
+                <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#ebe4d8] pt-6 sm:gap-6">
                   <div className="flex items-center gap-2">
-                    <div className="flex text-[#f59e0b]">
+                    <div className="flex text-[#d4af37]">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} size={15} className="fill-current" />
                       ))}
                     </div>
-                    <span className="text-xs font-bold text-[#140f0b]">
+                    <span className="text-xs font-bold text-[#14110d]">
                       5,0 no Google
                     </span>
-                    <span className="text-xs text-[#5c5249]">
-                      (25 avaliações verificadas · 100% 5 estrelas)
+                    <span className="text-xs text-[#5c554b]">
+                      (13 avaliações 5 estrelas verificadas · Oliveira - MG)
                     </span>
                   </div>
 
-                  <span className="hidden h-3.5 w-px bg-[#ebe3d7] sm:inline-block" />
+                  <span className="hidden h-3.5 w-px bg-[#ebe4d8] sm:inline-block" />
 
-                  <div className="flex items-center gap-2 text-xs text-[#5c5249]">
-                    <Shield size={14} className="text-[#df7418]" />
-                    <span>Sede na R. Maria Tangara, 20 · Pitangui - MG</span>
+                  <div className="flex items-center gap-2 text-xs text-[#5c554b]">
+                    <Shield size={14} className="text-[#c89e63]" />
+                    <span>Sede na R. Chagas Sobrinho, 72 - Centro · Oliveira - MG</span>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Photo of Dra. Nayara Medina */}
+              {/* Right Column: Photo of Dra. Mariana Leão */}
               <div className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none">
                   {/* Outer Luxury Metallic Border Frame */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#df7418]/40 bg-white p-2 shadow-2xl shadow-[#1a140e]/15">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f7f2ea] to-[#ebe3d7]">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#c89e63]/40 bg-white p-2 shadow-2xl shadow-[#1a1612]/15">
+                    <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f7f3eb] to-[#ebe4d8]">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Nayara Medina — Advogada Previdenciária em Pitangui - MG"
+                        alt="Dra. Mariana Leão — Advogada em Oliveira - MG"
                         fill
                         className="object-cover object-top transition-transform duration-500 hover:scale-102"
                         priority
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
                       />
 
                       {/* Subtle Bottom Vignette for High-Contrast Typography Badge */}
-                      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0a0704]/95 via-[#0a0704]/55 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0a0908]/95 via-[#0a0908]/55 to-transparent" />
 
                       {/* Overlay Identification Badge */}
-                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#df7418]/45 bg-[#0a0704]/90 p-4 shadow-xl backdrop-blur-md">
+                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#c89e63]/45 bg-[#0a0908]/90 p-4 shadow-xl backdrop-blur-md">
                         <div className="flex items-center justify-between gap-3">
                           <div>
                             <p className="font-cinzel text-base font-bold text-white tracking-wide">
-                              Dra. Nayara Medina
+                              {LAWYER_NAME}
                             </p>
-                            <p className="text-[11px] font-semibold text-[#f7dfb8] uppercase tracking-wider">
-                              Advogada Previdenciarista · OAB/MG 184.540
+                            <p className="text-[11px] font-semibold text-[#fcecb1] uppercase tracking-wider">
+                              {CLIENT_NAME}
                             </p>
-                            <p className="text-[10px] text-[#ebe3d7] mt-0.5">
-                              Vice-Pres. Com. Previdenciária OAB Pitangui/Martinho Campos
+                            <p className="text-[10px] text-[#ebe4d8] mt-0.5">
+                              {LAWYER_TITLE}
                             </p>
                           </div>
-                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-[#df7418]/40 bg-[#1a140e] p-1.5 shadow-md">
+                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-[#c89e63]/40 bg-[#1a1612] p-1.5 shadow-md">
                             <Image
                               src={EMBLEM_SRC}
-                              alt="Monograma Dra. Nayara Medina"
+                              alt="Monograma Mariana Leão"
                               width={40}
                               height={40}
                               className="size-full object-contain"
@@ -934,37 +814,37 @@ export default function Home() {
                   </div>
 
                   {/* Floating Google Review Card on the side */}
-                  <div className="absolute -bottom-6 -left-4 sm:-bottom-7 sm:-left-7 rounded-xl border border-[#df7418]/40 bg-white/95 p-3.5 shadow-xl backdrop-blur-md sm:max-w-[285px]">
+                  <div className="absolute -bottom-6 -left-4 sm:-bottom-7 sm:-left-7 rounded-xl border border-[#c89e63]/40 bg-white/95 p-3.5 shadow-xl backdrop-blur-md sm:max-w-[285px]">
                     <div className="flex items-center gap-2">
-                      <div className="flex size-7 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe3d7]">
+                      <div className="flex size-7 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8]">
                         <GoogleIcon size={14} />
                       </div>
                       <div>
-                        <div className="flex items-center gap-1 text-[#f59e0b]">
+                        <div className="flex items-center gap-1 text-[#d4af37]">
                           {[...Array(5)].map((_, i) => (
                             <Star key={i} size={11} className="fill-current" />
                           ))}
                         </div>
-                        <p className="text-[10px] font-bold text-[#140f0b]">
+                        <p className="text-[10px] font-bold text-[#14110d]">
                           5,0 Estrelas no Google
                         </p>
                       </div>
                     </div>
-                    <p className="mt-2 text-[10px] leading-snug text-[#5c5249] italic">
-                      &quot;Melhor profissional, muito atenciosa, responde mensagem na hora, resolve tudo!&quot;
+                    <p className="mt-2 text-[10px] leading-snug text-[#5c554b] italic">
+                      &quot;mto bom o atendimento!! Profissionalismo puro, ética e uma atenção aos detalhes que faz toda a diferença.&quot;
                     </p>
-                    <p className="mt-1 text-[9px] font-semibold text-[#8e3d06]">
-                      — Paloma Milena (Avaliação no Google)
+                    <p className="mt-1 text-[9px] font-semibold text-[#8a551e]">
+                      — Gilberto Dst (Avaliação no Google)
                     </p>
                   </div>
 
-                  {/* Floating Badge Top-Right: Sede Pitangui */}
-                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#df7418]/50 bg-[#0a0704] px-3.5 py-2 shadow-lg text-white">
-                    <p className="text-[9px] font-bold tracking-widest text-[#f7dfb8] uppercase">
-                      PITANGUI · MG
+                  {/* Floating Badge Top-Right: Sede Oliveira */}
+                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#c89e63]/50 bg-[#0a0908] px-3.5 py-2 shadow-lg text-white">
+                    <p className="text-[9px] font-bold tracking-widest text-[#fcecb1] uppercase">
+                      OLIVEIRA · MG
                     </p>
                     <p className="text-[11px] font-bold text-white">
-                      R. Maria Tangara, 20
+                      R. Chagas Sobrinho, 72
                     </p>
                   </div>
                 </div>
@@ -976,60 +856,60 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 2: STRIP DE AUTORIDADE / MÉTRICAS (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section className="border-y border-[#261e16] bg-[#0a0704] py-9 text-white">
+        <section className="border-y border-[#251f19] bg-[#0a0908] py-9 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8 text-center">
               {/* Stat 1: Google Rating */}
-              <div className="flex flex-col items-center border-r border-[#261e16] pr-4 last:border-r-0 md:pr-0">
-                <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-extrabold text-[#f7dfb8]">
+              <div className="flex flex-col items-center border-r border-[#251f19] pr-4 last:border-r-0 md:pr-0">
+                <div className="flex items-center gap-1.5 text-2xl sm:text-3xl font-extrabold text-[#fcecb1]">
                   <span>5,0</span>
-                  <div className="flex text-[#f59e0b]">
+                  <div className="flex text-[#d4af37]">
                     <Star size={18} className="fill-current" />
                   </div>
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
                   Avaliação Máxima
                 </p>
-                <p className="text-[11px] text-[#ebe3d7]/70">
-                  25 avaliações 5 estrelas no Google
+                <p className="text-[11px] text-[#ebe4d8]/70">
+                  13 avaliações 5 estrelas no Google
                 </p>
               </div>
 
               {/* Stat 2: Ética & Compromisso */}
-              <div className="flex flex-col items-center md:border-r md:border-[#261e16] md:pr-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f7dfb8]">
+              <div className="flex flex-col items-center md:border-r md:border-[#251f19] md:pr-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#fcecb1]">
                   100%
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Atendimento Humanizado
+                  Ética & Rigor
                 </p>
-                <p className="text-[11px] text-[#ebe3d7]/70">
-                  Acolhimento, clareza e empatia
+                <p className="text-[11px] text-[#ebe4d8]/70">
+                  Atenção meticulosa a cada detalhe
                 </p>
               </div>
 
-              {/* Stat 3: Agilidade & Eficiência */}
-              <div className="flex flex-col items-center border-r border-[#261e16] pr-4 last:border-r-0 md:pr-0">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f7dfb8]">
-                  Ágil
+              {/* Stat 3: Agilidade & Plantão */}
+              <div className="flex flex-col items-center border-r border-[#251f19] pr-4 last:border-r-0 md:pr-0">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#fcecb1]">
+                  24h
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Respostas Rápidas
+                  Plantão Jurídico
                 </p>
-                <p className="text-[11px] text-[#ebe3d7]/70">
-                  Disponibilidade e atenção constante
+                <p className="text-[11px] text-[#ebe4d8]/70">
+                  Prontidão em casos emergenciais
                 </p>
               </div>
 
               {/* Stat 4: Geographic Reach */}
               <div className="flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#f7dfb8]">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#fcecb1]">
                   Brasil
                 </div>
                 <p className="mt-1 font-cinzel text-xs font-bold text-white tracking-wider uppercase">
-                  Sede em Pitangui - MG
+                  Sede em Oliveira - MG
                 </p>
-                <p className="text-[11px] text-[#ebe3d7]/70">
+                <p className="text-[11px] text-[#ebe4d8]/70">
                   Presencial & 100% digital via PJe
                 </p>
               </div>
@@ -1038,19 +918,19 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 3: ÁREAS DE ATUAÇÃO PREVIDENCIÁRIA                 */}
+        {/* DOBRA 3: ÁREAS DE ATUAÇÃO                                */}
         {/* ======================================================== */}
         <section id="servicos" className="py-20 sm:py-26 bg-[#fdfbf7]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
               <p className="eyebrow justify-center mb-3.5">
-                EXPERTISE PREVIDENCIÁRIA DE ALTO NÍVEL
+                EXPERTISE JURÍDICA MULTIDISCIPLINAR
               </p>
-              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#140f0b] sm:text-4xl lg:text-[2.6rem]">
-                Especialidades Previdenciárias & Benefícios do INSS
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
+                Áreas de Atuação & Pilares de Excelência
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#5c5249] sm:text-base">
-                Conheça nossos principais pilares de atuação. Cada processo é conduzido com rigor documental absoluto, estratégia jurídica personalizada e dedicação integral à conquista do seu benefício.
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#5c554b] sm:text-base">
+                Conheça nossos principais pilares jurídicos. Cada causa é tratada com profundidade estratégica, sigilo incondicional e dedicação total aos seus interesses.
               </p>
             </div>
 
@@ -1063,41 +943,41 @@ export default function Home() {
                     key={area.id}
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#ebe3d7] bg-white p-7 shadow-sm transition-all duration-300 hover:border-[#df7418]/60 hover:shadow-xl"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#ebe4d8] bg-white p-7 shadow-sm transition-all duration-300 hover:border-[#c89e63]/60 hover:shadow-xl"
                   >
                     <div>
                       {/* Top Row: Icon + Tag */}
                       <div className="flex items-start justify-between gap-3">
-                        <div className="flex size-12 items-center justify-center rounded-xl border border-[#df7418]/30 bg-[#f7dfb8]/20 text-[#8e3d06] transition-colors group-hover:bg-[#1a140e] group-hover:text-[#f7dfb8] group-hover:border-[#df7418]">
+                        <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89e63]/30 bg-[#fcecb1]/20 text-[#8a551e] transition-colors group-hover:bg-[#1a1612] group-hover:text-[#fcecb1] group-hover:border-[#c89e63]">
                           <IconComponent size={24} />
                         </div>
-                        <span className="rounded-full border border-[#ebe3d7] bg-[#fdfbf7] px-3 py-1 text-[10px] font-bold text-[#8e3d06] uppercase tracking-wider">
+                        <span className="rounded-full border border-[#ebe4d8] bg-[#fdfbf7] px-3 py-1 text-[10px] font-bold text-[#8a551e] uppercase tracking-wider">
                           Especialidade
                         </span>
                       </div>
 
                       {/* Area Title */}
-                      <h3 className="mt-5 font-serif text-xl font-bold text-[#140f0b] transition-colors group-hover:text-[#8e3d06]">
+                      <h3 className="mt-5 font-serif text-xl font-bold text-[#14110d] transition-colors group-hover:text-[#8a551e]">
                         {area.title}
                       </h3>
 
                       {/* Category Subtext */}
-                      <p className="mt-1 text-[11px] font-semibold text-[#c25b0e] uppercase tracking-wider">
+                      <p className="mt-1 text-[11px] font-semibold text-[#b88440] uppercase tracking-wider">
                         {area.category}
                       </p>
 
                       {/* Summary */}
-                      <p className="mt-3.5 text-xs leading-relaxed text-[#5c5249]">
+                      <p className="mt-3.5 text-xs leading-relaxed text-[#5c554b]">
                         {area.summary}
                       </p>
 
                       {/* Key Topics List */}
-                      <ul className="mt-4 space-y-2 border-t border-[#ebe3d7]/70 pt-4 text-xs text-[#140f0b]">
+                      <ul className="mt-4 space-y-2 border-t border-[#ebe4d8]/70 pt-4 text-xs text-[#14110d]">
                         {area.topics.slice(0, 3).map((topic, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <CheckCircle2
                               size={14}
-                              className="mt-0.5 shrink-0 text-[#df7418]"
+                              className="mt-0.5 shrink-0 text-[#c89e63]"
                             />
                             <span className="leading-snug">{topic}</span>
                           </li>
@@ -1106,11 +986,11 @@ export default function Home() {
                     </div>
 
                     {/* Bottom CTA Actions */}
-                    <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#ebe3d7] pt-4">
+                    <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#ebe4d8] pt-4">
                       <button
                         type="button"
                         onClick={() => setSelectedPractice(area)}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8e3d06] transition-colors hover:text-[#140f0b] cursor-pointer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8a551e] transition-colors hover:text-[#14110d] cursor-pointer"
                       >
                         <span>Ver detalhes completos</span>
                         <ArrowRight size={13} />
@@ -1120,7 +1000,7 @@ export default function Home() {
                         href={getWhatsAppUrl(area.whatsAppText)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex size-8 items-center justify-center rounded-lg bg-[#df7418]/15 text-[#8e3d06] transition-all hover:bg-[#df7418] hover:text-[#0a0704]"
+                        className="inline-flex size-8 items-center justify-center rounded-lg bg-[#c89e63]/15 text-[#8a551e] transition-all hover:bg-[#c89e63] hover:text-[#0a0908]"
                         aria-label={`Consultar sobre ${area.title} no WhatsApp`}
                       >
                         <WhatsAppIcon size={15} />
@@ -1132,28 +1012,28 @@ export default function Home() {
             </div>
 
             {/* Bottom Callout Banner */}
-            <div className="mt-12 rounded-2xl border border-[#df7418]/40 bg-gradient-to-r from-[#0a0704] via-[#130e09] to-[#1a140e] p-8 text-white shadow-xl sm:flex sm:items-center sm:justify-between sm:gap-8">
+            <div className="mt-12 rounded-2xl border border-[#c89e63]/40 bg-gradient-to-r from-[#0a0908] via-[#120f0c] to-[#1a1612] p-8 text-white shadow-xl sm:flex sm:items-center sm:justify-between sm:gap-8">
               <div className="max-w-2xl">
-                <span className="rounded-full border border-[#f7dfb8]/30 bg-[#f7dfb8]/10 px-3 py-1 text-[10px] font-bold text-[#f7dfb8] uppercase tracking-wider">
+                <span className="rounded-full border border-[#fcecb1]/30 bg-[#fcecb1]/10 px-3 py-1 text-[10px] font-bold text-[#fcecb1] uppercase tracking-wider">
                   ATENDIMENTO DIRETO COM A ADVOGADA
                 </span>
                 <h3 className="mt-3 font-serif text-2xl font-bold text-white">
-                  Precisa de uma análise detalhada da sua situação no INSS?
+                  Precisa de uma avaliação jurídica imediata da sua causa?
                 </h3>
-                <p className="mt-2 text-xs leading-relaxed text-[#ebe3d7]">
-                  Cada benefício previdenciário exige uma estratégia documental sob medida. Entre em contato direto pelo WhatsApp para analisarmos o seu caso com total sigilo e atenção humana.
+                <p className="mt-2 text-xs leading-relaxed text-[#ebe4d8]">
+                  Cada situação exige uma estratégia sob medida e intervenção técnica sem perda de tempo. Entre em contato direto pelo WhatsApp para analisarmos o seu caso com total sigilo e dedicação.
                 </p>
               </div>
 
               <div className="mt-6 sm:mt-0 shrink-0">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de uma avaliação inicial sobre o meu benefício do INSS.")}
+                  href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de uma avaliação inicial da minha demanda jurídica.")}
                   target="_blank"
                   variant="gold"
                   size="md"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Conversar com a Dra. Nayara</span>
+                  <span>Conversar com a Dra. Mariana</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1161,38 +1041,39 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 4: SOBRE DRA. NAYARA MEDINA                        */}
+        {/* DOBRA 4: SOBRE DRA. MARIANA LEÃO                         */}
         {/* ======================================================== */}
-        <section id="sobre" className="py-20 sm:py-26 border-t border-[#ebe3d7] bg-[#f7f2ea]">
+        <section id="sobre" className="py-20 sm:py-26 border-t border-[#ebe4d8] bg-[#f7f3eb]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
               {/* Left Column: Portrait at Office Desk */}
               <div className="lg:col-span-5">
                 <div className="relative mx-auto max-w-[420px] lg:max-w-none">
                   {/* Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#df7418]/40 bg-white p-2.5 shadow-2xl">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#fdfbf7]">
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#c89e63]/40 bg-white p-2.5 shadow-2xl">
+                    <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#fdfbf7]">
                       <Image
                         src={FOTO_PORTRAIT_SRC}
-                        alt="Dra. Nayara Medina em seu escritório em Pitangui - MG"
+                        alt="Dra. Mariana Leão em seu escritório"
                         fill
                         className="object-cover object-top"
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 460px"
                       />
                     </div>
                   </div>
 
                   {/* Secondary Office Sede Badge */}
-                  <div className="absolute -bottom-6 -right-4 sm:-bottom-7 sm:-right-5 rounded-xl border border-[#df7418]/60 bg-[#0a0704] p-3.5 shadow-2xl text-white max-w-[250px]">
-                    <div className="flex items-center gap-2 text-[#f7dfb8] text-xs font-bold uppercase">
+                  <div className="absolute -bottom-6 -right-4 sm:-bottom-7 sm:-right-5 rounded-xl border border-[#c89e63]/60 bg-[#0a0908] p-3.5 shadow-2xl text-white max-w-[250px]">
+                    <div className="flex items-center gap-2 text-[#fcecb1] text-xs font-bold uppercase">
                       <MapPin size={15} />
-                      <span>Pitangui · MG</span>
+                      <span>Oliveira · MG</span>
                     </div>
                     <p className="mt-1 text-xs font-bold text-white">
-                      R. Maria Tangara, 20
+                      R. Chagas Sobrinho, 72
                     </p>
-                    <p className="text-[10px] text-[#ebe3d7]/70 mt-0.5">
-                      Sede acolhedora & atendimento presencial
+                    <p className="text-[10px] text-[#ebe4d8]/70 mt-0.5">
+                      Centro · Sede acolhedora & moderna
                     </p>
                   </div>
                 </div>
@@ -1200,65 +1081,65 @@ export default function Home() {
 
               {/* Right Column: Bio & Values */}
               <div className="lg:col-span-7">
-                <p className="eyebrow mb-3.5">TRAJETÓRIA, VOCAÇÃO & JUSTIÇA SOCIAL</p>
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#140f0b] sm:text-4xl lg:text-[2.6rem]">
-                  Sobre a Dra. Nayara Medina
+                <p className="eyebrow mb-3.5">COMPROMISSO, COMBATIVIDADE & EXCELÊNCIA TÉCNICA</p>
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
+                  Sobre a Dra. Mariana Leão
                 </h2>
-                <p className="mt-2 text-sm font-bold text-[#c25b0e] tracking-wider uppercase">
-                  Advogada Previdenciarista · OAB/MG 184.540 · Vice-Presidente da Comissão Previdenciária
+                <p className="mt-2 text-sm font-bold text-[#b88440] tracking-wider uppercase">
+                  Mariana Leão Advocacia · Atendimento Presencial em Oliveira - MG e On-line em Todo o País
                 </p>
 
-                <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#5c5249] sm:text-base">
+                <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#5c554b] sm:text-base">
                   <p>
-                    A <strong className="font-semibold text-[#140f0b]">Dra. Nayara Medina</strong> é advogada especialista em Direito Previdenciário, dedicada integralmente à defesa dos direitos sociais de trabalhadores, idosos, famílias e pessoas com deficiência perante o INSS e a Justiça Federal.
+                    A <strong className="font-semibold text-[#14110d]">Dra. Mariana Leão</strong> é advogada de postura combativa, visão jurídica estratégica e compromisso irrestrito com a defesa dos direitos fundamentais e patrimoniais de seus clientes.
                   </p>
                   <p>
-                    Com atuação destacada como <strong className="font-semibold text-[#140f0b]">Vice-Presidente da Comissão de Direito Previdenciário da OAB (Subseção Pitangui / Martinho Campos)</strong> e com sólida experiência na Assistência Judiciária Municipal, sua advocacia é pautada por um compromisso inegociável: aliar alto rigor técnico a um atendimento acolhedor, transparente e profundamente humano.
+                    À frente da <strong className="font-semibold text-[#14110d]">Mariana Leão Advocacia</strong>, sua prática jurídica se consolidou sobre pilares fundamentais: ética inegociável, comunicação transparente, atendimento de alta disponibilidade e uma atenção minuciosa aos detalhes de cada processo — elementos frequentemente destacados pelos clientes como decisivos para o êxito das causas.
                   </p>
                   <p>
-                    Reconhecida com nota máxima de <strong className="font-semibold text-[#140f0b]">5,0 estrelas no Google</strong> por seus clientes, a Dra. Nayara destaca-se pela didática cristalina, desmistificando o complexo sistema do INSS para que cada segurado compreenda exatamente seus direitos e receba o valor justo que merece.
+                    Reconhecida com <strong className="font-semibold text-[#14110d]">nota máxima 5,0 no Google</strong> com avaliações unânimes, a Dra. Mariana combina rigor técnico e serenidade para atuar tanto no contencioso criminal e cível quanto na defesa trabalhista e na concessão de benefícios previdenciários, garantindo que cada cliente se sinta plenamente amparado e seguro em cada etapa processual.
                   </p>
                 </div>
 
                 {/* 4 Pillars of Action */}
                 <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#140f0b] text-xs sm:text-sm">
-                      <BookOpen size={16} className="text-[#df7418]" />
-                      <span>Clareza & Didática</span>
+                  <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
+                      <Shield size={16} className="text-[#c89e63]" />
+                      <span>Postura Combativa</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#5c5249]">
-                      Explicações claras e compreensíveis, sem termos difíceis.
+                    <p className="mt-1 text-[11px] text-[#5c554b]">
+                      Defesa intransigente da sua liberdade e dos seus direitos.
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#140f0b] text-xs sm:text-sm">
-                      <HeartHandshake size={16} className="text-[#df7418]" />
-                      <span>Acolhimento & Empatia</span>
+                  <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
+                      <BookOpen size={16} className="text-[#c89e63]" />
+                      <span>Atenção aos Detalhes</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#5c5249]">
-                      Cuidado, paciência e escuta atenta à história de cada cliente.
+                    <p className="mt-1 text-[11px] text-[#5c554b]">
+                      Análise minuciosa de provas e documentos que faz a diferença.
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#140f0b] text-xs sm:text-sm">
-                      <Zap size={16} className="text-[#df7418]" />
-                      <span>Agilidade & Resposta</span>
+                  <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
+                      <Zap size={16} className="text-[#c89e63]" />
+                      <span>Agilidade & Prontidão</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#5c5249]">
-                      Atendimento rápido e entregas antes do prazo esperado.
+                    <p className="mt-1 text-[11px] text-[#5c554b]">
+                      Plantão 24h para emergências e respostas sem demora.
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex items-center gap-2 font-bold text-[#140f0b] text-xs sm:text-sm">
-                      <Award size={16} className="text-[#df7418]" />
-                      <span>Competência Técnica</span>
+                  <div className="rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex items-center gap-2 font-bold text-[#14110d] text-xs sm:text-sm">
+                      <Award size={16} className="text-[#c89e63]" />
+                      <span>Ética & Transparência</span>
                     </div>
-                    <p className="mt-1 text-[11px] text-[#5c5249]">
-                      Domínio aprofundado das normas e precedentes previdenciários.
+                    <p className="mt-1 text-[11px] text-[#5c554b]">
+                      Clareza absoluta sobre os riscos, estratégias e passos da causa.
                     </p>
                   </div>
                 </div>
@@ -1266,23 +1147,23 @@ export default function Home() {
                 {/* Direct CTA */}
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de conversar diretamente com você sobre minha aposentadoria / benefício.")}
+                    href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de conversar diretamente com você sobre minha situação jurídica.")}
                     target="_blank"
                     variant="gold"
                     size="md"
                     className="w-full sm:w-auto"
                   >
                     <WhatsAppIcon size={16} />
-                    <span>Falar com a Dra. Nayara no WhatsApp</span>
+                    <span>Falar com a Dra. Mariana no WhatsApp</span>
                   </GlowingButton>
 
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#5c5249] transition-colors hover:text-[#140f0b]"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#5c554b] transition-colors hover:text-[#14110d]"
                   >
-                    <InstagramIcon size={16} className="text-[#df7418]" />
+                    <InstagramIcon size={16} className="text-[#c89e63]" />
                     <span>Siga {INSTAGRAM_HANDLE} no Instagram</span>
                   </a>
                 </div>
@@ -1294,70 +1175,70 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 5: NOSSOS PILARES & DIFERENCIAIS (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section id="diferenciais" className="py-20 sm:py-26 bg-[#0a0704] text-white">
+        <section id="diferenciais" className="py-20 sm:py-26 bg-[#0a0908] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
               <p className="eyebrow-dark justify-center mb-3.5">
-                POR QUE CONFIAR SEU BENEFÍCIO À DRA. NAYARA MEDINA
+                POR QUE CONFIAR SUA CAUSA À MARIANA LEÃO ADVOCACIA
               </p>
               <h2 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.6rem]">
-                Os Valores que Sustentam Nossa Reputação
+                Os Pilares que Sustentam Nossa Reputação
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#ebe3d7] sm:text-base">
-                Reconhecida com nota máxima 5,0 por clientes em Pitangui e em todo o Brasil.
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#ebe4d8] sm:text-base">
+                Avaliação máxima 5,0 no Google com clientes que comprovam a ética, dedicação e competência de nossa equipe.
               </p>
             </div>
 
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {/* Pillar 1 */}
-              <div className="rounded-2xl border border-[#261e16] bg-[#130e09] p-7 transition-all duration-300 hover:border-[#df7418]/50 hover:bg-[#1a140e]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#df7418]/30 bg-[#df7418]/10 text-[#f7dfb8]">
+              <div className="rounded-2xl border border-[#251f19] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c89e63]/50 hover:bg-[#1a1612]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89e63]/30 bg-[#c89e63]/10 text-[#fcecb1]">
                   <BookOpen size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Clareza nas Explicações
+                  Atenção aos Detalhes
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe3d7]/75">
-                  &quot;Explica tudo com muita clareza, sabe do que fala e está sempre disponível!&quot; — Tradução descomplicada das regras do INSS com transparência total.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
+                  &quot;Profissionalismo puro, ética e uma atenção aos detalhes que faz toda a diferença na causa.&quot; — Cada prova é examinada minuciosamente para construir teses jurídicas vencedoras.
                 </p>
               </div>
 
               {/* Pillar 2 */}
-              <div className="rounded-2xl border border-[#261e16] bg-[#130e09] p-7 transition-all duration-300 hover:border-[#df7418]/50 hover:bg-[#1a140e]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#df7418]/30 bg-[#df7418]/10 text-[#f7dfb8]">
+              <div className="rounded-2xl border border-[#251f19] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c89e63]/50 hover:bg-[#1a140e]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89e63]/30 bg-[#c89e63]/10 text-[#fcecb1]">
                   <Zap size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Agilidade & Resposta Rápida
+                  Plantão 24h & Resposta Ágil
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe3d7]/75">
-                  &quot;Tudo que precisamos ela responde mensagem na hora, resolve tudo e entrega antes do prazo!&quot; — Agilidade no atendimento e presteza permanente.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
+                  Atendimento emergencial ininterrupto em casos criminais e liminares urgentes, garantindo que você nunca fique desamparado diante de uma situação crítica.
                 </p>
               </div>
 
               {/* Pillar 3 */}
-              <div className="rounded-2xl border border-[#261e16] bg-[#130e09] p-7 transition-all duration-300 hover:border-[#df7418]/50 hover:bg-[#1a140e]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#df7418]/30 bg-[#df7418]/10 text-[#f7dfb8]">
+              <div className="rounded-2xl border border-[#251f19] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c89e63]/50 hover:bg-[#1a1612]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89e63]/30 bg-[#c89e63]/10 text-[#fcecb1]">
                   <HeartHandshake size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Acolhimento & Humanidade
+                  Atendimento Humanizado
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe3d7]/75">
-                  &quot;Me senti acolhida e segura durante todo o processo. Teve empatia, dedicação e responsabilidade nos detalhes.&quot;
+                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
+                  Escuta acolhedora, respeito à angústia do cliente e comunicação acessível, sem rodeios ou termos técnicos incompreensíveis.
                 </p>
               </div>
 
               {/* Pillar 4 */}
-              <div className="rounded-2xl border border-[#261e16] bg-[#130e09] p-7 transition-all duration-300 hover:border-[#df7418]/50 hover:bg-[#1a140e]">
-                <div className="flex size-12 items-center justify-center rounded-xl border border-[#df7418]/30 bg-[#df7418]/10 text-[#f7dfb8]">
+              <div className="rounded-2xl border border-[#251f19] bg-[#120f0c] p-7 transition-all duration-300 hover:border-[#c89e63]/50 hover:bg-[#1a1612]">
+                <div className="flex size-12 items-center justify-center rounded-xl border border-[#c89e63]/30 bg-[#c89e63]/10 text-[#fcecb1]">
                   <Award size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-lg font-bold text-white">
-                  Rigor & Competência
+                  Competência Ímpar
                 </h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe3d7]/75">
-                  Atuação técnica especializada perante as agências do INSS, Junta de Recursos (CRPS) e Varas da Justiça Federal para garantir a concessão do benefício.
+                <p className="mt-2.5 text-xs leading-relaxed text-[#ebe4d8]/75">
+                  &quot;Profissional ímpar e muitíssimo competente!&quot; — Qualificação técnica continuada, experiência prática e postura resolutiva nas esferas administrativa e judicial.
                 </p>
               </div>
             </div>
@@ -1371,26 +1252,26 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Header with Google Badge */}
             <div className="flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#ebe3d7] bg-white px-4 py-1.5 shadow-2xs">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#ebe4d8] bg-white px-4 py-1.5 shadow-2xs">
                 <GoogleIcon size={16} />
-                <span className="text-xs font-bold text-[#140f0b]">
+                <span className="text-xs font-bold text-[#14110d]">
                   Google Avaliações Verificadas
                 </span>
-                <span className="flex text-[#f59e0b]">
+                <span className="flex text-[#d4af37]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={13} className="fill-current" />
                   ))}
                 </span>
-                <span className="text-xs font-bold text-[#8e3d06]">
-                  5,0 / 5,0 (25 avaliações)
+                <span className="text-xs font-bold text-[#8a551e]">
+                  5,0 / 5,0 (13 avaliações)
                 </span>
               </div>
 
-              <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-[#140f0b] sm:text-4xl lg:text-[2.6rem]">
-                O Reconhecimento de Nossos Clientes
+              <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
+                O Reconhecimento de Quem Confia em Nosso Trabalho
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5c5249] sm:text-base">
-                Depoimentos reais registrados no perfil oficial da Dra. Nayara Medina - Advogada Previdenciária no Google em Pitangui - MG.
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5c554b] sm:text-base">
+                Depoimentos reais registrados no perfil oficial de Mariana Leão Advocacia no Google em Oliveira - MG.
               </p>
             </div>
 
@@ -1406,8 +1287,8 @@ export default function Home() {
                   }}
                   className={`rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                     selectedReviewCategory === cat
-                      ? "border border-[#df7418] bg-[#0a0704] text-[#f7dfb8] shadow-sm"
-                      : "border border-[#ebe3d7] bg-white text-[#5c5249] hover:border-[#df7418] hover:text-[#140f0b]"
+                      ? "border border-[#c89e63] bg-[#0a0908] text-[#fcecb1] shadow-sm"
+                      : "border border-[#ebe4d8] bg-white text-[#5c554b] hover:border-[#c89e63] hover:text-[#14110d]"
                   }`}
                 >
                   {cat}
@@ -1420,34 +1301,34 @@ export default function Home() {
               {displayedReviews.map((review, idx) => (
                 <div
                   key={idx}
-                  className="relative flex flex-col justify-between rounded-2xl border border-[#ebe3d7] bg-white p-6 shadow-sm transition-all hover:border-[#df7418]/50 hover:shadow-md"
+                  className="relative flex flex-col justify-between rounded-2xl border border-[#ebe4d8] bg-white p-6 shadow-sm transition-all hover:border-[#c89e63]/50 hover:shadow-md"
                 >
                   <div>
                     {/* Top Row: Stars + Date */}
                     <div className="flex items-center justify-between gap-2">
-                      <div className="flex text-[#f59e0b]">
+                      <div className="flex text-[#d4af37]">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} size={14} className="fill-current" />
                         ))}
                       </div>
-                      <span className="text-[10px] text-[#5c5249]">{review.date}</span>
+                      <span className="text-[10px] text-[#5c554b]">{review.date}</span>
                     </div>
 
                     {/* Category Tag */}
-                    <span className="mt-3 inline-block rounded-md bg-[#f7dfb8]/30 px-2.5 py-0.5 text-[9px] font-bold text-[#8e3d06] uppercase tracking-wider">
+                    <span className="mt-3 inline-block rounded-md bg-[#fcecb1]/30 px-2.5 py-0.5 text-[9px] font-bold text-[#8a551e] uppercase tracking-wider">
                       {review.category}
                     </span>
 
                     {/* Review Text */}
-                    <p className="mt-3.5 text-xs leading-relaxed text-[#140f0b] italic">
+                    <p className="mt-3.5 text-xs leading-relaxed text-[#14110d] italic">
                       &quot;{review.content}&quot;
                     </p>
 
                     {/* Owner Response if present */}
                     {review.ownerReply && (
-                      <div className="mt-4 rounded-xl border border-[#df7418]/25 bg-[#fdfbf7] p-3 text-[11px] text-[#5c5249]">
-                        <p className="font-bold text-[#8e3d06] text-[10px] uppercase tracking-wider">
-                          Resposta da Dra. Nayara Medina:
+                      <div className="mt-4 rounded-xl border border-[#c89e63]/25 bg-[#fdfbf7] p-3 text-[11px] text-[#5c554b]">
+                        <p className="font-bold text-[#8a551e] text-[10px] uppercase tracking-wider">
+                          Resposta da Dra. Mariana Leão:
                         </p>
                         <p className="mt-1 leading-snug">{review.ownerReply}</p>
                       </div>
@@ -1455,13 +1336,13 @@ export default function Home() {
                   </div>
 
                   {/* Author Info */}
-                  <div className="mt-5 flex items-center gap-3 border-t border-[#ebe3d7]/70 pt-4">
-                    <div className="flex size-9 items-center justify-center rounded-full bg-[#0a0704] font-cinzel text-xs font-bold text-[#f7dfb8]">
+                  <div className="mt-5 flex items-center gap-3 border-t border-[#ebe4d8]/70 pt-4">
+                    <div className="flex size-9 items-center justify-center rounded-full bg-[#0a0908] font-cinzel text-xs font-bold text-[#fcecb1]">
                       {review.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#140f0b]">{review.name}</p>
-                      <p className="text-[10px] text-[#5c5249]">{review.badge}</p>
+                      <p className="text-xs font-bold text-[#14110d]">{review.name}</p>
+                      <p className="text-[10px] text-[#5c554b]">{review.badge}</p>
                     </div>
                   </div>
                 </div>
@@ -1474,7 +1355,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() => setShowAllReviews(!showAllReviews)}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#df7418] bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#140f0b] transition-all hover:bg-[#0a0704] hover:text-[#f7dfb8] cursor-pointer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#c89e63] bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#14110d] transition-all hover:bg-[#0a0908] hover:text-[#fcecb1] cursor-pointer"
                 >
                   <span>
                     {showAllReviews
@@ -1489,34 +1370,35 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 7: ESCRITÓRIO EM PITANGUI & ATENDIMENTO NACIONAL   */}
+        {/* DOBRA 7: ESCRITÓRIO EM OLIVEIRA & ATENDIMENTO NACIONAL   */}
         {/* ======================================================== */}
-        <section id="sede" className="border-t border-[#ebe3d7] py-20 sm:py-26 bg-[#f7f2ea]">
+        <section id="sede" className="border-t border-[#ebe4d8] py-20 sm:py-26 bg-[#f7f3eb]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
               {/* Left Column: Office Presentation Image */}
               <div className="lg:col-span-6">
-                <div className="relative mx-auto max-w-[480px] lg:max-w-none overflow-hidden rounded-2xl border-2 border-[#df7418]/50 bg-white p-2 shadow-2xl">
-                  <div className="relative aspect-[4/3] sm:aspect-[3/4] w-full overflow-hidden rounded-xl bg-[#0a0704]">
+                <div className="relative mx-auto max-w-[480px] lg:max-w-none overflow-hidden rounded-2xl border-2 border-[#c89e63]/50 bg-white p-2 shadow-2xl">
+                  <div className="relative aspect-[4/3] sm:aspect-[3/4] w-full overflow-hidden rounded-xl bg-[#0a0908]">
                     <Image
                       src={FOTO_PORTRAIT_SRC}
-                      alt="Dra. Nayara Medina em seu escritório em Pitangui - MG"
+                      alt="Dra. Mariana Leão em seu escritório em Oliveira - MG"
                       fill
                       className="object-cover object-top"
+                      unoptimized
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
                     />
 
                     {/* Gradient Overlay for Address */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0a0704] via-[#0a0704]/75 to-transparent p-6 text-white">
-                      <div className="flex items-center gap-2 text-[#f7dfb8] text-xs font-bold uppercase tracking-wider">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0a0908] via-[#0a0908]/75 to-transparent p-6 text-white">
+                      <div className="flex items-center gap-2 text-[#fcecb1] text-xs font-bold uppercase tracking-wider">
                         <MapPin size={16} />
-                        <span>Sede em Pitangui - Minas Gerais</span>
+                        <span>Sede em Oliveira - Minas Gerais</span>
                       </div>
                       <p className="mt-1 font-serif text-lg font-bold text-white">
-                        R. Maria Tangara, 20
+                        R. Chagas Sobrinho, 72 - Centro
                       </p>
-                      <p className="text-xs text-[#ebe3d7]">
-                        Pitangui - MG, CEP 35650-000, Brasil
+                      <p className="text-xs text-[#ebe4d8]">
+                        Oliveira - MG, CEP 35540-000, Brasil
                       </p>
                     </div>
                   </div>
@@ -1526,31 +1408,31 @@ export default function Home() {
               {/* Right Column: Information & Office Hours */}
               <div className="lg:col-span-6">
                 <p className="eyebrow mb-3.5">ESTRUTURA & LOCALIZAÇÃO</p>
-                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#140f0b] sm:text-4xl lg:text-[2.6rem]">
-                  Atendimento Presencial em Pitangui e 100% Digital em Todo o Brasil
+                <h2 className="font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
+                  Atendimento Presencial em Oliveira e 100% On-line em Todo o Brasil
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-[#5c5249] sm:text-base">
-                  Nosso escritório físico em Pitangui foi planejado para oferecer conforto, acolhimento e privacidade absoluta para você e sua família. E por meio do processo eletrônico judicial (PJe) e do INSS Digital, prestamos consultoria e acompanhamento processual completo para clientes em qualquer município do Brasil e brasileiros residentes no exterior.
+                <p className="mt-4 text-sm leading-relaxed text-[#5c554b] sm:text-base">
+                  Nosso escritório em Oliveira - MG oferece uma estrutura moderna, acolhedora e com privacidade absoluta para você e sua família. E por meio de ferramentas eletrônicas seguras e do processo judicial digital (PJe), prestamos atendimento jurídico completo com a mesma proximidade para clientes em qualquer comarca de Minas Gerais e do país.
                 </p>
 
                 <div className="mt-8 space-y-4">
                   {/* Address Box */}
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#df7418]/15 text-[#8e3d06]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c89e63]/15 text-[#8a551e]">
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#140f0b] uppercase tracking-wider">
+                      <p className="text-xs font-bold text-[#14110d] uppercase tracking-wider">
                         Endereço Completo
                       </p>
-                      <p className="text-xs text-[#5c5249] mt-0.5">
-                        {ADDRESS_PITANGUI}
+                      <p className="text-xs text-[#5c554b] mt-0.5">
+                        {ADDRESS_OLIVEIRA}
                       </p>
                       <a
                         href={GOOGLE_MAPS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#8e3d06] hover:text-[#140f0b]"
+                        className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#8a551e] hover:text-[#14110d]"
                       >
                         <span>Abrir rotas no Google Maps</span>
                         <ArrowUpRight size={13} />
@@ -1559,36 +1441,36 @@ export default function Home() {
                   </div>
 
                   {/* Hours Box */}
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#df7418]/15 text-[#8e3d06]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c89e63]/15 text-[#8a551e]">
                       <Clock size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#140f0b] uppercase tracking-wider">
-                        Horário de Atendimento
+                      <p className="text-xs font-bold text-[#14110d] uppercase tracking-wider">
+                        Horário de Atendimento & Plantão
                       </p>
-                      <p className="text-xs text-[#5c5249] mt-0.5">
-                        Segunda a Sexta-feira: <strong>08:30 às 17:00</strong>
+                      <p className="text-xs text-[#5c554b] mt-0.5">
+                        Aberto <strong>24 Horas</strong> (Plantão Jurídico Criminal e Urgências)
                       </p>
-                      <p className="text-[11px] text-[#8e3d06] font-semibold mt-0.5">
-                        Atendimento com hora marcada ou consulta online imediata.
+                      <p className="text-[11px] text-[#8a551e] font-semibold mt-0.5">
+                        Atendimento presencial com hora marcada e suporte on-line imediato.
                       </p>
                     </div>
                   </div>
 
                   {/* Contact Phones */}
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe3d7] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#df7418]/15 text-[#8e3d06]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ebe4d8] bg-white p-4 shadow-2xs">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#c89e63]/15 text-[#8a551e]">
                       <Phone size={20} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#140f0b] uppercase tracking-wider">
+                      <p className="text-xs font-bold text-[#14110d] uppercase tracking-wider">
                         Telefone & WhatsApp Oficial
                       </p>
-                      <p className="text-xs text-[#5c5249] mt-0.5">
+                      <p className="text-xs text-[#5c554b] mt-0.5">
                         WhatsApp / Contato: <strong>{PHONE_DISPLAY}</strong>
                       </p>
-                      <p className="text-xs text-[#5c5249]">
+                      <p className="text-xs text-[#5c554b]">
                         E-mail: <strong>{EMAIL_CONTACT}</strong>
                       </p>
                     </div>
@@ -1598,7 +1480,7 @@ export default function Home() {
                 {/* Sede CTA */}
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dra. Nayara! Gostaria de agendar um atendimento presencial em seu escritório em Pitangui.")}
+                    href={getWhatsAppUrl("Olá, Dra. Mariana! Gostaria de agendar um atendimento presencial em seu escritório em Oliveira.")}
                     target="_blank"
                     variant="gold"
                     size="md"
@@ -1612,7 +1494,7 @@ export default function Home() {
                     href={GOOGLE_MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#df7418] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#140f0b] transition-all hover:bg-[#0a0704] hover:text-[#f7dfb8]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#c89e63] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#14110d] transition-all hover:bg-[#0a0908] hover:text-[#fcecb1]"
                   >
                     <MapPin size={15} />
                     <span>Como Chegar</span>
@@ -1624,17 +1506,17 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* DOBRA 8: DÚVIDAS FREQUENTES (FAQ PREVIDENCIÁRIO)         */}
+        {/* DOBRA 8: DÚVIDAS FREQUENTES (FAQ)                        */}
         {/* ======================================================== */}
         <section id="duvidas" className="py-20 sm:py-26 bg-[#fdfbf7]">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
-              <p className="eyebrow justify-center mb-3.5">ESCLARECIMENTOS PREVIDENCIÁRIOS</p>
-              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#140f0b] sm:text-4xl lg:text-[2.6rem]">
+              <p className="eyebrow justify-center mb-3.5">ESCLARECIMENTOS & TRANSPARÊNCIA</p>
+              <h2 className="font-serif text-3xl font-bold tracking-tight text-[#14110d] sm:text-4xl lg:text-[2.6rem]">
                 Perguntas Frequentes
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#5c5249] sm:text-base">
-                Tire suas principais dúvidas sobre benefícios do INSS, prazos e procedimentos.
+              <p className="mt-3 text-sm leading-relaxed text-[#5c554b] sm:text-base">
+                Tire suas principais dúvidas sobre nosso atendimento, prazos e áreas de atuação.
               </p>
             </div>
 
@@ -1644,15 +1526,15 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="overflow-hidden rounded-2xl border border-[#ebe3d7] bg-white transition-all hover:border-[#df7418]/50"
+                    className="overflow-hidden rounded-2xl border border-[#ebe4d8] bg-white transition-all hover:border-[#c89e63]/50"
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-serif text-base sm:text-lg font-bold text-[#140f0b] transition-colors hover:text-[#8e3d06] cursor-pointer"
+                      className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left font-serif text-base sm:text-lg font-bold text-[#14110d] transition-colors hover:text-[#8a551e] cursor-pointer"
                     >
                       <span>{faq.question}</span>
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe3d7] text-[#8e3d06]">
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8] text-[#8a551e]">
                         {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                       </span>
                     </button>
@@ -1664,7 +1546,7 @@ export default function Home() {
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.25 }}
-                          className="border-t border-[#ebe3d7]/70 px-5 pb-6 pt-4 sm:px-6 text-xs sm:text-sm leading-relaxed text-[#5c5249]"
+                          className="border-t border-[#ebe4d8]/70 px-5 pb-6 pt-4 sm:px-6 text-xs sm:text-sm leading-relaxed text-[#5c554b]"
                         >
                           {faq.answer}
                         </motion.div>
@@ -1677,18 +1559,18 @@ export default function Home() {
 
             {/* Bottom FAQ CTA */}
             <div className="mt-10 text-center">
-              <p className="text-xs text-[#5c5249]">
-                Ainda tem alguma dúvida específica sobre o seu benefício ou histórico no INSS?
+              <p className="text-xs text-[#5c554b]">
+                Ainda tem alguma dúvida específica sobre o seu caso?
               </p>
               <div className="mt-3">
                 <a
-                  href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Tenho uma dúvida sobre minha aposentadoria / benefício e gostaria de orientação.")}
+                  href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Tenho uma dúvida sobre uma causa e gostaria de sua orientação.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-bold text-[#8e3d06] underline decoration-[#df7418] hover:text-[#140f0b] text-xs sm:text-sm"
+                  className="inline-flex items-center gap-1.5 font-bold text-[#8a551e] underline decoration-[#c89e63] hover:text-[#14110d] text-xs sm:text-sm"
                 >
                   <WhatsAppIcon size={15} />
-                  <span>Converse diretamente com a Dra. Nayara pelo WhatsApp</span>
+                  <span>Converse diretamente com a Dra. Mariana pelo WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -1698,47 +1580,47 @@ export default function Home() {
         {/* ======================================================== */}
         {/* DOBRA 9: BANNER DE CONTATO / CTA FINAL (LUXURY OBSIDIAN) */}
         {/* ======================================================== */}
-        <section id="contato" className="py-20 sm:py-26 bg-[#0a0704] text-white">
+        <section id="contato" className="py-20 sm:py-26 bg-[#0a0908] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl border border-[#df7418]/40 bg-gradient-to-b from-[#130e09] to-[#0a0704] p-8 sm:p-12 lg:p-16 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl border border-[#c89e63]/40 bg-gradient-to-b from-[#120f0c] to-[#0a0908] p-8 sm:p-12 lg:p-16 shadow-2xl">
               {/* Background Glow */}
-              <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#df7418]/12 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-[#f7dfb8]/10 blur-3xl" />
+              <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-[#c89e63]/12 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-20 -left-20 size-80 rounded-full bg-[#fcecb1]/10 blur-3xl" />
 
               <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
                 <div className="lg:col-span-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#f7dfb8]/30 bg-[#f7dfb8]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#f7dfb8]">
-                    <span className="size-1.5 rounded-full bg-[#f7dfb8] animate-pulse" />
-                    ATENDIMENTO PRIORITÁRIO & ACOLHEDOR
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#fcecb1]/30 bg-[#fcecb1]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#fcecb1]">
+                    <span className="size-1.5 rounded-full bg-[#fcecb1] animate-pulse" />
+                    ATENDIMENTO PRIORITÁRIO & DISCRETO
                   </div>
 
                   <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                    Não Deixe Seu Futuro Previdenciário nas Mãos da Sorte. Conte com Quem Entende de Verdade de INSS.
+                    Proteja Sua Liberdade, Seus Direitos e Seu Patrimônio com Quem Luta de Verdade por Você.
                   </h2>
 
-                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#ebe3d7] sm:text-base">
-                    Evite perdas irreparáveis no valor da sua aposentadoria ou meses esperando por um benefício travado no INSS. Agende hoje mesmo sua consulta com a Dra. Nayara Medina e receba uma orientação clara e resolutiva.
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#ebe4d8] sm:text-base">
+                    Não tome decisões no escuro nem deixe seus direitos desamparados. Agende hoje mesmo sua consulta com a Dra. Mariana Leão e obtenha um direcionamento jurídico combativo, ético e seguro.
                   </p>
 
-                  <div className="mt-6 flex flex-wrap gap-4 text-xs text-[#ebe3d7]">
+                  <div className="mt-6 flex flex-wrap gap-4 text-xs text-[#ebe4d8]">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f7dfb8]" />
-                      <span>Atendimento acolhedor e com respostas rápidas</span>
+                      <CheckCircle2 size={15} className="text-[#fcecb1]" />
+                      <span>Atendimento ágil com plantão 24h</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f7dfb8]" />
-                      <span>Sigilo profissional e ética rigorosa</span>
+                      <CheckCircle2 size={15} className="text-[#fcecb1]" />
+                      <span>Sigilo profissional irrestrito</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={15} className="text-[#f7dfb8]" />
-                      <span>Sede na R. Maria Tangara, 20 · Pitangui - MG</span>
+                      <CheckCircle2 size={15} className="text-[#fcecb1]" />
+                      <span>Sede na R. Chagas Sobrinho, 72 - Centro · Oliveira - MG</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de agendar uma consulta sobre meu benefício do INSS / aposentadoria.")}
+                    href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de agendar uma consulta jurídica especializada.")}
                     target="_blank"
                     variant="gold"
                     size="lg"
@@ -1750,14 +1632,14 @@ export default function Home() {
 
                   <a
                     href={`tel:+${WHATSAPP_NUMBER}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#df7418]/50 bg-[#1a140e] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f7dfb8] transition-all hover:bg-[#df7418] hover:text-[#0a0704]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#c89e63]/50 bg-[#1a1612] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#fcecb1] transition-all hover:bg-[#c89e63] hover:text-[#0a0908]"
                   >
                     <Phone size={15} />
                     <span>Ligar: {PHONE_DISPLAY}</span>
                   </a>
 
-                  <p className="text-center text-[10px] text-[#ebe3d7]/60 mt-1">
-                    Atendimento de Segunda a Sexta, das 08h30 às 17h.
+                  <p className="text-center text-[10px] text-[#ebe4d8]/60 mt-1">
+                    Atendimento Presencial e On-line · Plantão 24 Horas
                   </p>
                 </div>
               </div>
@@ -1768,7 +1650,7 @@ export default function Home() {
         {/* ======================================================== */}
         {/* FOOTER (SOFISTICADO, COMPLETO & 100% LIMPO)              */}
         {/* ======================================================== */}
-        <footer className="border-t border-[#261e16] bg-[#0a0704] pt-16 pb-12 text-[#ebe3d7]">
+        <footer className="border-t border-[#251f19] bg-[#0a0908] pt-16 pb-12 text-[#ebe4d8]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {/* Col 1: Brand & Logo */}
@@ -1776,7 +1658,7 @@ export default function Home() {
                 <a href="#" className="flex items-center gap-3">
                   <Image
                     src={EMBLEM_SRC}
-                    alt="Dra. Nayara Medina — Advogada Previdenciária"
+                    alt="Mariana Leão Advocacia"
                     width={48}
                     height={48}
                     className="h-11 w-auto object-contain"
@@ -1784,23 +1666,23 @@ export default function Home() {
                   />
                   <div>
                     <p className="font-cinzel text-sm font-bold text-white tracking-wider">
-                      NAYARA MEDINA
+                      MARIANA LEÃO
                     </p>
-                    <p className="text-[9px] font-bold text-[#f7dfb8] tracking-[0.2em] uppercase">
-                      ADVOGADA PREVIDENCIÁRIA
+                    <p className="text-[9px] font-bold text-[#fcecb1] tracking-[0.2em] uppercase">
+                      ADVOCACIA
                     </p>
                   </div>
                 </a>
-                <p className="mt-4 text-xs leading-relaxed text-[#ebe3d7]/70">
-                  Advocacia especializada em Direito Previdenciário: Planejamento Previdenciário, Aposentadorias, BPC/LOAS, Benefícios por Incapacidade e Revisões do INSS. Sede física em Pitangui - MG e atendimento digital para todo o Brasil.
+                <p className="mt-4 text-xs leading-relaxed text-[#ebe4d8]/70">
+                  Advocacia de alta performance em Oliveira - MG: Direito Criminal (Plantão 24h), Direito Civil & Família, Direito do Trabalho e Direito Previdenciário. Sede física no Centro de Oliveira e atendimento digital para todo o país.
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#df7418]/40 bg-[#1a140e] text-[#f7dfb8] transition-colors hover:bg-[#df7418] hover:text-[#0a0704]"
-                    aria-label="Instagram Dra. Nayara Medina"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#c89e63]/40 bg-[#1a1612] text-[#fcecb1] transition-colors hover:bg-[#c89e63] hover:text-[#0a0908]"
+                    aria-label="Instagram Dra. Mariana Leão"
                   >
                     <InstagramIcon size={16} />
                   </a>
@@ -1808,8 +1690,8 @@ export default function Home() {
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#df7418]/40 bg-[#1a140e] text-[#f7dfb8] transition-colors hover:bg-[#df7418] hover:text-[#0a0704]"
-                    aria-label="WhatsApp Dra. Nayara Medina"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#c89e63]/40 bg-[#1a1612] text-[#fcecb1] transition-colors hover:bg-[#c89e63] hover:text-[#0a0908]"
+                    aria-label="WhatsApp Mariana Leão Advocacia"
                   >
                     <WhatsAppIcon size={16} />
                   </a>
@@ -1817,8 +1699,8 @@ export default function Home() {
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#df7418]/40 bg-[#1a140e] text-[#f7dfb8] transition-colors hover:bg-[#df7418] hover:text-[#0a0704]"
-                    aria-label="Avaliações no Google"
+                    className="flex size-9 items-center justify-center rounded-lg border border-[#c89e63]/40 bg-[#1a1612] text-[#fcecb1] transition-colors hover:bg-[#c89e63] hover:text-[#0a0908]"
+                    aria-label="Avaliações no Google Mariana Leão Advocacia"
                   >
                     <GoogleIcon size={16} />
                   </a>
@@ -1828,37 +1710,37 @@ export default function Home() {
               {/* Col 2: Áreas de Atuação */}
               <div>
                 <p className="font-cinzel text-xs font-bold text-white uppercase tracking-widest">
-                  Especialidades Previdenciárias
+                  Áreas de Atuação
                 </p>
-                <ul className="mt-4 space-y-2.5 text-xs text-[#ebe3d7]/70">
+                <ul className="mt-4 space-y-2.5 text-xs text-[#ebe4d8]/70">
                   <li>
-                    <a href="#servicos" className="hover:text-[#f7dfb8] transition-colors">
-                      Planejamento Previdenciário & CNIS
+                    <a href="#servicos" className="hover:text-[#fcecb1] transition-colors">
+                      Direito Criminal & Defesa Penal
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f7dfb8] transition-colors">
-                      Concessão de Aposentadorias
+                    <a href="#servicos" className="hover:text-[#fcecb1] transition-colors">
+                      Direito Civil, Contratos & Família
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f7dfb8] transition-colors">
-                      Aposentadoria Especial (Insalubridade)
+                    <a href="#servicos" className="hover:text-[#fcecb1] transition-colors">
+                      Direito do Trabalho
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f7dfb8] transition-colors">
-                      Benefício Assistencial (BPC / LOAS)
+                    <a href="#servicos" className="hover:text-[#fcecb1] transition-colors">
+                      Direito Previdenciário & INSS
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f7dfb8] transition-colors">
-                      Auxílio-Doença & Benefício por Incapacidade
+                    <a href="#servicos" className="hover:text-[#fcecb1] transition-colors">
+                      Plantão Jurídico 24 Horas
                     </a>
                   </li>
                   <li>
-                    <a href="#servicos" className="hover:text-[#f7dfb8] transition-colors">
-                      Pensão por Morte & Revisões de Benefício
+                    <a href="#servicos" className="hover:text-[#fcecb1] transition-colors">
+                      Consultoria Preventiva & Extrajudicial
                     </a>
                   </li>
                 </ul>
@@ -1869,35 +1751,35 @@ export default function Home() {
                 <p className="font-cinzel text-xs font-bold text-white uppercase tracking-widest">
                   Navegação Rápida
                 </p>
-                <ul className="mt-4 space-y-2.5 text-xs text-[#ebe3d7]/70">
+                <ul className="mt-4 space-y-2.5 text-xs text-[#ebe4d8]/70">
                   <li>
-                    <a href="#sobre" className="hover:text-[#f7dfb8] transition-colors">
-                      Sobre Dra. Nayara Medina
+                    <a href="#sobre" className="hover:text-[#fcecb1] transition-colors">
+                      Sobre Dra. Mariana Leão
                     </a>
                   </li>
                   <li>
-                    <a href="#diferenciais" className="hover:text-[#f7dfb8] transition-colors">
-                      Pilares & Atendimento Humanizado
+                    <a href="#diferenciais" className="hover:text-[#fcecb1] transition-colors">
+                      Pilares & Diferenciais
                     </a>
                   </li>
                   <li>
-                    <a href="#depoimentos" className="hover:text-[#f7dfb8] transition-colors">
+                    <a href="#depoimentos" className="hover:text-[#fcecb1] transition-colors">
                       Avaliações no Google (5,0 ★)
                     </a>
                   </li>
                   <li>
-                    <a href="#sede" className="hover:text-[#f7dfb8] transition-colors">
-                      Escritório em Pitangui - MG
+                    <a href="#sede" className="hover:text-[#fcecb1] transition-colors">
+                      Escritório em Oliveira - MG
                     </a>
                   </li>
                   <li>
-                    <a href="#duvidas" className="hover:text-[#f7dfb8] transition-colors">
+                    <a href="#duvidas" className="hover:text-[#fcecb1] transition-colors">
                       Perguntas Frequentes
                     </a>
                   </li>
                   <li>
-                    <a href="#contato" className="hover:text-[#f7dfb8] transition-colors">
-                      Contato & Agendamento
+                    <a href="#contato" className="hover:text-[#fcecb1] transition-colors">
+                      Contato & Plantão 24h
                     </a>
                   </li>
                 </ul>
@@ -1908,25 +1790,25 @@ export default function Home() {
                 <p className="font-cinzel text-xs font-bold text-white uppercase tracking-widest">
                   Sede & Contato
                 </p>
-                <ul className="mt-4 space-y-3 text-xs text-[#ebe3d7]/70">
+                <ul className="mt-4 space-y-3 text-xs text-[#ebe4d8]/70">
                   <li className="flex items-start gap-2">
-                    <MapPin size={15} className="text-[#f7dfb8] shrink-0 mt-0.5" />
-                    <span>{ADDRESS_PITANGUI}</span>
+                    <MapPin size={15} className="text-[#fcecb1] shrink-0 mt-0.5" />
+                    <span>{ADDRESS_OLIVEIRA}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <WhatsAppIcon size={15} className="text-[#f7dfb8] shrink-0" />
-                    <span>WhatsApp: {PHONE_DISPLAY}</span>
+                    <WhatsAppIcon size={15} className="text-[#fcecb1] shrink-0" />
+                    <span>WhatsApp / Plantão: {PHONE_DISPLAY}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Mail size={15} className="text-[#f7dfb8] shrink-0" />
+                    <Mail size={15} className="text-[#fcecb1] shrink-0" />
                     <span>{EMAIL_CONTACT}</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Clock size={15} className="text-[#f7dfb8] shrink-0" />
-                    <span>Seg a Sex: 08:30 às 17:00</span>
+                    <Clock size={15} className="text-[#fcecb1] shrink-0" />
+                    <span>Aberto 24 Horas · Plantão</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <InstagramIcon size={15} className="text-[#f7dfb8] shrink-0" />
+                    <InstagramIcon size={15} className="text-[#fcecb1] shrink-0" />
                     <span>Instagram: {INSTAGRAM_HANDLE}</span>
                   </li>
                 </ul>
@@ -1934,9 +1816,9 @@ export default function Home() {
             </div>
 
             {/* Bottom Legal Notice & Copyright */}
-            <div className="mt-12 border-t border-[#261e16] pt-8 text-center text-[11px] text-[#ebe3d7]/50">
+            <div className="mt-12 border-t border-[#251f19] pt-8 text-center text-[11px] text-[#ebe4d8]/50">
               <p>
-                © {new Date().getFullYear()} {CLIENT_NAME} (OAB/MG 184.540). Todos os direitos reservados.
+                © {new Date().getFullYear()} {CLIENT_NAME}. Todos os direitos reservados.
               </p>
               <p className="mt-1">
                 Atuação em estrita conformidade com o Provimento nº 205/2021 e o Código de Ética e Disciplina da OAB.
@@ -1957,7 +1839,7 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedPractice(null)}
-                className="absolute inset-0 bg-[#0a0704]/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-[#0a0908]/80 backdrop-blur-sm"
               />
 
               {/* Modal Box */}
@@ -1965,13 +1847,13 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#df7418]/50 bg-white p-6 sm:p-8 shadow-2xl text-[#140f0b]"
+                className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[#c89e63]/50 bg-white p-6 sm:p-8 shadow-2xl text-[#14110d]"
               >
                 {/* Close Button */}
                 <button
                   type="button"
                   onClick={() => setSelectedPractice(null)}
-                  className="absolute right-5 top-5 inline-flex size-9 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe3d7] text-[#5c5249] hover:text-[#140f0b] hover:border-[#df7418] cursor-pointer"
+                  className="absolute right-5 top-5 inline-flex size-9 items-center justify-center rounded-full bg-[#fdfbf7] border border-[#ebe4d8] text-[#5c554b] hover:text-[#14110d] hover:border-[#c89e63] cursor-pointer"
                   aria-label="Fechar janela"
                 >
                   <X size={18} />
@@ -1979,37 +1861,37 @@ export default function Home() {
 
                 {/* Modal Content */}
                 <div className="flex items-center gap-3">
-                  <div className="flex size-12 items-center justify-center rounded-xl bg-[#df7418]/15 text-[#8e3d06]">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-[#c89e63]/15 text-[#8a551e]">
                     <selectedPractice.icon size={24} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#c25b0e]">
-                      Área Especializada
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#b88440]">
+                      Área de Atuação
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-[#140f0b]">
+                    <h3 className="font-serif text-2xl font-bold text-[#14110d]">
                       {selectedPractice.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="mt-2 text-xs font-semibold text-[#8e3d06] uppercase tracking-wider">
+                <p className="mt-2 text-xs font-semibold text-[#8a551e] uppercase tracking-wider">
                   {selectedPractice.category}
                 </p>
 
-                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#5c5249]">
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#5c554b]">
                   {selectedPractice.details}
                 </p>
 
                 <div className="mt-6">
-                  <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-[#140f0b]">
+                  <p className="font-cinzel text-xs font-bold uppercase tracking-widest text-[#14110d]">
                     Principais Procedimentos e Atuação:
                   </p>
-                  <ul className="mt-3 space-y-2 text-xs sm:text-sm text-[#140f0b]">
+                  <ul className="mt-3 space-y-2 text-xs sm:text-sm text-[#14110d]">
                     {selectedPractice.topics.map((t, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2
                           size={15}
-                          className="mt-0.5 shrink-0 text-[#df7418]"
+                          className="mt-0.5 shrink-0 text-[#c89e63]"
                         />
                         <span>{t}</span>
                       </li>
@@ -2018,7 +1900,7 @@ export default function Home() {
                 </div>
 
                 {/* Modal CTA */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#ebe3d7]">
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#ebe4d8]">
                   <GlowingButton
                     href={getWhatsAppUrl(selectedPractice.whatsAppText)}
                     target="_blank"
@@ -2033,7 +1915,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setSelectedPractice(null)}
-                    className="rounded-lg border border-[#ebe3d7] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#5c5249] hover:bg-[#fdfbf7] hover:text-[#140f0b] cursor-pointer"
+                    className="rounded-lg border border-[#ebe4d8] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#5c554b] hover:bg-[#fdfbf7] hover:text-[#14110d] cursor-pointer"
                   >
                     Fechar
                   </button>
@@ -2048,15 +1930,15 @@ export default function Home() {
         {/* ======================================================== */}
         <div className="fixed bottom-6 right-6 z-40">
           <a
-            href={getWhatsAppUrl("Olá, Dra. Nayara Medina! Gostaria de consultar sobre meu benefício do INSS / aposentadoria.")}
+            href={getWhatsAppUrl("Olá, Dra. Mariana Leão! Gostaria de agendar uma consulta jurídica especializada.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 rounded-full border border-[#fedaa8] bg-gradient-to-r from-[#df7418] via-[#e5862b] to-[#c25b0e] p-3.5 sm:px-5 sm:py-3.5 text-[#0a0704] font-extrabold shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_28px_-4px_rgba(223,116,24,0.6)] cursor-pointer"
-            aria-label="Falar com a Dra. Nayara Medina no WhatsApp"
+            className="group flex items-center gap-2 rounded-full border border-[#fcecb1] bg-gradient-to-r from-[#b88440] via-[#d4af37] to-[#c89e63] p-3.5 sm:px-5 sm:py-3.5 text-[#0a0908] font-extrabold shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_28px_-4px_rgba(200,158,99,0.6)] cursor-pointer"
+            aria-label="Falar com a Dra. Mariana Leão no WhatsApp"
           >
-            <WhatsAppIcon size={22} className="text-[#0a0704]" />
-            <span className="hidden sm:inline text-xs uppercase tracking-wider font-extrabold text-[#0a0704]">
-              Falar com Dra. Nayara
+            <WhatsAppIcon size={22} className="text-[#0a0908]" />
+            <span className="hidden sm:inline text-xs uppercase tracking-wider font-extrabold text-[#0a0908]">
+              Falar com Dra. Mariana
             </span>
           </a>
         </div>

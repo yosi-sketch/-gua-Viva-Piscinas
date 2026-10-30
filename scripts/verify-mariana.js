@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('=== VERIFICAÇÃO DE INTEGRIDADE: DRA. NAYARA MEDINA ===\n');
+console.log('=== VERIFICAÇÃO DE INTEGRIDADE: MARIANA LEÃO ADVOCACIA ===\n');
 
 let errors = 0;
 
@@ -9,12 +9,17 @@ let errors = 0;
 const requiredPublicFiles = [
   'public/logo.png',
   'public/logo-horizontal.png',
-  'public/logo-nayara.png',
-  'public/dra-nayara.jpg',
+  'public/logo-mariana.png',
+  'public/logo-emblem.png',
+  'public/dra-mariana.jpg',
+  'public/dra-mariana-leao.jpg',
+  'public/mariana-leao-advogada.jpg',
+  'public/mariana-leao-sobre.jpg',
+  'public/mariana-leao-hero.jpg',
   'public/hero.jpg',
   'public/portrait.jpg',
   'public/emblem.png',
-  'public/emblema-balanca.png',
+  'public/emblema-mariana.png',
   'public/favicon.ico',
   'public/icon.png',
   'public/icon-16x16.png',
@@ -60,17 +65,20 @@ for (const file of requiredAppFiles) {
 // 3. Scan codebase for any traces of previous client
 console.log('\n3. Varredura rigorosa de rastros do cliente anterior no código:');
 const forbiddenPatterns = [
+  /Nayara/i,
+  /Medina/i,
+  /Pitangui/i,
+  /99835-1816/,
+  /184\.540/,
   /Geovane/i,
-  /Cláudio/i,
-  /Claudio/i,
-  /99114-3595/,
-  /Praça dos Ex-Combatentes/i,
+  /Tangara/i,
 ];
 
 function scanDir(dir) {
+  if (!fs.existsSync(dir)) return;
   const files = fs.readdirSync(dir);
   for (const f of files) {
-    if (f === 'node_modules' || f === '.next' || f === '.git') continue;
+    if (f === 'node_modules' || f === '.next' || f === '.git' || f === 'setup-nayara-assets.js' || f === 'verify-nayara.js') continue;
     const fullPath = path.join(dir, f);
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
@@ -89,25 +97,40 @@ function scanDir(dir) {
 
 scanDir('app');
 scanDir('public');
+scanDir('scripts');
 
-// 4. Verify Dra. Nayara Medina credentials
-console.log('\n4. Verificando dados da Dra. Nayara Medina:');
+// Check package.json, PRODUCT.md, README.md specifically
+for (const rootFile of ['package.json', 'PRODUCT.md', 'README.md']) {
+  if (fs.existsSync(rootFile)) {
+    const content = fs.readFileSync(rootFile, 'utf8');
+    for (const pattern of forbiddenPatterns) {
+      if (pattern.test(content)) {
+        console.error(`  [ERRO] Rastro detectado em ${rootFile}: padrão ${pattern}`);
+        errors++;
+      }
+    }
+  }
+}
+
+// 4. Verify Mariana Leão Advocacia credentials
+console.log('\n4. Verificando dados de Mariana Leão Advocacia:');
 const pageContent = fs.readFileSync('app/page.tsx', 'utf8');
 const layoutContent = fs.readFileSync('app/layout.tsx', 'utf8');
 
 const assertions = [
-  { name: 'Nome no H1 / Page', test: pageContent.includes('Dra. Nayara Medina') },
-  { name: 'OAB/MG 184.540 no Page', test: pageContent.includes('184.540') },
-  { name: 'WhatsApp (37) 99835-1816 no Page', test: pageContent.includes('99835-1816') },
-  { name: 'Pitangui no Page', test: pageContent.includes('Pitangui') },
-  { name: 'R. Maria Tangara, 20 no Page', test: pageContent.includes('R. Maria Tangara, 20') },
-  { name: 'Instagram @nayaramedina.adv no Page', test: pageContent.includes('nayaramedina.adv') },
+  { name: 'Nome no H1 / Page', test: pageContent.includes('Mariana Leão Advocacia') },
+  { name: 'Dra. Mariana Leão no Page', test: pageContent.includes('Dra. Mariana Leão') },
+  { name: 'WhatsApp (37) 99955-1587 no Page', test: pageContent.includes('99955-1587') },
+  { name: 'Oliveira no Page', test: pageContent.includes('Oliveira') },
+  { name: 'R. Chagas Sobrinho, 72 no Page', test: pageContent.includes('R. Chagas Sobrinho, 72') },
+  { name: 'Instagram @marianaleaoadv no Page', test: pageContent.includes('marianaleaoadv') },
   { name: 'Nota 5,0 no Page', test: pageContent.includes('5,0') },
-  { name: 'Paloma Milena nas avaliações', test: pageContent.includes('Paloma Milena') },
-  { name: 'Nicholas Henrique nas avaliações', test: pageContent.includes('Nicholas Henrique') },
-  { name: 'Daniela Campos nas avaliações', test: pageContent.includes('Daniela Campos') },
-  { name: 'Favicon no layout.tsx com cache busting', test: layoutContent.includes('/favicon.ico?v=nm1') },
-  { name: 'Metadata title no layout.tsx', test: layoutContent.includes('Dra. Nayara Medina') },
+  { name: 'Virgínia Barbosa nas avaliações', test: pageContent.includes('Virgínia Barbosa') },
+  { name: 'Gilberto Dst nas avaliações', test: pageContent.includes('Gilberto Dst') },
+  { name: 'Marina Soares nas avaliações', test: pageContent.includes('Marina Soares') },
+  { name: 'Karina Ribeiro nas avaliações', test: pageContent.includes('Karina Ribeiro') },
+  { name: 'Favicon no layout.tsx com cache busting ?v=ml2', test: layoutContent.includes('/favicon.ico?v=ml2') },
+  { name: 'Metadata title no layout.tsx', test: layoutContent.includes('Mariana Leão Advocacia') },
 ];
 
 for (const a of assertions) {
