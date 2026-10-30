@@ -3,42 +3,43 @@
 :root {
   color-scheme: light dark;
   
-  /* Brand Luxury Obsidian & Deep Onyx (Extracted from Dr. Geovane Martins' Formal Suit & Backdrop) */
-  --brand-onyx-deep: #080a0e;
-  --brand-onyx-surface: #0f131a;
-  --brand-onyx-card: #151922;
-  --brand-onyx-card-hover: #1e2430;
-  --brand-onyx-highlight: #293142;
-  --brand-graphite: #374256;
+  /* Brand Luxury Obsidian & Deep Warm Espresso (Derived from Dra. Nayara Medina's Brand Identity) */
+  --brand-onyx-deep: #0a0704;
+  --brand-onyx-surface: #130e09;
+  --brand-onyx-card: #1a140e;
+  --brand-onyx-card-hover: #261e16;
+  --brand-onyx-highlight: #33271d;
+  --brand-graphite: #45372a;
   
-  /* Brand Metallic Gold (Extracted directly from the Official Balança da Justiça Emblem & 3D Typography) */
+  /* Brand Metallic Amber Gold & Radiant Champagne (Extracted directly from the Official Logo "Nayara MEDINA") */
   --brand-gold-glow: #ffffff;
-  --brand-gold-highlight: #fdeea6;
-  --brand-gold-champagne: #f3d893;
-  --brand-gold-primary: #d4a843;
-  --brand-gold-warm: #b88628;
-  --brand-gold-deep: #8c6218;
-  --brand-gold-shadow: #5c3f0b;
-  --brand-gold-dark: #3d2105;
+  --brand-gold-highlight: #fff4e6;
+  --brand-gold-champagne: #f7dfb8;
+  --brand-gold-light: #fbaf53;
+  --brand-gold-primary: #df7418;
+  --brand-gold-warm: #c25b0e;
+  --brand-gold-deep: #8e3d06;
+  --brand-gold-shadow: #5c2403;
+  --brand-gold-dark: #381502;
   
-  /* Burgundy Accent (Elegantly harmonized from Dr. Geovane's office portrait) */
-  --brand-burgundy-deep: #461421;
-  --brand-burgundy-subtle: #732338;
+  /* Warm Sunflower & Terracotta Accent */
+  --brand-warm-sunflower: #f59e0b;
+  --brand-terracotta: #8a340a;
 
   /* Editorial Alabaster & Warm Linen Canvas (Clean, noble, high legibility) */
-  --brand-canvas-light: #faf8f3;
-  --brand-canvas-alt: #f3efe6;
+  --brand-canvas-light: #fdfbf7;
+  --brand-canvas-alt: #f7f2ea;
   --brand-canvas-surface: #ffffff;
-  --brand-canvas-border: #e5dfd2;
-  --brand-canvas-ink: #0f131a;
-  --brand-canvas-muted: #4e5564;
+  --brand-canvas-border: #ebe3d7;
+  --brand-canvas-ink: #140f0b;
+  --brand-canvas-muted: #5c5249;
   
   /* Borders & Accents */
-  --brand-border-gold: rgba(212, 168, 67, 0.45);
-  --brand-border-gold-subtle: rgba(243, 216, 147, 0.25);
-  --brand-border-gold-strong: rgba(253, 238, 166, 0.85);
+  --brand-border-gold: rgba(223, 116, 24, 0.45);
+  --brand-border-gold-subtle: rgba(247, 223, 184, 0.25);
+  --brand-border-gold-strong: rgba(251, 175, 83, 0.85);
   --brand-border-dark: rgba(255, 255, 255, 0.12);
-  --brand-border-onyx: rgba(15, 19, 26, 0.35);
+  --brand-border-onyx: rgba(20, 15, 11, 0.35);
 }
 
 @theme inline {
@@ -46,24 +47,25 @@
   --font-cinzel: var(--font-cinzel), "Cinzel", "Times New Roman", serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-onyx-deep: #080a0e;
-  --color-brand-onyx-surface: #0f131a;
-  --color-brand-onyx-card: #151922;
-  --color-brand-onyx-card-hover: #1e2430;
+  --color-brand-onyx-deep: #0a0704;
+  --color-brand-onyx-surface: #130e09;
+  --color-brand-onyx-card: #1a140e;
+  --color-brand-onyx-card-hover: #261e16;
   
-  --color-brand-gold-highlight: #fdeea6;
-  --color-brand-gold-champagne: #f3d893;
-  --color-brand-gold-primary: #d4a843;
-  --color-brand-gold-warm: #b88628;
-  --color-brand-gold-deep: #8c6218;
+  --color-brand-gold-highlight: #fff4e6;
+  --color-brand-gold-champagne: #f7dfb8;
+  --color-brand-gold-light: #fbaf53;
+  --color-brand-gold-primary: #df7418;
+  --color-brand-gold-warm: #c25b0e;
+  --color-brand-gold-deep: #8e3d06;
   
-  --color-brand-canvas-light: #faf8f3;
-  --color-brand-canvas-alt: #f3efe6;
+  --color-brand-canvas-light: #fdfbf7;
+  --color-brand-canvas-alt: #f7f2ea;
   --color-brand-canvas-surface: #ffffff;
   
-  --shadow-gold: 0 10px 28px -4px rgba(212, 168, 67, 0.35);
-  --shadow-gold-lg: 0 16px 38px -6px rgba(184, 134, 40, 0.45);
-  --shadow-onyx-card: 0 20px 45px -10px rgba(8, 10, 14, 0.94);
+  --shadow-gold: 0 10px 28px -4px rgba(223, 116, 24, 0.35);
+  --shadow-gold-lg: 0 16px 38px -6px rgba(194, 91, 14, 0.45);
+  --shadow-onyx-card: 0 20px 45px -10px rgba(10, 7, 4, 0.94);
 }
 
 html {
@@ -72,15 +74,15 @@ html {
 }
 
 body {
-  background: #faf8f3;
-  color: #0f131a;
+  background: #fdfbf7;
+  color: #140f0b;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #d4a843;
+  caret-color: #df7418;
 }
 
 ::selection {
-  background: #151922;
-  color: #f3d893;
+  background: #1a140e;
+  color: #f7dfb8;
 }
 
 .font-cinzel {
@@ -96,7 +98,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8c6218;
+  color: #8e3d06;
 }
 
 .eyebrow-dark {
@@ -108,14 +110,14 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #f3d893;
+  color: #f7dfb8;
 }
 
 .eyebrow::before {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #b88628, #d4a843);
+  background: linear-gradient(90deg, #c25b0e, #df7418);
   content: "";
 }
 
@@ -123,14 +125,14 @@ body {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #f3d893, #fdeea6);
+  background: linear-gradient(90deg, #f7dfb8, #fbaf53);
   content: "";
 }
 
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #374151;
+  color: #3b3229;
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -145,7 +147,7 @@ body {
   bottom: -2px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, #b88628, #d4a843);
+  background: linear-gradient(90deg, #c25b0e, #df7418);
   border-radius: 999px;
   content: "";
   transform: scaleX(0);
@@ -154,7 +156,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #080a0e;
+  color: #0a0704;
 }
 
 .nav-link:hover::after {
@@ -164,7 +166,7 @@ body {
 .nav-link-dark {
   position: relative;
   padding-block: 0.5rem;
-  color: #f3d893;
+  color: #f7dfb8;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -178,7 +180,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #fdeea6;
+  background: #fbaf53;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -194,7 +196,7 @@ body {
 }
 
 .footer-link {
-  color: #f3d893;
+  color: #f7dfb8;
   transition: color 180ms ease;
 }
 
@@ -202,22 +204,22 @@ body {
   color: #ffffff;
 }
 
-/* Luxury Metallic Gold Text Shimmer */
+/* Luxury Metallic Gold Text Shimmer (Inspired by the logo) */
 .metallic-gold-text {
-  background: linear-gradient(135deg, #ffffff 0%, #fdeea6 25%, #f3d893 50%, #d4a843 75%, #fdeea6 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fff4e6 20%, #f7dfb8 45%, #df7418 75%, #fbaf53 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #d4a843 0%, #f3d893 35%, #b88628 70%, #fdeea6 100%);
+  background: linear-gradient(135deg, #fbaf53 0%, #f7dfb8 30%, #df7418 65%, #c25b0e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .metallic-badge {
-  background: linear-gradient(135deg, rgba(253, 238, 166, 0.15) 0%, rgba(212, 168, 67, 0.08) 100%);
-  border: 1px solid rgba(243, 216, 147, 0.35);
+  background: linear-gradient(135deg, rgba(251, 175, 83, 0.15) 0%, rgba(223, 116, 24, 0.08) 100%);
+  border: 1px solid rgba(247, 223, 184, 0.35);
   backdrop-filter: blur(8px);
 }
 
@@ -226,17 +228,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080a0e;
+  background: #0a0704;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #080a0e;
+  border: 2px solid #0a0704;
   border-radius: 999px;
-  background: #151922;
+  background: #1a140e;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4a843;
+  background: #df7418;
 }
 
 @media (prefers-reduced-motion: reduce) {
