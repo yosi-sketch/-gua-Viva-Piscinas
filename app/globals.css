@@ -3,70 +3,78 @@
 :root {
   color-scheme: light dark;
   
-  /* Brand Luxury Warm Espresso & Deep Truffle Noir (Clínica Dra. Kamilla) */
-  --brand-espresso-deep: #161110;
-  --brand-espresso-surface: #201918;
-  --brand-espresso-card: #2a2220;
-  --brand-espresso-card-hover: #352b28;
-  --brand-espresso-highlight: #453733;
-  --brand-espresso-border: rgba(200, 141, 111, 0.25);
+  /* Brand Deep Royal Navy & Midnight Prestige (Dr. Frank Eduardo — Odontologia) */
+  --brand-navy-deep: #000d2b;
+  --brand-navy-midnight: #001344;
+  --brand-navy-primary: #001a60;
+  --brand-navy-cobalt: #02298a;
+  --brand-navy-vibrant: #0037a8;
+  --brand-navy-surface: #0a1945;
+  --brand-navy-card: #0c1e52;
+  --brand-navy-card-hover: #11286b;
+  --brand-navy-highlight: #1a388f;
+  --brand-navy-border: rgba(0, 26, 96, 0.18);
   
-  /* Brand Metallic Rose Gold & Warm Bronze (Extracted directly from the official logo of Clínica Dra. Kamilla) */
-  --brand-rosegold-glow: #ffffff;
-  --brand-rosegold-highlight: #faece4;
-  --brand-rosegold-pearl: #f3dbcc;
-  --brand-rosegold-light: #eab188;
-  --brand-rosegold-primary: #c88d6f;
-  --brand-rosegold-warm: #b87755;
-  --brand-rosegold-deep: #944e31;
-  --brand-rosegold-shadow: #75371f;
-  --brand-rosegold-dark: #3a1a0d;
+  /* Brand Imperial Gold & Warm Amber (Extracted directly from the official logo ribbons & typography) */
+  --brand-gold-glow: #ffffff;
+  --brand-gold-highlight: #fff3c4;
+  --brand-gold-champagne: #fae49d;
+  --brand-gold-light: #f4c22b;
+  --brand-gold-primary: #dea404;
+  --brand-gold-warm: #c89304;
+  --brand-gold-deep: #b78004;
+  --brand-gold-shadow: #8c6002;
+  --brand-gold-dark: #5c3f00;
   
-  /* Delicate Medical & Reception Accents */
-  --brand-wine-accent: #8a1e34;
-  --brand-turquoise-accent: #0d9488;
-  --brand-turquoise-light: #14b8a6;
-
-  /* Editorial Alabaster & Warm Linen Canvas (Clean, aseptic, luminous, soothing medical feel) */
-  --brand-canvas-light: #fdfbf9;
-  --brand-canvas-alt: #f8f3ee;
+  /* Dental Clinical Hygiene & Clean Aseptic Slate Canvas */
+  --brand-canvas-white: #ffffff;
+  --brand-canvas-light: #f8fafc;
+  --brand-canvas-alt: #f1f5f9;
   --brand-canvas-surface: #ffffff;
-  --brand-canvas-border: #ede4dc;
-  --brand-canvas-ink: #1e1815;
-  --brand-canvas-muted: #665a54;
+  --brand-canvas-border: #e2e8f0;
+  --brand-canvas-ink: #0f172a;
+  --brand-canvas-muted: #475569;
   
+  /* WhatsApp & Medical Accent */
+  --brand-whatsapp-green: #10b981;
+  --brand-whatsapp-dark: #059669;
+
   /* Borders & Accents */
-  --brand-border-rosegold: rgba(184, 119, 85, 0.45);
-  --brand-border-rosegold-subtle: rgba(234, 177, 136, 0.28);
-  --brand-border-rosegold-strong: rgba(200, 141, 111, 0.85);
+  --brand-border-gold: rgba(222, 164, 4, 0.45);
+  --brand-border-gold-subtle: rgba(244, 194, 43, 0.25);
+  --brand-border-gold-strong: rgba(222, 164, 4, 0.85);
   --brand-border-dark: rgba(255, 255, 255, 0.12);
-  --brand-border-espresso: rgba(32, 25, 24, 0.35);
+  --brand-border-navy-card: rgba(244, 194, 43, 0.22);
 }
 
 @theme inline {
-  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
-  --font-cinzel: var(--font-cinzel), "Cinzel", "Times New Roman", serif;
+  --font-serif: var(--font-heading), "Montserrat", system-ui, sans-serif;
+  --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-espresso-deep: #161110;
-  --color-brand-espresso-surface: #201918;
-  --color-brand-espresso-card: #2a2220;
-  --color-brand-espresso-card-hover: #352b28;
+  --color-brand-navy-deep: #000d2b;
+  --color-brand-navy-midnight: #001344;
+  --color-brand-navy-primary: #001a60;
+  --color-brand-navy-cobalt: #02298a;
+  --color-brand-navy-vibrant: #0037a8;
+  --color-brand-navy-surface: #0a1945;
+  --color-brand-navy-card: #0c1e52;
+  --color-brand-navy-card-hover: #11286b;
   
-  --color-brand-rosegold-highlight: #faece4;
-  --color-brand-rosegold-pearl: #f3dbcc;
-  --color-brand-rosegold-light: #eab188;
-  --color-brand-rosegold-primary: #c88d6f;
-  --color-brand-rosegold-warm: #b87755;
-  --color-brand-rosegold-deep: #944e31;
+  --color-brand-gold-highlight: #fff3c4;
+  --color-brand-gold-champagne: #fae49d;
+  --color-brand-gold-light: #f4c22b;
+  --color-brand-gold-primary: #dea404;
+  --color-brand-gold-warm: #c89304;
+  --color-brand-gold-deep: #b78004;
   
-  --color-brand-canvas-light: #fdfbf9;
-  --color-brand-canvas-alt: #f8f3ee;
+  --color-brand-canvas-light: #f8fafc;
+  --color-brand-canvas-alt: #f1f5f9;
   --color-brand-canvas-surface: #ffffff;
   
-  --shadow-rosegold: 0 10px 28px -4px rgba(184, 119, 85, 0.35);
-  --shadow-rosegold-lg: 0 16px 38px -6px rgba(148, 78, 49, 0.45);
-  --shadow-espresso-card: 0 20px 45px -10px rgba(22, 17, 16, 0.94);
+  --shadow-gold: 0 10px 28px -4px rgba(222, 164, 4, 0.35);
+  --shadow-gold-lg: 0 16px 38px -6px rgba(183, 128, 4, 0.45);
+  --shadow-navy-card: 0 20px 45px -10px rgba(0, 13, 43, 0.94);
 }
 
 html {
@@ -75,19 +83,19 @@ html {
 }
 
 body {
-  background: #fdfbf9;
-  color: #1e1815;
+  background: #f8fafc;
+  color: #0f172a;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  caret-color: #b87755;
+  caret-color: #dea404;
 }
 
 ::selection {
-  background: #2a2220;
-  color: #faece4;
+  background: #001a60;
+  color: #fff3c4;
 }
 
-.font-cinzel {
-  font-family: var(--font-cinzel), "Cinzel", "Playfair Display", serif;
+.font-heading {
+  font-family: var(--font-heading), "Montserrat", sans-serif;
 }
 
 .eyebrow {
@@ -99,7 +107,19 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #944e31;
+  color: #c89304;
+}
+
+.eyebrow-navy {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #001a60;
 }
 
 .eyebrow-dark {
@@ -111,14 +131,15 @@ body {
   line-height: 1.4;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #faece4;
+  color: #f4c22b;
 }
 
-.eyebrow::before {
+.eyebrow::before,
+.eyebrow-navy::before {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #944e31, #c88d6f);
+  background: linear-gradient(90deg, #dea404, #001a60);
   content: "";
 }
 
@@ -126,17 +147,17 @@ body {
   width: 1.75rem;
   height: 2px;
   flex: none;
-  background: linear-gradient(90deg, #faece4, #eab188);
+  background: linear-gradient(90deg, #f4c22b, #dea404);
   content: "";
 }
 
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #4a3e38;
-  font-size: 0.74rem;
+  color: #334155;
+  font-size: 0.73rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   transition: color 180ms ease;
   white-space: nowrap;
@@ -148,7 +169,7 @@ body {
   bottom: -2px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, #944e31, #c88d6f);
+  background: linear-gradient(90deg, #001a60, #dea404);
   border-radius: 999px;
   content: "";
   transform: scaleX(0);
@@ -157,7 +178,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #161110;
+  color: #001344;
 }
 
 .nav-link:hover::after {
@@ -167,10 +188,10 @@ body {
 .nav-link-dark {
   position: relative;
   padding-block: 0.5rem;
-  color: #f3dbcc;
-  font-size: 0.72rem;
+  color: #cbd5e1;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: color 180ms ease;
 }
@@ -181,7 +202,7 @@ body {
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #eab188;
+  background: #f4c22b;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -197,36 +218,36 @@ body {
 }
 
 .footer-link {
-  color: #f3dbcc;
+  color: #cbd5e1;
   transition: color 180ms ease;
 }
 
 .footer-link:hover {
-  color: #ffffff;
+  color: #f4c22b;
 }
 
-/* Luxury Metallic Rose Gold Text Shimmer (Inspired by the logo) */
-.metallic-rosegold-text {
-  background: linear-gradient(135deg, #ffffff 0%, #faece4 20%, #eab188 45%, #b87755 75%, #944e31 100%);
+/* Luxury Metallic Gold & Royal Blue Text Shimmer (Inspired by the logo) */
+.metallic-gold-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fff3c4 25%, #f4c22b 50%, #dea404 75%, #b78004 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.rosegold-gradient-text {
-  background: linear-gradient(135deg, #944e31 0%, #b87755 35%, #c88d6f 70%, #eab188 100%);
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b78004 0%, #dea404 40%, #f4c22b 75%, #fff3c4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.rosegold-gradient-light-text {
-  background: linear-gradient(135deg, #faece4 0%, #f3dbcc 30%, #eab188 70%, #c88d6f 100%);
+.royal-gradient-text {
+  background: linear-gradient(135deg, #001344 0%, #001a60 45%, #02298a 80%, #0037a8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .metallic-badge {
-  background: linear-gradient(135deg, rgba(234, 177, 136, 0.16) 0%, rgba(184, 119, 85, 0.08) 100%);
-  border: 1px solid rgba(200, 141, 111, 0.35);
+  background: linear-gradient(135deg, rgba(244, 194, 43, 0.14) 0%, rgba(222, 164, 4, 0.06) 100%);
+  border: 1px solid rgba(222, 164, 4, 0.35);
   backdrop-filter: blur(8px);
 }
 
@@ -235,17 +256,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #161110;
+  background: #000d2b;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #161110;
+  border: 2px solid #000d2b;
   border-radius: 999px;
-  background: #2a2220;
+  background: #0c1e52;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b87755;
+  background: #dea404;
 }
 
 @media (prefers-reduced-motion: reduce) {

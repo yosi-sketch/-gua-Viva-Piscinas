@@ -1,31 +1,31 @@
-# Clínica Dra. Kamilla | Landing Page Oficial
-## Dermatologia, Tecnologias a Laser & Estética Médica Avançada · CRM-MG 57814 · 5,0 ★ no Google (611 avaliações) · Mateus Leme e Itaúna - MG
+# Dr. Frank Eduardo — Odontologia Avançada | Landing Page Oficial
+## Cirurgião Dentista · Reabilitação Oral, Implantes, Próteses & Estética · 5,0 ★ no Google (256 avaliações) · Igarapé - MG
 
-Landing page institucional de alta autoridade, conversão e refinamento visual para a **Clínica Dra. Kamilla** (Dra. Kamilla, CRM-MG 57814), referência em **Tecnologias a Laser**, **Dermatologia Clínica**, **Toxina Botulínica (Botox)**, **Bioestimuladores de Colágeno**, **Preenchimentos com Naturalidade** e **Tricologia**, com sede física na **R. Pres. Tancredo Neves, 294 - Centro, Mateus Leme - MG, CEP 35670-000** e atendimento acolhedor para pacientes de Mateus Leme, Itaúna e toda a região.
+Landing page institucional de alta autoridade, conversão e refinamento visual para o **Dr. Frank Eduardo — Odontologia Avançada**, referência em **Reabilitação Oral**, **Implantes Dentários**, **Cirurgia de Sisos**, **Próteses Fixas**, **Lentes de Contato Dental & Facetas**, **Clareamento Dental** e **Atendimento Humanizado Sem Trauma (Técnica "Mão Leve")**, com sede física na **Av. Gov. Valadares, 440 - 3º Andar - Sala 202 - Centro, Igarapé - MG, CEP 32900-000** e atendimento acolhedor para pacientes de Igarapé, Betim, Contagem, Brumadinho, São Joaquim de Bicas e toda a região metropolitana.
 
 ---
 
 ### Identidade Visual & Design System
 - **Paleta de Cores:** Extraída diretamente do logotipo oficial:
-  - Ouro Rosé Metálico Primário: `#C88D6F` / `#B87755`
-  - Ouro Rosé Luminous: `#EAB188`
-  - Champanhe Pérola / Alabastro: `#FAECE4` / `#F8F3EE` / `#FDFBF9`
-  - Bronze & Sombra Quente: `#944E31` / `#75371F`
-  - Espresso Noir Profundo: `#161110` / `#201918` / `#2A2220`
-- **Tipografia:** `Playfair Display` e `Cinzel` para títulos elegantes, e `Plus Jakarta Sans` para máxima legibilidade e clareza médica.
+  - Deep Royal Navy (Primária): `#001344` / `#001a60` / `#02298a`
+  - Dourado Imperial & Âmbar Quente (Secundária): `#dea404` / `#f4c22b` / `#b78004`
+  - Branco Puro & Slate Clínico: `#ffffff` / `#f8fafc` / `#f0f4f9`
+  - Midnight Prestige (Seções escuras): `#000d2b` / `#0a1945` / `#0c1e52`
+- **Tipografia:** `Montserrat` para títulos e marcas imponentes, e `Plus Jakarta Sans` para máxima legibilidade, clareza e credibilidade médica.
 - **Assets Oficiais em `public/`:**
-  - `logo.png` e `logo-horizontal.png`: Logotipo oficial transparente de alta resolução
-  - `emblem.png`: Monograma medalhão circular com o "K"
-  - `dra-kamilla.jpg`: Fotografia oficial de consultório da Dra. Kamilla
-  - `equipe-clinica.jpg`: Fotografia oficial da equipe de atendimento e recepção (com a Kálica)
-  - `favicon.ico`, `apple-icon.png`, `icon.png`: Favicons e ícones otimizados
+  - `logo.png` e `logo-horizontal.png`: Logotipo oficial transparente em alta resolução
+  - `logo-dark-bg.png`: Logotipo adaptado com tipografia branca para fundos escuros
+  - `emblem.png`: Emblema do dente em fita tridimensional (azul e dourado)
+  - `dr-frank-eduardo.jpg`: Fotografia oficial em atendimento clínico/cirúrgico do Dr. Frank Eduardo
+  - `consultorio.jpg`: Fotografia de alta qualidade do consultório odontológico
+  - `favicon.ico`, `apple-icon.png`, `icon.png`: Favicons e ícones otimizados para navegadores e dispositivos móveis
 
 ---
 
 ### Execução e Testes
 ```bash
 # Rodar verificação de integridade
-node scripts/verify-kamilla.js
+node scripts/verify-dr-frank.js
 
 # Iniciar servidor de desenvolvimento
 npm run dev

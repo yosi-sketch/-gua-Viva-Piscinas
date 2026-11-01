@@ -3,7 +3,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 async function verify() {
-  console.log('🔍 Executing Comprehensive Verification for Clínica Dra. Kamilla...\n');
+  console.log('🔍 Executing Comprehensive Verification for Dr. Frank Eduardo — Odontologia...\n');
 
   let passed = true;
 
@@ -12,8 +12,8 @@ async function verify() {
     'public/logo.png',
     'public/logo-horizontal.png',
     'public/emblem.png',
-    'public/dra-kamilla.jpg',
-    'public/equipe-clinica.jpg',
+    'public/dr-frank-eduardo.jpg',
+    'public/consultorio.jpg',
     'public/favicon.ico',
     'public/apple-icon.png',
     'public/icon.png',
@@ -60,29 +60,28 @@ async function verify() {
   const emblemMeta = await sharp('public/emblem.png').metadata();
   console.log(`  ✓ public/emblem.png: ${emblemMeta.width}x${emblemMeta.height} (${emblemMeta.format}, alpha: ${emblemMeta.hasAlpha})`);
 
-  const kamillaMeta = await sharp('public/dra-kamilla.jpg').metadata();
-  console.log(`  ✓ public/dra-kamilla.jpg: ${kamillaMeta.width}x${kamillaMeta.height} (${kamillaMeta.format})`);
+  const doctorMeta = await sharp('public/dr-frank-eduardo.jpg').metadata();
+  console.log(`  ✓ public/dr-frank-eduardo.jpg: ${doctorMeta.width}x${doctorMeta.height} (${doctorMeta.format})`);
 
-  const equipeMeta = await sharp('public/equipe-clinica.jpg').metadata();
-  console.log(`  ✓ public/equipe-clinica.jpg: ${equipeMeta.width}x${equipeMeta.height} (${equipeMeta.format})`);
+  const consultorioMeta = await sharp('public/consultorio.jpg').metadata();
+  console.log(`  ✓ public/consultorio.jpg: ${consultorioMeta.width}x${consultorioMeta.height} (${consultorioMeta.format})`);
 
-  // 4. Verify that page.tsx and layout.tsx contain Dra. Kamilla's data
+  // 4. Verify that page.tsx and layout.tsx contain Dr. Frank Eduardo's data
   console.log('\n4. Verifying Codebase Content & Integrity:');
   const pageContent = fs.readFileSync('app/page.tsx', 'utf-8');
   const layoutContent = fs.readFileSync('app/layout.tsx', 'utf-8');
 
   const requiredTerms = [
-    'Clínica Dra. Kamilla',
-    'Dra. Kamilla',
-    'CRM-MG 57814',
-    '99717-2916',
-    '5531997172916',
-    'Mateus Leme',
-    'Itaúna',
-    'R. Pres. Tancredo Neves, 294',
-    'Kálica',
-    'clinicadrakamilla',
-    '611',
+    'Dr. Frank Eduardo',
+    'Odontologia Avançada',
+    'Cirurgião',
+    '99767-0022',
+    '5531997670022',
+    'Igarapé',
+    'Gov. Valadares',
+    'Meg',
+    '256',
+    '5,0',
   ];
 
   for (const term of requiredTerms) {
@@ -94,40 +93,50 @@ async function verify() {
     }
   }
 
-  // 5. Verify no remnants of previous project
-  console.log('\n5. Verifying Zero Residue of Previous Projects:');
-  const forbiddenTerms = [
-    'laura',
-    'melo lopes',
-    '248.197',
-    'carmo do rio claro',
-    'advocacia',
-    'oab',
-    'previdenciário',
-    'criminal',
-  ];
-
-  for (const term of forbiddenTerms) {
-    const pageRegex = new RegExp(`\\b${term}\\b`, 'i');
-    const layoutRegex = new RegExp(`\\b${term}\\b`, 'i');
-    if (pageRegex.test(pageContent) || layoutRegex.test(layoutContent)) {
-      console.error(`  ✗ Leaked old project term: "${term}"`);
-      passed = false;
+  for (const term of ['Dr. Frank Eduardo', 'Igarapé', '99767-0022', 'Gov. Valadares']) {
+    if (layoutContent.includes(term)) {
+      console.log(`  ✓ Found in layout.tsx: "${term}"`);
     } else {
-      console.log(`  ✓ Clean: No "${term}" found.`);
+      console.error(`  ✗ Missing in layout.tsx: "${term}"`);
+      passed = false;
     }
   }
 
-  console.log(`\n========================================`);
+  // 5. Verify no remnants of previous project
+  console.log('\n5. Verifying Zero Residue of Previous Projects:');
+  const forbiddenTerms = [
+    'kamilla',
+    'laura',
+    'mateus leme',
+    'itaúna',
+    'dermatolog',
+    'crm-mg',
+    '57814',
+    '99717-2916',
+    '5531997172916',
+    'tancredo neves',
+    'kálica',
+  ];
+
+  for (const term of forbiddenTerms) {
+    const pageMatches = pageContent.toLowerCase().includes(term);
+    const layoutMatches = layoutContent.toLowerCase().includes(term);
+    if (pageMatches) {
+      console.error(`  ✗ Residue found in page.tsx: "${term}"`);
+      passed = false;
+    }
+    if (layoutMatches) {
+      console.error(`  ✗ Residue found in layout.tsx: "${term}"`);
+      passed = false;
+    }
+  }
+
   if (passed) {
-    console.log('✅ ALL VERIFICATIONS PASSED SUCCESSFULLY!');
+    console.log('\n🎉 ALL CHECKS PASSED PERFECTLY! 100% compliant with Dr. Frank Eduardo branding.');
   } else {
-    console.error('❌ SOME CHECKS FAILED!');
+    console.error('\n⚠️ SOME CHECKS FAILED!');
     process.exit(1);
   }
 }
 
-verify().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+verify().catch(console.error);

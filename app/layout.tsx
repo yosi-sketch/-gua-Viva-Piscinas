@@ -1,20 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Cinzel,
-  Playfair_Display,
-  Plus_Jakarta_Sans,
-} from "next/font/google";
+import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const cinzelFont = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const playfairFont = Playfair_Display({
-  variable: "--font-serif",
+const headingFont = Montserrat({
+  variable: "--font-heading",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
@@ -28,67 +17,70 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#161110",
+  themeColor: "#001344",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://clinicadrakamilla.com.br"),
+  metadataBase: new URL("https://drfrankeduardo.com.br"),
   title:
-    "Clínica Dra. Kamilla — Dermatologia, Laser & Estética Médica Avançada | CRM-MG 57814 · 5,0 ★ (611 avaliações no Google) · Mateus Leme e Itaúna - MG",
+    "Dr. Frank Eduardo — Odontologia Avançada | Cirurgião Dentista · 5,0 ★ (256 avaliações no Google) · Igarapé - MG",
   description:
-    "Clínica Dra. Kamilla (CRM-MG 57814) — Referência em dermatologia, procedimentos a laser de alta performance, injetáveis e rejuvenescimento natural. Atendimento acolhedor no Centro de Mateus Leme - MG (R. Pres. Tancredo Neves, 294) e Itaúna. Mais de 610 avaliações 5 estrelas no Google. WhatsApp: (31) 99717-2916.",
+    "Dr. Frank Eduardo — Odontologia Avançada em Igarapé - MG. Cirurgião Dentista especialista em reabilitação oral, implantes dentários, lentes de contato, próteses e cirurgias com atendimento humanizado, sem trauma e mão leve. Mais de 256 avaliações 5 estrelas no Google. Av. Gov. Valadares, 440 - Sala 202. WhatsApp: (31) 99767-0022.",
   keywords: [
-    "Clínica Dra. Kamilla",
-    "Dra. Kamilla",
-    "Dra Kamilla Mateus Leme",
-    "Dra Kamilla Itaúna",
-    "CRM MG 57814",
-    "Dermatologista Mateus Leme",
-    "Dermatologia Estética Mateus Leme",
-    "Clínica de Estética Médica Mateus Leme",
-    "Tratamento a Laser Mateus Leme",
-    "Laser Dermatológico Mateus Leme",
-    "Botox Mateus Leme",
-    "Bioestimulador de Colágeno Mateus Leme",
-    "Harmonização Facial Natural",
-    "Melasma e Manchas Tratamento",
-    "R. Pres. Tancredo Neves 294 Mateus Leme",
-    "Melhor Clínica de Estética Mateus Leme MG",
+    "Dr. Frank Eduardo",
+    "Dentista Igarapé",
+    "Dentista em Igarapé MG",
+    "Dr Frank Eduardo Igarapé",
+    "Odontologia Avançada Igarapé",
+    "Cirurgião Dentista Igarapé",
+    "Implantes Dentários Igarapé",
+    "Próteses Dentárias Igarapé",
+    "Reabilitação Oral Igarapé",
+    "Lentes de Contato Dental Igarapé",
+    "Facetas de Resina Igarapé",
+    "Clareamento Dental Igarapé",
+    "Cirurgia de Siso Igarapé",
+    "Dentista com Mão Leve Igarapé",
+    "Tratamento de Canal Igarapé",
+    "Dentista Betim",
+    "Dentista Contagem",
+    "Av Gov Valadares 440 Igarapé",
+    "Melhor Dentista Igarapé MG",
   ],
-  authors: [{ name: "Clínica Dra. Kamilla" }],
-  creator: "Clínica Dra. Kamilla",
-  publisher: "Clínica Dra. Kamilla",
+  authors: [{ name: "Dr. Frank Eduardo — Odontologia Avançada" }],
+  creator: "Dr. Frank Eduardo",
+  publisher: "Dr. Frank Eduardo — Odontologia Avançada",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=kamilla2", sizes: "any" },
-      { url: "/icon-32x32.png?v=kamilla2", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=kamilla2", type: "image/png", sizes: "16x16" },
-      { url: "/icon-48x48.png?v=kamilla2", type: "image/png", sizes: "48x48" },
-      { url: "/icon-192x192.png?v=kamilla2", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=kamilla2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=frank1", sizes: "any" },
+      { url: "/icon-32x32.png?v=frank1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=frank1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-48x48.png?v=frank1", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192x192.png?v=frank1", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png?v=frank1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=kamilla2",
-    apple: [{ url: "/apple-icon.png?v=kamilla2", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=frank1",
+    apple: [{ url: "/apple-icon.png?v=frank1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://clinicadrakamilla.com.br",
+    url: "https://drfrankeduardo.com.br",
     title:
-      "Clínica Dra. Kamilla — Dermatologia, Laser & Estética Médica | 5,0 ★ (611 avaliações no Google)",
+      "Dr. Frank Eduardo — Odontologia Avançada | 5,0 ★ (256 avaliações no Google)",
     description:
-      "Tecnologias a laser de ponta, estética médica avançada e cuidados dermatológicos com naturalidade e acolhimento humano. Mateus Leme e Itaúna - MG. WhatsApp: (31) 99717-2916.",
-    siteName: "Clínica Dra. Kamilla",
+      "Tecnologia de ponta, precisão cirúrgica e atendimento odontológico humanizado em Igarapé - MG. Reabilitação oral, implantes, próteses e estética com total conforto. WhatsApp: (31) 99767-0022.",
+    siteName: "Dr. Frank Eduardo — Odontologia Avançada",
     images: [
       {
         url: "/logo.png",
         width: 1024,
-        height: 344,
-        alt: "Clínica Dra. Kamilla — Dermatologia, Laser & Estética Médica Avançada",
+        height: 372,
+        alt: "Dr. Frank Eduardo — Odontologia Avançada",
       },
     ],
   },
@@ -101,35 +93,39 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Clínica Dra. Kamilla",
-    alternateName: "Dra. Kamilla Medicina & Estética",
-    medicalSpecialty: ["Dermatology", "Aesthetic Medicine"],
-    telephone: "+55-31-99717-2916",
-    url: "https://clinicadrakamilla.com.br",
-    image: "https://clinicadrakamilla.com.br/logo.png",
+    "@type": "Dentist",
+    name: "Dr. Frank Eduardo — Odontologia Avançada",
+    alternateName: "Dr. Frank Eduardo Dentista Igarapé",
+    medicalSpecialty: [
+      "Dentistry",
+      "OralSurgery",
+      "Periodontics",
+      "Prosthodontics",
+      "Endodontics",
+    ],
+    telephone: "+55-31-99767-0022",
+    url: "https://drfrankeduardo.com.br",
+    image: "https://drfrankeduardo.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. Pres. Tancredo Neves, 294 - Centro",
-      addressLocality: "Mateus Leme",
+      streetAddress: "Av. Gov. Valadares, 440 - 3º Andar - Sala 202 - Centro",
+      addressLocality: "Igarapé",
       addressRegion: "MG",
-      postalCode: "35670-000",
+      postalCode: "32900-000",
       addressCountry: "BR",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5.0",
-      reviewCount: "611",
+      reviewCount: "256",
     },
     areaServed: [
-      "Mateus Leme",
-      "Itaúna",
-      "Juatuba",
-      "Betim",
-      "Pará de Minas",
-      "Florestal",
       "Igarapé",
+      "Betim",
+      "Contagem",
+      "São Joaquim de Bicas",
+      "Brumadinho",
       "Minas Gerais",
     ],
     openingHoursSpecification: [
@@ -147,23 +143,20 @@ export default function RootLayout({
       },
     ],
     sameAs: [
-      "https://www.instagram.com/clinicadrakamilla/",
-      "https://beacons.page/drakamilla",
+      "https://www.instagram.com/dr.frankeduardo/",
+      "https://wa.me/5531997670022",
     ],
   };
 
   return (
-    <html
-      lang="pt-BR"
-      className={`${cinzelFont.variable} ${playfairFont.variable} ${bodyFont.variable}`}
-    >
+    <html lang="pt-BR" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased selection:bg-[#2a2220] selection:text-[#faece4]">
+      <body className="min-h-screen bg-[#f8fafc] text-[#0f172a] antialiased selection:bg-[#001a60] selection:text-[#fff3c4]">
         {children}
       </body>
     </html>

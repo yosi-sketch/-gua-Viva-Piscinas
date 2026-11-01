@@ -12,6 +12,8 @@ interface GlowingButtonProps {
   variant?:
     | "gold"
     | "rosegold"
+    | "navy"
+    | "royal"
     | "onyx"
     | "espresso"
     | "outline"
@@ -29,41 +31,45 @@ export default function GlowingButton({
   onClick,
   className = "",
   size = "md",
-  variant = "rosegold",
+  variant = "gold",
 }: GlowingButtonProps) {
   const sizeClasses = {
-    sm: "px-4.5 py-2.5 text-[11px] tracking-[0.1em]",
-    md: "px-6 py-3.5 text-xs tracking-[0.12em]",
-    lg: "px-7 py-4 text-xs tracking-[0.14em]",
+    sm: "px-4.5 py-2.5 text-[11px] tracking-[0.06em]",
+    md: "px-6 py-3.5 text-xs tracking-[0.08em]",
+    lg: "px-7 py-4 text-xs tracking-[0.1em]",
   }[size];
 
-  // Visual identity based on Clínica Dra. Kamilla
-  // Metallic Rose Gold, Champagne Pearl & Deep Warm Espresso Noir
+  // Visual identity based on Dr. Frank Eduardo — Odontologia Avançada
+  // Deep Royal Navy, Imperial Warm Gold & Clean Clinical Slate
   const variantClasses = {
     gold:
-      "border border-[#faece4]/90 bg-gradient-to-r from-[#944e31] via-[#c88d6f] to-[#b87755] text-white font-extrabold shadow-md shadow-[#b87755]/25 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(184,119,85,0.5)]",
+      "border border-[#f4c22b]/80 bg-gradient-to-r from-[#b78004] via-[#dea404] to-[#f4c22b] text-[#001344] font-extrabold shadow-md shadow-[#dea404]/30 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(222,164,4,0.5)]",
     rosegold:
-      "border border-[#faece4]/90 bg-gradient-to-r from-[#944e31] via-[#c88d6f] to-[#b87755] text-white font-extrabold shadow-md shadow-[#b87755]/25 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(184,119,85,0.5)]",
+      "border border-[#f4c22b]/80 bg-gradient-to-r from-[#b78004] via-[#dea404] to-[#f4c22b] text-[#001344] font-extrabold shadow-md shadow-[#dea404]/30 hover:-translate-y-0.5 hover:brightness-105 hover:border-white hover:shadow-[0_10px_26px_-4px_rgba(222,164,4,0.5)]",
+    navy:
+      "border border-[#dea404]/60 bg-gradient-to-r from-[#000d2b] via-[#001a60] to-[#02298a] text-white font-bold shadow-lg shadow-[#001344]/50 hover:-translate-y-0.5 hover:border-[#f4c22b] hover:text-[#fff3c4] hover:shadow-[0_12px_30px_-4px_rgba(0,26,96,0.6)]",
+    royal:
+      "border border-[#dea404]/60 bg-gradient-to-r from-[#000d2b] via-[#001a60] to-[#02298a] text-white font-bold shadow-lg shadow-[#001344]/50 hover:-translate-y-0.5 hover:border-[#f4c22b] hover:text-[#fff3c4] hover:shadow-[0_12px_30px_-4px_rgba(0,26,96,0.6)]",
     onyx:
-      "border border-[#c88d6f]/50 bg-gradient-to-r from-[#161110] via-[#201918] to-[#2a2220] text-[#faece4] font-bold shadow-lg shadow-[#161110]/50 hover:-translate-y-0.5 hover:border-[#faece4] hover:text-white hover:shadow-[0_12px_30px_-4px_rgba(22,17,16,0.7)]",
+      "border border-[#dea404]/60 bg-gradient-to-r from-[#000d2b] via-[#001a60] to-[#02298a] text-white font-bold shadow-lg shadow-[#001344]/50 hover:-translate-y-0.5 hover:border-[#f4c22b] hover:text-[#fff3c4] hover:shadow-[0_12px_30px_-4px_rgba(0,26,96,0.6)]",
     espresso:
-      "border border-[#c88d6f]/50 bg-gradient-to-r from-[#161110] via-[#201918] to-[#2a2220] text-[#faece4] font-bold shadow-lg shadow-[#161110]/50 hover:-translate-y-0.5 hover:border-[#faece4] hover:text-white hover:shadow-[0_12px_30px_-4px_rgba(22,17,16,0.7)]",
+      "border border-[#dea404]/60 bg-gradient-to-r from-[#000d2b] via-[#001a60] to-[#02298a] text-white font-bold shadow-lg shadow-[#001344]/50 hover:-translate-y-0.5 hover:border-[#f4c22b] hover:text-[#fff3c4] hover:shadow-[0_12px_30px_-4px_rgba(0,26,96,0.6)]",
     outline:
-      "border border-[#2a2220] bg-transparent text-[#1e1815] font-bold hover:-translate-y-0.5 hover:border-[#b87755] hover:bg-[#2a2220]/5",
+      "border border-[#001a60] bg-transparent text-[#001a60] font-bold hover:-translate-y-0.5 hover:border-[#dea404] hover:bg-[#001a60]/5",
     outlineGold:
-      "border border-[#c88d6f]/80 bg-[#c88d6f]/10 text-[#944e31] font-bold hover:-translate-y-0.5 hover:border-[#944e31] hover:bg-[#c88d6f]/20",
+      "border border-[#dea404] bg-[#dea404]/10 text-[#8c6002] font-bold hover:-translate-y-0.5 hover:border-[#b78004] hover:bg-[#dea404]/20",
     outlineRose:
-      "border border-[#c88d6f]/80 bg-[#c88d6f]/10 text-[#944e31] font-bold hover:-translate-y-0.5 hover:border-[#944e31] hover:bg-[#c88d6f]/20",
+      "border border-[#dea404] bg-[#dea404]/10 text-[#8c6002] font-bold hover:-translate-y-0.5 hover:border-[#b78004] hover:bg-[#dea404]/20",
     light:
-      "border border-[#ede4dc] bg-[#fdfbf9] text-[#1e1815] font-bold shadow-2xs hover:-translate-y-0.5 hover:bg-white hover:border-[#b87755]",
+      "border border-[#e2e8f0] bg-[#f8fafc] text-[#001344] font-bold shadow-2xs hover:-translate-y-0.5 hover:bg-white hover:border-[#dea404]",
     white:
-      "border border-[#ede4dc] bg-white text-[#1e1815] font-bold shadow-2xs hover:-translate-y-0.5 hover:border-[#b87755] hover:text-[#161110]",
+      "border border-[#e2e8f0] bg-white text-[#001344] font-bold shadow-2xs hover:-translate-y-0.5 hover:border-[#dea404] hover:text-[#001a60]",
     whatsapp:
-      "border border-emerald-400/80 bg-gradient-to-r from-[#0d9488] via-[#059669] to-[#10b981] text-white font-extrabold shadow-md shadow-emerald-600/30 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[0_10px_26px_-4px_rgba(16,185,129,0.5)]",
+      "border border-emerald-400/80 bg-gradient-to-r from-[#059669] via-[#10b981] to-[#34d399] text-white font-extrabold shadow-md shadow-emerald-600/30 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[0_10px_26px_-4px_rgba(16,185,129,0.5)]",
   }[variant];
 
   const classes =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#b87755] select-none text-center cursor-pointer " +
+    "inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase whitespace-nowrap shrink-0 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#dea404] select-none text-center cursor-pointer " +
     sizeClasses +
     " " +
     variantClasses +

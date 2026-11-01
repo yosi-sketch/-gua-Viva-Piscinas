@@ -29,41 +29,41 @@ import {
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Professional Information — Clínica Dra. Kamilla
-const CLINIC_NAME = "Clínica Dra. Kamilla";
-const BRAND_LABEL = "Clínica Dra. Kamilla — Dermatologia, Laser & Estética Médica Avançada";
-const DOCTOR_NAME = "Dra. Kamilla";
-const DOCTOR_CRM = "CRM-MG 57814";
-const DOCTOR_ROLE = "Médica · Dermatologia, Laser & Estética Médica";
-const DOCTOR_BIO = "Médica (CRM-MG 57814), mãe de duas princesas, apaixonada por realçar a beleza e a autoestima com naturalidade, segurança e afeto.";
-const WHATSAPP_NUMBER = "5531997172916";
-const PHONE_DISPLAY = "(31) 99717-2916";
-const INSTAGRAM_URL = "https://www.instagram.com/clinicadrakamilla/";
-const INSTAGRAM_HANDLE = "@clinicadrakamilla";
-const BEACONS_URL = "https://beacons.page/drakamilla";
+// Client & Professional Information — Dr. Frank Eduardo — Odontologia Avançada
+const CLINIC_NAME = "Dr. Frank Eduardo — Odontologia Avançada";
+const BRAND_LABEL = "Dr. Frank Eduardo — Cirurgião Dentista | Odontologia Avançada & Reabilitação Oral";
+const DOCTOR_NAME = "Dr. Frank Eduardo";
+const DOCTOR_ROLE = "Cirurgião Dentista · Odontologia Avançada & Reabilitação Oral";
+const DOCTOR_BIO = "Cirurgião Dentista especialista em devolver função mastigatória, saúde e autoestima por meio da odontologia avançada, próteses, implantes e estética do sorriso com atendimento verdadeiramente humanizado, técnica suave e sem dor.";
+const RECEPTIONIST_NAME = "Meg";
+const WHATSAPP_NUMBER = "5531997670022";
+const PHONE_DISPLAY = "(31) 99767-0022";
+const INSTAGRAM_URL = "https://www.instagram.com/dr.frankeduardo/";
+const INSTAGRAM_HANDLE = "@dr.frankeduardo";
 
-const ADDRESS_DISPLAY = "R. Pres. Tancredo Neves, 294 - Centro, Mateus Leme - MG, 35670-000";
-const CITIES_SERVED = "Mateus Leme e Itaúna - MG";
+const ADDRESS_DISPLAY = "Av. Gov. Valadares, 440 - 3º Andar - Sala 202 - Centro, Igarapé - MG, 32900-000";
+const CITIES_SERVED = "Igarapé, Betim, Contagem, Brumadinho, São Joaquim de Bicas e Região";
 
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Cl%C3%ADnica+Dra.+Kamilla%0AMateus+Leme+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Dr.+Frank+Eduardo+%E2%80%94+Odontologia%0AIgarap%C3%A9+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=R.+Pres.+Tancredo+Neves%2C+294+-+Centro%2C+Mateus+Leme+-+MG%2C+35670-000";
+  "https://www.google.com/maps/search/?api=1&query=Av.+Gov.+Valadares%2C+440+-+3+Andar+-+Sala+202+-+Centro%2C+Igarap%C3%A9+-+MG%2C+32900-000";
 
 // Official assets from public folder
 const LOGO_SRC = "/logo.png";
 const LOGO_HORIZONTAL_SRC = "/logo-horizontal.png";
+const LOGO_DARK_BG_SRC = "/logo-dark-bg.png";
 const EMBLEM_SRC = "/emblem.png";
-const FOTO_HERO_SRC = "/dra-kamilla.jpg";
-const FOTO_EQUIPE_SRC = "/equipe-clinica.jpg";
+const FOTO_HERO_SRC = "/dr-frank-eduardo.jpg";
+const FOTO_CONSULTORIO_SRC = "/consultorio.jpg";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá! Gostaria de agendar uma consulta / procedimento na Clínica Dra. Kamilla.";
+    "Olá! Gostaria de agendar uma consulta / avaliação com o Dr. Frank Eduardo no consultório em Igarapé.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -106,423 +106,309 @@ function InstagramIcon({
       fill="currentColor"
       className={className}
     >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0Zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z" />
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
     </svg>
   );
 }
 
-function GoogleIcon({
-  size = 17,
-  className = "",
-}: {
-  size?: number;
-  className?: string;
-}) {
-  return (
-    <svg
-      aria-hidden="true"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-    >
-      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
-    </svg>
-  );
-}
-
+// Especialidades e Tratamentos Odontológicos
 interface Specialty {
   id: string;
   title: string;
-  category: string;
-  icon: typeof Award;
-  tag: string;
-  summary: string;
-  details: string;
-  topics: string[];
-  whatsAppText: string;
+  badge: string;
+  shortDesc: string;
+  icon: string;
+  fullDesc: string;
+  indications: string[];
+  benefits: string[];
+  recovery: string;
+  faq: { q: string; a: string };
 }
 
-const specialties: Specialty[] = [
+const SPECIALTIES: Specialty[] = [
   {
-    id: "tecnologias-a-laser",
-    title: "Tecnologias a Laser & Fotorejuvenescimento",
-    category: "Rejuvenescimento · Manchas · Cicatrizes · Poros Dilatados · Glow Imediato",
-    icon: Zap,
-    tag: "Alta Precisão · Excelência Comprovada · Estímulo de Colágeno",
-    summary:
-      "Tratamentos a laser de ponta para renovação celular profunda, clareamento seguro de manchas, atenuação de cicatrizes e efeito glow duradouro com total conforto.",
-    details:
-      "A Clínica Dra. Kamilla é referência em tratamentos a laser em Mateus Leme e Itaúna. Nossas plataformas de alta performance atuam com precisão micrométrica nas camadas da pele, estimulando novo colágeno, uniformizando o relevo dérmico, fechando poros e clareando hipercromias, sempre ajustados com rigor médico ao fototipo de cada paciente.",
-    topics: [
-      "Rejuvenescimento a laser para linhas finas e textura da pele",
-      "Clareamento de manchas solares, melanoses e controle do melasma",
-      "Suavização de cicatrizes de acne e poros dilatados",
-      "Protocolos combinados com drug delivery de antioxidantes",
-      "Recuperação rápida e orientações detalhadas de pós-laser",
-      "Efeito glow radiante para eventos e revitalização contínua",
+    id: "reabilitacao-oral",
+    title: "Reabilitação Oral & Próteses",
+    badge: "Especialidade Cirúrgica",
+    shortDesc:
+      "Recupere a mastigação completa, estabilidade oclusal e a estética do sorriso com planejamento digital individualizado.",
+    icon: "Smile",
+    fullDesc:
+      "A Reabilitação Oral é o conjunto integrado de procedimentos que restabelece dentes perdidos, desgastados ou com mordida desalinhada. Utilizando próteses fixas, próteses sobre implantes e cerâmicas de alta resistência, o Dr. Frank Eduardo planeja cada detalhe para devolver a liberdade de sorrir e mastigar qualquer alimento com total conforto e firmeza.",
+    indications: [
+      "Perda de um ou múltiplos dentes",
+      "Dentes desgastados por bruxismo ou acidez",
+      "Dificuldade na mastigação e dores articulares (DTM)",
+      "Insatisfação estética com próteses antigas ou soltas",
     ],
-    whatsAppText:
-      "Olá, Dra. Kamilla e equipe! Gostaria de agendar uma avaliação para tratamentos a Laser.",
+    benefits: [
+      "Mastigação perfeita e firmeza absoluta",
+      "Harmonia facial e rejuvenescimento do terço inferior da face",
+      "Próteses fixas com estética idêntica ao dente natural",
+      "Planejamento digital com previsibilidade total de resultado",
+    ],
+    recovery:
+      "Tratamento planejado em etapas confortáveis, respeitando o tempo de cicatrização e com adaptação guiada.",
+    faq: {
+      q: "Vou conseguir mastigar com segurança como antes?",
+      a: "Sim! O objetivo principal da reabilitação oral é devolver 100% da eficiência mastigatória, segurança mecânica e naturalidade estética.",
+    },
   },
   {
-    id: "toxina-botulinica",
-    title: "Toxina Botulínica (Botox) com Naturalidade",
-    category: "Prevenção · Rugas de Expressão · Olhar Descansado · Sem Efeito Congelado",
-    icon: Sparkles,
-    tag: "Harmonia Facial · Expressividade Preservada · Elegância",
-    summary:
-      "Aplicação médica estratégica para prevenir e suavizar linhas na testa, pés de galinha e glabela, mantendo sua expressividade natural e descanso no olhar.",
-    details:
-      "Acreditamos que o melhor procedimento é aquele que ninguém percebe que foi feito, mas todos notam como você está descansada e luminosa. A aplicação de toxina botulínica é planejada milimetricamente para relaxar os músculos hipercinéticos sem paralisar sua mímica ou alterar suas feições genuínas.",
-    topics: [
-      "Suavização das rugas da testa, entre as sobrancelhas (glabela) e pés de galinha",
-      "Efeito olhar descansado e arqueamento sutil e natural das sobrancelhas",
-      "Atenuação de linhas do nariz (bunny lines) e rugas no queixo",
-      "Tratamento de sorriso gengival e elevação delicada dos cantos da boca",
-      "Controle de bruxismo e afinamento suave do terço inferior do rosto",
-      "Tratamento de hiperidrose (suor excessivo em axilas e palmas)",
+    id: "implantes-dentarios",
+    title: "Implantes Dentários de Alta Tecnologia",
+    badge: "Cirurgia Avançada",
+    shortDesc:
+      "Reposição definitiva com pinos de titânio biocompatíveis e coroas de porcelana. Fixação segura e conforto natural.",
+    icon: "Shield",
+    fullDesc:
+      "Os implantes dentários substituem as raízes dos dentes ausentes com pinos de titânio de altíssima pureza integrados ao osso. Com planejamento cirúrgico minucioso e anestesia moderna, o procedimento é realizado com técnica suave e indolor pelo Dr. Frank Eduardo, proporcionando a base perfeita para dentes fixos, belos e vitalícios.",
+    indications: [
+      "Ausência de um, vários ou todos os dentes",
+      "Usuários de dentaduras ou pontes móveis que desejam dentes fixos",
+      "Perdas dentárias recentes ou antigas",
+      "Dificuldade de retenção com próteses convencionais",
     ],
-    whatsAppText:
-      "Olá! Gostaria de agendar minha aplicação de Toxina Botulínica (Botox) com a Dra. Kamilla.",
+    benefits: [
+      "Estabilidade fixa que nunca sai do lugar ao falar ou comer",
+      "Preservação do osso maxilar e da estrutura facial",
+      "Procedimento cirúrgico seguro, guiado e sem dor",
+      "Autoestima renovada para sorrir sem receios",
+    ],
+    recovery:
+      "Pós-operatório rápido e tranquilo com acompanhamento dedicado e orientações claras do Dr. Frank e da equipe.",
+    faq: {
+      q: "Colocar implante dói?",
+      a: "Não. A cirurgia de implante é realizada sob anestesia local altamente eficaz. A maioria dos pacientes relata um pós-operatório muito mais confortável do que uma extração comum.",
+    },
   },
   {
-    id: "bioestimuladores-colageno",
-    title: "Bioestimuladores de Colágeno (Sculptra & Radiesse)",
-    category: "Firmeza Dérmica · Combate à Flacidez · Efeito Lifting Progressivo",
-    icon: Layers,
-    tag: "Produção Natural · Sustentação Dérmica · Longa Duração",
-    summary:
-      "Estímulo biológico potente da síntese natural de colágeno pelo seu próprio organismo, restaurando a firmeza, tônus e sustentação da face e corpo.",
-    details:
-      "Com o passar dos anos, o organismo diminui progressivamente a síntese de colágeno e elastina. Os bioestimuladores de colágeno atuam nas camadas estruturais da derme, despertando os fibroblastos para regenerar a firmeza e densidade tecidual. Resultados elegantes, progressivos e com durabilidade de até 24 meses.",
-    topics: [
-      "Recuperação da densidade e combate à flacidez facial e cervical",
-      "Definição elegante do terço inferior do rosto e contorno de mandíbula",
-      "Rejuvenescimento do pescoço e colo (suavização de linhas horizontais)",
-      "Bioestímulo corporal (glúteos, abdômen pós-parto, braços e coxas)",
-      "Melhora global da textura dérmica com efeito lifting suave",
-      "Plano de manutenção preventiva anual da qualidade cutânea",
+    id: "lentes-facetas",
+    title: "Lentes de Contato Dental & Facetas",
+    badge: "Estética & Harmonização",
+    shortDesc:
+      "Harmonização do sorriso com porcelanas ultrafinas e resinas nobres para alinhar cor, formato e proporções com naturalidade.",
+    icon: "Sparkles",
+    fullDesc:
+      "As lentes de contato e facetas dentárias são lâminas ultrafinas confeccionadas sob medida para cobrir a superfície frontal dos dentes. Elas corrigem imperfeições de cor, espaçamentos (diastemas), bordas quebradas e dentes escurecidos, proporcionando um sorriso simétrico, luminoso e que respeita os traços naturais do seu rosto.",
+    indications: [
+      "Dentes manchados ou escurecidos resistentes ao clareamento",
+      "Espaços indesejados entre os dentes (diastemas)",
+      "Dentes lascados, curtos ou levemente desalinhados",
+      "Desejo de um sorriso mais jovem, harmônico e radiante",
     ],
-    whatsAppText:
-      "Olá! Gostaria de uma avaliação para Bioestimuladores de Colágeno com a Dra. Kamilla.",
+    benefits: [
+      "Sorriso impecável e alinhado de forma rápida e duradoura",
+      "Materiais que mantêm o brilho e não mancham com café ou vinho",
+      "Mínimo ou nenhum desgaste da estrutura dental sadia",
+      "Resultado natural sem aquele aspecto artificial de 'dentes falsos'",
+    ],
+    recovery:
+      "Procedimento minimamente invasivo, sem dor e com retorno imediato às atividades cotidianas.",
+    faq: {
+      q: "As lentes de contato desgastam muito os dentes?",
+      a: "Não. Com as porcelanas ultrafinas modernas, o desgaste é milimétrico e estritamente conservador, preservando a saúde do dente natural.",
+    },
   },
   {
-    id: "preenchimento-acido-hialuronico",
-    title: "Preenchimento & Harmonização com Sutileza",
-    category: "Lábios Elegantes · Olheiras · Sustentação Malar · Mento & Mandíbula",
-    icon: Heart,
-    tag: "Ácido Hialurônico Puro · Estrutura · Reversibilidade & Segurança",
-    summary:
-      "Restauração anatômica de volumes e pontos de luz faciais com ácido hialurônico homologado, valorizando seus traços mais belos com sofisticação.",
-    details:
-      "Nossa abordagem para preenchimentos prioriza a sofisticação e a anatomia individual. Através de pontos estratégicos de sustentação (MD Codes), descansamos o semblante, definimos lábios hidratados e desenhados, atenuamos olheiras profundas e equilibramos o perfil sem nunca cair em artificialismos ou exageros.",
-    topics: [
-      "Preenchimento labial com foco em contorno, hidratação e volume delicado",
-      "Tratamento de olheiras fundas e olhar cansado",
-      "Sustentação do terço médio (maçãs do rosto) com efeito lifting indireto",
-      "Definição do mento (queixo) e alinhamento do contorno mandibular",
-      "Atenuação do bigode chinês e linhas de marionete",
-      "Rinomodelação não cirúrgica para refinamento sutil do perfil nasal",
+    id: "cirurgia-siso",
+    title: "Cirurgia de Sisos & Extrações Suaves",
+    badge: "Cirurgia Humanizada",
+    shortDesc:
+      "Remoção cirúrgica segura de sisos inclusos e dentes comprometidos com técnica indolor, mão leve e pós-operatório assistido.",
+    icon: "Heart",
+    fullDesc:
+      "A cirurgia de dentes terceiros molares (sisos) é realizada pelo Dr. Frank Eduardo com técnica cirúrgica refinada, delicadeza e rapidez. Conhecido por sua 'mão leve' e atendimento humanizado, o Dr. Frank cuida até de pacientes gestantes e pessoas com histórico de trauma de infância, oferecendo suporte contínuo antes, durante e após a cirurgia.",
+    indications: [
+      "Sisos inclusos, semi-inclusos ou empurrando os outros dentes",
+      "Dor de dente aguda, inchaço ou infecções recorrentes (pericoronarite)",
+      "Dentes com fratura profunda ou destruição irreparável",
+      "Indicação ortodôntica para liberação de espaço na arcada",
     ],
-    whatsAppText:
-      "Olá! Gostaria de agendar uma consulta para Preenchimento com Ácido Hialurônico.",
+    benefits: [
+      "Alívio imediato da dor e prevenção de infecções graves",
+      "Técnica minimamente invasiva com menor edema (inchaço)",
+      "Atendimento cuidadoso e acolhedor que tranquiliza o paciente",
+      "Acompanhamento pós-cirúrgico de perto pelo WhatsApp com o Dr. Frank",
+    ],
+    recovery:
+      "Protocolo de medicamentos pré e pós-operatórios para cicatrização rápida e sem dor em 3 a 5 dias.",
+    faq: {
+      q: "Eu tenho muito medo de arrancar o siso. Vou sentir dor?",
+      a: "Absolutamente não. A anestesia local é aplicada de forma suave e gradual. O Dr. Frank tem uma técnica cirúrgica delicada ('mão leve') amplamente elogiada pelos pacientes em mais de 250 avaliações.",
+    },
   },
   {
-    id: "dermatologia-clinica-pele",
-    title: "Dermatologia Clínica & Gerenciamento da Pele",
-    category: "Melasma · Acne Ativa · Rosácea · Manchas · Barreira Cutânea",
-    icon: Shield,
-    tag: "Diagnóstico Médico · Prescrição Individualizada · Saúde & Bem-Estar",
-    summary:
-      "Diagnóstico minucioso e tratamento médico para melasma, acne, dermatites, rosácea e acompanhamento preventivo da integridade da pele.",
-    details:
-      "Antes de qualquer procedimento estético, a saúde biológica da sua pele é o pilar mais importante. Avaliamos causas hormonais, histórico clínico, genética e estilo de vida para prescrever protocolos terapêuticos e rotinas de home care médico sob medida, garantindo resultados reais e sustentáveis.",
-    topics: [
-      "Consulta médica dermatológica completa para avaliação da saúde cutânea",
-      "Protocolo avançado de clareamento e controle do melasma",
-      "Tratamento da acne em adolescentes e adultos e prevenção de cicatrizes",
-      "Controle de rosácea, vermelhidão crônica e sensibilidade cutânea",
-      "Prescrição de home care personalizado com ativos de alta performance",
-      "Acompanhamento e checagem periódica de pintas e lesões cutâneas",
+    id: "clareamento-dental",
+    title: "Clareamento Dental Avançado",
+    badge: "Estética Não Invasiva",
+    shortDesc:
+      "Protocolos combinados em consultório e caseiro supervisionado para clarear os dentes com segurança e sem sensibilidade incômoda.",
+    icon: "Zap",
+    fullDesc:
+      "O clareamento dental profissional sob supervisão do Dr. Frank Eduardo remove pigmentos profundos acumulados ao longo dos anos, restaurando a cor clara e brilhante dos dentes. Utilizamos géis clareadores com agentes dessensibilizantes e protetores gengivais de ponta para garantir conforto térmico durante todo o tratamento.",
+    indications: [
+      "Dentes amarelados pelo envelhecimento natural ou alimentos",
+      "Manchas decorrentes de café, chá, refrigerantes ou cigarro",
+      "Pacientes que se preparam para eventos, casamentos ou restaurações",
+      "Desejo de renovar a luminosidade e jovialidade do sorriso",
     ],
-    whatsAppText:
-      "Olá! Gostaria de agendar uma consulta dermatológica médica com a Dra. Kamilla.",
+    benefits: [
+      "Dentes visivelmente mais brancos em poucas sessões",
+      "Protocolo seguro que não agride o esmalte dental",
+      "Fórmulas com dessensibilizante para máximo conforto",
+      "Acompanhamento fotográfico do antes e depois",
+    ],
+    recovery:
+      "Sem necessidade de repouso. Apenas evitar corantes intensos nas primeiras 48 horas após a sessão.",
+    faq: {
+      q: "O clareamento estraga o esmalte dos dentes?",
+      a: "Não. Quando realizado com produtos regulamentados e supervisão odontológica do Dr. Frank, o clareamento apenas quebra as moléculas de corante sem desgastar a matriz do esmalte.",
+    },
   },
   {
-    id: "skinbooster-hidratacao",
-    title: "Skinbooster & Hidratação Profunda Injetável",
-    category: "Glow Imediato · Ácido Hialurônico Fluido · Viço · Elasticidade",
-    icon: Sparkles,
-    tag: "Hidratação de Dentro para Fora · Viço Radiante · Textura Sedosa",
-    summary:
-      "Microdepósitos dérmicos de ácido hialurônico fluido que devolvem o viço, elasticidade e frescor nas camadas onde dermocosméticos tópicos não chegam.",
-    details:
-      "Indicado para quem sente a pele ressecada, opaca, craquelada ou com linhas finas causadas por desidratação. O skinbooster cria um reservatório hídrico dérmico que reflete a luz com beleza e vitalidade, sem alterar o formato do rosto.",
-    topics: [
-      "Hidratação profunda para face, pescoço, colo e dorso das mãos",
-      "Melhora imediata do viço, textura e maciez da pele",
-      "Atenuação de ruguinhas finas periorais (código de barras)",
-      "Recuperação pós-praia, frio ou períodos de cansaço intenso",
-      "Procedimento rápido, seguro e com retorno imediato à rotina",
+    id: "restauracoes-esteticas",
+    title: "Restaurações Estéticas & Check-up",
+    badge: "Saúde & Prevenção",
+    shortDesc:
+      "Substituição de restaurações escuras por resinas que mimetizam a cor natural, além de profilaxia profunda e remoção de tártaro.",
+    icon: "CheckCircle2",
+    fullDesc:
+      "As restaurações modernas em resinas compostas nanoparticuladas devolvem a forma original do dente com acabamento e brilho imperceptíveis. Aliadas à profilaxia periódica (limpeza com ultrassom e jato de bicarbonato), mantêm a gengiva saudável e protegem a dentição contra cáries e doenças periodontais.",
+    indications: [
+      "Troca de restaurações escuras de amálgama (metálicas)",
+      "Tratamento de cáries ativas ou restaurações fraturadas",
+      "Acúmulo de tártaro, placa bacteriana ou sangramento gengival",
+      "Check-up preventivo semestral para toda a família",
     ],
-    whatsAppText:
-      "Olá! Gostaria de agendar uma sessão de Skinbooster / Hidratação Profunda.",
-  },
-  {
-    id: "peelings-quimicos",
-    title: "Peelings Químicos Médicos & Renovação Cutânea",
-    category: "Uniformização · Afinamento Epidérmico · Controle de Oleosidade",
-    icon: Activity,
-    tag: "Renovação Celular · Ácidos de Grau Médico · Textura Lisa",
-    summary:
-      "Combinação de ácidos médicos que aceleram a descamação controlada, clareiam manchas superficiais, fecham poros e revitalizam o brilho facial.",
-    details:
-      "Utilizamos ácidos médicos rigorosamente selecionados (como retinóico, glicólico, salicílico e mandélico) para promover a esfoliação química segura, estimulando a síntese dérmica e entregando uma pele uniforme, sedosa e revigorada.",
-    topics: [
-      "Clareamento de manchas solares e hipercromias pós-inflamatórias",
-      "Controle eficaz da oleosidade e diminuição de cravos e poros",
-      "Afinamento da pele espessa com melhora da absorção de ativos",
-      "Protocolos combinados com laser para potencialização dos resultados",
-      "Suporte pós-procedimento com orientação personalizada",
+    benefits: [
+      "Estética natural idêntica à cor dos seus dentes",
+      "Hálito puro, gengiva firme e proteção duradoura",
+      "Consultório ultra-higienizado com equipamentos esterilizados",
+      "Atendimento preventivo que evita problemas complexos no futuro",
     ],
-    whatsAppText:
-      "Olá! Gostaria de agendar uma avaliação para Peeling Químico Médico.",
-  },
-  {
-    id: "tricologia-capilar",
-    title: "Tricologia & Tratamento para Queda Capilar",
-    category: "Queda de Cabelo · Eflúvio Telógeno · Alopecia · Fortalecimento dos Fios",
-    icon: Users,
-    tag: "Saúde do Couro Cabeludo · Estímulo Folicular · Densidade",
-    summary:
-      "Investigação médica das causas da perda de cabelo e terapias combinadas com mesoterapia de fatores de crescimento e vitaminas diretamente no couro cabeludo.",
-    details:
-      "Cabelos densos e cheios de vida começam na saúde do bulbo capilar. Investigamos carências nutricionais, alterações hormonais e fatores de estresse, associando tratamentos orais a procedimentos locais que estimulam a oxigenação e o crescimento de novos fios.",
-    topics: [
-      "Diagnóstico clínico das causas da queda e quebra capilar",
-      "Protocolos para eflúvio telógeno pós-parto, pós-infecções ou estresse",
-      "Tratamento de alopecia androgenética feminina e masculina",
-      "Microinfusão de medicamentos e fatores de crescimento (MMP)",
-      "Estímulo da densidade, espessura e ancoragem dos fios",
-    ],
-    whatsAppText:
-      "Olá! Gostaria de uma avaliação médica para tratamento de Queda Capilar.",
+    recovery:
+      "Recuperação imediata: você já pode se alimentar normalmente logo após o procedimento.",
+    faq: {
+      q: "De quanto em quanto tempo devo fazer limpeza no consultório?",
+      a: "O recomendado é a cada 6 meses, garantindo a remoção de tártaro antes que cause inflamações gengivais ou perdas ósseas.",
+    },
   },
 ];
 
+// Depoimentos Reais do Google Reviews (Nota 5,0 estrelas - 256 avaliações)
 interface Review {
   name: string;
-  rating: number;
+  badge?: string;
   timeAgo: string;
-  category: "Atendimento & Recepção" | "Laser & Tecnologia" | "Dra. Kamilla" | "Resultados & Cuidado";
   comment: string;
-  verified: boolean;
-  highlight?: string;
+  highlights: string[];
 }
 
-const clientReviews: Review[] = [
+const REVIEWS: Review[] = [
   {
-    name: "Suelen Andrade",
-    rating: 5,
+    name: "Polyana Rodrigues",
+    badge: "9 avaliações · Paciente de Betim",
+    timeAgo: "6 meses atrás",
+    comment:
+      "Super recomendo o Dr Frank! Ótimo profissional, passa muita segurança e humanização no atendimento. Muito critério na higienização das salas e equipamentos, fiz procedimentos com ele e faria novamente. Detalhe: me desloquei de Betim para ir até seu consultório devido às recomendações que tive dele, então a distância não era problema. Gratidão Dr Frank, muito obrigada!",
+    highlights: ["Humanização no atendimento", "Higiene rigorosa", "Deslocou de Betim"],
+  },
+  {
+    name: "Carlos Deleon Gonçalves",
+    badge: "Local Guide · 27 avaliações",
+    timeAgo: "8 meses atrás",
+    comment:
+      "Excelente! Equipamentos de alta tecnologia, moderno, qualidade e ótimo atendimento. O Dr. Frank é um ótimo profissional e a Meg muito gente boa e simpática no atendimento. Recomendo de olhos fechados!",
+    highlights: ["Alta tecnologia", "Moderno", "Meg simpática e atenciosa"],
+  },
+  {
+    name: "Luiz Fernando Oliveira",
+    badge: "Local Guide · 24 avaliações",
+    timeAgo: "6 meses atrás",
+    comment:
+      "O melhor dentista de Igarapé e região. Responsável, honesto e muito profissional. Explica passo a passo o que está fazendo e deixa tudo bem claro para que não haja dúvidas.",
+    highlights: ["Melhor de Igarapé e região", "Honesto e claro", "Explica passo a passo"],
+  },
+  {
+    name: "Mariana Neta",
+    badge: "8 avaliações",
     timeAgo: "3 meses atrás",
-    category: "Atendimento & Recepção",
     comment:
-      "Gostaria de agradecer à Clínica da Dra. Kamila pelo excelente atendimento. Fui muito bem recebida, com atenção, carinho e profissionalismo em todos os momentos. A equipe é muito educada, atenciosa e transmite confiança. Parabéns pelo ótimo trabalho e pelo cuidado com os pacientes. Recomendo a clínica com toda certeza!",
-    verified: true,
-    highlight: "Atenção, carinho e profissionalismo em todos os momentos",
+      "Dr. Frank foi muito atencioso e educado, me explicou todo o procedimento com clareza. Excelente dentista. Super indico!!",
+    highlights: ["Educado e atencioso", "Explicação clara", "Super indico"],
   },
   {
-    name: "Gisele As",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Atendimento & Recepção",
+    name: "Nanda Oliveira",
+    badge: "4 avaliações · Atendimento Gestante",
+    timeAgo: "5 anos atrás",
     comment:
-      "Minha experiência na Clinica da dra Kamila foi excelente, desde que cheguei fui muito bem recebida pela equipe da recepção todas sempre muito gentil em especial a Kálica que demonstra muito carinho e atenção a todos, a dra Kamila um amor de ser humano uma profissional incrível, saio de lá bem cuidada e com a certeza que sempre voltarei só gratidão a todos pelo carinho e empatia!!!",
-    verified: true,
-    highlight: "Em especial a Kálica que demonstra muito carinho e a Dra. Kamilla incrível",
+      "Sempre tive medo de dentista e precisei de tratamento em um dente siso durante a gravidez do meu filho. Eu estava sentindo muita dor e o Dr Frank me atendeu em pleno feriado para uma avaliação, com muita cautela pela gestação no 8º mês. Ele me deu todo suporte e sempre atencioso nas mensagens nas madrugadas de dor. Depois tirei o dente e foi um alívio imenso. Gratidão imensa pelo carinho e competência!",
+    highlights: ["Atendimento no feriado", "Cuidado na gestação", "Suporte nas madrugadas"],
   },
   {
-    name: "Day Oliveira",
-    rating: 5,
-    timeAgo: "2 meses atrás",
-    category: "Laser & Tecnologia",
+    name: "Kaah Oliver",
+    badge: "6 avaliações · Superou Trauma",
+    timeAgo: "2 anos atrás",
     comment:
-      "Desde o atendimento até a sala da Dra kamilla é tudo muito bom , o laser nem se fala, maravilhoso 🤩",
-    verified: true,
-    highlight: "O laser nem se fala, maravilhoso 🤩",
+      "O Dr Frank é muito atencioso e o mais importante: muito honesto. Vim traumatizada de outro consultório em Igarapé e fiz minha consulta com ele. O serviço prestado é de excelência desde a atendente que é um amor, até o Dr Frank que tem bastante experiência, calma e a mão leve rs. Indico muito!",
+    highlights: ["Superou trauma anterior", "Mão leve e calma", "Honesto demais"],
   },
   {
-    name: "Giovane Junior (Local Guide)",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Laser & Tecnologia",
+    name: "Jessica Dos Santos",
+    badge: "3 avaliações · Família Tratando",
+    timeAgo: "2 anos atrás",
     comment:
-      "Dra. Kamila: excelência em laser e atendimento nota 1000. Obrigada por cuidar de mim com tanta dedicação!",
-    verified: true,
-    highlight: "Excelência em laser e atendimento nota 1000",
+      "O único que conseguiu tirar o trauma que tive com dentista! Um excelente profissional, me explicou tudo o que precisava fazer sem deixar nenhuma dúvida. Recomendo de olhos fechados, meu esposo e minhas filhas tratam com ele.",
+    highlights: ["Tirou o trauma de dentista", "Família inteira trata", "Recomendo de olhos fechados"],
   },
   {
-    name: "Lorrany Prado",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Resultados & Cuidado",
+    name: "Diego Romao",
+    badge: "3 avaliações",
+    timeAgo: "5 anos atrás",
     comment:
-      "Excelente clínica de estética! ✨ Os tratamentos são ótimos, com resultados incríveis e muito cuidado em cada detalhe. A Doutora Kamila é uma gracinha, super atenciosa, delicada e uma profissional maravilhosa.",
-    verified: true,
-    highlight: "Resultados incríveis e muito cuidado em cada detalhe",
+      "Já tinha tentado resolver meu problema com vários dentistas, mas o Dr. Frank foi o único que conseguiu me entender e solucionar minha insatisfação com meus dentes. Se tenho autoestima e satisfação com meu sorriso hoje, devo a esse consultório maravilhoso. Obrigado também a Meg pela excelência em seu trabalho. Me sinto em casa com vocês!",
+    highlights: ["Autoestima restaurada", "Entendeu meu caso", "Equipe faz sentir em casa"],
   },
   {
-    name: "Geisiane Da Silva Rocha",
-    rating: 5,
-    timeAgo: "3 semanas atrás",
-    category: "Dra. Kamilla",
+    name: "Lia Portugal",
+    badge: "1 avaliação · Honestidade Rara",
+    timeAgo: "5 anos atrás",
     comment:
-      "Amei ambiente aconchegante, muito agradável, recepcionista muito educada, muito gentil, a Dr Kamila é espetacular, maravilhosa, gentil é excepcional. Amei a consulta obrigada.",
-    verified: true,
-    highlight: "Ambiente aconchegante, Dra. Kamilla espetacular e gentil",
+      "Fiz tratamento de dentes com o Dr. Frank Eduardo. Foram 4 dentes e pensei que fosse custar uma fortuna. Para espanto meu, ele cobrou um preço bem baixo, o tratamento foi rápido e quando fui pagar ele ainda me deu desconto afirmando que não gastou todo o material previsto. É difícil acontecer um caso deste! Muito gentil e não dá medo de fazer o tratamento.",
+    highlights: ["Honestidade de verdade", "Preço justo", "Gentil e sem medo"],
   },
   {
-    name: "João Victor CG",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Atendimento & Recepção",
+    name: "Priscila Amaro",
+    badge: "Local Guide · 37 avaliações",
+    timeAgo: "5 anos atrás",
     comment:
-      "Excelente atendimento na clínica, tudo muito organizado e acolhedor. Destaque especial para a Kalica, que foi super atenciosa e prestativa. Parabéns à equipe!",
-    verified: true,
-    highlight: "Destaque especial para a Kalica, super atenciosa e prestativa",
-  },
-  {
-    name: "Michele Rodrigues",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Atendimento & Recepção",
-    comment:
-      "Excelente atendimento em todas as etapas! Desde o agendamento até a consulta/procedimento, tudo é feito com muita atenção e cuidado. A equipe é muito profissional e acolhedora. Recomendo! Um destaque especial para a Kalica que foi extremamente atenciosa e profissional.",
-    verified: true,
-    highlight: "Excelente em todas as etapas, da recepção ao procedimento",
-  },
-  {
-    name: "Maria Eduarda",
-    rating: 5,
-    timeAgo: "2 meses atrás",
-    category: "Resultados & Cuidado",
-    comment:
-      "Maravilhoso, meninas da recepção super atenciosa e paciente, o atendimento das medicas incrível, lugar leve e agradável de ir. Te passa uma confiança incrível em cada procedimento. Lugar maravilhoso!!",
-    verified: true,
-    highlight: "Te passa uma confiança incrível em cada procedimento",
-  },
-  {
-    name: "Larissa Gaudêncio Torres",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Atendimento & Recepção",
-    comment:
-      "A Kálica oferece um atendimento atencioso e profissional. A equipe é dedicada, o ambiente é agradável e o cliente se sente bem acolhido do início ao fim do serviço.",
-    verified: true,
-    highlight: "Ambiente agradável e cliente se sente bem acolhido do início ao fim",
-  },
-  {
-    name: "Suelen Magalhães",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Dra. Kamilla",
-    comment:
-      "A equipe da Dra Kamilla é maravilhosa. O trabalho da Dra e o atendimento da Kalica, não tenho dúvidas de ser o melhor. Elas estão sempre prontas para me atender com agilidade e muito carinho!!! Parabéns a clínica!!! Obrigada por tudo!!! 🤝❤️",
-    verified: true,
-    highlight: "O trabalho da Dra e o atendimento da Kalica são os melhores",
-  },
-  {
-    name: "Loren Prado (Local Guide)",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Resultados & Cuidado",
-    comment:
-      "Sem dúvidas perfeita! Indico de olhos fechados… excelente atendimento das meninas desde a chegada até no atendimento da Dra. Kamilla",
-    verified: true,
-    highlight: "Indico de olhos fechados, da chegada ao atendimento da Dra.",
-  },
-  {
-    name: "Letícia Ferreira",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Resultados & Cuidado",
-    comment:
-      "A melhor clínica é o melhor atendimento. As meninas são perfeitas o trabalho é de extrema excelência.",
-    verified: true,
-    highlight: "A melhor clínica, trabalho de extrema excelência",
-  },
-  {
-    name: "Maia Soares",
-    rating: 5,
-    timeAgo: "6 meses atrás",
-    category: "Atendimento & Recepção",
-    comment:
-      "Amo tudo..., desde a recepção excepcional da Kalica ao carinho e dedicação da Dra. Kamila.",
-    verified: true,
-    highlight: "Recepção excepcional da Kalica e carinho da Dra. Kamilla",
-  },
-  {
-    name: "Edilene Vieira",
-    rating: 5,
-    timeAgo: "3 meses atrás",
-    category: "Dra. Kamilla",
-    comment:
-      "Excelente já sou paciente a muito tempo super indico !👏🏻👏🏻",
-    verified: true,
-    highlight: "Já sou paciente há muito tempo e super indico!",
-  },
-  {
-    name: "Letícia Paiva da Silva",
-    rating: 5,
-    timeAgo: "2 meses atrás",
-    category: "Dra. Kamilla",
-    comment:
-      "Gostaria de agradecer pelo excelente atendimento. Fui muito bem atendida. Parabéns pelo profissionalismo!",
-    verified: true,
-    highlight: "Parabéns pelo profissionalismo e atendimento!",
+      "Excelência do começo ao fim! Materiais e produtos de ótima qualidade, ambiente confortável e agradável, uma recepção alegre, gentil e educada da Meg. Não é à toa que saio de Contagem para ser atendida por essa pessoa incrível. Simpatia ímpar!",
+    highlights: ["Vem de Contagem", "Materiais de qualidade", "Simpatia ímpar"],
   },
 ];
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-const faqList: FaqItem[] = [
+// Perguntas Frequentes (FAQ)
+const FAQS = [
   {
-    question: "Como funciona a primeira consulta com a Dra. Kamilla?",
-    answer:
-      "A primeira consulta é uma conversa detalhada e acolhedora, com escuta atenta dos seus desejos e queixas. A Dra. Kamilla realiza um exame clínico minucioso da sua pele, mapeando pontos de atenção (como manchas, linhas, textura e flacidez) e montando um plano de tratamento personalizado e por etapas, respeitando seu tempo, seu orçamento e priorizando a máxima naturalidade.",
+    q: "Tenho pavor de dentista ou tive experiências traumáticas no passado. O atendimento com o Dr. Frank vai doer?",
+    a: "Fique totalmente tranquilo(a)! Dezenas de pacientes relatam em nossas mais de 250 avaliações no Google que tinham medo e superaram o trauma com o Dr. Frank Eduardo. Ele é reconhecido por sua paciência, escuta atenta e pela famosa 'mão leve'. As anestesias são aplicadas com técnica suave, respeitando seu tempo e sem nenhuma pressa.",
   },
   {
-    question: "Quais são as tecnologias a laser disponíveis e para que servem?",
-    answer:
-      "A clínica dispõe de plataformas modernas a laser indicadas para renovação cutânea, clareamento de manchas e melasma, tratamento de cicatrizes de acne, fechamento de poros e estímulo de colágeno. O procedimento é rápido, seguro para diferentes tons de pele e realizado com protocolos que priorizam o conforto do paciente.",
+    q: "Como funciona a primeira avaliação no consultório?",
+    a: "Na consulta inicial, o Dr. Frank conversa detalhadamente com você para entender suas queixas, desejos e histórico. É feito um exame clínico minucioso com tecnologia digital. O Dr. Frank explica com transparência o diagnóstico, apresentando as alternativas de tratamento e orçamentos claros, sem empurrar procedimentos desnecessários.",
   },
   {
-    question: "Os procedimentos injetáveis (Botox e Preenchimento) deixam o rosto artificial?",
-    answer:
-      "De forma alguma! A filosofia da Dra. Kamilla é valorizar a beleza que você já tem. Os injetáveis são dosados com precisão anatômica para suavizar rugas e apoiar as estruturas do rosto sem congelar expressões ou gerar volumes exagerados. O objetivo é que você receba elogios de que está radiante e descansada, sem que ninguém saiba exatamente o que foi feito.",
+    q: "O consultório atende pacientes que moram em Betim, Contagem ou outras cidades?",
+    a: "Sim! Muitos pacientes se deslocam frequentemente de Betim, Contagem, Brumadinho, São Joaquim de Bicas e de toda a Região Metropolitana de BH até o nosso consultório no Centro de Igarapé pela confiança e pelos resultados diferenciados do Dr. Frank. O consultório tem fácil acesso com elevador e ótima localização na Av. Governador Valadares.",
   },
   {
-    question: "A clínica atende pacientes de Itaúna e cidades vizinhas?",
-    answer:
-      "Sim! Nossa clínica está localizada no Centro de Mateus Leme (R. Pres. Tancredo Neves, 294), com acesso facílimo e estacionamento prático, recebendo frequentemente pacientes de Itaúna, Juatuba, Betim, Pará de Minas e toda a região metropolitana e Centro-Oeste mineiro.",
+    q: "Quais são as opções de pagamento disponíveis para tratamentos e próteses?",
+    a: "Trabalhamos com condições facilitadas de pagamento no cartão de crédito, PIX e opções parceladas para que você possa realizar seu tratamento odontológico ou reabilitação oral com tranquilidade e planejamento financeiro.",
   },
   {
-    question: "Como funciona o agendamento e o suporte com a recepção?",
-    answer:
-      "Nosso atendimento é reconhecido como nota 1000 pelos pacientes! Pelo WhatsApp oficial (31) 99717-2916, a Kálica e nossa equipe de recepção tiram todas as suas dúvidas com carinho, esclarecem os procedimentos e organizam o melhor horário para a sua agenda.",
-  },
-  {
-    question: "Quais são as formas de pagamento para os procedimentos e protocolos?",
-    answer:
-      "Facilitamos o seu investimento em autocuidado com opções de pagamento via Pix, cartões de crédito com parcelamento facilitado em planos de tratamento combinados, garantindo transparência e conforto em todas as etapas.",
+    q: "Como faço para agendar meu horário?",
+    a: "O agendamento é simples, rápido e direto pelo WhatsApp com a Meg, nossa secretária. Basta clicar em qualquer botão do site ou chamar no (31) 99767-0022. Responderemos com atenção para encontrar o melhor dia e horário para a sua rotina.",
   },
 ];
 
@@ -533,67 +419,52 @@ export default function Home() {
     null
   );
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const [selectedReviewCategory, setSelectedReviewCategory] =
-    useState<string>("Todas");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const reviewCategories = [
-    "Todas",
-    "Atendimento & Recepção",
-    "Laser & Tecnologia",
-    "Dra. Kamilla",
-    "Resultados & Cuidado",
-  ];
-
-  const filteredReviews =
-    selectedReviewCategory === "Todas"
-      ? clientReviews
-      : clientReviews.filter((r) => r.category === selectedReviewCategory);
-
   return (
     <MotionConfig reducedMotion="user">
-      <main className="min-h-screen bg-[#fdfbf9] text-[#1e1815] selection:bg-[#2a2220] selection:text-[#faece4]">
+      <main className="min-h-screen bg-[#f8fafc] text-[#0f172a] selection:bg-[#001a60] selection:text-[#fff3c4]">
         {/* ======================================================== */}
-        {/* TOP ANNOUNCEMENT BAR (LUXURY ESPRESSO & ROSE GOLD)       */}
+        {/* TOP ANNOUNCEMENT BAR (ROYAL NAVY & GOLD)                 */}
         {/* ======================================================== */}
-        <div className="border-b border-[#2a2220] bg-[#161110] py-2 text-xs text-[#ede4dc]">
+        <div className="border-b border-[#0a1945] bg-[#000d2b] py-2 text-xs text-[#cbd5e1]">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 font-medium">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#c88d6f] opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#eab188]" />
+              <span className="inline-flex items-center gap-1 text-[#f4c22b] font-bold">
+                <Star size={13} className="fill-[#f4c22b]" /> 5,0 no Google
               </span>
-              <span className="text-[11px] sm:text-xs text-[#faece4] font-semibold tracking-wide">
-                CLÍNICA DRA. KAMILLA · MATEUS LEME & ITAÚNA - MG · CRM-MG 57814 🩺
+              <span className="hidden sm:inline text-slate-500">|</span>
+              <span className="hidden sm:inline">256+ avaliações reais de pacientes</span>
+              <span className="hidden md:inline text-slate-500">|</span>
+              <span className="hidden md:inline text-slate-300">
+                Centro de Igarapé - MG
               </span>
             </div>
-
-            <div className="flex items-center gap-4 text-[11px] text-[#ede4dc]">
+            <div className="flex items-center gap-4 text-[11px]">
               <a
-                href={GOOGLE_SEARCH_URL}
+                href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 transition-colors hover:text-[#eab188]"
+                className="hidden lg:flex items-center gap-1 text-[#cbd5e1] hover:text-[#f4c22b] transition-colors"
               >
-                <Star size={12} className="fill-[#eab188] text-[#eab188]" />
-                <span className="font-bold text-[#faece4]">5,0 ★</span> (611 avaliações no Google · Mateus Leme - MG)
+                <MapPin size={12} className="text-[#dea404]" />
+                Av. Gov. Valadares, 440 · Sala 202
               </a>
-              <span className="hidden h-3 w-px bg-[#352b28] sm:inline-block" />
               <a
-                href={getWhatsAppUrl("Olá, Dra. Kamilla e equipe! Gostaria de tirar uma dúvida pelo WhatsApp.")}
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden items-center gap-1.5 font-semibold text-[#faece4] transition-colors hover:text-white sm:inline-flex"
+                className="flex items-center gap-1.5 font-bold text-[#f4c22b] hover:text-white transition-colors"
               >
-                <WhatsAppIcon size={13} className="text-[#c88d6f]" />
-                {PHONE_DISPLAY}
+                <WhatsAppIcon size={13} />
+                <span>(31) 99767-0022</span>
               </a>
             </div>
           </div>
@@ -605,50 +476,43 @@ export default function Home() {
         <header
           className={`sticky top-0 z-40 w-full transition-all duration-300 ${
             scrolled
-              ? "border-b border-[#ede4dc] bg-white/95 py-2 shadow-sm backdrop-blur-md"
-              : "border-b border-[#ede4dc]/80 bg-[#fdfbf9]/95 py-3 sm:py-3.5 backdrop-blur-sm"
+              ? "border-b border-[#001a60]/15 bg-white/95 backdrop-blur-md shadow-sm"
+              : "border-b border-slate-200/60 bg-white"
           }`}
         >
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-            {/* Left: Brand Official Logo */}
-            <a
-              href="#"
-              className="flex shrink-0 items-center transition-transform hover:scale-102"
-              aria-label="Clínica Dra. Kamilla - Início"
-            >
-              <Image
-                src={LOGO_HORIZONTAL_SRC}
-                alt="Clínica Dra. Kamilla — Dermatologia, Laser & Estética Médica"
-                width={310}
-                height={88}
-                className={`w-auto object-contain drop-shadow-xs transition-all duration-300 ${
-                  scrolled
-                    ? "h-[46px] sm:h-[52px] md:h-[58px]"
-                    : "h-[56px] sm:h-[64px] md:h-[72px]"
-                }`}
-                priority
-                unoptimized
-              />
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+            {/* Brand Logo */}
+            <a href="#" className="flex items-center gap-2 shrink-0 group">
+              <div className="relative h-10 w-48 sm:h-11 sm:w-60 md:w-64">
+                <Image
+                  src={LOGO_HORIZONTAL_SRC}
+                  alt={CLINIC_NAME}
+                  fill
+                  sizes="(max-width: 640px) 190px, 260px"
+                  className="object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
+                  priority
+                />
+              </div>
             </a>
 
-            {/* Center: Desktop Navigation */}
-            <nav className="hidden items-center gap-5 lg:gap-6 xl:gap-7 lg:flex">
-              <a href="#procedimentos" className="nav-link">
-                Procedimentos & Laser
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5 shrink-0">
+              <a href="#tratamentos" className="nav-link">
+                Tratamentos
               </a>
               <a href="#sobre" className="nav-link">
-                Dra. Kamilla
+                Dr. Frank
               </a>
-              <a href="#equipe" className="nav-link">
-                A Clínica & Equipe
+              <a href="#estrutura" className="nav-link">
+                O Consultório
               </a>
               <a href="#diferenciais" className="nav-link">
                 Diferenciais
               </a>
               <a href="#depoimentos" className="nav-link">
-                Avaliações (611 ★)
+                Depoimentos (5★)
               </a>
-              <a href="#sede" className="nav-link">
+              <a href="#localizacao" className="nav-link">
                 Localização
               </a>
               <a href="#duvidas" className="nav-link">
@@ -656,121 +520,120 @@ export default function Home() {
               </a>
             </nav>
 
-            {/* Right Action: WhatsApp CTA */}
-            <div className="flex shrink-0 items-center gap-2.5">
-              <GlowingButton
-                href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com a Dra. Kamilla.")}
-                target="_blank"
-                variant="rosegold"
-                size="sm"
-                className="hidden sm:inline-flex whitespace-nowrap shrink-0 shadow-md"
-              >
-                <WhatsAppIcon size={15} className="text-white" />
-                <span className="hidden xl:inline">Agendar no WhatsApp</span>
-                <span className="xl:hidden">WhatsApp</span>
-              </GlowingButton>
+            {/* CTA Button & Mobile Toggle */}
+            <div className="flex items-center gap-3 shrink-0">
+              <div className="hidden sm:block shrink-0">
+                <GlowingButton
+                  variant="gold"
+                  size="sm"
+                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma avaliação com o Dr. Frank Eduardo.")}
+                  target="_blank"
+                  className="whitespace-nowrap shrink-0 shadow-sm"
+                >
+                  <WhatsAppIcon size={15} className="shrink-0" />
+                  <span>Agendar Consulta</span>
+                </GlowingButton>
+              </div>
 
-              {/* Mobile menu toggle */}
+              {/* Hamburger Button */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex size-9 sm:size-10 items-center justify-center rounded-lg border border-[#ede4dc] bg-white text-[#1e1815] transition-colors hover:border-[#b87755] hover:text-[#161110] lg:hidden cursor-pointer shrink-0"
-                aria-label="Abrir menu principal"
+                className="lg:hidden inline-flex items-center justify-center rounded-lg p-2 text-[#001344] hover:bg-slate-100 transition-colors focus:outline-none shrink-0"
+                aria-label="Abrir menu"
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
 
-          {/* Mobile Dropdown Menu */}
+          {/* Mobile Navigation Drawer */}
           <AnimatePresence>
             {mobileMenuOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-b border-[#ede4dc] bg-white px-5 py-6 lg:hidden shadow-xl"
+                className="lg:hidden border-b border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl"
               >
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center justify-center py-2 pb-4 border-b border-[#ede4dc]">
-                    <Image
-                      src={LOGO_SRC}
-                      alt="Clínica Dra. Kamilla"
-                      width={260}
-                      height={70}
-                      className="h-[52px] sm:h-[60px] w-auto object-contain"
-                      priority
-                      unoptimized
-                    />
-                  </div>
+                <div className="flex flex-col gap-3 font-semibold text-sm text-[#001344]">
                   <a
-                    href="#procedimentos"
+                    href="#tratamentos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 border-b border-slate-100 flex items-center justify-between"
                   >
-                    <span>Procedimentos & Laser</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Tratamentos & Procedimentos</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
                   <a
                     href="#sobre"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 border-b border-slate-100 flex items-center justify-between"
                   >
-                    <span>Sobre a Dra. Kamilla (CRM-MG 57814)</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Sobre o Dr. Frank Eduardo</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
                   <a
-                    href="#equipe"
+                    href="#estrutura"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 border-b border-slate-100 flex items-center justify-between"
                   >
-                    <span>A Clínica & Nossa Equipe (Kálica e Recepção)</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Estrutura & Tecnologia</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
                   <a
                     href="#diferenciais"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 border-b border-slate-100 flex items-center justify-between"
                   >
-                    <span>Por Que Escolher Nossa Clínica</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Por Que Escolher Nosso Consultório</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
                   <a
                     href="#depoimentos"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 border-b border-slate-100 flex items-center justify-between"
                   >
-                    <span>Avaliações no Google (611 Avaliações · 5,0 ★)</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Depoimentos no Google (256+ avaliações)</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
                   <a
-                    href="#sede"
+                    href="#localizacao"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 border-b border-slate-100 flex items-center justify-between"
                   >
-                    <span>Localização em Mateus Leme - MG</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Endereço & Como Chegar</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
                   <a
                     href="#duvidas"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-2 text-sm font-semibold tracking-wider text-[#1e1815] uppercase transition-colors hover:text-[#b87755]"
+                    className="py-2 flex items-center justify-between"
                   >
-                    <span>Perguntas Frequentes</span>
-                    <ArrowRight size={14} className="text-[#b87755]" />
+                    <span>Dúvidas Frequentes</span>
+                    <ArrowRight size={14} className="text-[#dea404]" />
                   </a>
 
-                  <div className="pt-2">
+                  <div className="pt-4 flex flex-col gap-2.5">
                     <GlowingButton
-                      href={getWhatsAppUrl("Olá, Dra. Kamilla! Gostaria de conversar com você pelo WhatsApp.")}
-                      target="_blank"
-                      variant="rosegold"
+                      variant="gold"
                       size="md"
+                      href={getWhatsAppUrl()}
+                      target="_blank"
                       className="w-full"
                     >
                       <WhatsAppIcon size={16} />
-                      <span>Falar no WhatsApp: {PHONE_DISPLAY}</span>
+                      <span>Agendar no WhatsApp</span>
                     </GlowingButton>
+                    <a
+                      href={INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 py-3 rounded-lg border border-slate-300 text-xs font-bold uppercase text-[#001344] hover:bg-slate-50 transition-colors"
+                    >
+                      <InstagramIcon size={14} />
+                      <span>Instagram @dr.frankeduardo</span>
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -779,194 +642,186 @@ export default function Home() {
         </header>
 
         {/* ======================================================== */}
-        {/* DOBRA 1: HERO SECTION COM FOTOGRAFIA DA DRA. KAMILLA     */}
+        {/* DOBRA 1: HERO SECTION                                    */}
         {/* ======================================================== */}
-        <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-26 bg-[#fdfbf9]">
-          {/* Subtle Metallic Rose Gold Glow Radial */}
-          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[620px] w-[980px] -translate-x-1/2 rounded-full bg-radial from-[#faece4]/60 via-[#c88d6f]/15 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-80 w-80 rounded-full bg-[#c88d6f]/15 blur-3xl" />
+        <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-24 bg-gradient-to-b from-white via-[#f0f4f9] to-[#f8fafc]">
+          {/* Subtle Royal Blue & Gold Ambient Glows */}
+          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[620px] w-[980px] -translate-x-1/2 rounded-full bg-radial from-[#e8f1fc]/80 via-[#dea404]/10 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-[450px] w-[500px] rounded-full bg-radial from-[#dea404]/10 to-transparent blur-3xl" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Copy & Authority */}
+              {/* Left Column: Headlines & Authority Copy */}
               <div className="lg:col-span-7">
                 {/* Eyebrow Badge */}
-                <div className="mb-5">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#ede4dc] bg-white px-4 py-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-[#1e1815] shadow-2xs">
-                    <span className="size-1.5 rounded-full bg-[#b87755] animate-pulse" />
-                    CLÍNICA DRA. KAMILLA · CRM-MG 57814 · 5,0 ★ NO GOOGLE
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/40 px-3.5 py-1 text-xs font-bold text-[#8c6002] mb-5 shadow-xs">
+                  <span className="flex h-2 w-2 rounded-full bg-[#dea404] animate-pulse" />
+                  <span className="tracking-[0.14em] uppercase">
+                    Odontologia Avançada & Cirurgia · Igarapé - MG
                   </span>
                 </div>
 
-                {/* H1 Headline */}
-                <h1 className="font-serif text-3xl leading-[1.16] font-bold tracking-tight text-[#1e1815] sm:text-5xl lg:text-[3.25rem]">
-                  Realce sua beleza com a segurança da medicina: tratamentos a laser, dermatologia e estética com{" "}
-                  <span className="bg-gradient-to-r from-[#944e31] via-[#c88d6f] to-[#eab188] bg-clip-text text-transparent">
-                    naturalidade e acolhimento.
+                {/* Main H1 Headline */}
+                <h1 className="font-heading text-3xl font-extrabold tracking-tight text-[#001344] sm:text-4xl md:text-5xl lg:text-5xl lg:leading-[1.15]">
+                  Tecnologia de ponta, precisão cirúrgica e o acolhimento que{" "}
+                  <span className="royal-gradient-text">
+                    devolve a alegria de sorrir.
                   </span>
                 </h1>
 
                 {/* Subtitle / Value Proposition */}
-                <p className="mt-6 text-base leading-relaxed text-[#665a54] sm:text-lg lg:max-w-xl">
-                  Sob a liderança da <strong className="font-semibold text-[#1e1815]">{DOCTOR_NAME}</strong> (<strong className="text-[#944e31]">{DOCTOR_CRM}</strong>), unimos tecnologias avançadas a laser, injetáveis de alta precisão e uma equipe atenciosa e humana, para que você conquiste uma pele saudável e radiante com elegância que respeita quem você é.
+                <p className="mt-5 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                  Reabilitação oral completa, implantes, próteses e estética dental
+                  com a segurança de um cirurgião experiente e o carinho de quem
+                  realmente escuta você. Tratamentos com a famosa{" "}
+                  <strong className="text-[#001a60] font-bold">"mão leve"</strong> que
+                  elimina o trauma de dentista.
                 </p>
 
-                {/* Quick Highlights Pills */}
-                <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ede4dc] bg-white px-3 py-1 text-xs font-semibold text-[#1e1815] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#b87755]" />
-                    Tecnologias a Laser de Alta Performance
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ede4dc] bg-white px-3 py-1 text-xs font-semibold text-[#1e1815] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#b87755]" />
-                    Botox & Harmonização com Naturalidade
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ede4dc] bg-white px-3 py-1 text-xs font-semibold text-[#1e1815] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#b87755]" />
-                    Bioestimuladores de Colágeno (Firmeza)
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-md border border-[#ede4dc] bg-white px-3 py-1 text-xs font-semibold text-[#1e1815] shadow-2xs">
-                    <CheckCircle2 size={13} className="text-[#b87755]" />
-                    Atendimento Humanizado com Kálica e Equipe
-                  </span>
+                {/* Quick Trust Badges */}
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-semibold text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
+                    <span>256+ avaliações 5 estrelas no Google</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
+                    <span>Cirurgião Dentista Dedicado</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
+                    <span>Técnica Suave & Humanizada</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
+                    <span>Centro de Igarapé (Sala 202)</span>
+                  </div>
                 </div>
 
-                {/* Action CTAs */}
-                <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+                {/* CTA Buttons */}
+                <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com a Dra. Kamilla.")}
-                    target="_blank"
-                    variant="rosegold"
+                    variant="gold"
                     size="lg"
-                    className="w-full sm:w-auto"
+                    href={getWhatsAppUrl("Olá Dr. Frank e Meg! Gostaria de agendar uma consulta de avaliação no consultório em Igarapé.")}
+                    target="_blank"
+                    className="shadow-lg"
                   >
                     <WhatsAppIcon size={18} />
-                    <span>Agendar Consulta no WhatsApp</span>
+                    <span>Agendar Avaliação no WhatsApp</span>
                   </GlowingButton>
 
                   <GlowingButton
-                    href="#procedimentos"
-                    variant="outline"
+                    variant="navy"
                     size="lg"
-                    className="w-full sm:w-auto"
+                    href="#tratamentos"
                   >
-                    <span>Conhecer Procedimentos</span>
-                    <ArrowRight size={15} />
+                    <span>Conhecer Tratamentos</span>
+                    <ArrowDownIcon size={14} />
                   </GlowingButton>
                 </div>
 
-                {/* Social Proof Strip underneath CTAs */}
-                <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#ede4dc] pt-6 sm:gap-6">
-                  <div className="flex items-center gap-2">
-                    <div className="flex text-[#eab188]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={15} className="fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-bold text-[#1e1815]">
-                      5,0 no Google
-                    </span>
-                    <span className="text-xs text-[#665a54]">
-                      (611 avaliações 5 estrelas verificadas · Mateus Leme e região)
-                    </span>
+                {/* Social Proof Google Box */}
+                <div className="mt-9 flex items-center gap-4 rounded-xl border border-slate-200/90 bg-white/90 p-4 shadow-sm backdrop-blur-xs max-w-lg">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#001a60] text-white">
+                    <Star size={24} className="fill-[#f4c22b] text-[#f4c22b]" />
                   </div>
-
-                  <span className="hidden h-3.5 w-px bg-[#ede4dc] sm:inline-block" />
-
-                  <div className="flex items-center gap-2 text-xs text-[#665a54]">
-                    <Shield size={14} className="text-[#b87755]" />
-                    <span>R. Pres. Tancredo Neves, 294 - Centro, Mateus Leme - MG</span>
+                  <div className="text-xs">
+                    <div className="flex items-center gap-1.5 font-bold text-[#001344]">
+                      <span className="text-sm">5,0</span>
+                      <div className="flex text-[#f4c22b]">
+                        {"★".repeat(5)}
+                      </div>
+                      <span className="text-slate-500 font-normal">
+                        (256 avaliações no Google)
+                      </span>
+                    </div>
+                    <p className="mt-0.5 text-slate-600">
+                      Pacientes de Igarapé, Betim, Contagem e região recomendam o Dr. Frank e o carinho da recepção da Meg.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Official Portrait of Dra. Kamilla */}
-              <div className="relative lg:col-span-5">
-                <div className="relative mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none">
-                  {/* Outer Luxury Metallic Border Frame */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#b87755]/40 bg-white p-2 shadow-2xl shadow-[#161110]/15">
-                    <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f8f3ee] to-[#ede4dc]">
+              {/* Right Column: Authentic Photography & Trust Cards */}
+              <div className="lg:col-span-5 relative">
+                {/* Visual Frame */}
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  {/* Glowing decorative backdrop */}
+                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#001a60]/20 via-[#dea404]/25 to-transparent blur-xl" />
+
+                  {/* Main Portrait Card */}
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-white bg-white shadow-2xl">
+                    <div className="relative aspect-[3/4] w-full bg-slate-100">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Kamilla — Dermatologia, Laser & Estética Médica"
+                        alt="Dr. Frank Eduardo em atendimento odontológico cirúrgico"
                         fill
-                        className="object-cover object-top transition-transform duration-500 hover:scale-102"
                         priority
-                        unoptimized
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
+                        sizes="(max-width: 1024px) 100vw, 500px"
+                        className="object-cover object-top"
                       />
+                      {/* Gradient overlay at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#000d2b]/90 via-[#001344]/50 to-transparent" />
 
-                      {/* Subtle Bottom Vignette for High-Contrast Typography Badge */}
-                      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#161110]/95 via-[#161110]/60 to-transparent" />
-
-                      {/* Overlay Identification Badge */}
-                      <div className="absolute inset-x-4 bottom-4 rounded-xl border border-[#c88d6f]/45 bg-[#161110]/90 p-4 shadow-xl backdrop-blur-md">
-                        <div className="flex items-center justify-between gap-3">
-                          <div>
-                            <p className="font-cinzel text-base font-bold text-white tracking-wide">
-                              {DOCTOR_NAME}
-                            </p>
-                            <p className="text-[11px] font-semibold text-[#faece4] uppercase tracking-wider">
-                              {DOCTOR_CRM} · {DOCTOR_ROLE}
-                            </p>
-                            <p className="text-[10px] text-[#ede4dc] mt-0.5">
-                              Mateus Leme & Itaúna - MG · Atendimento Exclusivo
-                            </p>
-                          </div>
-                          <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-[#c88d6f]/45 bg-[#2a2220] p-1.5 shadow-md">
-                            <Image
-                              src={EMBLEM_SRC}
-                              alt="Monograma K Clínica Dra. Kamilla"
-                              width={52}
-                              height={52}
-                              className="size-full object-contain"
-                              unoptimized
-                            />
-                          </div>
+                      {/* Doctor Caption Tag */}
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="inline-flex items-center gap-1.5 rounded-full bg-[#dea404] px-2.5 py-0.5 text-[11px] font-extrabold text-[#001344] uppercase tracking-wider mb-1">
+                          Cirurgião Dentista
                         </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Badge Top-Right */}
-                  <div className="absolute -top-4 -right-3 sm:-top-5 sm:-right-5 rounded-lg border border-[#c88d6f]/50 bg-[#161110] px-3.5 py-2 shadow-lg text-white">
-                    <p className="text-[9px] font-bold tracking-widest text-[#faece4] uppercase">
-                      MATEUS LEME & ITAÚNA · MG
-                    </p>
-                    <p className="text-[11px] font-bold text-white">
-                      R. Pres. Tancredo Neves, 294
-                    </p>
-                  </div>
-                </div>
-
-                {/* Google 5,0 Verified Review Card */}
-                <div className="mt-4 mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none rounded-2xl border border-[#b87755]/35 bg-white p-4 shadow-xl">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex size-8 items-center justify-center rounded-full bg-[#fdfbf9] border border-[#ede4dc]">
-                        <GoogleIcon size={16} />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1 text-[#eab188]">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={12} className="fill-current" />
-                          ))}
-                        </div>
-                        <p className="text-[11px] font-bold text-[#1e1815]">
-                          5,0 Estrelas no Google (+610 avaliações)
+                        <h2 className="font-heading text-lg font-bold">
+                          Dr. Frank Eduardo
+                        </h2>
+                        <p className="text-xs text-slate-200">
+                          Odontologia Avançada · Reabilitação Oral · Cirurgia
                         </p>
                       </div>
                     </div>
-                    <span className="rounded-full border border-[#b87755]/30 bg-[#faece4] px-2.5 py-0.5 text-[10px] font-bold text-[#944e31] uppercase tracking-wider">
-                      Reputação Máxima
-                    </span>
                   </div>
-                  <p className="mt-2.5 text-xs italic text-[#665a54] line-clamp-2">
-                    &ldquo;Desde o atendimento até a sala da Dra. Kamilla é tudo muito bom, o laser nem se fala, maravilhoso!&rdquo;
-                  </p>
-                  <p className="mt-1 text-[11px] font-semibold text-[#1e1815]">
-                    — Day Oliveira (Paciente Verificada)
-                  </p>
+
+                  {/* Floating Badge 1: 5.0 Google Reviews */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="absolute -top-4 -left-4 sm:-left-6 rounded-xl border border-[#dea404]/30 bg-white/95 p-3.5 shadow-xl backdrop-blur-md max-w-[210px]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
+                        <Star size={16} className="fill-[#f4c22b]" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-[#001344]">
+                          Nota 5,0 Estrelas
+                        </div>
+                        <div className="text-[10px] text-slate-500">
+                          256 avaliações Google
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Floating Badge 2: Atendimento Humanizado & Mão Leve */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className="absolute -bottom-5 -right-4 sm:-right-6 rounded-xl border border-[#001a60]/20 bg-white/95 p-3.5 shadow-xl backdrop-blur-md max-w-[220px]"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                        <Heart size={18} className="fill-emerald-600" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-[#001344]">
+                          Técnica "Mão Leve"
+                        </div>
+                        <div className="text-[10px] text-slate-500">
+                          Sem dor e sem traumas
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -976,274 +831,292 @@ export default function Home() {
         {/* ======================================================== */}
         {/* STATS & AUTHORITY STRIP                                  */}
         {/* ======================================================== */}
-        <section className="border-y border-[#ede4dc] bg-[#f8f3ee] py-10">
+        <section className="border-y border-slate-200 bg-white py-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4">
-              <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#944e31]">
-                  611+
-                </span>
-                <span className="mt-1 text-xs font-semibold text-[#1e1815] uppercase tracking-wider">
-                  Avaliações 5,0 ★ no Google
-                </span>
-                <span className="mt-0.5 text-[11px] text-[#665a54]">
-                  Satisfação e carinho unânimes
-                </span>
+              <div className="text-center">
+                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  5,0 ★
+                </div>
+                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
+                  Avaliação no Google
+                </div>
+                <p className="mt-1 text-xs text-slate-500">
+                  Mais de 256 depoimentos com nota máxima
+                </p>
               </div>
 
-              <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#944e31]">
-                  CRM-MG
-                </span>
-                <span className="mt-1 text-xs font-semibold text-[#1e1815] uppercase tracking-wider">
-                  57814 Ativo & Regular
-                </span>
-                <span className="mt-0.5 text-[11px] text-[#665a54]">
-                  Medicina ética, segura e responsável
-                </span>
+              <div className="text-center border-l border-slate-200">
+                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  Cirurgião
+                </div>
+                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
+                  Alta Precisão
+                </div>
+                <p className="mt-1 text-xs text-slate-500">
+                  Implantes, reabilitação e sisos complexos
+                </p>
               </div>
 
-              <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#944e31]">
-                  Laser
-                </span>
-                <span className="mt-1 text-xs font-semibold text-[#1e1815] uppercase tracking-wider">
-                  Tecnologia de Alta Performance
-                </span>
-                <span className="mt-0.5 text-[11px] text-[#665a54]">
-                  Resultados visíveis com conforto
-                </span>
+              <div className="text-center border-l-0 sm:border-l border-slate-200">
+                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  Zero Trauma
+                </div>
+                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
+                  Técnica Indolor
+                </div>
+                <p className="mt-1 text-xs text-slate-500">
+                  Paciência e acolhimento para quem tem medo
+                </p>
               </div>
 
-              <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#944e31]">
-                  100%
-                </span>
-                <span className="mt-1 text-xs font-semibold text-[#1e1815] uppercase tracking-wider">
-                  Acolhimento & Afeto
-                </span>
-                <span className="mt-0.5 text-[11px] text-[#665a54]">
-                  Kálica e equipe dedicada ao seu bem-estar
-                </span>
+              <div className="text-center border-l border-slate-200">
+                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  Sala 202
+                </div>
+                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
+                  Centro de Igarapé
+                </div>
+                <p className="mt-1 text-xs text-slate-500">
+                  Av. Gov. Valadares, 440 · 3º Andar
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* ======================================================== */}
-        {/* SEÇÃO 2: ESPECIALIDADES & PROCEDIMENTOS MÉDICOS          */}
+        {/* SEÇÃO 2: TRATAMENTOS & ESPECIALIDADES                    */}
         {/* ======================================================== */}
-        <section id="procedimentos" className="py-20 sm:py-26 bg-[#fdfbf9]">
+        <section id="tratamentos" className="py-20 sm:py-26 bg-[#f8fafc]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <span className="eyebrow mx-auto justify-center mb-3">
-                Cuidado Integral & Tecnologia
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e1815]">
-                Procedimentos Médicos & Tecnologias Avançadas
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
+                Tratamentos Especializados
+              </div>
+              <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                Cuidado odontológico avançado para cada necessidade do seu sorriso.
               </h2>
-              <p className="mt-4 text-base text-[#665a54]">
-                Cada protocolo é desenhado sob medida para valorizar sua beleza com naturalidade, segurança e eficácia comprovada.
+              <p className="mt-4 text-base text-slate-600">
+                Do alívio imediato da dor à transformação completa da mastigação e da estética. Conheça nossos procedimentos planejados com tecnologia digital e executados com maestria.
               </p>
             </div>
 
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {specialties.map((item) => {
-                const IconComponent = item.icon;
-                return (
-                  <div
-                    key={item.id}
-                    className="group relative flex flex-col justify-between rounded-2xl border border-[#ede4dc] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#b87755]/60 hover:shadow-xl hover:shadow-[#161110]/5"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex size-12 items-center justify-center rounded-xl bg-[#faece4] text-[#944e31] transition-colors group-hover:bg-[#944e31] group-hover:text-white">
-                          <IconComponent size={22} />
-                        </div>
-                        <span className="text-[10px] font-bold text-[#b87755] uppercase tracking-wider">
-                          {item.tag.split("·")[0]}
-                        </span>
+            {/* Specialties Grid */}
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {SPECIALTIES.map((spec) => (
+                <div
+                  key={spec.id}
+                  className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs hover:border-[#dea404]/60 hover:shadow-xl transition-all duration-300"
+                >
+                  <div>
+                    {/* Top Tag & Icon */}
+                    <div className="flex items-center justify-between">
+                      <span className="rounded-full bg-[#f0f4f9] px-3 py-1 text-[11px] font-bold text-[#001a60]">
+                        {spec.badge}
+                      </span>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#001344] text-[#f4c22b] group-hover:scale-110 transition-transform">
+                        <Sparkles size={18} />
                       </div>
-
-                      <h3 className="mt-5 font-serif text-lg font-bold text-[#1e1815] group-hover:text-[#944e31] transition-colors">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-2 text-xs font-semibold text-[#b87755]">
-                        {item.category}
-                      </p>
-
-                      <p className="mt-3 text-xs leading-relaxed text-[#665a54]">
-                        {item.summary}
-                      </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-[#ede4dc]">
-                      <button
-                        type="button"
-                        onClick={() => setSelectedSpecialty(item)}
-                        className="inline-flex w-full items-center justify-between text-xs font-bold text-[#944e31] transition-colors hover:text-[#161110] cursor-pointer"
-                      >
-                        <span>Ver detalhes do protocolo</span>
-                        <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                      </button>
-                    </div>
+                    {/* Title */}
+                    <h3 className="font-heading text-xl font-bold text-[#001344] mt-5 group-hover:text-[#001a60] transition-colors">
+                      {spec.title}
+                    </h3>
+
+                    {/* Short Description */}
+                    <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                      {spec.shortDesc}
+                    </p>
                   </div>
-                );
-              })}
+
+                  {/* Action Link & Modal Opener */}
+                  <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedSpecialty(spec)}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001a60] hover:text-[#b78004] transition-colors cursor-pointer"
+                    >
+                      <span>Ver detalhes completos</span>
+                      <ArrowRight size={13} />
+                    </button>
+
+                    <a
+                      href={getWhatsAppUrl(`Olá! Gostaria de mais informações sobre ${spec.title} com o Dr. Frank Eduardo.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
+                      title="Agendar este tratamento"
+                    >
+                      <WhatsAppIcon size={15} />
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Quick Banner for WhatsApp booking */}
-            <div className="mt-14 rounded-2xl border border-[#c88d6f]/40 bg-gradient-to-r from-[#161110] via-[#201918] to-[#2a2220] p-8 text-white shadow-xl sm:p-10">
-              <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-                <div className="text-center md:text-left">
-                  <span className="text-[11px] font-bold tracking-widest text-[#faece4] uppercase">
-                    Dúvida sobre o procedimento ideal para sua pele?
-                  </span>
-                  <h3 className="mt-2 font-serif text-2xl sm:text-3xl font-bold text-white">
-                    Fale diretamente com nossa recepção e agende sua avaliação
+            {/* Bottom Support Callout */}
+            <div className="mt-12 rounded-2xl border border-[#dea404]/30 bg-gradient-to-r from-[#000d2b] via-[#001a60] to-[#02298a] p-8 text-white shadow-xl">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold text-[#f4c22b] uppercase tracking-wider mb-2">
+                    <Sparkles size={14} /> Atendimento Personalizado
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold">
+                    Não tem certeza de qual tratamento é o mais indicado para você?
                   </h3>
-                  <p className="mt-2 text-sm text-[#ede4dc] max-w-xl">
-                    A Kálica e nossa equipe tiram suas dúvidas sobre valores, formas de pagamento, preparação e disponibilidade de horários.
+                  <p className="mt-2 text-sm text-slate-200 max-w-2xl">
+                    Agende uma avaliação inicial com o Dr. Frank Eduardo. Nós realizamos um diagnóstico completo, tiramos todas as suas dúvidas e planejamos o melhor caminho para a sua saúde bucal.
                   </p>
                 </div>
-
-                <div className="flex shrink-0 flex-col sm:flex-row gap-3 w-full md:w-auto">
-                  <GlowingButton
-                    href={getWhatsAppUrl("Olá, Kálica! Gostaria de entender qual o procedimento ideal para a minha pele.")}
-                    target="_blank"
-                    variant="rosegold"
-                    size="md"
-                    className="w-full sm:w-auto"
-                  >
-                    <WhatsAppIcon size={16} />
-                    <span>Falar com a Kálica no WhatsApp</span>
-                  </GlowingButton>
-                </div>
+                <GlowingButton
+                  variant="gold"
+                  size="lg"
+                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma avaliação inicial com o Dr. Frank Eduardo para entender qual o melhor tratamento para o meu caso.")}
+                  target="_blank"
+                  className="shrink-0"
+                >
+                  <WhatsAppIcon size={17} />
+                  <span>Falar com a Recepção</span>
+                </GlowingButton>
               </div>
             </div>
           </div>
         </section>
 
         {/* ======================================================== */}
-        {/* SEÇÃO 3: SOBRE A DRA. KAMILLA                            */}
+        {/* SEÇÃO 3: SOBRE O DR. FRANK EDUARDO                       */}
         {/* ======================================================== */}
-        <section id="sobre" className="py-20 sm:py-26 border-t border-[#ede4dc] bg-[#f8f3ee]">
+        <section id="sobre" className="py-20 sm:py-26 border-t border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Left Column: Dra. Kamilla's Photo with Badge */}
-              <div className="relative lg:col-span-5">
-                <div className="relative mx-auto max-w-[390px] sm:max-w-[430px] lg:max-w-none">
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-[#b87755]/35 bg-white p-2.5 shadow-2xl">
-                    <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#f8f3ee] to-[#ede4dc]">
+              {/* Left Column: Doctor Photo */}
+              <div className="lg:col-span-5">
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  {/* Subtle decorative background */}
+                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#dea404]/20 via-[#001a60]/10 to-transparent blur-lg" />
+
+                  <div className="relative overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-slate-100">
+                    <div className="relative aspect-[3/4] w-full">
                       <Image
                         src={FOTO_HERO_SRC}
-                        alt="Dra. Kamilla em seu consultório"
+                        alt="Dr. Frank Eduardo — Cirurgião Dentista"
                         fill
-                        className="object-cover object-center"
-                        unoptimized
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 450px"
+                        sizes="(max-width: 1024px) 100vw, 450px"
+                        className="object-cover"
                       />
                     </div>
                   </div>
 
-                  {/* Overlapping Badge */}
-                  <div className="absolute -bottom-5 -left-3 sm:-bottom-6 sm:-left-5 rounded-xl border border-[#c88d6f]/40 bg-[#161110] p-4 text-white shadow-xl max-w-[260px]">
-                    <div className="flex items-center gap-2">
-                      <Heart size={16} className="text-[#faece4]" />
-                      <p className="text-xs font-bold text-[#faece4]">
-                        Medicina com Afeto
-                      </p>
+                  {/* Doctor Quote Card */}
+                  <div className="mt-4 rounded-xl border border-slate-200 bg-[#f8fafc] p-4 text-xs text-slate-700 italic shadow-xs">
+                    "O dentista não deve apenas tratar dentes; deve acolher pessoas, ouvir suas histórias e devolver a segurança de sorrir sem receios ou dor."
+                    <div className="mt-2 font-bold not-italic text-[#001344]">
+                      — Dr. Frank Eduardo, Cirurgião Dentista
                     </div>
-                    <p className="mt-1 text-[11px] text-[#ede4dc] leading-relaxed">
-                      &ldquo;Mãe de duas princesas, médica dedicada a transformar vidas através da autoestima.&rdquo;
-                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Bio & Philosophy */}
+              {/* Right Column: Bio, Philosophy & Credentials */}
               <div className="lg:col-span-7">
-                <span className="eyebrow mb-3">
-                  Trajetória & Filosofia Médica
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e1815]">
-                  Conheça a <span className="rosegold-gradient-text">Dra. Kamilla</span>
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
+                  Cirurgião Dentista
+                </div>
+
+                <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  Dr. Frank Eduardo: dedicação à excelência e ao cuidado humano.
                 </h2>
-                <p className="mt-2 text-sm font-semibold text-[#944e31] uppercase tracking-wider">
-                  Médica · CRM-MG 57814 · Mateus Leme e Itaúna - MG
+
+                <p className="mt-5 text-base text-slate-700 leading-relaxed">
+                  Com sólida atuação em <strong className="text-[#001a60]">cirurgia, reabilitação oral e odontologia avançada</strong>, o Dr. Frank Eduardo construiu seu consultório em Igarapé baseado em três pilares fundamentais: honestidade transparente, rigor técnico e um atendimento profundamente humanizado.
                 </p>
 
-                <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#665a54] sm:text-base">
-                  <p>
-                    A <strong className="text-[#1e1815]">Dra. Kamilla (CRM-MG 57814)</strong> construiu sua trajetória médica guiada por uma certeza inegociável: a verdadeira estética não cria padrões artificiais, mas resgata e ilumina a beleza única de cada paciente.
-                  </p>
-                  <p>
-                    Com ampla dedicação à dermatologia, estética médica e tecnologias a laser de última geração, a Dra. Kamilla combina o rigor da ciência médica com uma sensibilidade feminina ímpar. Mãe de duas princesas, ela compreende a importância do autocuidado na rotina dinâmica de cada mulher e homem que busca em sua clínica um refúgio de bem-estar.
-                  </p>
-                  <p>
-                    Na <strong className="text-[#1e1815]">Clínica Dra. Kamilla</strong>, cada paciente é acolhido com atenção genuína, desde o primeiro contato até o pós-procedimento. O resultado é comprovado pelas mais de <strong className="text-[#944e31]">610 avaliações com nota máxima (5,0 ★) no Google</strong>, consolidando a clínica como o principal polo de excelência médica e laser da região.
-                  </p>
+                <p className="mt-4 text-base text-slate-700 leading-relaxed">
+                  Conhecido carinhosamente entre os pacientes pela sua <strong>"mão leve"</strong> e pela calma ao explicar cada detalhe do procedimento, o Dr. Frank já ajudou centenas de pessoas que carregavam traumas profundos do passado a voltarem a frequentar o consultório com tranquilidade e confiança.
+                </p>
+
+                {/* Key Pillars */}
+                <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
+                      <Shield size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-heading text-sm font-bold text-[#001344]">
+                        Transparência & Ética
+                      </h4>
+                      <p className="mt-1 text-xs text-slate-600">
+                        Diagnósticos sinceros, preços justos e apenas os procedimentos que você realmente precisa.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
+                      <Heart size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-heading text-sm font-bold text-[#001344]">
+                        Acolhimento Sem Trauma
+                      </h4>
+                      <p className="mt-1 text-xs text-slate-600">
+                        Técnicas anestésicas indolores e paciência de verdade para tranquilizar até quem tem fobia.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
+                      <Award size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-heading text-sm font-bold text-[#001344]">
+                        Reabilitação Completa
+                      </h4>
+                      <p className="mt-1 text-xs text-slate-600">
+                        Implantes, próteses de alta durabilidade e estética que devolvem a força mastigatória.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
+                      <Users size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-heading text-sm font-bold text-[#001344]">
+                        Equipe Nota 100 com a Meg
+                      </h4>
+                      <p className="mt-1 text-xs text-slate-600">
+                        Recepção carinhosa, pontualidade e suporte atencioso desde o primeiro 'olá' no WhatsApp.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* 3 Pillars */}
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-xl border border-[#ede4dc] bg-white p-4 shadow-2xs">
-                    <div className="flex size-8 items-center justify-center rounded-lg bg-[#faece4] text-[#944e31] mb-2">
-                      <Shield size={16} />
-                    </div>
-                    <h4 className="text-xs font-bold text-[#1e1815]">
-                      Segurança Médica
-                    </h4>
-                    <p className="mt-1 text-[11px] text-[#665a54]">
-                      Produtos homologados pela Anvisa e protocolos baseados em evidência científica.
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl border border-[#ede4dc] bg-white p-4 shadow-2xs">
-                    <div className="flex size-8 items-center justify-center rounded-lg bg-[#faece4] text-[#944e31] mb-2">
-                      <Sparkles size={16} />
-                    </div>
-                    <h4 className="text-xs font-bold text-[#1e1815]">
-                      Naturalidade
-                    </h4>
-                    <p className="mt-1 text-[11px] text-[#665a54]">
-                      Resultados elegantes, sem exageros e respeitando suas feições originais.
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl border border-[#ede4dc] bg-white p-4 shadow-2xs">
-                    <div className="flex size-8 items-center justify-center rounded-lg bg-[#faece4] text-[#944e31] mb-2">
-                      <Heart size={16} />
-                    </div>
-                    <h4 className="text-xs font-bold text-[#1e1815]">
-                      Acolhimento Real
-                    </h4>
-                    <p className="mt-1 text-[11px] text-[#665a54]">
-                      Escuta sem pressa, carinho no atendimento e proximidade em cada etapa.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <div className="mt-8 flex flex-wrap items-center gap-4">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Dra. Kamilla! Gostaria de agendar uma consulta com você.")}
-                    target="_blank"
-                    variant="rosegold"
+                    variant="gold"
                     size="md"
+                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com o Dr. Frank Eduardo.")}
+                    target="_blank"
                   >
                     <WhatsAppIcon size={16} />
-                    <span>Agendar Consulta com a Dra. Kamilla</span>
+                    <span>Agendar Consulta com Dr. Frank</span>
                   </GlowingButton>
-                  <GlowingButton
+
+                  <a
                     href={INSTAGRAM_URL}
                     target="_blank"
-                    variant="outline"
-                    size="md"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#001a60] hover:text-[#b78004] transition-colors"
                   >
-                    <InstagramIcon size={16} />
-                    <span>Acompanhar no Instagram @clinicadrakamilla</span>
-                  </GlowingButton>
+                    <InstagramIcon size={15} />
+                    <span>Acompanhe o dia a dia no Instagram</span>
+                    <ArrowUpRight size={13} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -1251,100 +1124,109 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* SEÇÃO 4: A CLÍNICA & NOSSA EQUIPE (COM FOTO DA EQUIPE)   */}
+        {/* SEÇÃO 4: A ESTRUTURA DO CONSULTÓRIO                      */}
         {/* ======================================================== */}
-        <section id="equipe" className="py-20 sm:py-26 bg-[#fdfbf9]">
+        <section id="estrutura" className="py-20 sm:py-26 bg-[#f0f4f9] border-t border-slate-200">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Left Column: Text & Tribute to the Team / Kálica */}
+              {/* Left Column: Clinic Description */}
               <div className="lg:col-span-6">
-                <span className="eyebrow mb-3">
-                  Atendimento de Excelência
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e1815]">
-                  Um Ambiente Acolhedor & Uma Equipe Apaixonada
-                </h2>
-                <p className="mt-4 text-base leading-relaxed text-[#665a54]">
-                  Mais do que uma clínica, criamos um espaço pensado nos mínimos detalhes para que você se sinta em casa. Desde a recepção até a sala de procedimentos, nossa prioridade é proporcionar uma experiência leve, acolhedora e memorável.
-                </p>
-
-                {/* Destaque Kálica & Recepção */}
-                <div className="mt-6 rounded-2xl border border-[#b87755]/30 bg-[#faece4]/50 p-5 shadow-xs">
-                  <div className="flex items-center gap-3">
-                    <div className="flex size-10 items-center justify-center rounded-full bg-[#944e31] text-white font-bold">
-                      <Smile size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-[#1e1815]">
-                        O Famoso Atendimento da Kálica & Recepção
-                      </h4>
-                      <p className="text-xs text-[#944e31] font-semibold">
-                        Mencionada e elogiada em dezenas de avaliações no Google!
-                      </p>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-xs leading-relaxed text-[#665a54] italic">
-                    &ldquo;Minha experiência na clínica foi excelente, desde que cheguei fui muito bem recebida pela equipe da recepção, todas sempre muito gentis, em especial a Kálica que demonstra muito carinho e atenção a todos!&rdquo;
-                  </p>
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
+                  Infraestrutura & Tecnologia
                 </div>
 
-                <div className="mt-6 space-y-3">
+                <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  Um ambiente moderno, esterilizado e acolhedor no Centro de Igarapé.
+                </h2>
+
+                <p className="mt-4 text-base text-slate-700 leading-relaxed">
+                  Localizado no Edifício Central da Avenida Governador Valadares (Sala 202, 3º andar), nosso consultório foi projetado para oferecer o máximo em conforto, segurança biológica e tranquilidade.
+                </p>
+
+                <div className="mt-6 space-y-4 text-sm text-slate-700">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#b87755] mt-0.5 shrink-0" />
-                    <p className="text-sm text-[#665a54]">
-                      <strong className="text-[#1e1815]">Agilidade no WhatsApp:</strong> respostas rápidas, esclarecimento de dúvidas e facilidade para encontrar o melhor horário para sua rotina.
-                    </p>
+                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-[#001344]">Equipamentos de Alta Tecnologia:</strong> Cadeiras odontológicas ergonômicas, aparelhos digitais e instrumentos rotatórios de última geração para procedimentos rápidos e precisos.
+                    </div>
                   </div>
+
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#b87755] mt-0.5 shrink-0" />
-                    <p className="text-sm text-[#665a54]">
-                      <strong className="text-[#1e1815]">Ambiente Aconchegante:</strong> consultório elegante, climatizado, perfumado e com cafézinho acolhedor no Centro de Mateus Leme.
-                    </p>
+                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-[#001344]">Biossegurança & Higienização Rigorosa:</strong> Esterilização em autoclave hospitalar monitorada, embalagens seladas individuais e materiais descartáveis para segurança absoluta do paciente.
+                    </div>
                   </div>
+
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#b87755] mt-0.5 shrink-0" />
-                    <p className="text-sm text-[#665a54]">
-                      <strong className="text-[#1e1815]">Pontualidade & Conforto:</strong> respeito rigoroso ao seu tempo e acompanhamento atencioso em todas as etapas da sua visita.
-                    </p>
+                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-[#001344]">Recepção Confortável com a Meg:</strong> Ambiente climatizado, água, biscoitos, café e um atendimento caloroso que faz você se sentir em casa antes mesmo de entrar no consultório.
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-[#001344]">Acessibilidade Completa:</strong> Edifício moderno com elevador, acesso fácil e localização privilegiada no coração de Igarapé.
+                    </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
                   <GlowingButton
-                    href={getWhatsAppUrl("Olá, Kálica! Gostaria de agendar um horário com a Dra. Kamilla.")}
-                    target="_blank"
-                    variant="rosegold"
+                    variant="navy"
                     size="md"
+                    href={getWhatsAppUrl("Olá Meg! Gostaria de agendar uma consulta para conhecer o consultório.")}
+                    target="_blank"
                   >
                     <WhatsAppIcon size={16} />
-                    <span>Falar com a Equipe no WhatsApp</span>
+                    <span>Agendar sua Visita</span>
                   </GlowingButton>
                 </div>
               </div>
 
-              {/* Right Column: Equipe Photo */}
-              <div className="relative lg:col-span-6">
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#b87755]/35 bg-white p-2.5 shadow-2xl">
-                  <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-xl bg-[#f8f3ee]">
-                    <Image
-                      src={FOTO_EQUIPE_SRC}
-                      alt="Dra. Kamilla com sua equipe na recepção da clínica"
-                      fill
-                      className="object-cover object-center"
-                      unoptimized
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                    />
+              {/* Right Column: High Quality Dental Office Photography */}
+              <div className="lg:col-span-6">
+                <div className="relative mx-auto max-w-lg lg:max-w-none">
+                  <div className="relative overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-white">
+                    <div className="relative aspect-[4/3] w-full">
+                      <Image
+                        src={FOTO_CONSULTORIO_SRC}
+                        alt="Estrutura do consultório odontológico do Dr. Frank Eduardo em Igarapé"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 600px"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* Bottom Photo Caption */}
-                <div className="mt-3 text-center sm:text-left">
-                  <p className="text-xs font-semibold text-[#1e1815]">
-                    Recepção oficial da Clínica Dra. Kamilla — R. Pres. Tancredo Neves, 294, Centro, Mateus Leme - MG.
-                  </p>
-                  <p className="text-[11px] text-[#665a54]">
-                    Equipe pronta para receber você com carinho, atenção e profissionalismo.
-                  </p>
+                  {/* Highlight pill */}
+                  <div className="mt-4 flex items-center justify-between rounded-xl bg-white p-4 border border-slate-200 shadow-xs">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
+                        <Clock size={20} />
+                      </div>
+                      <div className="text-xs">
+                        <div className="font-bold text-[#001344]">
+                          Horário de Atendimento
+                        </div>
+                        <div className="text-slate-600">
+                          Segunda a Sexta · 08:00 às 18:00
+                        </div>
+                      </div>
+                    </div>
+
+                    <a
+                      href={GOOGLE_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-bold text-[#001a60] hover:text-[#dea404] flex items-center gap-1"
+                    >
+                      <span>Ver no Mapa</span>
+                      <ArrowUpRight size={13} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1352,345 +1234,350 @@ export default function Home() {
         </section>
 
         {/* ======================================================== */}
-        {/* SEÇÃO 5: DIFERENCIAIS DA CLÍNICA (OBSIDIAN & ROSE GOLD)  */}
+        {/* SEÇÃO 5: DIFERENCIAIS DA CLÍNICA (DEEP NAVY & GOLD)      */}
         {/* ======================================================== */}
-        <section id="diferenciais" className="py-20 sm:py-26 bg-[#161110] text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section id="diferenciais" className="py-20 sm:py-26 bg-[#000d2b] text-white relative overflow-hidden">
+          {/* Subtle gold ambient glow */}
+          <div className="pointer-events-none absolute -top-40 right-10 -z-0 h-[500px] w-[500px] rounded-full bg-radial from-[#dea404]/15 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute bottom-0 left-10 -z-0 h-[400px] w-[400px] rounded-full bg-radial from-[#0037a8]/20 to-transparent blur-3xl" />
+
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <span className="eyebrow-dark mx-auto justify-center mb-3">
-                Por Que Escolher Nossa Clínica
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-                Os Pilares que Consagram Nossos Resultados
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#f4c22b]/40 bg-[#001a60]/60 px-3.5 py-1 text-xs font-bold text-[#f4c22b] uppercase tracking-[0.14em] mb-4">
+                Por Que Escolher Nosso Consultório
+              </div>
+              <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl">
+                O que torna o atendimento do Dr. Frank Eduardo único na região.
               </h2>
-              <p className="mt-4 text-base text-[#ede4dc]">
-                O equilíbrio perfeito entre medicina científica rigorosa, tecnologia a laser de ponta e uma sensibilidade humana única.
+              <p className="mt-4 text-base text-slate-300">
+                A união entre precisão técnica de cirurgião e o acolhimento carinhoso que faz você se sentir em família desde a recepção.
               </p>
             </div>
 
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-2xl border border-[#c88d6f]/25 bg-[#201918] p-7 transition-all duration-300 hover:border-[#c88d6f]/60 hover:bg-[#2a2220]">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#c88d6f]/20 text-[#faece4] mb-5">
-                  <Zap size={22} />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-[#faece4]">
-                  Tecnologia a Laser de Ponta
-                </h3>
-                <p className="mt-3 text-xs leading-relaxed text-[#ede4dc]">
-                  Equipamentos modernos e consagrados que tratam manchas, poros, cicatrizes e estímulo de colágeno com resultados rápidos e recuperação confortável.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#c88d6f]/25 bg-[#201918] p-7 transition-all duration-300 hover:border-[#c88d6f]/60 hover:bg-[#2a2220]">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#c88d6f]/20 text-[#faece4] mb-5">
-                  <Sparkles size={22} />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-[#faece4]">
-                  Naturalidade em Primeiro Lugar
-                </h3>
-                <p className="mt-3 text-xs leading-relaxed text-[#ede4dc]">
-                  Nosso compromisso é realçar sua essência sem exageros. Você com aspecto descansado, jovem e luminoso, sem perder suas expressões naturais.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#c88d6f]/25 bg-[#201918] p-7 transition-all duration-300 hover:border-[#c88d6f]/60 hover:bg-[#2a2220]">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#c88d6f]/20 text-[#faece4] mb-5">
-                  <Shield size={22} />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-[#faece4]">
-                  Segurança Médica & CRM Ativo
-                </h3>
-                <p className="mt-3 text-xs leading-relaxed text-[#ede4dc]">
-                  Todos os procedimentos são conduzidos pela Dra. Kamilla (CRM-MG 57814), utilizando apenas produtos e insumos premium com liberação total da Anvisa.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#c88d6f]/25 bg-[#201918] p-7 transition-all duration-300 hover:border-[#c88d6f]/60 hover:bg-[#2a2220]">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#c88d6f]/20 text-[#faece4] mb-5">
+              {/* Diferencial 1 */}
+              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
                   <Heart size={22} />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-[#faece4]">
-                  Atendimento Afetuoso & Humano
+                <h3 className="font-heading text-xl font-bold text-white">
+                  A Famosa "Mão Leve"
                 </h3>
-                <p className="mt-3 text-xs leading-relaxed text-[#ede4dc]">
-                  Aqui você não é um número. Você é recebido com carinho genuíno por toda a equipe (com destaque para a Kálica) do agendamento até a alta.
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                  Pacientes com fobia de dentista relatam surpresa com o quão suave e indolor é o tratamento. O Dr. Frank tem paciência ímpar e aplica anestesias de forma quase imperceptível.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#c88d6f]/25 bg-[#201918] p-7 transition-all duration-300 hover:border-[#c88d6f]/60 hover:bg-[#2a2220]">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#c88d6f]/20 text-[#faece4] mb-5">
-                  <Activity size={22} />
+              {/* Diferencial 2 */}
+              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
+                  <Shield size={22} />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-[#faece4]">
-                  Plano de Tratamento Personalizado
+                <h3 className="font-heading text-xl font-bold text-white">
+                  Honestidade Absoluta & Preço Justo
                 </h3>
-                <p className="mt-3 text-xs leading-relaxed text-[#ede4dc]">
-                  Não acreditamos em receitas prontas. Cada pele possui uma história e recebe um cronograma de tratamentos ajustado às suas reais necessidades.
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                  Sem empurrar tratamentos desnecessários. Como relata a paciente Lia no Google: quando não gasta todo o material previsto, o Dr. Frank cobra apenas o justo e dá o desconto ao paciente.
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#c88d6f]/25 bg-[#201918] p-7 transition-all duration-300 hover:border-[#c88d6f]/60 hover:bg-[#2a2220]">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#c88d6f]/20 text-[#faece4] mb-5">
-                  <Star size={22} />
+              {/* Diferencial 3 */}
+              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
+                  <Award size={22} />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-[#faece4]">
-                  611 Avaliações 5,0 ★ no Google
+                <h3 className="font-heading text-xl font-bold text-white">
+                  Cirurgião Dentista Especialista
                 </h3>
-                <p className="mt-3 text-xs leading-relaxed text-[#ede4dc]">
-                  A maior e mais elogiada aprovação dos pacientes em Mateus Leme e Itaúna. Quem vem pela primeira vez, sempre volta e indica de olhos fechados.
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                  Experiência comprovada em casos de alta complexidade: extração de sisos inclusos, implantes unitários e múltiplos, e reabilitação oral completa.
+                </p>
+              </div>
+
+              {/* Diferencial 4 */}
+              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
+                  <Users size={22} />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-white">
+                  Recepção Acolhedora da Meg
+                </h3>
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                  Elogiada nominalmente em dezenas de avaliações, a Meg garante um atendimento pontual, gentil e sem pressa, cuidando para que você se sinta em casa antes e após o procedimento.
+                </p>
+              </div>
+
+              {/* Diferencial 5 */}
+              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
+                  <MapPin size={22} />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-white">
+                  Pacientes de Toda a Região
+                </h3>
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                  Pessoas viajam de Betim, Contagem, Brumadinho, São Joaquim de Bicas e até do exterior para se tratarem com o Dr. Frank em Igarapé pela certeza de um resultado duradouro e confiável.
+                </p>
+              </div>
+
+              {/* Diferencial 6 */}
+              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
+                  <Zap size={22} />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-white">
+                  Suporte Pós-Operatório Real
+                </h3>
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                  Como vivenciou a paciente Nanda: atendimento e acompanhamento contínuo por WhatsApp mesmo em feriados ou madrugadas de dor para total tranquilidade do paciente.
                 </p>
               </div>
             </div>
 
+            {/* CTA inside dark section */}
             <div className="mt-14 text-center">
               <GlowingButton
-                href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica Dra. Kamilla.")}
-                target="_blank"
-                variant="rosegold"
+                variant="gold"
                 size="lg"
+                href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com o Dr. Frank Eduardo.")}
+                target="_blank"
               >
                 <WhatsAppIcon size={18} />
-                <span>Agendar Avaliação no WhatsApp</span>
+                <span>Agendar Avaliação com o Dr. Frank</span>
               </GlowingButton>
             </div>
           </div>
         </section>
 
         {/* ======================================================== */}
-        {/* SEÇÃO 6: DEPOIMENTOS & PROVA SOCIAL (GOOGLE REVIEWS 5,0) */}
+        {/* SEÇÃO 6: DEPOIMENTOS REAIS DO GOOGLE (256+ AVALIAÇÕES)   */}
         {/* ======================================================== */}
-        <section id="depoimentos" className="py-20 sm:py-26 bg-[#fdfbf9]">
+        <section id="depoimentos" className="py-20 sm:py-26 bg-[#f8fafc]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <span className="eyebrow mx-auto justify-center mb-3">
-                Depoimentos Verificados
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e1815]">
-                O Que Nossos Pacientes Dizem
-              </h2>
-              <p className="mt-4 text-base text-[#665a54]">
-                Mais de 610 avaliações com nota máxima (5,0 ★) no Google Maps. Transparência, carinho e resultados que transformam a autoestima.
-              </p>
-
-              {/* Category Filter Pills */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-                {reviewCategories.map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => setSelectedReviewCategory(cat)}
-                    className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
-                      selectedReviewCategory === cat
-                        ? "bg-[#944e31] text-white shadow-xs"
-                        : "border border-[#ede4dc] bg-white text-[#665a54] hover:border-[#b87755] hover:text-[#1e1815]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
+                Prova Social Comprovada
               </div>
+              <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                O que os pacientes dizem sobre o Dr. Frank Eduardo e a equipe.
+              </h2>
+              <p className="mt-4 text-base text-slate-600">
+                Avaliação máxima de <strong>5,0 estrelas com mais de 256 depoimentos reais no Google</strong>. Depoimentos espontâneos de quem recuperou a saúde bucal e a vontade de sorrir.
+              </p>
             </div>
 
+            {/* Google Score Summary Banner */}
+            <div className="mt-10 mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
+              <div className="flex items-center justify-center gap-3">
+                <span className="font-heading text-4xl font-extrabold text-[#001344]">
+                  5,0
+                </span>
+                <div className="text-left">
+                  <div className="flex text-[#f4c22b] text-lg">
+                    {"★".repeat(5)}
+                  </div>
+                  <div className="text-xs font-bold text-slate-600">
+                    256 avaliações verificadas no Google
+                  </div>
+                </div>
+              </div>
+              <a
+                href={GOOGLE_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#001a60] hover:text-[#dea404] transition-colors"
+              >
+                <span>Ver todas as avaliações diretamente no Google</span>
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
+
+            {/* Reviews Grid */}
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredReviews.map((rev, idx) => (
+              {REVIEWS.map((rev, idx) => (
                 <div
                   key={idx}
-                  className="flex flex-col justify-between rounded-2xl border border-[#ede4dc] bg-white p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#b87755]/50 hover:shadow-lg"
+                  className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:border-[#dea404]/50 hover:shadow-md transition-all duration-200"
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1 text-[#eab188]">
-                        {[...Array(rev.rating)].map((_, i) => (
-                          <Star key={i} size={14} className="fill-current" />
-                        ))}
+                    {/* Stars & Time */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex text-[#f4c22b] text-sm">
+                        {"★".repeat(5)}
                       </div>
-                      <span className="text-[10px] font-semibold text-[#b87755] bg-[#faece4] px-2.5 py-0.5 rounded-full">
+                      <span className="text-[11px] text-slate-600 font-medium">
                         {rev.timeAgo}
                       </span>
                     </div>
 
-                    {rev.highlight && (
-                      <p className="mt-3 text-xs font-bold text-[#944e31]">
-                        &ldquo;{rev.highlight}&rdquo;
-                      </p>
-                    )}
-
-                    <p className="mt-2 text-xs leading-relaxed text-[#665a54]">
-                      &ldquo;{rev.comment}&rdquo;
+                    {/* Comment text */}
+                    <p className="mt-4 text-sm text-slate-700 leading-relaxed italic">
+                      "{rev.comment}"
                     </p>
+
+                    {/* Highlights tags */}
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {rev.highlights.map((h, hIdx) => (
+                        <span
+                          key={hIdx}
+                          className="rounded-md bg-[#f0f4f9] px-2 py-0.5 text-[10px] font-semibold text-[#001a60]"
+                        >
+                          ✓ {h}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="mt-5 pt-4 border-t border-[#ede4dc] flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-bold text-[#1e1815]">
-                        {rev.name}
-                      </p>
-                      <p className="text-[10px] text-[#b87755] font-semibold">
-                        {rev.category}
-                      </p>
+                  {/* Reviewer info */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#001344] font-bold text-xs text-[#f4c22b]">
+                      {rev.name.charAt(0)}
                     </div>
-                    <div className="flex items-center gap-1 text-[10px] text-emerald-600 font-bold">
-                      <CheckCircle2 size={12} />
-                      <span>Verificado</span>
+                    <div>
+                      <div className="font-heading text-xs font-bold text-[#001344]">
+                        {rev.name}
+                      </div>
+                      {rev.badge && (
+                        <div className="text-[10px] text-slate-600 font-medium">
+                          {rev.badge}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 text-center">
-              <a
-                href={GOOGLE_SEARCH_URL}
+            {/* CTA under reviews */}
+            <div className="mt-14 text-center">
+              <GlowingButton
+                variant="gold"
+                size="lg"
+                href={getWhatsAppUrl("Olá! Li os depoimentos no site e gostaria de agendar uma consulta de avaliação com o Dr. Frank Eduardo.")}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#ede4dc] bg-white px-5 py-3 text-xs font-bold text-[#1e1815] shadow-xs transition-colors hover:border-[#b87755] hover:text-[#944e31]"
               >
-                <GoogleIcon size={16} />
-                <span>Ver todas as 611 avaliações no Google Maps</span>
-                <ArrowUpRight size={14} />
-              </a>
+                <WhatsAppIcon size={18} />
+                <span>Quero Agendar Minha Avaliação</span>
+              </GlowingButton>
             </div>
           </div>
         </section>
 
         {/* ======================================================== */}
-        {/* SEÇÃO 7: NOSSA SEDE & LOCALIZAÇÃO EM MATEUS LEME         */}
+        {/* SEÇÃO 7: LOCALIZAÇÃO & SEDE EM IGARAPÉ                   */}
         {/* ======================================================== */}
-        <section id="sede" className="py-20 sm:py-26 border-t border-[#ede4dc] bg-[#f8f3ee]">
+        <section id="localizacao" className="py-20 sm:py-26 border-t border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Location Details */}
-              <div className="lg:col-span-6">
-                <span className="eyebrow mb-3">
-                  Localização & Estrutura
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e1815]">
+              {/* Left Column: Contact details */}
+              <div className="lg:col-span-5">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
                   Onde Estamos
+                </div>
+
+                <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                  Fácil acesso no Centro de Igarapé - MG.
                 </h2>
-                <p className="mt-4 text-base text-[#665a54]">
-                  Localização privilegiada no Centro de Mateus Leme, com fácil acesso para pacientes de Itaúna, Juatuba, Betim, Pará de Minas e cidades vizinhas.
+
+                <p className="mt-4 text-base text-slate-700 leading-relaxed">
+                  Localização estratégica com elevador, estacionamento nas proximidades e total comodidade para pacientes de Igarapé e cidades vizinhas como Betim, Contagem, Brumadinho e São Joaquim de Bicas.
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ede4dc] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#faece4] text-[#944e31]">
-                      <MapPin size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#1e1815] uppercase tracking-wider">
-                        Endereço da Clínica
-                      </h4>
-                      <p className="mt-1 text-sm font-semibold text-[#1e1815]">
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <MapPin size={22} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div className="text-sm">
+                      <div className="font-bold text-[#001344]">Endereço Completo</div>
+                      <div className="text-slate-600 mt-0.5">
                         {ADDRESS_DISPLAY}
-                      </p>
-                      <p className="mt-0.5 text-xs text-[#665a54]">
-                        Ponto central de fácil localização, próximo aos principais comércios e com facilidade para estacionar.
-                      </p>
+                      </div>
+                      <a
+                        href={GOOGLE_MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#001a60] hover:text-[#dea404] mt-2 transition-colors"
+                      >
+                        <span>Traçar rota no Google Maps</span>
+                        <ArrowUpRight size={13} />
+                      </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ede4dc] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#faece4] text-[#944e31]">
-                      <Clock size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#1e1815] uppercase tracking-wider">
-                        Horário de Atendimento
-                      </h4>
-                      <p className="mt-1 text-sm font-semibold text-[#1e1815]">
-                        Segunda a Sexta · A partir das 08:00
-                      </p>
-                      <p className="mt-0.5 text-xs text-[#665a54]">
-                        Consultas e procedimentos com hora marcada para evitar esperas.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5 rounded-xl border border-[#ede4dc] bg-white p-4 shadow-2xs">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#faece4] text-[#944e31]">
-                      <Phone size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#1e1815] uppercase tracking-wider">
-                        Canais de Contato & Agendamento
-                      </h4>
-                      <p className="mt-1 text-sm font-semibold text-[#1e1815]">
-                        WhatsApp: {PHONE_DISPLAY}
-                      </p>
-                      <p className="mt-0.5 text-xs text-[#665a54]">
-                        Instagram: @clinicadrakamilla · Agendamento rápido e descomplicado.
-                      </p>
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <Phone size={22} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div className="text-sm">
+                      <div className="font-bold text-[#001344]">Telefone & WhatsApp</div>
+                      <div className="text-slate-600 mt-0.5">
+                        {PHONE_DISPLAY}
+                      </div>
+                      <a
+                        href={getWhatsAppUrl()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#001a60] hover:text-[#dea404] mt-2 transition-colors"
+                      >
+                        <span>Conversar no WhatsApp com a Meg</span>
+                        <ArrowRight size={13} />
+                      </a>
                     </div>
                   </div>
-                </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <GlowingButton
-                    href={GOOGLE_MAPS_URL}
-                    target="_blank"
-                    variant="outline"
-                    size="md"
-                  >
-                    <MapPin size={16} />
-                    <span>Como Chegar (Google Maps)</span>
-                  </GlowingButton>
-
-                  <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar meu horário na clínica.")}
-                    target="_blank"
-                    variant="rosegold"
-                    size="md"
-                  >
-                    <WhatsAppIcon size={16} />
-                    <span>Agendar pelo WhatsApp</span>
-                  </GlowingButton>
+                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <Clock size={22} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <div className="text-sm">
+                      <div className="font-bold text-[#001344]">Horários de Funcionamento</div>
+                      <div className="text-slate-600 mt-0.5">
+                        Segunda a Sexta-feira: 08:00 às 18:00
+                      </div>
+                      <div className="text-xs text-slate-500 mt-1">
+                        Atendimentos com agendamento prévio para seu conforto e pontualidade.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Right Column: Visual Presentation Card of the Clinic Reception */}
-              <div className="lg:col-span-6">
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#b87755]/30 bg-white p-3 shadow-xl">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-[#f8f3ee]">
-                    <Image
-                      src={FOTO_EQUIPE_SRC}
-                      alt="Recepção e equipe da Clínica Dra. Kamilla em Mateus Leme"
-                      fill
-                      className="object-cover object-center"
-                      unoptimized
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#161110]/85 via-transparent to-transparent" />
-                    <div className="absolute inset-x-4 bottom-4 text-white">
-                      <p className="text-xs font-bold text-[#faece4] uppercase tracking-wider">
-                        Sede Mateus Leme - MG
-                      </p>
-                      <p className="text-sm font-semibold text-white">
-                        R. Pres. Tancredo Neves, 294 - Centro
-                      </p>
-                      <p className="text-[11px] text-[#ede4dc]">
-                        Atendimento acolhedor para pacientes de Mateus Leme, Itaúna e região
-                      </p>
+              {/* Right Column: Interactive Map Preview Card */}
+              <div className="lg:col-span-7">
+                <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-xl">
+                  {/* Clean Map Graphic Container */}
+                  <div className="relative h-[380px] w-full bg-slate-200 flex flex-col items-center justify-center p-6 text-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#001344] text-[#f4c22b] shadow-lg mb-4">
+                      <MapPin size={32} />
+                    </div>
+
+                    <h3 className="font-heading text-xl font-bold text-[#001344]">
+                      Dr. Frank Eduardo — Odontologia Avançada
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-600 max-w-md">
+                      Av. Gov. Valadares, 440 · 3º Andar · Sala 202 · Centro, Igarapé - MG
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      CEP 32900-000 · Referência: Próximo à praça central
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                      <a
+                        href={GOOGLE_MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-[#001344] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-[#001a60] transition-colors"
+                      >
+                        <MapPin size={15} className="text-[#f4c22b]" />
+                        <span>Abrir no Google Maps</span>
+                      </a>
+
+                      <a
+                        href={getWhatsAppUrl("Olá! Gostaria de receber a localização exata do consultório no WhatsApp.")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-emerald-700 transition-colors"
+                      >
+                        <WhatsAppIcon size={15} />
+                        <span>Pedir Localização no WhatsApp</span>
+                      </a>
                     </div>
                   </div>
-                </div>
-
-                {/* Cities Badge Bar */}
-                <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-center">
-                  <span className="rounded-lg border border-[#ede4dc] bg-white px-3 py-1 text-[11px] font-semibold text-[#665a54]">
-                    📍 Mateus Leme
-                  </span>
-                  <span className="rounded-lg border border-[#ede4dc] bg-white px-3 py-1 text-[11px] font-semibold text-[#665a54]">
-                    📍 Itaúna
-                  </span>
-                  <span className="rounded-lg border border-[#ede4dc] bg-white px-3 py-1 text-[11px] font-semibold text-[#665a54]">
-                    📍 Juatuba
-                  </span>
-                  <span className="rounded-lg border border-[#ede4dc] bg-white px-3 py-1 text-[11px] font-semibold text-[#665a54]">
-                    📍 Betim
-                  </span>
-                  <span className="rounded-lg border border-[#ede4dc] bg-white px-3 py-1 text-[11px] font-semibold text-[#665a54]">
-                    📍 Pará de Minas
-                  </span>
                 </div>
               </div>
             </div>
@@ -1700,53 +1587,48 @@ export default function Home() {
         {/* ======================================================== */}
         {/* SEÇÃO 8: PERGUNTAS FREQUENTES (FAQ)                      */}
         {/* ======================================================== */}
-        <section id="duvidas" className="py-20 sm:py-26 bg-[#fdfbf9]">
+        <section id="duvidas" className="py-20 sm:py-26 bg-[#f8fafc] border-t border-slate-200">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <span className="eyebrow mx-auto justify-center mb-3">
-                Esclareça Suas Dúvidas
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e1815]">
-                Perguntas Frequentes
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
+                Dúvidas Comuns
+              </div>
+              <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
+                Perguntas Frequentes dos Pacientes
               </h2>
-              <p className="mt-4 text-base text-[#665a54]">
-                Tudo o que você precisa saber antes de agendar sua visita à Clínica Dra. Kamilla.
+              <p className="mt-4 text-base text-slate-600">
+                Tire suas dúvidas sobre consultas, procedimentos, agendamento e formas de pagamento.
               </p>
             </div>
 
             <div className="mt-12 space-y-3.5">
-              {faqList.map((faq, index) => {
-                const isOpen = openFaqIndex === index;
+              {FAQS.map((faq, idx) => {
+                const isOpen = openFaqIndex === idx;
                 return (
                   <div
-                    key={index}
-                    className="overflow-hidden rounded-xl border border-[#ede4dc] bg-white transition-all shadow-2xs hover:border-[#b87755]/50"
+                    key={idx}
+                    className="overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-200"
                   >
                     <button
                       type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between p-5 text-left transition-colors cursor-pointer"
-                      aria-expanded={isOpen}
+                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                      className="flex w-full items-center justify-between p-5 text-left font-heading text-base font-bold text-[#001344] hover:bg-slate-50 transition-colors cursor-pointer"
                     >
-                      <span className="font-serif text-base sm:text-lg font-bold text-[#1e1815]">
-                        {faq.question}
-                      </span>
-                      <span className="ml-4 flex size-7 shrink-0 items-center justify-center rounded-full bg-[#faece4] text-[#944e31]">
+                      <span className="pr-4">{faq.q}</span>
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f0f4f9] text-[#001a60]">
                         {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                      </span>
+                      </div>
                     </button>
 
                     <AnimatePresence>
                       {isOpen && (
                         <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="px-5 pb-5 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-3"
                         >
-                          <div className="border-t border-[#ede4dc] bg-[#f8f3ee]/50 p-5 text-sm leading-relaxed text-[#665a54]">
-                            {faq.answer}
-                          </div>
+                          {faq.a}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -1755,169 +1637,176 @@ export default function Home() {
               })}
             </div>
 
-            <div className="mt-12 text-center rounded-2xl border border-[#ede4dc] bg-white p-6 shadow-xs">
-              <p className="text-sm font-semibold text-[#1e1815]">
-                Tem alguma dúvida específica que não encontrou aqui?
+            {/* Direct WhatsApp Callout for Extra Questions */}
+            <div className="mt-10 rounded-xl border border-slate-200 bg-white p-6 text-center">
+              <p className="text-sm text-slate-700 font-medium">
+                Tem alguma dúvida específica sobre o seu caso?
               </p>
-              <p className="mt-1 text-xs text-[#665a54]">
-                Nossa equipe está à disposição no WhatsApp para responder prontamente.
-              </p>
-              <div className="mt-4">
-                <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida sobre os tratamentos da clínica.")}
+              <div className="mt-3">
+                <a
+                  href={getWhatsAppUrl("Olá Meg e Dr. Frank! Tenho uma dúvida sobre um procedimento e gostaria de esclarecer.")}
                   target="_blank"
-                  variant="rosegold"
-                  size="sm"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#001a60] hover:text-[#dea404] transition-colors"
                 >
                   <WhatsAppIcon size={15} />
-                  <span>Tirar Dúvida no WhatsApp</span>
-                </GlowingButton>
+                  <span>Converse diretamente conosco no WhatsApp</span>
+                  <ArrowRight size={13} />
+                </a>
               </div>
             </div>
           </div>
         </section>
 
         {/* ======================================================== */}
-        {/* FOOTER & CTA FINAL (LUXURY ESPRESSO & ROSE GOLD)          */}
+        {/* FOOTER & CTA FINAL (ROYAL NAVY & GOLD)                   */}
         {/* ======================================================== */}
-        <footer className="border-t border-[#2a2220] bg-[#161110] text-white pt-16 pb-12">
+        <footer className="border-t border-[#0a1945] bg-[#000d2b] text-white pt-16 pb-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 pb-12 border-b border-[#2a2220]">
-              {/* Col 1: Brand Logo & Bio */}
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 pb-12 border-b border-[#0a1945]">
+              {/* Brand Col */}
               <div className="lg:col-span-5">
-                <Image
-                  src={LOGO_SRC}
-                  alt="Clínica Dra. Kamilla"
-                  width={280}
-                  height={80}
-                  className="h-14 w-auto object-contain brightness-105"
-                  unoptimized
-                />
-                <p className="mt-4 text-xs leading-relaxed text-[#ede4dc] max-w-md">
-                  Clínica Dra. Kamilla (CRM-MG 57814) — Medicina com afeto, tecnologia a laser de alta performance e procedimentos estéticos com naturalidade e sofisticação em Mateus Leme e Itaúna - MG.
+                <div className="relative h-12 w-60 mb-4">
+                  <Image
+                    src={LOGO_DARK_BG_SRC}
+                    alt={CLINIC_NAME}
+                    fill
+                    sizes="240px"
+                    className="object-contain object-left"
+                  />
+                </div>
+
+                <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
+                  Dr. Frank Eduardo — Odontologia Avançada, Reabilitação Oral, Próteses, Implantes e Estética Dental com rigor científico e o carinho do acolhimento humano no Centro de Igarapé - MG.
                 </p>
-                <div className="mt-5 flex items-center gap-3">
+
+                <div className="mt-6 flex items-center gap-3">
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c88d6f]/40 bg-[#201918] text-[#faece4] transition-colors hover:border-[#faece4] hover:text-white"
-                    aria-label="Instagram da Clínica Dra. Kamilla"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#001a60] bg-[#001344] text-[#cbd5e1] hover:text-[#f4c22b] hover:border-[#dea404] transition-colors"
+                    aria-label="Instagram Dr. Frank Eduardo"
                   >
-                    <InstagramIcon size={17} />
+                    <InstagramIcon size={16} />
                   </a>
+
                   <a
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c88d6f]/40 bg-[#201918] text-[#faece4] transition-colors hover:border-[#faece4] hover:text-white"
-                    aria-label="WhatsApp da Clínica Dra. Kamilla"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#001a60] bg-[#001344] text-[#cbd5e1] hover:text-[#f4c22b] hover:border-[#dea404] transition-colors"
+                    aria-label="WhatsApp Dr. Frank Eduardo"
                   >
-                    <WhatsAppIcon size={17} />
+                    <WhatsAppIcon size={16} />
                   </a>
+
                   <a
                     href={GOOGLE_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex size-9 items-center justify-center rounded-lg border border-[#c88d6f]/40 bg-[#201918] text-[#faece4] transition-colors hover:border-[#faece4] hover:text-white"
-                    aria-label="Google Meu Negócio Clínica Dra. Kamilla"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#001a60] bg-[#001344] text-[#cbd5e1] hover:text-[#f4c22b] hover:border-[#dea404] transition-colors"
+                    aria-label="Google Avaliações"
                   >
-                    <GoogleIcon size={17} />
+                    <Star size={16} className="text-[#f4c22b]" />
                   </a>
                 </div>
               </div>
 
-              {/* Col 2: Quick Links */}
-              <div className="lg:col-span-3">
-                <h4 className="text-xs font-bold text-[#faece4] uppercase tracking-wider mb-4">
+              {/* Quick Navigation */}
+              <div className="lg:col-span-3 text-xs">
+                <div className="font-heading text-sm font-bold text-[#f4c22b] uppercase tracking-wider mb-4">
                   Navegação Rápida
-                </h4>
-                <ul className="space-y-2.5 text-xs text-[#ede4dc]">
+                </div>
+                <ul className="space-y-2.5 text-slate-300">
                   <li>
-                    <a href="#procedimentos" className="transition-colors hover:text-[#faece4]">
-                      Procedimentos & Laser
+                    <a href="#tratamentos" className="hover:text-white transition-colors">
+                      Tratamentos & Procedimentos
                     </a>
                   </li>
                   <li>
-                    <a href="#sobre" className="transition-colors hover:text-[#faece4]">
-                      Sobre a Dra. Kamilla
+                    <a href="#sobre" className="hover:text-white transition-colors">
+                      Sobre o Dr. Frank Eduardo
                     </a>
                   </li>
                   <li>
-                    <a href="#equipe" className="transition-colors hover:text-[#faece4]">
-                      A Clínica & Equipe (Kálica)
+                    <a href="#estrutura" className="hover:text-white transition-colors">
+                      Estrutura do Consultório
                     </a>
                   </li>
                   <li>
-                    <a href="#diferenciais" className="transition-colors hover:text-[#faece4]">
-                      Diferenciais & Tecnologia
+                    <a href="#diferenciais" className="hover:text-white transition-colors">
+                      Por Que Nos Escolher
                     </a>
                   </li>
                   <li>
-                    <a href="#depoimentos" className="transition-colors hover:text-[#faece4]">
-                      Avaliações (611 no Google)
+                    <a href="#depoimentos" className="hover:text-white transition-colors">
+                      Depoimentos no Google (256+)
                     </a>
                   </li>
                   <li>
-                    <a href="#sede" className="transition-colors hover:text-[#faece4]">
-                      Localização em Mateus Leme
+                    <a href="#localizacao" className="hover:text-white transition-colors">
+                      Localização & Rotas
                     </a>
                   </li>
                   <li>
-                    <a href="#duvidas" className="transition-colors hover:text-[#faece4]">
-                      Perguntas Frequentes
+                    <a href="#duvidas" className="hover:text-white transition-colors">
+                      Dúvidas Frequentes
                     </a>
                   </li>
                 </ul>
               </div>
 
-              {/* Col 3: Contact & Hours */}
-              <div className="lg:col-span-4">
-                <h4 className="text-xs font-bold text-[#faece4] uppercase tracking-wider mb-4">
-                  Atendimento & Endereço
-                </h4>
-                <ul className="space-y-3 text-xs text-[#ede4dc]">
-                  <li className="flex items-start gap-2.5">
-                    <MapPin size={15} className="text-[#c88d6f] mt-0.5 shrink-0" />
+              {/* Contact Info Col */}
+              <div className="lg:col-span-4 text-xs">
+                <div className="font-heading text-sm font-bold text-[#f4c22b] uppercase tracking-wider mb-4">
+                  Informações & Contato
+                </div>
+                <div className="space-y-3 text-slate-300">
+                  <div className="flex items-start gap-2.5">
+                    <MapPin size={16} className="text-[#dea404] shrink-0 mt-0.5" />
                     <span>{ADDRESS_DISPLAY}</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <Clock size={15} className="text-[#c88d6f] mt-0.5 shrink-0" />
-                    <span>Segunda a Sexta · A partir das 08:00</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <Phone size={15} className="text-[#c88d6f] mt-0.5 shrink-0" />
-                    <span>WhatsApp: {PHONE_DISPLAY}</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <Award size={15} className="text-[#c88d6f] mt-0.5 shrink-0" />
-                    <span>Responsável Técnica: Dra. Kamilla (CRM-MG 57814)</span>
-                  </li>
-                </ul>
+                  </div>
 
-                <div className="mt-5">
+                  <div className="flex items-center gap-2.5">
+                    <Phone size={16} className="text-[#dea404] shrink-0" />
+                    <a
+                      href={getWhatsAppUrl()}
+                      className="text-[#f4c22b] font-bold hover:underline"
+                    >
+                      {PHONE_DISPLAY}
+                    </a>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <Clock size={16} className="text-[#dea404] shrink-0 mt-0.5" />
+                    <span>Segunda a Sexta: 08:00 às 18:00</span>
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-[#0a1945]">
                   <GlowingButton
+                    variant="gold"
+                    size="sm"
                     href={getWhatsAppUrl()}
                     target="_blank"
-                    variant="rosegold"
-                    size="sm"
                     className="w-full"
                   >
                     <WhatsAppIcon size={14} />
-                    <span>Agendar Consulta</span>
+                    <span>Falar com a Meg no WhatsApp</span>
                   </GlowingButton>
                 </div>
               </div>
             </div>
 
-            {/* Bottom Disclaimer & Medical Ethics Notice */}
-            <div className="mt-8 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left text-[11px] text-[#ede4dc]/70">
-              <p>
-                © {new Date().getFullYear()} Clínica Dra. Kamilla · Todos os direitos reservados · CRM-MG 57814.
-              </p>
-              <p className="max-w-xl text-[10px] text-[#ede4dc]/60">
-                Aviso Legal: Os resultados dos procedimentos médicos e estéticos podem variar de acordo com as características biológicas individuais de cada paciente. Conteúdo de caráter educativo e informativo, em conformidade com as normas do Conselho Federal de Medicina (CFM).
-              </p>
+            {/* Bottom Copyright */}
+            <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+              <div>
+                © {new Date().getFullYear()} {CLINIC_NAME}. Todos os direitos reservados.
+              </div>
+              <div className="text-[11px] text-slate-500">
+                Cirurgião Dentista · Odontologia Avançada · Igarapé - MG
+              </div>
             </div>
           </div>
         </footer>
@@ -1927,22 +1816,25 @@ export default function Home() {
         {/* ======================================================== */}
         <div className="fixed bottom-5 right-5 z-50">
           <a
-            href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica Dra. Kamilla.")}
+            href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com o Dr. Frank Eduardo.")}
             target="_blank"
             rel="noopener noreferrer"
+            className="group flex items-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-3 text-xs font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40 focus:outline-none"
             aria-label="Agendar via WhatsApp"
-            className="group relative flex size-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-emerald-500 hover:shadow-emerald-600/40"
           >
-            <span className="absolute -top-1 -right-1 flex size-3.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex size-3.5 rounded-full bg-emerald-300" />
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
             </span>
-            <WhatsAppIcon size={28} />
+            <WhatsAppIcon size={20} />
+            <span className="hidden sm:inline font-extrabold uppercase tracking-wider">
+              Agendar Consulta
+            </span>
           </a>
         </div>
 
         {/* ======================================================== */}
-        {/* MODAL INTERATIVO: DETALHES DO PROCEDIMENTO              */}
+        {/* MODAL INTERATIVO: DETALHES DO PROCEDIMENTO               */}
         {/* ======================================================== */}
         <AnimatePresence>
           {selectedSpecialty && (
@@ -1953,71 +1845,100 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedSpecialty(null)}
-                className="absolute inset-0 bg-[#161110]/80 backdrop-blur-sm cursor-pointer"
+                className="fixed inset-0 bg-[#000d2b]/80 backdrop-blur-sm"
               />
 
               {/* Modal Box */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 15 }}
-                transition={{ duration: 0.2 }}
-                className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-[#c88d6f]/40 bg-white p-6 sm:p-8 shadow-2xl z-10"
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-2xl z-10"
               >
+                {/* Close Button */}
                 <button
                   type="button"
                   onClick={() => setSelectedSpecialty(null)}
-                  className="absolute top-5 right-5 inline-flex size-9 items-center justify-center rounded-full border border-[#ede4dc] bg-[#f8f3ee] text-[#1e1815] transition-colors hover:bg-white hover:text-[#944e31] cursor-pointer"
-                  aria-label="Fechar detalhes"
+                  className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+                  aria-label="Fechar"
                 >
                   <X size={18} />
                 </button>
 
-                <div className="flex items-center gap-2.5">
-                  <span className="rounded-full bg-[#faece4] px-3 py-1 text-[11px] font-bold text-[#944e31] uppercase tracking-wider">
-                    {selectedSpecialty.tag}
-                  </span>
-                </div>
+                {/* Badge & Title */}
+                <span className="inline-block rounded-full bg-[#f0f4f9] px-3 py-1 text-xs font-bold text-[#001a60] mb-3">
+                  {selectedSpecialty.badge}
+                </span>
 
-                <h3 className="mt-3 font-serif text-2xl sm:text-3xl font-bold text-[#1e1815]">
+                <h3 className="font-heading text-2xl font-extrabold text-[#001344] sm:text-3xl">
                   {selectedSpecialty.title}
                 </h3>
 
-                <p className="mt-1 text-xs font-semibold text-[#b87755]">
-                  {selectedSpecialty.category}
+                <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+                  {selectedSpecialty.fullDesc}
                 </p>
 
-                <p className="mt-4 text-sm leading-relaxed text-[#665a54]">
-                  {selectedSpecialty.details}
-                </p>
+                {/* Indications & Benefits */}
+                <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                  <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#001a60] mb-3">
+                      Quando é Indicado:
+                    </h4>
+                    <ul className="space-y-2 text-xs text-slate-700">
+                      {selectedSpecialty.indications.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle2 size={14} className="text-[#dea404] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <div className="mt-6 border-t border-[#ede4dc] pt-5">
-                  <h4 className="text-xs font-bold text-[#1e1815] uppercase tracking-wider mb-3">
-                    Principais Indicações & Benefícios:
-                  </h4>
-                  <ul className="space-y-2">
-                    {selectedSpecialty.topics.map((t, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-[#665a54]">
-                        <CheckCircle2 size={14} className="text-[#b87755] shrink-0 mt-0.5" />
-                        <span>{t}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#001a60] mb-3">
+                      Principais Benefícios:
+                    </h4>
+                    <ul className="space-y-2 text-xs text-slate-700">
+                      {selectedSpecialty.benefits.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle2 size={14} className="text-[#dea404] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#ede4dc] pt-5">
-                  <p className="text-xs text-[#665a54]">
-                    Agendamento personalizado sob supervisão médica.
-                  </p>
+                {/* Recovery & Comfort */}
+                <div className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 text-xs text-emerald-900">
+                  <strong className="font-bold">Conforto & Recuperação: </strong>
+                  {selectedSpecialty.recovery}
+                </div>
+
+                {/* FAQ Snippet */}
+                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs">
+                  <div className="font-bold text-[#001344] mb-1">
+                    Dúvida Comum: {selectedSpecialty.faq.q}
+                  </div>
+                  <div className="text-slate-600">
+                    {selectedSpecialty.faq.a}
+                  </div>
+                </div>
+
+                {/* Modal CTA */}
+                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-5 border-t border-slate-200">
+                  <div className="text-xs text-slate-500">
+                    Agendamento direto com a Meg pelo WhatsApp
+                  </div>
                   <GlowingButton
-                    href={getWhatsAppUrl(selectedSpecialty.whatsAppText)}
-                    target="_blank"
-                    variant="rosegold"
+                    variant="gold"
                     size="md"
+                    href={getWhatsAppUrl(`Olá! Gostaria de agendar uma avaliação para ${selectedSpecialty.title} com o Dr. Frank Eduardo.`)}
+                    target="_blank"
                     className="w-full sm:w-auto"
                   >
                     <WhatsAppIcon size={16} />
-                    <span>Agendar Este Procedimento</span>
+                    <span>Agendar {selectedSpecialty.title}</span>
                   </GlowingButton>
                 </div>
               </motion.div>
@@ -2026,5 +1947,23 @@ export default function Home() {
         </AnimatePresence>
       </main>
     </MotionConfig>
+  );
+}
+
+function ArrowDownIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <polyline points="19 12 12 19 5 12" />
+    </svg>
   );
 }
