@@ -3,23 +3,33 @@
 :root {
   color-scheme: light;
   
-  /* Sober Medical Teal Spectrum (Clínica São Camilo) */
-  --brand-teal-darkest: #041f1c;
-  --brand-teal-deep: #062b27;
-  --brand-teal-midnight: #0a3833;
-  --brand-teal-primary: #0d766e;
-  --brand-teal-medium: #115e59;
-  --brand-teal-light: #14b8a6;
-  --brand-teal-surface: #f0fdfa;
-  --brand-teal-border: #ccfbf1;
+  /* TOMOSID Sober Medical Ruby / Carmine Spectrum (Elegante e Suave) */
+  --brand-red-primary: #991b1b;
+  --brand-red-hover: #7f1d1d;
+  --brand-red-deep: #701a1e;
+  --brand-red-darkest: #4c0d11;
+  --brand-red-vibrant: #b91c1c;
+  --brand-red-light: #f87171;
+  --brand-red-surface: #fdf8f8;
+  --brand-red-border: #f3dada;
   
-  /* Calm Emerald / Health Accent */
-  --brand-emerald-primary: #15803d;
-  --brand-emerald-vibrant: #16a34a;
+  /* TOMOSID Dark Charcoal & Titanium Slate */
+  --brand-charcoal-darkest: #090a0f;
+  --brand-charcoal-deep: #121318;
+  --brand-charcoal-card: #181a24;
+  --brand-charcoal-border: #272a38;
+  --brand-slate-primary: #1e293b;
+  --brand-slate-muted: #64748b;
   
-  /* Clinical Clean & Sober Slate Canvas */
+  /* Architectural Bronze / Warm Mocha (da fachada da clínica) */
+  --brand-bronze-primary: #785b46;
+  --brand-bronze-hover: #624734;
+  --brand-bronze-light: #f7f3ee;
+  --brand-bronze-border: #e8ded4;
+  
+  /* Clinical Clean & Sober Canvas */
   --brand-canvas-white: #ffffff;
-  --brand-canvas-light: #f8fafb;
+  --brand-canvas-light: #f8fafc;
   --brand-canvas-alt: #f1f5f9;
   --brand-canvas-border: #e2e8f0;
   --brand-canvas-ink: #0f172a;
@@ -34,12 +44,17 @@
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-teal-darkest: #041f1c;
-  --color-brand-teal-deep: #062b27;
-  --color-brand-teal-midnight: #0a3833;
-  --color-brand-teal-primary: #0d766e;
+  --color-brand-red-primary: #991b1b;
+  --color-brand-red-deep: #701a1e;
+  --color-brand-red-darkest: #4c0d11;
+  --color-brand-red-vibrant: #b91c1c;
+  --color-brand-red-surface: #fdf8f8;
   
-  --color-brand-canvas-light: #f8fafb;
+  --color-brand-charcoal-darkest: #090a0f;
+  --color-brand-charcoal-deep: #121318;
+  --color-brand-charcoal-card: #181a24;
+  
+  --color-brand-canvas-light: #f8fafc;
   --color-brand-canvas-surface: #ffffff;
 }
 
@@ -49,13 +64,13 @@ html {
 }
 
 body {
-  background: #f8fafb;
+  background: #f8fafc;
   color: #0f172a;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 ::selection {
-  background: #0d766e;
+  background: #991b1b;
   color: #ffffff;
 }
 
@@ -67,31 +82,31 @@ body {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 800;
   line-height: 1.4;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #0d766e;
+  color: #991b1b;
 }
 
 .eyebrow-dark {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 800;
   line-height: 1.4;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #5eead4;
+  color: #f87171;
 }
 
 .eyebrow::before {
   width: 1.5rem;
   height: 2px;
   flex: none;
-  background: #0d766e;
+  background: #991b1b;
   content: "";
   border-radius: 999px;
 }
@@ -100,60 +115,58 @@ body {
   width: 1.5rem;
   height: 2px;
   flex: none;
-  background: #5eead4;
+  background: #ef4444;
   content: "";
   border-radius: 999px;
 }
 
-.nav-link {
-  position: relative;
-  padding-block: 0.4rem;
-  color: #475569;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: color 180ms ease;
-  white-space: nowrap;
+/* Glassmorphism & Card Styles */
+.card-clinical {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-link::after {
-  position: absolute;
-  right: 0;
-  bottom: -2px;
-  left: 0;
-  height: 2px;
-  background: #0d766e;
-  border-radius: 999px;
-  content: "";
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 180ms ease;
+.card-clinical:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  transform: translateY(-2px);
 }
 
-.nav-link:hover {
-  color: #0d766e;
+.card-clinical-dark {
+  background: #121318;
+  border: 1px solid #272a38;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-link:hover::after {
-  transform: scaleX(1);
+.card-clinical-dark:hover {
+  border-color: #991b1b;
+  box-shadow: 0 12px 30px -5px rgba(153, 27, 27, 0.2);
+  transform: translateY(-2px);
 }
 
-.footer-link {
-  color: #cbd5e1;
-  transition: color 180ms ease;
+/* Subtle glowing pulse animation */
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
 }
 
-.footer-link:hover {
-  color: #5eead4;
+.animate-subtle-pulse {
+  animation: subtlePulse 3s ease-in-out infinite;
 }
 
-/* Elegant, sober medical text accent (without multi-color rainbow gradient) */
-.brand-text-accent {
-  color: #0d766e;
-}
-
+/* Scrollbar polish */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -162,21 +175,9 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 999px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0d766e;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-  }
+  background: #94a3b8;
 }

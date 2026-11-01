@@ -20,53 +20,63 @@ import {
   Sparkles,
   Heart,
   Baby,
-  Briefcase,
-  Syringe,
   Activity,
   Calendar,
-  Users,
   Building2,
   Stethoscope,
   Smile,
   Eye,
   FileText,
   BadgeCheck,
+  Compass,
+  AlertCircle,
+  Share2,
+  Radio,
+  Scan,
+  Layers,
+  HeartHandshake,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Official Clinic Information — Clínica São Camilo (Nova Serrana - MG)
-const CLINIC_NAME = "Clínica São Camilo";
-const BRAND_LABEL = "Clínica São Camilo — Medicina, Especialidades & Saúde Ocupacional";
-const WHATSAPP_NUMBER = "553732262910";
-const PHONE_DISPLAY = "(37) 3226-2910";
-const EMAIL_CONTACT = "contato@clinicasaocamilons.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/clinicasaocamilons/";
-const INSTAGRAM_HANDLE = "@clinicasaocamilons";
-const LINKTREE_URL = "https://linktr.ee/clinicasaocamilons";
+// Client & Official Clinic Information — TOMOSID · Dr. Frederico Cambraia (Campo Belo - MG)
+const CLINIC_NAME = "TOMOSID";
+const CLINIC_FULL_NAME = "TOMOSID — Dr. Frederico Cambraia";
+const BRAND_LABEL = "Centro de Diagnóstico Médico por Imagem";
+const PHYSICIAN_NAME = "Dr. Frederico Cambraia";
+const PHYSICIAN_TITLE = "Médico Radiologista · CRM-MG 34752 · RQE 10424";
 
-const ADDRESS_STREET = "R. Antônio Ferreira do Amaral, 136";
+const WHATSAPP_NUMBER = "5535999760750";
+const PHONE_DISPLAY = "(35) 99976-0750";
+const EMAIL_CONTACT = "contato@tomosid.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/tomosidoficial";
+const INSTAGRAM_HANDLE = "@tomosidoficial";
+const LINKTREE_URL = "https://linktr.ee/drfredericocambraia";
+
+const ADDRESS_STREET = "R. Dom Pedro II, 337";
 const ADDRESS_NEIGHBORHOOD = "Centro";
-const ADDRESS_CITY = "Nova Serrana - MG";
-const ADDRESS_CEP = "35519-000";
-const ADDRESS_DISPLAY = "R. Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG, 35519-000";
-const CITIES_SERVED = "Nova Serrana, Perdigão, Araújos, Pitangui, Conceição do Pará e Região";
+const ADDRESS_CITY = "Campo Belo - MG";
+const ADDRESS_CEP = "37270-000";
+const ADDRESS_DISPLAY = "R. Dom Pedro II, 337 - Centro, Campo Belo - MG, 37270-000";
+const CITIES_SERVED = "Campo Belo, Candeias, Cristais, Aguanil, Perdões, Santana do Jacaré e Região Sul de Minas";
 
-const GOOGLE_RATING = "4,8";
-const GOOGLE_REVIEW_COUNT = "203";
+const GOOGLE_RATING = "4,2";
+const GOOGLE_REVIEW_COUNT = "124";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Cl%C3%ADnica+S%C3%A3o+Camilo%0ANova+Serrana+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Tomosid+%E2%80%94+Dr.+Frederico+Cambraia%0ACampo+Belo+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=R.+Ant%C3%B4nio+Ferreira+do+Amaral%2C+136+-+Centro%2C+Nova+Serrana+-+MG%2C+35519-000";
+  "https://www.google.com/maps/search/?api=1&query=R.+Dom+Pedro+II%2C+337+-+Centro%2C+Campo+Belo+-+MG%2C+37270-000";
+const WAZE_MAPS_URL =
+  "https://waze.com/ul?q=Rua+Dom+Pedro+II+337+Centro+Campo+Belo+MG";
 
 // Official assets
 const LOGO_SRC = "/logo.png";
-const BANNER_SRC = "/banner-especialidades.png";
-const FOTO_ATENDIMENTO_SRC = "/clinica-atendimento.jpg";
-const FOTO_ESTRUTURA_SRC = "/clinica-estrutura.jpg";
+const LOGO_DARK_SRC = "/logo-dark.png";
+const LOGO_EMBLEM_SRC = "/logo-emblem.png";
+const FACHADA_SRC = "/fachada-clinica.jpg";
 
 function getWhatsAppUrl(message?: string, number: string = WHATSAPP_NUMBER) {
   const defaultText =
-    "Olá! Gostaria de agendar uma consulta na Clínica São Camilo em Nova Serrana.";
+    "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -109,337 +119,378 @@ function InstagramIcon({
       fill="currentColor"
       className={className}
     >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
     </svg>
   );
 }
 
-// Especialidades e Serviços Médicos Oficiais
-interface Specialty {
+// Especialidades e Serviços Diagnósticos Oficiais da TOMOSID
+interface ExamService {
   id: string;
   title: string;
+  category: "mulher" | "alta_complexidade" | "ultrassom" | "preventivo";
   badge: string;
   shortDesc: string;
   tag: string;
   fullDesc: string;
   indications: string[];
   benefits: string[];
-  recovery: string;
+  preparo: string;
   faq: { q: string; a: string };
 }
 
-const SPECIALTIES: Specialty[] = [
+const EXAM_SERVICES: ExamService[] = [
   {
-    id: "pediatria",
-    title: "Pediatria & Puericultura",
-    badge: "Destaque",
+    id: "endometriose",
+    title: "Ultrassom com Mapeamento de Endometriose",
+    category: "mulher",
+    badge: "Especialidade Referência",
     shortDesc:
-      "Acompanhamento atencioso do crescimento, desenvolvimento, saúde e vacinação do seu bebê e criança.",
-    tag: "Infantil & Família",
+      "Protocolo avançado com preparo intestinal específico para diagnóstico preciso e mapeamento de focos profundos da endometriose.",
+    tag: "Saúde da Mulher",
     fullDesc:
-      "A Pediatria da Clínica São Camilo é dedicada a cuidar com carinho, paciência e rigor científico de cada fase da infância. Desde as primeiras consultas de puericultura do recém-nascido, aleitamento materno e introdução alimentar, até o manejo de doenças sazonais, alergias e crescimento saudável.",
+      "O mapeamento de endometriose por ultrassonografia é um exame altamente especializado conduzido pelo Dr. Frederico Cambraia. Permite identificar nódulos e aderências da endometriose profunda na pelve, retrocervical, ovários, ligamentos útero-sacros, bexiga e intestino, fornecendo ao ginecologista um mapa cirúrgico e clínico detalhado.",
     indications: [
-      "Consultas de rotina e acompanhamento de puericultura",
-      "Avaliação de marcos de desenvolvimento e ganho de peso",
-      "Orientações vacinais e prevenção de doenças infantis",
-      "Febres, tosses, viroses, alergias e problemas respiratórios",
+      "Cólicas menstruais intensas (dismenorreia incapacitante)",
+      "Dor pélvica crônica ou dor durante relações sexuais (dispareunia)",
+      "Alterações intestinais ou urinárias durante o período menstrual",
+      "Dificuldade para engravidar e investigação de infertilidade",
     ],
     benefits: [
-      "Atendimento gentil, humanizado e focado no bem-estar da criança",
-      "Orientações claras e tranquilizadoras para mães e pais",
-      "Ambiente adaptado para que os pequenos se sintam confortáveis",
-      "Integração direta com vacinas e Teste da Orelhinha na própria clínica",
+      "Mapeamento minucioso dos compartimentos anterior e posterior da pelve",
+      "Execução especializada com conforto e respeito ao tempo da paciente",
+      "Laudo com documentação anatômica detalhada para conduta médica",
+      "Evita cirurgias diagnósticas desnecessárias com visualização prévia",
     ],
-    recovery:
-      "Acompanhamento contínuo e preventivo para garantir uma infância saudável e segura.",
+    preparo:
+      "Requer preparo intestinal simples no dia anterior orientado pela equipe no momento do agendamento para permitir visão limpa das alças intestinais.",
     faq: {
-      q: "Com que frequência devo levar meu bebê ao pediatra?",
-      a: "No primeiro ano de vida, as consultas são mensais até os 6 meses e depois bimestrais. Após 1 ano, ocorrem a cada 3 a 6 meses para acompanhamento preventivo regular.",
+      q: "O exame de mapeamento de endometriose é doloroso?",
+      a: "O exame é realizado com extrema delicadeza pelo Dr. Frederico Cambraia, respeitando o limite e o conforto da paciente em cada etapa do procedimento.",
     },
   },
   {
-    id: "medicina-do-trabalho",
-    title: "Medicina do Trabalho & ASO",
-    badge: "Empresas",
+    id: "hycosy",
+    title: "HyCoSy (Histerossalpingossoneografia)",
+    category: "mulher",
+    badge: "Fertilidade Feminina",
     shortDesc:
-      "Gestão ocupacional completa para indústrias e empresas de Nova Serrana: ASO admissional, periódico, demissional e exames rápidos.",
-    tag: "Saúde Ocupacional",
+      "Avaliação moderna da permeabilidade das trompas uterinas com contraste ultrassonográfico sem radiação e sem uso de iodo.",
+    tag: "Fertilidade & Trompas",
     fullDesc:
-      "Nova Serrana é o principal polo calçadista de Minas Gerais, e a Clínica São Camilo é a parceira estratégica das empresas locais na preservação da saúde dos trabalhadores e cumprimento das Normas Regulamentadoras (NRs). Realizamos Atestados de Saúde Ocupacional com agilidade para o RH e exames complementares centralizados em um só endereço.",
+      "A HyCoSy é a técnica mais moderna e segura para investigar a fertilidade feminina e a desobstrução das trompas de Falópio. Diferente da histerossalpingografia tradicional com raio-x, a HyCoSy utiliza ultrassom de alta resolução com solução fisiológica e microbolhas sem radiação e sem os riscos de alergia ao iodo.",
     indications: [
-      "Contratação ágil de novos colaboradores (Exame Admissional)",
-      "Exames periódicos obrigatórios por função e risco",
-      "Mudança de riscos operacionais e retorno pós-afastamento",
-      "Homologação e demissões com emissão rápida de laudos",
+      "Investigação de causas de infertilidade e dificuldade para engravidar",
+      "Avaliação da permeabilidade tubária prévia a tratamentos reprodutivos",
+      "Estudo da morfologia e contorno da cavidade uterina",
+      "Histórico de infecções pélvicas ou cirurgias prévias com risco de aderência",
     ],
     benefits: [
-      "Agilidade máxima: exames clínicos e complementares no mesmo dia",
-      "Sem filas excessivas: agendamento organizado para sua empresa",
-      "Conformidade total com o eSocial e legislações trabalhistas",
-      "Atendimento acolhedor e respeitoso para todos os colaboradores",
+      "Sem exposição à radiação ionizante para os ovários e útero",
+      "Sem utilização de contraste iodado (100% seguro para alérgicos)",
+      "Procedimento ambulatorial rápido com retorno imediato à rotina",
+      "Exame dinâmico com avaliação em tempo real pelo especialista",
     ],
-    recovery:
-      "Laudos precisos entregues com agilidade para o departamento de Recursos Humanos.",
+    preparo:
+      "Realizado preferencialmente na primeira fase do ciclo menstrual (entre o 7º e o 12º dia após o início da menstruação), sem estar menstruada.",
     faq: {
-      q: "Minha empresa pode fechar parceria para exames ocupacionais?",
-      a: "Sim! Oferecemos fluxo prioritário e condições especiais para indústrias, comércios e prestadores de serviços de Nova Serrana e região.",
+      q: "Qual a diferença entre a HyCoSy e a Histerossalpingografia comum?",
+      a: "A HyCoSy é guiada por ultrassom em vez de raio-x, não utiliza radiação nem iodo, gerando muito menos desconforto e permitindo avaliação completa do útero no mesmo procedimento.",
     },
   },
   {
-    id: "vacinas",
-    title: "Vacinas & Imunização",
-    badge: "Prevenção",
+    id: "ecofetal",
+    title: "Ecocardiografia Fetal & Morfológico",
+    category: "mulher",
+    badge: "Medicina Fetal",
     shortDesc:
-      "Vacina da Gripe (Influenza), vacinação infantil e de adultos com rigoroso controle de cadeia de frio e aplicação suave.",
-    tag: "Imunização Familiar",
+      "Avaliação cardiológica minuciosa do coração do bebê durante a gestação e ultrassom morfológico de alta precisão.",
+    tag: "Gestação de Alto Risco",
     fullDesc:
-      "A imunização é a forma mais eficaz e segura de proteger quem você ama contra infecções virais e bacterianas. Na Clínica São Camilo, mantemos rigoroso controle de temperatura com câmaras de refrigeração médica e equipe capacitada para aplicação com técnicas humanizadas de alívio de dor.",
+      "A ecocardiografia fetal é o exame padrão-ouro para detectar precocemente alterações anatômicas e do ritmo cardíaco do feto ainda no útero. Realizado com equipamentos com doppler de última geração, oferece tranquilidade aos pais e segurança absoluta para o planejamento do parto em gestações comuns e de alto risco.",
     indications: [
-      "Campanha anual da Vacina da Gripe para toda a família",
-      "Atualização do calendário vacinal de bebês e crianças",
-      "Vacinas para gestantes, idosos e viajantes",
-      "Imunizações ocupacionais e corporativas para colaboradores",
+      "Idade materna avançada ou gestação gemelar",
+      "Histórico familiar de cardiopatias congênitas",
+      "Diabetes gestacional, hipertensão ou doenças autoimunes na mãe",
+      "Alterações suspeitas no ultrassom morfológico ou translucência nucal",
     ],
     benefits: [
-      "Armazenamento seguro e controle térmico ininterrupto",
-      "Aplicação humanizada que minimiza o medo e o desconforto",
-      "Cartão de vacinas sempre atualizado com orientação profissional",
-      "Disponibilidade para agendamento individual ou familiar",
+      "Diagnóstico precoce que salva vidas e planeja o suporte neonatal",
+      "Análise hemodinâmica detalhada das valvas e vasos fetais",
+      "Acolhimento empático que tranquiliza a gestante e sua família",
+      "Integração direta com o obstetra assistente",
     ],
-    recovery:
-      "Imunização rápida com orientações claras sobre cuidados e reações pós-aplicação.",
+    preparo:
+      "Geralmente indicado entre a 24ª e 28ª semana de gestação. Não necessita jejum; recomenda-se refeição leve e hidratação normal antes do exame.",
     faq: {
-      q: "A Vacina da Gripe está disponível para qualquer idade?",
-      a: "Sim! Disponível para bebês a partir de 6 meses, crianças, adultos, idosos e gestantes, garantindo proteção contra as principais cepas circulantes.",
+      q: "O ecocardiograma fetal substitui o ultrassom morfológico?",
+      a: "Eles são exames complementares. O morfológico analisa toda a anatomia fetal, enquanto o ecofetal foca profundamente na estrutura e fisiologia do coração do feto.",
     },
   },
   {
-    id: "angiologia",
-    title: "Angiologia & Circulação",
-    badge: "Vascular",
+    id: "ultrassom-mama",
+    title: "Ultrassonografia Mamária de Alta Resolução",
+    category: "mulher",
+    badge: "Saúde das Mamas",
     shortDesc:
-      "Prevenção, diagnóstico e tratamento de varizes, vasinhos, sensação de inchaço, peso e dores nas pernas.",
-    tag: "Circulação & Varizes",
+      "Diferenciação precisa entre nódulos sólidos e cistos líquidos, ideal para mamas densas e acompanhamento preventivo contínuo.",
+    tag: "Diagnóstico Mamário",
     fullDesc:
-      "A Angiologia cuida da saúde das artérias, veias e vasos linfáticos. Dores, sensação de peso ou queimação ao final do dia, vasinhos aparentes ou varizes são sinais de que o retorno venoso precisa de avaliação médica. O tratamento adequado alivia os sintomas e devolve a leveza ao caminhar.",
+      "A ultrassonografia mamária utiliza transdutores lineares de alta frequência para avaliar o tecido glandular, ductos e axilas. É indispensável na avaliação complementar da mamografia, especialmente em mulheres jovens com tecido mamário denso, garantindo diagnóstico precoce e tranquilidade.",
     indications: [
-      "Varizes aparentes, vasinhos e sensação de peso nas pernas",
-      "Inchaço (edema) nos tornozelos ao final do dia",
-      "Câimbras noturnas, queimação e formigamento",
-      "Histórico familiar de varizes ou risco de trombose venosa",
+      "Complementação diagnóstica de mamografias com mamas densas",
+      "Avaliação de nódulos palpáveis ou dor mamária localizada",
+      "Diferenciação clara entre cistos benignos e lesões sólidas",
+      "Acompanhamento de próteses de silicone e integridade dos implantes",
     ],
     benefits: [
-      "Diagnóstico preciso do sistema circulatório",
-      "Alívio duradouro do cansaço e dores nas pernas",
-      "Prevenção eficaz de trombose e complicações vasculares",
-      "Melhora estética e bem-estar funcional no dia a dia",
+      "Exame 100% indolor, rápido e sem radiação",
+      "Avaliação detalhada com classificação padronizada BI-RADS",
+      "Inspeção simultânea das cadeias linfáticas axilares",
+      "Orientação direta para biópsias quando houver indicação médica",
     ],
-    recovery:
-      "Tratamentos modernos e ambulatoriais com rápida retomada das atividades cotidianas.",
+    preparo:
+      "Não requer jejum. Recomenda-se levar exames anteriores de ultrassom e mamografia para estudo comparativo evolutivo.",
     faq: {
-      q: "Varizes são apenas um incômodo estético?",
-      a: "Não. As varizes são veias doentes que indicam insuficiência venosa crônica e podem causar dor crônica, inchaço e risco de complicações se não forem acompanhadas.",
+      q: "O ultrassom substitui a mamografia anual?",
+      a: "Não. Em mulheres acima de 40 anos, os dois exames se complementam: a mamografia detecta microcalcificações iniciais e o ultrassom detalha nódulos e mamas densas.",
     },
   },
   {
-    id: "audiometria",
-    title: "Audiometria & Teste da Orelhinha",
-    badge: "Audiologia",
+    id: "biopsias",
+    title: "Biópsias Guiadas por Ultrassom",
+    category: "mulher",
+    badge: "Precisão Intervencionista",
     shortDesc:
-      "Triagem auditiva neonatal (Teste da Orelhinha) obrigatória para bebês e exames de audiometria clínica e ocupacional.",
-    tag: "Saúde Auditiva",
+      "Punções e biópsias percutâneas (Core Biopsy e PAAF) de mama, tireoide e tecidos moles com anestesia local e visualização contínua.",
+    tag: "Procedimentos Guiados",
     fullDesc:
-      "A audição é a base para o desenvolvimento da fala, aprendizado e comunicação humana. Realizamos o Teste da Orelhinha, um exame rápido, 100% indolor e seguro para recém-nascidos, que detecta precocemente qualquer alteração auditiva. Também realizamos audiometria tonal e vocal para exames admissionais e periódicos.",
+      "Procedimentos intervencionistas minimamente invasivos realizados com precisão milimétrica guiados em tempo real por ultrassom. A coleta de fragmentos teciduais (Core Biopsy) ou células (PAAF) permite o diagnóstico anatomopatológico definitivo de nódulos de mama, tireoide e linfonodos com total conforto e segurança.",
     indications: [
-      "Bebês recém-nascidos (idealmente nos primeiros 30 dias de vida)",
-      "Exames ocupacionais de audiometria para indústrias e fábricas",
-      "Dificuldade de compreensão da fala em ambientes com ruído",
-      "Sensação de ouvido tapado, zumbidos ou perda auditiva progressiva",
+      "Nódulos mamários classificados como BI-RADS 4 ou 5",
+      "Nódulos de tireoide suspeitos com indicação de PAAF",
+      "Investigação de linfonodomegalias cervicais ou axilares",
+      "Lesões de partes moles que exigem definição histológica",
     ],
     benefits: [
-      "Exame neonatal 100% indolor, realizado enquanto o bebê descansa",
-      "Equipamentos modernos e calibrados de alta precisão",
-      "Laudo imediato assinado por profissional habilitado",
-      "Detecção precoce que viabiliza intervenções no tempo correto",
+      "Visualização contínua da agulha em tempo real pelo ultrassom",
+      "Procedimento ambulatorial com anestesia local sem internação",
+      "Amostras precisas que garantem resultado laboratorial conclusivo",
+      "Pós-procedimento tranquilo com recuperação rápida no mesmo dia",
     ],
-    recovery:
-      "Exame rápido, não invasivo e com liberação imediata do paciente.",
+    preparo:
+      "Avisar previamente sobre o uso de medicamentos anticoagulantes ou antiagregantes plaquetários. Orientações personalizadas são passadas na véspera.",
     faq: {
-      q: "O Teste da Orelhinha machuca o bebê?",
-      a: "De forma alguma! Uma pequena sonda macia de silicone é colocada suavemente na orelhinha emitindo sons suaves. A maioria dos bebês dorme durante todo o exame.",
+      q: "A biópsia guiada por ultrassom dói?",
+      a: "O procedimento é realizado sob anestesia local cuidadosa, tornando a coleta muito bem tolerada e praticamente indolor durante a execução.",
     },
   },
   {
-    id: "cardiologia",
-    title: "Cardiologia & Check-up",
-    badge: "Coração",
+    id: "tomografia",
+    title: "Tomografia Computadorizada Multislice",
+    category: "alta_complexidade",
+    badge: "Alta Tecnologia 3D",
     shortDesc:
-      "Prevenção cardiovascular, controle de hipertensão, investigação de arritmias e avaliação de risco cirúrgico.",
-    tag: "Coração & Prevenção",
+      "Varredura tomográfica rápida com cortes submilimétricos e reconstruções 3D para crânio, tórax, abdome, pelve e ossos.",
+    tag: "Alta Resolução Anatômica",
     fullDesc:
-      "Cuidar do coração é a decisão mais importante para uma vida longa, ativa e com tranquilidade. Na Clínica São Camilo, realizamos avaliações minuciosas para controle da pressão arterial, investigação de palpitações e emissão de laudos de risco cirúrgico.",
+      "O tomógrafo computadorizado da TOMOSID realiza aquisições ultrarrápidas de imagens em alta definição, permitindo reconstruções multiplanares e 3D de altíssima fidelidade. É essencial para o diagnóstico de urgências, investigações oncológicas, avaliação do tórax, abdome agudo, traumas e pós-operatórios.",
     indications: [
-      "Pressão alta (hipertensão) ou histórico familiar precoce",
-      "Palpitações, dores no peito, cansaço anormal aos esforços",
-      "Avaliação de risco cirúrgico para procedimentos médicos",
-      "Check-up preventivo anual a partir dos 35-40 anos",
+      "Investigação de cefaleias agudas, AVC e traumas cranianos",
+      "Avaliação de tórax (nódulos pulmonares, infecções e embolia)",
+      "Abdome e pelve (apendicite, cálculos renais, diverticulite)",
+      "Reconstruções ósseas tridimensionais para planejamento cirúrgico",
     ],
     benefits: [
-      "Monitoramento seguro e assertivo da saúde cardiovascular",
-      "Prevenção primária de eventos graves",
-      "Orientações clínicas integradas com estilo de vida",
-      "Laudos cardiológicos ágeis e fundamentados",
+      "Velocidade de aquisição que reduz o tempo de permanência no aparelho",
+      "Doses otimizadas de radiação com protocolos seguros",
+      "Reconstruções anatômicas tridimensionais (3D)",
+      "Laudos rápidos emitidos por radiologistas experientes",
     ],
-    recovery:
-      "Acompanhamento cardiológico regular com foco em longevidade e segurança.",
+    preparo:
+      "Para exames com contraste iodado, requer jejum de 4 a 6 horas e avaliação prévia da função renal (ureia e creatinina).",
     faq: {
-      q: "Quando devo procurar o cardiologista de forma preventiva?",
-      a: "Homens a partir dos 40 anos e mulheres a partir dos 45 anos (ou antes, se houver histórico familiar de infarto, fumo ou diabetes) devem realizar check-up anual.",
+      q: "Todo exame de tomografia precisa de contraste?",
+      a: "Não. Exames ósseos e de crânio simples geralmente não utilizam contraste. Quando necessário para avaliação vascular ou abdominal, o paciente é avaliado com segurança.",
     },
   },
   {
-    id: "nutricao",
-    title: "Nutrição Clínica & Esportiva",
-    badge: "Nutrição",
+    id: "ressonancia",
+    title: "Ressonância Magnética de Alto Campo",
+    category: "alta_complexidade",
+    badge: "Máxima Definição",
     shortDesc:
-      "Planos alimentares personalizados para emagrecimento sustentável, controle de diabetes, colesterol e nutrição infantil.",
-    tag: "Reeducação Alimentar",
+      "Estudo aprofundado do sistema nervoso, coluna vertebral, articulações e tecidos moles sem emissão de radiação ionizante.",
+    tag: "Neuro & Articular",
     fullDesc:
-      "A alimentação é a fonte de vitalidade do corpo. Nosso atendimento nutricional desenvolve planos adaptados à sua rotina real, sem dietas punitivas ou restrições impossíveis de sustentar. Trabalhamos a reeducação alimentar, controle metabólico e nutrição infantil.",
+      "A ressonância magnética é a mais avançada técnica diagnóstica não invasiva para visualização do cérebro, medula espinhal, coluna, tendões, cartilagens e órgãos internos. Proporciona imagens com contraste incomparável entre diferentes tecidos moles, sem qualquer radiação ionizante.",
     indications: [
-      "Emagrecimento sustentável sem efeito sanfona",
-      "Controle de glicemia, colesterol, triglicérides e esteatose",
-      "Introdução alimentar infantil e combate à seletividade",
-      "Ganho de disposição, melhora do sono e desempenho físico",
+      "Hérnias de disco, dores lombares e cervicais crônicas",
+      "Lesões de ligamentos e meniscos do joelho, ombro e tornozelo",
+      "Investigação de doenças neurológicas, esclerose, tonturas e memória",
+      "Estudo detalhado do fígado, vias biliares (colangiorressonância) e pelve",
     ],
     benefits: [
-      "Cardápio 100% individualizado para suas preferências e rotina",
-      "Acompanhamento acolhedor da evolução corporal e de exames",
-      "Estratégias práticas para aplicar no trabalho e em casa",
-      "Mais vitalidade diária e saúde gastrointestinal",
+      "Sem radiação ionizante: segurança absoluta para o paciente",
+      "Diferenciação celular e tecidual superior a qualquer outro método",
+      "Ambiente planejado com equipe que acolhe pacientes com claustrofobia",
+      "Laudos especializados que orientam com clareza o tratamento médico",
     ],
-    recovery:
-      "Resultados consistentes e duradouros com acompanhamento humanizado.",
+    preparo:
+      "Retirar qualquer objeto metálico, brincos, relógio e piercing. Informar se possui marca-passo, próteses ou clipes cirúrgicos metálicos.",
     faq: {
-      q: "Vou precisar cortar tudo o que gosto na dieta?",
-      a: "Não! O foco é o equilíbrio e a reeducação. Adaptamos as refeições para que sejam prazerosas, nutritivas e sustentáveis a longo prazo.",
+      q: "Quem tem medo de lugares fechados consegue fazer o exame?",
+      a: "Sim! Nossa equipe é treinada para acolher pacientes ansiosos, com comunicação contínua via fone de ouvido, ventilação e apoio passo a passo.",
     },
   },
   {
-    id: "otorrinolaringologia",
-    title: "Otorrinolaringologia (Otorrino)",
-    badge: "Otorrino",
+    id: "angiotomografia",
+    title: "Angiotomografia Coronariana & Vascular",
+    category: "alta_complexidade",
+    badge: "Cardiovascular",
     shortDesc:
-      "Diagnóstico e tratamento de rinites, sinusites, desvio de septo, rouquidão, dores de garganta e zumbido no ouvido.",
-    tag: "Vias Aéreas Superiores",
+      "Visualização não invasiva da luz interna das artérias coronárias, carótidas, aorta e circulação periférica.",
+    tag: "Coração & Vasos",
     fullDesc:
-      "O médico otorrinolaringologista cuida da saúde das vias aéreas superiores, equilíbrio e audição. Trata desde quadros frequentes como amigdalites de repetição, rinites alérgicas e sinusites crônicas, até labirintite, tonturas, rouquidão prolongada e ronco.",
+      "A angiotomografia permite avaliar detalhadamente a anatomia dos vasos sanguíneos de forma rápida e minimamente invasiva. Na área coronariana, identifica placas de gordura e cálcio que obstruem a circulação antes que causem eventos graves como o infarto agudo do miocárdio.",
     indications: [
-      "Nariz entupido frequente, coriza crônica e rinite alérgica",
-      "Dores de cabeça causadas por sinusite e congestão nasal",
-      "Otites de repetição, dor ou secreção nos ouvidos",
-      "Ronco noturno, alterações da voz e engasgos constantes",
+      "Investigação de dor torácica atípica e suspeita de doença coronária",
+      "Rastreamento de aneurismas da aorta torácica e abdominal",
+      "Avaliação de carótidas e artérias vertebrais para prevenção de AVC",
+      "Estenoses e oclusões vasculares nas pernas e abdome",
     ],
     benefits: [
-      "Alívio rápido de crises respiratórias e melhora no sono",
-      "Investigação aprofundada de tonturas e labirintites",
-      "Preservação da capacidade auditiva e da saúde vocal",
-      "Tratamentos clínicos modernos e individualizados",
+      "Alternativa não invasiva e rápida ao cateterismo convencional para triagem",
+      "Visualização em cortes milimétricos e reconstruções 3D de alta nitidez",
+      "Segurança diagnóstica para cardiologistas e cirurgiões vasculares",
+      "Liberação rápida do paciente após o procedimento",
     ],
-    recovery:
-      "Recuperação do conforto respiratório e da qualidade de descanso ao dormir.",
+    preparo:
+      "Jejum orientado, controle de frequência cardíaca quando indicado para angiotomografia de coronárias e checagem de exames de função renal.",
     faq: {
-      q: "Rinite alérgica tem cura?",
-      a: "A rinite não possui cura definitiva, mas o acompanhamento médico adequado promove o controle completo dos sintomas por longos períodos.",
+      q: "A angiotomografia substitui o cateterismo?",
+      a: "Em muitos casos de diagnóstico preventivo sim, pois oferece visão precisa dos vasos sem necessidade de punção arterial ou internação hospitalar.",
     },
   },
   {
-    id: "pneumologia",
-    title: "Pneumologia",
-    badge: "Respiratória",
+    id: "ultrassom-geral",
+    title: "Ultrassonografia Geral & Doppler Colorido",
+    category: "ultrassom",
+    badge: "Rotina & Check-up",
     shortDesc:
-      "Cuidado especializado para asma, bronquite, DPOC, tosse crônica, falta de ar e reabilitação respiratória.",
-    tag: "Pulmões & Respiração",
+      "Exames de abdome total, vias urinárias, tireoide, próstata, aparelho locomotor e estudo do fluxo sanguíneo com Doppler.",
+    tag: "Ultrassom Multidisciplinar",
     fullDesc:
-      "Respirar sem esforço é qualidade de vida. A Pneumologia na Clínica São Camilo é dedicada ao diagnóstico e tratamento de doenças pulmonares agudas e crônicas. Ajudamos pacientes a controlar crises de asma, cessar o tabagismo e recuperar o fôlego.",
+      "O serviço de ultrassonografia geral da TOMOSID alia a experiência de radiologistas dedicados com aparelhos equipados com software Doppler colorido de alta sensibilidade. Fundamental para investigar dores abdominais, pedras na vesícula ou nos rins, esteatose hepática, tireoide e circulação.",
     indications: [
-      "Tosse persistente por mais de 3 semanas",
-      "Falta de ar (dispneia) ao caminhar ou realizar esforços comuns",
-      "Asma, bronquite crônica ou enfisema pulmonar (DPOC)",
-      "Acompanhamento preventivo para fumantes e ex-fumantes",
+      "Check-up preventivo de rotina de órgãos abdominais e pelve",
+      "Investigação de pedras na vesícula (colelitíase) e nos rins (litíase)",
+      "Avaliação de gordura no fígado (esteatose) e aumento de volume",
+      "Nódulos de tireoide, próstata, bolsa escrotal e partes moles",
     ],
     benefits: [
-      "Controle seguro de chiados no peito e crises de falta de ar",
-      "Diagnóstico funcional preciso da capacidade respiratória",
-      "Prescrição correta e orientada de medicações inalatórias",
-      "Mais resistência física e disposição para o dia a dia",
+      "Método seguro, sem radiação e acessível para qualquer faixa etária",
+      "Doppler colorido em tempo real que mapeia a circulação sanguínea",
+      "Explicação verbal do Dr. Frederico Cambraia durante a consulta",
+      "Resultados rápidos com imagens fotográficas de alta resolução",
     ],
-    recovery:
-      "Plano terapêutico personalizado para que o paciente respire com leveza e segurança.",
+    preparo:
+      "Para abdome total: jejum de 6 horas e bexiga cheia (beber 4 copos de água 1 hora antes). Para tireoide e músculo esquelético: não requer jejum.",
     faq: {
-      q: "O uso de bombinha para asma vicia?",
-      a: "Mito. As medicações inalatórias modernas agem diretamente nos brônquios com absorção mínima pelo organismo, sendo o tratamento padrão mais seguro e recomendado mundialmente.",
+      q: "Por que preciso estar de bexiga cheia para certos ultrassons?",
+      a: "A bexiga cheia atua como uma janela acústica transparente, empurrando as alças intestinais e permitindo visualizar com clareza o útero, ovários ou próstata.",
     },
   },
   {
-    id: "psiquiatria",
-    title: "Psiquiatria & Saúde Mental",
-    badge: "Saúde Mental",
+    id: "mamografia",
+    title: "Mamografia Digital de Alta Resolução",
+    category: "preventivo",
+    badge: "Prevenção do Câncer",
     shortDesc:
-      "Cuidado humanizado e confidencial para ansiedade, depressão, burnout, insônia, estresse e transtornos de humor.",
-    tag: "Saúde Mental & Equilíbrio",
+      "Rastreamento precoce de microcalcificações e alterações mamárias iniciais com tecnologia digital e dose reduzida de radiação.",
+    tag: "Rastreamento Mamário",
     fullDesc:
-      "A saúde mental é o pilar de sustentação para toda a nossa vida pessoal e produtiva. Na Clínica São Camilo, as consultas psiquiátricas são pautadas pela escuta atenta, respeito absoluto e ética médica. Desmistificamos o tratamento com responsabilidade.",
+      "A mamografia digital da TOMOSID é o exame mais comprovadamente eficaz para a detecção precoce do câncer de mama, identificando microcalcificações e lesões milimétricas anos antes de se tornarem palpáveis ao exame físico. Nosso equipamento digital otimiza a compressão para maior conforto da paciente.",
     indications: [
-      "Ansiedade constante, crises de pânico ou aperto no peito",
-      "Tristeza profunda, desânimo prolongado e perda de interesse",
-      "Insônia crônica ou noites mal dormidas com cansaço ao acordar",
-      "Esgotamento emocional e profissional (Síndrome de Burnout)",
+      "Rastreamento anual recomendado para todas as mulheres a partir dos 40 anos",
+      "Mulheres com histórico familiar direto de câncer de mama (a partir dos 35 anos)",
+      "Presença de nódulos palpáveis, retração da pele ou secreção papilar",
+      "Acompanhamento evolutivo pós-tratamento oncológico",
     ],
     benefits: [
-      "Ambiente sigiloso, sem julgamentos e verdadeiramente acolhedor",
-      "Prescrição médica consciente e explicada detalhadamente",
-      "Melhora progressiva da qualidade do sono e disposição",
-      "Resgate do equilíbrio emocional e das relações interpessoais",
+      "Detecta lesões em fases iniciais com chances de cura superiores a 95%",
+      "Menor tempo de compressão e software que suaviza a pressão nas mamas",
+      "Processamento digital da imagem que aumenta o contraste anatômico",
+      "Equipe feminina atenciosa e ambiente totalmente privativo e acolhedor",
     ],
-    recovery:
-      "Acompanhamento próximo com reavaliações periódicas para ajuste e redução gradual quando oportuno.",
+    preparo:
+      "Não usar desodorante, talco, cremes ou perfumes nas axilas e mamas no dia do exame, pois resíduos podem simular microcalcificações na imagem.",
     faq: {
-      q: "Medicamentos psiquiátricos causam dependência?",
-      a: "A imensa maioria dos medicamentos modernos para ansiedade e depressão não causa dependência. O tratamento é monitorado pelo médico psiquiatra com responsabilidade.",
+      q: "A mamografia dói muito?",
+      a: "Nossa equipe realiza a compressão de maneira gradual e suave, apenas pelo tempo estritamente necessário para obter a imagem nítida, minimizando desconfortos.",
     },
   },
   {
-    id: "urologia",
-    title: "Urologia & Prevenção",
-    badge: "Urologia",
+    id: "densitometria",
+    title: "Densitometria Óssea de Corpo Inteiro",
+    category: "preventivo",
+    badge: "Saúde Óssea",
     shortDesc:
-      "Prevenção do câncer de próstata, tratamento de cálculo renal (pedra nos rins), infecções urinárias e saúde masculina.",
-    tag: "Trato Urinário & Próstata",
+      "Diagnóstico preciso e quantificação de osteopenia e osteoporose na coluna lombar, fêmur proximal e antebraço.",
+    tag: "Prevenção de Fraturas",
     fullDesc:
-      "A Urologia cuida do sistema urinário de homens e mulheres e trata especificamente da saúde preventiva masculina. Com abordagem respeitosa e moderna, nossos especialistas realizam o rastreamento preventivo da próstata e tratamento de dores renais.",
+      "A densitometria óssea é o padrão internacional para medir a densidade mineral dos ossos e calcular o risco de fraturas por fragilidade. Essencial para mulheres na menopausa, idosos e pessoas em uso prolongado de corticoides, permite o tratamento antes da ocorrência de quedas e quebras graves.",
     indications: [
-      "Check-up preventivo da próstata (homens a partir dos 45-50 anos)",
-      "Cólicas renais ou histórico de cálculo (pedra nos rins)",
-      "Dificuldade, ardência ou idas frequentes ao banheiro à noite",
-      "Infecções urinárias de repetição em homens ou mulheres",
+      "Mulheres na pós-menopausa ou homens acima de 60 anos",
+      "Pessoas com histórico familiar de osteoporose ou fratura de fêmur",
+      "Uso contínuo de medicamentos como corticoides ou anticonvulsivantes",
+      "Monitoramento da eficácia de reposição de cálcio e medicações ósseas",
     ],
     benefits: [
-      "Diagnóstico precoce de alterações na próstata com alta chance de cura",
-      "Alívio rápido para crises agudas de dor nos rins",
-      "Atendimento médico ético, descomplicado e seguro",
-      "Melhora significativa da qualidade de vida urinária e íntima",
+      "Exame ultrarrápido (cerca de 10 a 15 minutos) totalmente indolor",
+      "Dose de radiação extremamente baixa (inferior a um voo comercial)",
+      "Relatório gráfico claro comparando seus ossos com a média da população",
+      "Orienta condutas precoces que evitam perda de mobilidade",
     ],
-    recovery:
-      "Condutas terapêuticas modernas e preventivas para manter você saudável e confiante.",
+    preparo:
+      "Não ingerir suplementos de cálcio nas 24 horas que antecedem o exame. Vestir roupas confortáveis sem botões, zíperes ou detalhes metálicos.",
     faq: {
-      q: "Com qual idade o homem deve iniciar o acompanhamento da próstata?",
-      a: "A partir dos 50 anos para homens sem histórico na família, ou a partir dos 45 anos para homens com histórico de primeiro grau.",
+      q: "Com qual frequência devo repetir a densitometria óssea?",
+      a: "Normalmente a cada 1 ou 2 anos, conforme a avaliação do seu médico para acompanhar a estabilidade ou melhora da massa óssea após o início do tratamento.",
+    },
+  },
+  {
+    id: "raiox",
+    title: "Radiografia Digital (Raio-X Digital)",
+    category: "preventivo",
+    badge: "Agilidade & Nitidez",
+    shortDesc:
+      "Exames esqueléticos e torácicos com visualização digital imediata, alta definição e baixa exposição à radiação.",
+    tag: "Raio-X Ágil",
+    fullDesc:
+      "O Raio-X Digital substitui os antigos filmes químicos por sensores digitais de altíssima sensibilidade. Isso significa menor exposição do paciente à radiação, imagem instantânea na tela para o técnico e radiologista, e possibilidade de zoom e ajuste de contraste para laudos rápidos e certeiros.",
+    indications: [
+      "Investigação de fraturas ósseas, entorses e luxações articulares",
+      "Avaliação de dores na coluna, bico de papagaio e artrose",
+      "Raio-X de tórax para diagnóstico de pneumonias, bronquites e tosse",
+      "Exames admissionais e periódicos para colaboradores e empresas",
+    ],
+    benefits: [
+      "Aquisição instantânea da imagem sem espera por revelação química",
+      "Dose de radiação significativamente menor que no raio-x analógico",
+      "Imagens arquivadas digitalmente para comparação com exames futuros",
+      "Atendimento ágil para casos que requerem rapidez na conduta médica",
+    ],
+    preparo:
+      "Não necessita jejum. Recomenda-se apenas retirar correntes, botões metálicos ou sutiãs com aro de metal na região que será examinada.",
+    faq: {
+      q: "Posso pegar o laudo no mesmo dia?",
+      a: "Sim, os exames de raio-x contam com fluxo prioritário de digitação e emissão para que você apresente ao seu médico assistente rapidamente.",
     },
   },
 ];
 
-// Depoimentos Reais / Google Reviews da Clínica São Camilo (4,8 Estrelas no Google)
+// Depoimentos Reais / Google Reviews da TOMOSID e Dr. Frederico Cambraia (4,2 Estrelas · 124 avaliações reais)
 interface Testimonial {
   author: string;
   role: string;
@@ -447,94 +498,170 @@ interface Testimonial {
   text: string;
   source: string;
   tag: string;
+  date: string;
 }
 
-const TESTIMONIALS: Testimonial[] = [
+const REAL_TESTIMONIALS: Testimonial[] = [
   {
-    author: "Mariana Silva",
-    role: "Mãe de paciente pediátrico · Nova Serrana",
+    author: "MARIANA WERNECK",
+    role: "Paciente de Gestação de Alto Risco",
     rating: 5,
-    text: "Excelente clínica! Levo meu filho no pediatra aqui desde que ele era recém-nascido. O atendimento é sempre carinhoso, pontual e muito acolhedor. O Teste da Orelhinha quando ele nasceu foi super tranquilo, a fonoaudióloga foi um amor de pessoa.",
-    source: "Avaliação 5 estrelas no Google",
-    tag: "Pediatria",
+    text: "A MELHOR CLÍNICA DA CIDADE! O melhor atendimento que eu e minha esposa recebemos na gestação. Dr. Fred, um exemplo de humanidade! Excelente profissional. Gostaria de deixar meu sincero agradecimento ao Dr. Frederico pelo acompanhamento na minha gestação de alto risco, pela dedicação e competência nos exames.",
+    source: "Google Reviews",
+    tag: "Gestação de Alto Risco & Ecofetal",
+    date: "9 meses atrás",
   },
   {
-    author: "Roberto Guimarães",
-    role: "Gestor de RH · Indústria de Calçados",
+    author: "Bruna Silva",
+    role: "Paciente da Tomosid",
     rating: 5,
-    text: "Nossa empresa encaminha todos os novos funcionários para o ASO admissional e periódico na Clínica São Camilo. O retorno é extremamente rápido, sem burocracia e com exames complementares feitos no mesmo endereço.",
-    source: "Avaliação 5 estrelas no Google",
-    tag: "Medicina do Trabalho",
+    text: "Tive uma ótima experiência na Tomosid. O agendamento foi rápido, o atendimento muito organizado e os profissionais demonstraram um cuidado enorme comigo durante os exames. Dá pra sentir o comprometimento e o respeito com o paciente. Super recomendo! Dr Frederico Cambraia excelente médico.",
+    source: "Google Reviews",
+    tag: "Atendimento Humanizado",
+    date: "9 meses atrás",
   },
   {
-    author: "Camila Ferreira",
-    role: "Paciente da vacinação · Nova Serrana",
+    author: "Luiz Celso Rogana Freire",
+    role: "Paciente de Exames Especializados",
     rating: 5,
-    text: "Fizemos a vacina da gripe com toda a nossa família. As enfermeiras têm uma mão leve e muita paciência com crianças, meu filho de 3 anos nem chorou! Clínica super limpa e organizada.",
-    source: "Avaliação 5 estrelas no Google",
-    tag: "Vacinas",
+    text: "Dr. Frederico é um excelente profissional, com muita experiência e domínio do que faz. Foi extremamente atencioso, explicou tudo com clareza e passou muita segurança durante todo o atendimento. Dá pra perceber o cuidado e a seriedade no trabalho. Recomendo de olhos fechados!",
+    source: "Google Reviews",
+    tag: "Segurança & Clareza",
+    date: "9 meses atrás",
   },
   {
-    author: "Geraldo Alvarenga",
-    role: "Paciente de Cardiologia · Centro, Nova Serrana",
+    author: "Douglas Freire",
+    role: "Morador de Campo Belo",
     rating: 5,
-    text: "Passei pela consulta com o cardiologista e fiquei muito impressionado com o cuidado e a clareza nas explicações. O médico examinou tudo com calma e me passou total segurança. Nota dez!",
-    source: "Avaliação 5 estrelas no Google",
-    tag: "Cardiologia",
+    text: "Não há comparação: é, disparada, a melhor clínica de imagem da região. Além da estrutura e da qualidade dos exames, destaco o profissionalismo e a atenção de toda a equipe. Um atendimento que realmente faz a diferença.",
+    source: "Google Reviews",
+    tag: "Estrutura & Tecnologia",
+    date: "9 meses atrás",
   },
   {
-    author: "Patrícia Mendes",
-    role: "Moradora de Nova Serrana",
+    author: "Alberto Messias",
+    role: "Local Guide Google",
     rating: 5,
-    text: "A localização é ótima, bem no centro da cidade, fácil de estacionar e achar. As recepcionistas são educadíssimas. É a clínica de confiança da nossa família.",
-    source: "Avaliação 5 estrelas no Google",
-    tag: "Atendimento",
+    text: "Fui muito bem atendido desde a recepção até o exame. Equipe atenciosa, ambiente acolhedor e profissionais que realmente se preocupam com o paciente. Atendimento super humanizado. Recomendo!",
+    source: "Google Reviews",
+    tag: "Acolhimento & Recepção",
+    date: "9 meses atrás",
   },
   {
-    author: "Luciana Duarte",
-    role: "Paciente de Nutrição · Nova Serrana",
+    author: "Luiz Antunes",
+    role: "Paciente Frequente da Tomosid",
     rating: 5,
-    text: "O plano nutricional foi feito sob medida para a minha rotina de trabalho. Já eliminei mais de 10kg com saúde e sem passar fome. Atendimento acolhedor que motiva a gente.",
-    source: "Avaliação 5 estrelas no Google",
-    tag: "Nutrição",
+    text: "Sempre que procuro a Tomosid para efetuar exames, sempre fui muito bem atendido pelas recepcionistas e excelentes profissionais. Parabéns, Dr. Frederico Cambraia, sua clínica é modelo e o senhor, um excelente profissional.",
+    source: "Google Reviews",
+    tag: "Clínica Modelo",
+    date: "8 meses atrás",
+  },
+  {
+    author: "Thamila Silva Rezende",
+    role: "Paciente da Tomosid",
+    rating: 5,
+    text: "Ótimo atendimento, totalmente humanizado, Dr. Frederico super atencioso e esclarece todas as nossas dúvidas. Indico para todos em Campo Belo e região!",
+    source: "Google Reviews",
+    tag: "Esclarecimento de Dúvidas",
+    date: "1 ano atrás",
+  },
+  {
+    author: "Iago Lucas",
+    role: "Comunicador Regional",
+    rating: 5,
+    text: "Profissional de excelência! Dr Frederico um ser humano iluminado! Atendimento nota 1000! Parabéns pelo carinho e respeito dedicado a cada paciente.",
+    source: "Google Reviews",
+    tag: "Humanidade Médica",
+    date: "9 meses atrás",
+  },
+  {
+    author: "Dalmy Cassio",
+    role: "Paciente Tomosid",
+    rating: 5,
+    text: "Equipe muito profissional, excelentes médicos, equipamentos modernos, laudos rápidos! Uma clínica que dá orgulho para Campo Belo.",
+    source: "Google Reviews",
+    tag: "Laudos Rápidos",
+    date: "9 meses atrás",
+  },
+  {
+    author: "Astir Abrahão",
+    role: "Paciente da Tomosid",
+    rating: 5,
+    text: "Referência em qualidade diagnóstica, destaca pela excelência técnica, precisão nos exames e compromisso com o paciente! Parabéns a toda equipe.",
+    source: "Google Reviews",
+    tag: "Precisão Técnica",
+    date: "9 meses atrás",
   },
 ];
 
-// Perguntas Frequentes (FAQ)
-const FAQS = [
+// Perguntas Frequentes
+interface FAQItem {
+  question: string;
+  answer: string;
+  category: string;
+}
+
+const FAQ_LIST: FAQItem[] = [
   {
-    q: "Como faço para agendar uma consulta ou exame na Clínica São Camilo?",
-    a: "Você pode agendar de forma rápida e prática diretamente pelo nosso WhatsApp oficial no número (37) 3226-2910 ou ligando para o mesmo número. Nossa equipe responderá prontamente com os dias e horários disponíveis.",
+    question: "Como funciona o agendamento de exames na TOMOSID?",
+    answer:
+      "O agendamento é feito com prioridade e praticidade diretamente pelo nosso WhatsApp oficial (35) 99976-0750. Você pode enviar a foto do seu pedido médico, informar o convênio ou preferência particular e nossa equipe responde com os horários disponíveis e instruções completas de preparo, sem necessidade de esperar no telefone.",
+    category: "Agendamento",
   },
   {
-    q: "A clínica atende convênios ou somente consultas particulares?",
-    a: "Atendemos na modalidade particular com valores acessíveis e facilitados, além de convênios e parcerias corporativas. Entre em contato pelo WhatsApp para confirmarmos a cobertura do seu atendimento.",
+    question: "A TOMOSID atende convênios ou somente exames particulares?",
+    answer:
+      "Atendemos pacientes particulares com condições acessíveis e opções de parcelamento, além de termos parceria com os principais convênios médicos atuantes em Campo Belo e no Sul de Minas. Envie a foto da sua carteirinha de convênio pelo WhatsApp para confirmarmos a autorização instantaneamente.",
+    category: "Convênios",
   },
   {
-    q: "Como funciona o atendimento de Medicina do Trabalho para empresas?",
-    a: "Oferecemos fluxo prioritário e ágil para indústrias e comércios de Nova Serrana e região. Realizamos ASO Admissional, Periódico, Demissional e Mudança de Risco, além de Audiometria e Espirometria no mesmo endereço.",
+    question: "O exame de HyCoSy é realizado pelo Dr. Frederico Cambraia?",
+    answer:
+      "Sim! A HyCoSy (Histerossalpingossoneografia) é realizada pessoalmente pelo Dr. Frederico Cambraia, médico radiologista especialista. O procedimento é guiado por ultrassom de alta resolução, sem radiação e sem uso de iodo, garantindo conforto e acompanhamento atencioso na investigação da fertilidade.",
+    category: "Exames Especiais",
   },
   {
-    q: "Quando deve ser feito o Teste da Orelhinha no bebê?",
-    a: "O Teste da Orelhinha (triagem auditiva neonatal) é obrigatório e deve ser realizado preferencialmente no primeiro mês de vida do bebê. O procedimento é 100% indolor, rápido e pode ser feito enquanto o bebê dorme.",
+    question: "O que é o ultrassom com mapeamento de endometriose profunda?",
+    answer:
+      "É um exame ultrassonográfico pélvico e transvaginal altamente especializado com preparo intestinal prévio. Ele mapeia detalhadamente nódulos de endometriose que não aparecem em ultrassons de rotina comuns, avaliando ligamentos, ovários, bexiga e alças intestinais.",
+    category: "Saúde da Mulher",
   },
   {
-    q: "Quais vacinas estão disponíveis na Clínica São Camilo?",
-    a: "Disponibilizamos a Vacina da Gripe (Influenza) sazonal atualizada, vacinas do calendário infantil, gestantes, idosos e imunizações ocupacionais, com rigoroso controle térmico.",
+    question: "Em quanto tempo os laudos dos exames ficam prontos?",
+    answer:
+      "Os laudos da TOMOSID são emitidos com rigor e agilidade. A maioria dos exames de ultrassonografia e raio-x contam com liberação imediata ou no mesmo dia. Tomografias e ressonâncias que exigem reconstruções 3D e estudos minuciosos têm entrega rápida informada no momento da realização.",
+    category: "Laudos & Resultados",
   },
   {
-    q: "Onde fica a Clínica São Camilo e qual é o horário de funcionamento?",
-    a: "Estamos localizados na Rua Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG (CEP 35519-000). Nosso horário é de segunda a sexta-feira, a partir das 08:00.",
+    question: "Como devo me preparar para exames com contraste?",
+    answer:
+      "Exames de tomografia ou angiotomografia que necessitam de contraste iodado exigem jejum de 4 a 6 horas e apresentação de exame de creatinina recente para avaliar a função renal. Nossa equipe orienta detalhadamente todos os cuidados no agendamento.",
+    category: "Preparo de Exames",
+  },
+  {
+    question: "A TOMOSID realiza biópsias guiadas por imagem?",
+    answer:
+      "Sim. Realizamos punções aspirativas por agulha fina (PAAF) de tireoide e core biopsy de mama e tecidos moles guiadas em tempo real por ultrassom, com anestesia local e sem necessidade de internação hospitalar.",
+    category: "Procedimentos",
+  },
+  {
+    question: "Qual o horário de funcionamento e endereço da TOMOSID?",
+    answer:
+      "Estamos localizados em sede própria moderna na Rua Dom Pedro II, 337 - Centro, Campo Belo - MG (próximo aos principais pontos de referência do Centro). Atendemos de segunda a sexta-feira a partir das 08h00.",
+    category: "Localização",
   },
 ];
 
-export default function Home() {
+export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(null);
-  const [scrolled, setScrolled] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<
+    "todos" | "mulher" | "alta_complexidade" | "ultrassom" | "preventivo"
+  >("todos");
+  const [activeModalExam, setActiveModalExam] = useState<ExamService | null>(
+    null
+  );
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const [filterTag, setFilterTag] = useState<string>("todos");
-  const [showAllSpecialties, setShowAllSpecialties] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -544,212 +671,265 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const filteredSpecialties =
-    filterTag === "todos"
-      ? SPECIALTIES
-      : SPECIALTIES.filter((s) =>
-          filterTag === "ocupacional"
-            ? s.id === "medicina-do-trabalho" || s.id === "audiometria"
-            : filterTag === "infantil"
-            ? s.id === "pediatria" || s.id === "vacinas" || s.id === "audiometria"
-            : filterTag === "clinica"
-            ? s.id !== "medicina-do-trabalho"
-            : true
-        );
-
-  const displayedSpecialties = showAllSpecialties
-    ? filteredSpecialties
-    : filteredSpecialties.slice(0, 4);
+  const filteredExams =
+    selectedCategory === "todos"
+      ? EXAM_SERVICES
+      : EXAM_SERVICES.filter((e) => e.category === selectedCategory);
 
   return (
-    <div className="relative min-h-screen bg-[#f8fafb] text-slate-800 antialiased overflow-x-hidden">
-      {/* Top Bar Sóbrio e Elegante */}
-      <div className="bg-[#062d29] text-slate-200 text-xs py-2 px-4 border-b border-teal-950/40">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 sm:gap-4 flex-wrap text-[11px] sm:text-xs">
-            <span className="inline-flex items-center gap-1.5 font-medium text-slate-100">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>{GOOGLE_RATING} ★ ({GOOGLE_REVIEW_COUNT} avaliações no Google)</span>
-            </span>
-            <span className="hidden sm:inline-block text-teal-800">|</span>
-            <span className="hidden sm:inline-flex items-center gap-1 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-teal-400" />
-              Seg. a Sex. a partir das 08:00
-            </span>
-            <span className="hidden md:inline-block text-teal-800">|</span>
-            <span className="hidden md:inline-flex items-center gap-1 text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-teal-400" />
-              Centro, Nova Serrana - MG
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs shrink-0">
+    <div className="relative min-h-screen bg-[#f8fafc] text-[#0f172a] selection:bg-[#991b1b] selection:text-white">
+      {/* 1. TOPBAR DE CREDIBILIDADE MÉDICA OFICIAL */}
+      <aside
+        aria-label="Avisos e Informações de Atendimento"
+        className="bg-[#121318] text-slate-300 text-[12px] border-b border-[#272a38] py-2 px-4 transition-all"
+      >
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <a
-              href={getWhatsAppUrl("Olá! Gostaria de falar com o atendimento da Clínica São Camilo.")}
+              href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-semibold text-emerald-400 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 transition-colors font-semibold"
             >
-              <WhatsAppIcon size={14} />
-              <span>{PHONE_DISPLAY}</span>
+              <div className="flex items-center text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={12}
+                    className="fill-amber-400 text-amber-400"
+                  />
+                ))}
+              </div>
+              <span className="text-white font-bold">{GOOGLE_RATING}</span>
+              <span className="text-slate-400 font-normal">
+                ({GOOGLE_REVIEW_COUNT} avaliações no Google)
+              </span>
             </a>
+
+            <div className="hidden md:flex items-center gap-1.5 text-slate-400">
+              <MapPin size={13} className="text-slate-400" />
+              <span className="text-slate-300">R. Dom Pedro II, 337 - Centro · Campo Belo - MG</span>
+            </div>
+
+            <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
+              <Clock size={13} className="text-slate-400" />
+              <span className="text-slate-300">Seg. a Sex. a partir das 08h00</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-white transition-colors"
-              title="Instagram Clínica São Camilo"
+              className="hidden sm:inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
             >
-              <InstagramIcon size={14} />
+              <InstagramIcon size={13} className="text-slate-400" />
+              <span className="text-slate-300">{INSTAGRAM_HANDLE}</span>
+            </a>
+
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#22c55e] hover:text-[#4ade80] font-bold transition-colors"
+            >
+              <WhatsAppIcon size={13} />
+              <span>Agendamento: {PHONE_DISPLAY}</span>
             </a>
           </div>
         </div>
-      </div>
+      </aside>
 
-      {/* Header Fixo com Logo Nitido e Navegação Equilibrada */}
+      {/* 2. HEADER NAVEGAÇÃO PRINCIPAL (LIMPO, EQUILIBRADO E SEM QUEBRAS INDESEJADAS) */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-200 bg-white/95 backdrop-blur-md border-b ${
-          scrolled ? "border-slate-200 shadow-sm" : "border-slate-100"
+        className={`sticky top-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 py-3"
+            : "bg-white border-b border-slate-100 py-3.5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-4">
-          {/* Logo da Clínica São Camilo (+10% ampliado, nítido e fixo) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+          {/* Logo Oficial TOMOSID */}
           <a
             href="#"
-            className="flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-[#0d766e] rounded-lg"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#991b1b] rounded-lg flex-shrink-0"
           >
-            <div className="relative w-[195px] sm:w-[230px] h-12 sm:h-[53px] shrink-0">
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 transition-transform group-hover:scale-105">
               <Image
-                src={LOGO_SRC}
-                alt="Clínica São Camilo"
-                fill
-                sizes="230px"
+                src={LOGO_EMBLEM_SRC}
+                alt="Emblema TOMOSID"
+                width={44}
+                height={44}
                 priority
-                className="object-contain object-left"
+                className="object-contain"
               />
+            </div>
+            <div className="flex flex-col flex-shrink-0 min-w-0">
+              <div className="flex items-baseline leading-none mb-1">
+                <span className="font-heading font-black text-2xl tracking-tight text-slate-900">
+                  TOMO
+                </span>
+                <span className="font-heading font-black text-2xl tracking-tight text-[#991b1b]">
+                  SID
+                </span>
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-slate-600 leading-tight whitespace-nowrap">
+                DIAGNÓSTICO POR IMAGEM
+              </span>
+              <span className="text-[9.5px] font-medium text-slate-500 leading-tight whitespace-nowrap">
+                Dr. Frederico Cambraia · CRM-MG 34752
+              </span>
             </div>
           </a>
 
-          {/* Menu Desktop Enxuto e Limpo */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <a href="#especialidades" className="nav-link">
-              Especialidades
+          {/* Links de navegação desktop (Linha única, sem quebra, espaçamento harmonioso) */}
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-6 text-[13px] xl:text-[13.5px] font-semibold text-slate-600">
+            <a
+              href="#exames"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
+              Exames
             </a>
-            <a href="#medicina-trabalho" className="nav-link">
-              Medicina do Trabalho
+            <a
+              href="#dr-frederico"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
+              Dr. Frederico
             </a>
-            <a href="#vacinas" className="nav-link">
-              Vacinas & Exames
+            <a
+              href="#saude-mulher"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
+              Saúde da Mulher
             </a>
-            <a href="#sobre" className="nav-link">
-              Sobre Nós
+            <a
+              href="#estrutura"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
+              Estrutura
             </a>
-            <a href="#depoimentos" className="nav-link">
-              Avaliações
+            <a
+              href="#depoimentos"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
+              Depoimentos
             </a>
-            <a href="#localizacao" className="nav-link">
-              Localização
+            <a
+              href="#convenios"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
+              Convênios
             </a>
-            <a href="#duvidas" className="nav-link">
+            <a
+              href="#faq"
+              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+            >
               Dúvidas
             </a>
           </nav>
 
-          {/* CTA Header Sóbrio e Elegante */}
-          <div className="hidden sm:flex items-center shrink-0">
+          {/* Ação CTA Direta no Header: WhatsApp Verde Oficial (Elimina o bloco vermelho agressivo) */}
+          <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
             <GlowingButton
-              href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo.")}
+              href={getWhatsAppUrl(
+                "Olá! Gostaria de verificar horários para agendar um exame na TOMOSID."
+              )}
               target="_blank"
-              variant="primary"
+              variant="whatsapp"
               size="sm"
-              className="gap-2 shrink-0"
+              className="shadow-sm font-bold whitespace-nowrap px-4 py-2 text-[12.5px]"
             >
-              <WhatsAppIcon size={15} />
-              <span>Agendar Consulta</span>
+              <WhatsAppIcon size={15} className="flex-shrink-0" />
+              <span className="whitespace-nowrap">Agendar Exame</span>
             </GlowingButton>
           </div>
 
-          {/* Botão Mobile */}
+          {/* Botão Menu Mobile */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors focus-visible:outline-2 focus-visible:outline-[#0d766e]"
-            aria-label="Abrir menu"
+            className="lg:hidden p-2 text-slate-700 hover:text-[#991b1b] focus:outline-none"
+            aria-label="Abrir menu de navegação"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
-        {/* Menu Mobile */}
+        {/* Menu Mobile Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 shadow-lg"
+              className="lg:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-4 shadow-lg"
             >
-              <div className="flex flex-col gap-2.5 text-sm font-semibold text-slate-700">
+              <nav className="flex flex-col space-y-3 font-semibold text-slate-800 text-[15px]">
                 <a
-                  href="#especialidades"
+                  href="#exames"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
-                  Especialidades Médicas
+                  Exames & Serviços
                 </a>
                 <a
-                  href="#medicina-trabalho"
+                  href="#dr-frederico"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
-                  Medicina do Trabalho (ASO)
+                  Dr. Frederico Cambraia (Radiologista)
                 </a>
                 <a
-                  href="#vacinas"
+                  href="#saude-mulher"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
-                  Vacinas & Teste da Orelhinha
+                  Saúde da Mulher & Fetal (Endometriose / HyCoSy)
                 </a>
                 <a
-                  href="#sobre"
+                  href="#estrutura"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
-                  Sobre Nós
+                  Estrutura na R. Dom Pedro II, 337
                 </a>
                 <a
                   href="#depoimentos"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
-                  Avaliações Google (4,8★)
+                  Depoimentos de Pacientes (4,2 ★)
                 </a>
                 <a
-                  href="#localizacao"
+                  href="#convenios"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
-                  Como Chegar & Horários
+                  Convênios & Particular
                 </a>
                 <a
-                  href="#duvidas"
+                  href="#faq"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                  className="py-1 hover:text-[#991b1b]"
                 >
                   Perguntas Frequentes
                 </a>
-                <div className="pt-2">
-                  <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo.")}
-                    target="_blank"
-                    variant="primary"
-                    size="md"
-                    className="w-full gap-2 justify-center"
-                  >
-                    <WhatsAppIcon size={16} />
-                    <span>Agendar pelo WhatsApp</span>
-                  </GlowingButton>
+              </nav>
+
+              <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+                <GlowingButton
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  variant="whatsapp"
+                  size="md"
+                  className="w-full justify-center font-bold"
+                >
+                  <WhatsAppIcon size={16} />
+                  <span>Agendamento no WhatsApp: {PHONE_DISPLAY}</span>
+                </GlowingButton>
+                <div className="text-center text-[12px] text-slate-500">
+                  R. Dom Pedro II, 337 - Centro · Campo Belo - MG
                 </div>
               </div>
             </motion.div>
@@ -757,148 +937,154 @@ export default function Home() {
         </AnimatePresence>
       </header>
 
-      {/* Hero Section Sóbria, Médica e Acolhedora */}
-      <section className="relative overflow-hidden pt-10 pb-14 sm:pt-14 sm:pb-20 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            {/* Texto do Hero */}
-            <div className="lg:col-span-7 flex flex-col items-start">
-              {/* Badge discreto */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-[#0d766e] text-xs font-semibold tracking-wide mb-4">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                Clínica Médica Multidisciplinar em Nova Serrana - MG
+      {/* 3. HERO SECTION DE ALTA CONVERSÃO & AUTORIDADE */}
+      <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-white via-[#fcfbf9] to-[#f8fafc]">
+        {/* Glow de fundo suave e discreto */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-red-50/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-slate-200/40 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Coluna Texto & Proposta de Valor */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-slate-700 text-[12px] font-bold tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-[#991b1b]" />
+                CENTRO DE DIAGNÓSTICO MÉDICO POR IMAGEM · CAMPO BELO - MG
               </div>
 
-              {/* Título sem gradiente multicolorido chamativo */}
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.18] mb-5">
-                Cuidado completo, médicos especialistas e{" "}
-                <span className="text-[#0d766e]">atendimento humanizado</span>{" "}
-                para toda a sua família.
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.14]">
+                Precisão diagnóstica com tecnologia avançada e o{" "}
+                <span className="text-[#991b1b] underline decoration-slate-300 underline-offset-4">
+                  cuidado humanizado
+                </span>{" "}
+                que você merece.
               </h1>
 
-              {/* Subtítulo sóbrio */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-7 max-w-2xl font-normal">
-                Da <strong>Pediatria</strong> à <strong>Medicina do Trabalho</strong> para empresas: consultas com médicos especialistas, <strong>Vacina da Gripe</strong>, <strong>Teste da Orelhinha</strong> e exames no mesmo local, com excelência comprovada por mais de <strong>200 avaliações 4,8 estrelas no Google</strong>.
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                Na <strong>TOMOSID</strong>, unimos equipamentos de ponta à
+                experiência e acolhimento do{" "}
+                <strong className="text-slate-900">Dr. Frederico Cambraia</strong>{" "}
+                (CRM-MG 34752 / RQE 10424). Realize seus exames de Tomografia,
+                Ressonância Magnética, Ultrassonografia, Mapeamento de
+                Endometriose, HyCoSy e Ecofetal em Campo Belo com segurança e agilidade.
               </p>
 
-              {/* Botões do Hero com visual refinado */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-8">
+              {/* Badges de Credenciais Rápidas */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+                  <BadgeCheck size={18} className="text-[#991b1b] flex-shrink-0" />
+                  <span className="text-[12px] font-bold text-slate-800">
+                    Dr. Frederico Cambraia
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+                  <Star size={18} className="text-amber-500 fill-amber-500 flex-shrink-0" />
+                  <span className="text-[12px] font-bold text-slate-800">
+                    4,2 ★ Google (124 avaliações)
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs col-span-2 sm:col-span-1">
+                  <Shield size={18} className="text-[#991b1b] flex-shrink-0" />
+                  <span className="text-[12px] font-bold text-slate-800">
+                    Convênios & Particular
+                  </span>
+                </div>
+              </div>
+
+              {/* Botões de Ação */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo em Nova Serrana.")}
+                  href={getWhatsAppUrl(
+                    "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia."
+                  )}
                   target="_blank"
-                  variant="primary"
+                  variant="whatsapp"
                   size="lg"
-                  className="gap-2.5"
+                  className="font-bold text-base shadow-sm"
                 >
                   <WhatsAppIcon size={18} />
-                  <span>Agendar Consulta via WhatsApp</span>
+                  <span>Agendar Exame no WhatsApp</span>
                 </GlowingButton>
 
                 <GlowingButton
-                  href="#especialidades"
+                  href="#exames"
                   variant="outline"
                   size="lg"
-                  className="gap-2"
+                  className="font-bold text-slate-700"
                 >
-                  <span>Conhecer Especialidades</span>
-                  <ArrowRight className="w-4 h-4 text-slate-500" />
+                  <Scan size={18} className="text-slate-600" />
+                  <span>Ver Exames & Preparos</span>
                 </GlowingButton>
               </div>
 
-              {/* Badges de Confiança Limpos */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full border-t border-slate-100 pt-5 text-left">
-                <div>
-                  <p className="font-heading font-extrabold text-xl text-[#0d766e]">
-                    4,8 ★
-                  </p>
-                  <p className="text-[11px] text-slate-500 font-medium">
-                    203 avaliações Google
-                  </p>
-                </div>
-                <div>
-                  <p className="font-heading font-extrabold text-xl text-slate-800">
-                    +11 Especialidades
-                  </p>
-                  <p className="text-[11px] text-slate-500 font-medium">
-                    Corpo médico completo
-                  </p>
-                </div>
-                <div>
-                  <p className="font-heading font-extrabold text-xl text-[#0d766e]">
-                    ASO Ágil
-                  </p>
-                  <p className="text-[11px] text-slate-500 font-medium">
-                    Medicina do Trabalho
-                  </p>
-                </div>
-                <div>
-                  <p className="font-heading font-extrabold text-xl text-slate-800">
-                    No Centro
-                  </p>
-                  <p className="text-[11px] text-slate-500 font-medium">
-                    Nova Serrana - MG
-                  </p>
-                </div>
+              {/* Alerta de facilidade de agendamento */}
+              <div className="flex items-center gap-2 text-[12.5px] text-slate-500 pt-1">
+                <CheckCircle2 size={15} className="text-emerald-600 flex-shrink-0" />
+                <span>
+                  Atendimento ágil direto pelo WhatsApp: sem espera na linha telefônica.
+                </span>
               </div>
             </div>
 
-            {/* Imagem do Hero Limpa e Elegante */}
+            {/* Coluna Visual: Fachada Oficial e Totem */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/50 bg-white">
-                  <div className="relative aspect-[4/3]">
+                {/* Moldura do card fotográfico */}
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 group">
+                  <div className="relative h-[380px] sm:h-[420px] w-full">
                     <Image
-                      src={FOTO_ATENDIMENTO_SRC}
-                      alt="Atendimento Médico Humanizado na Clínica São Camilo"
+                      src={FACHADA_SRC}
+                      alt="Fachada Oficial da Clínica TOMOSID na Rua Dom Pedro II, 337 - Centro de Campo Belo - MG"
                       fill
                       priority
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 100vw, 500px"
+                      className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <p className="text-xs uppercase font-bold tracking-wider text-emerald-400">
-                        Atendimento Acolhedor
-                      </p>
-                      <p className="text-sm sm:text-base font-bold font-heading">
-                        Cuidado e respeito com quem você mais ama
-                      </p>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/20 to-transparent" />
                   </div>
-                </div>
 
-                {/* Card Google Avaliações */}
-                <div className="absolute -top-4 -left-4 sm:-left-5 bg-white rounded-xl p-3 shadow-lg border border-slate-200/90 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center font-bold text-sm">
-                    4.8
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-0.5 text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      ))}
+                  {/* Informações sobrepostas na imagem */}
+                  <div className="absolute bottom-0 inset-x-0 p-5 text-white">
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span className="inline-block px-2.5 py-0.5 rounded bg-[#991b1b] text-white text-[10px] font-black uppercase tracking-wider">
+                        SEDE PRÓPRIA NO CENTRO
+                      </span>
+                      <span className="text-[11px] font-bold text-amber-400 flex items-center gap-1">
+                        ★ 4,2 no Google
+                      </span>
                     </div>
-                    <p className="text-[11px] font-bold text-slate-800">
-                      Excelente no Google
+                    <p className="font-heading font-black text-xl text-white leading-tight">
+                      TOMOSID · Diagnóstico por Imagem
                     </p>
-                    <p className="text-[10px] text-slate-500">
-                      203 avaliações reais
+                    <p className="text-slate-200 text-xs mt-1 flex items-center gap-1">
+                      <MapPin size={12} className="text-slate-300 flex-shrink-0" />
+                      Rua Dom Pedro II, 337 - Centro, Campo Belo - MG
                     </p>
                   </div>
                 </div>
 
-                {/* Card Medicina do Trabalho */}
-                <div className="absolute -bottom-4 -right-3 sm:-right-4 bg-[#0a2e2a] rounded-xl p-3 shadow-xl border border-teal-800/40 text-white flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-teal-800/40 flex items-center justify-center text-emerald-400">
-                    <Briefcase className="w-4 h-4" />
+                {/* Badge Flutuante: Especialidades do Totem */}
+                <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl p-3.5 shadow-xl max-w-[260px] hidden sm:block">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#991b1b]" />
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-800">
+                      Exames no Local
+                    </span>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold text-white flex items-center gap-1.5">
-                      Medicina do Trabalho & ASO
-                    </p>
-                    <p className="text-[10px] text-slate-300">
-                      Agilidade para o RH de Nova Serrana
-                    </p>
+                  <p className="text-[11.5px] text-slate-600 leading-snug font-medium">
+                    Tomografia · Ressonância · Ultrassom · Mapeamento de Endometriose · HyCoSy · Biópsias
+                  </p>
+                </div>
+
+                {/* Badge Flutuante: Responsável Técnico */}
+                <div className="absolute -top-4 -right-4 sm:-right-6 bg-[#121318] text-white rounded-xl p-3 shadow-xl border border-slate-700 hidden sm:block">
+                  <div className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">
+                    RESPONSÁVEL TÉCNICO
+                  </div>
+                  <div className="text-xs font-black text-white mt-0.5">
+                    Dr. Frederico Cambraia
+                  </div>
+                  <div className="text-[10px] text-slate-400">
+                    CRM-MG 34752 · RQE 10424
                   </div>
                 </div>
               </div>
@@ -907,984 +1093,998 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Faixa de Estatísticas */}
-      <section className="border-b border-slate-200 bg-slate-50/60 py-8">
+      {/* 4. BARRA DE MÉTRICAS & CREDIBILIDADE DIAGNÓSTICA */}
+      <section className="bg-[#121318] text-white border-y border-[#272a38] py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x md:divide-slate-200">
-            <div className="px-3">
-              <span className="font-heading font-black text-2xl sm:text-3xl text-[#0d766e]">
-                4,8 ★
-              </span>
-              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="space-y-1">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-amber-400">
+                4,2 ★
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white">
                 Avaliação no Google
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Mais de 200 opiniões reais
-              </p>
+              </div>
+              <div className="text-[11px] text-slate-400">
+                124 avaliações reais de pacientes
+              </div>
             </div>
 
-            <div className="px-3">
-              <span className="font-heading font-black text-2xl sm:text-3xl text-slate-800">
-                11+
-              </span>
-              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
-                Especialidades Médicas
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Da infância à terceira idade
-              </p>
+            <div className="space-y-1">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-white">
+                +12
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white">
+                Modalidades Diagnósticas
+              </div>
+              <div className="text-[11px] text-slate-400">
+                Tomografia, Ressonância, Ultrassom e mais
+              </div>
             </div>
 
-            <div className="px-3">
-              <span className="font-heading font-black text-2xl sm:text-3xl text-[#0d766e]">
+            <div className="space-y-1">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-slate-200">
+                RQE 10424
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white">
+                Dr. Frederico Cambraia
+              </div>
+              <div className="text-[11px] text-slate-400">
+                CRM-MG 34752 · Radiologista Especialista
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-white">
                 100%
-              </span>
-              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
-                Exames no Local
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Audiometria e Teste da Orelhinha
-              </p>
-            </div>
-
-            <div className="px-3">
-              <span className="font-heading font-black text-2xl sm:text-3xl text-slate-800">
-                ASO Rápido
-              </span>
-              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
-                Saúde Ocupacional
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Sem filas para sua empresa
-              </p>
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white">
+                Atendimento Integrado
+              </div>
+              <div className="text-[11px] text-slate-400">
+                Particular & Ampla Rede de Convênios
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Seção Especialidades Médicas & Exames */}
-      <section id="especialidades" className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="eyebrow justify-center mb-2.5">
-              Corpo Clínico & Especialidades
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-              Consultas Médicas & Exames na Clínica São Camilo
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Consulte com médicos especialistas em um ambiente moderno, acolhedor e com exames no mesmo endereço em Nova Serrana. Selecione a especialidade para ver detalhes e agendar.
-            </p>
+      {/* 5. CATÁLOGO INTERATIVO DE EXAMES & DIAGNÓSTICOS */}
+      <section id="exames" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+          <div className="eyebrow justify-center">CATÁLOGO COMPLETO DE SERVIÇOS</div>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            Exames de Alta Precisão & Imagem Médica Avançada
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Consulte todas as modalidades diagnósticas realizadas na TOMOSID em
+            Campo Belo. Clique em qualquer exame para visualizar indicações,
+            preparo necessário e orientações clínicas.
+          </p>
 
-            {/* Filtros rápidos e discretos */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
-              {[
-                { id: "todos", label: "Todas (11)" },
-                { id: "infantil", label: "Infantil & Vacinas" },
-                { id: "ocupacional", label: "Medicina do Trabalho" },
-                { id: "clinica", label: "Clínica & Adulto" },
-              ].map((filter) => (
-                <button
-                  key={filter.id}
-                  type="button"
-                  onClick={() => setFilterTag(filter.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                    filterTag === filter.id
-                      ? "bg-[#0d766e] text-white shadow-2xs"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200/80"
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Grid de Cards de Especialidades (4 visíveis inicialmente + botão Ver Mais) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {displayedSpecialties.map((spec) => (
-              <div
-                key={spec.id}
-                className="bg-white rounded-xl p-5 border border-slate-200/80 hover:border-[#0d766e]/60 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+          {/* Filtros por Categoria */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+            {[
+              { id: "todos", label: "Todos os Exames (12)" },
+              { id: "mulher", label: "Saúde da Mulher & Fetal (5)" },
+              { id: "alta_complexidade", label: "Alta Complexidade / 3D (3)" },
+              { id: "ultrassom", label: "Ultrassonografia Geral (2)" },
+              { id: "preventivo", label: "Preventivos & Raio-X (2)" },
+            ].map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() =>
+                  setSelectedCategory(
+                    cat.id as
+                      | "todos"
+                      | "mulher"
+                      | "alta_complexidade"
+                      | "ultrassom"
+                      | "preventivo"
+                  )
+                }
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                  selectedCategory === cat.id
+                    ? "bg-[#1e293b] text-white shadow-sm"
+                    : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                }`}
               >
-                <div>
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-semibold bg-teal-50 text-[#0d766e]">
-                      {spec.badge}
-                    </span>
-                    <span className="text-[10px] font-medium text-slate-400">
-                      {spec.tag}
-                    </span>
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Grid de Cards dos Exames */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredExams.map((exam) => (
+            <div
+              key={exam.id}
+              className="card-clinical rounded-xl p-6 flex flex-col justify-between hover:border-slate-400 transition-all group"
+            >
+              <div className="space-y-3.5">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#fdf8f8] text-[#991b1b] border border-red-100">
+                    {exam.tag}
+                  </span>
+                  <span className="text-[11px] font-semibold text-slate-500">
+                    {exam.badge}
+                  </span>
+                </div>
+
+                <h3 className="font-heading font-black text-lg text-slate-900 group-hover:text-[#991b1b] transition-colors leading-snug">
+                  {exam.title}
+                </h3>
+
+                <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed line-clamp-3">
+                  {exam.shortDesc}
+                </p>
+
+                <div className="space-y-1.5 pt-1">
+                  <div className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                    Principais Indicações:
                   </div>
+                  <ul className="space-y-1 text-slate-600 text-xs">
+                    {exam.indications.slice(0, 2).map((ind, i) => (
+                      <li key={i} className="flex items-start gap-1.5">
+                        <CheckCircle2
+                          size={13}
+                          className="text-[#991b1b] flex-shrink-0 mt-0.5"
+                        />
+                        <span className="line-clamp-1">{ind}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-                  <h3 className="font-heading font-bold text-lg text-slate-900 mb-2">
-                    {spec.title}
-                  </h3>
+              <div className="pt-5 mt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => setActiveModalExam(exam)}
+                  className="text-xs font-bold text-slate-800 hover:text-[#991b1b] inline-flex items-center gap-1 transition-colors cursor-pointer"
+                >
+                  <span>Ver Detalhes & Preparo</span>
+                  <ArrowRight size={13} />
+                </button>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                    {spec.shortDesc}
-                  </p>
+                <GlowingButton
+                  href={getWhatsAppUrl(
+                    `Olá! Gostaria de agendar o exame de ${exam.title} na TOMOSID.`
+                  )}
+                  target="_blank"
+                  variant="whatsapp"
+                  size="sm"
+                  className="text-xs font-bold"
+                >
+                  <WhatsAppIcon size={13} />
+                  <span>Agendar</span>
+                </GlowingButton>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-                  <div className="space-y-1.5 mb-5">
-                    {spec.indications.slice(0, 2).map((ind, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-500">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+      {/* MODAL DETALHADO DO EXAME */}
+      <AnimatePresence>
+        {activeModalExam && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6 relative"
+            >
+              {/* Botão Fechar */}
+              <button
+                type="button"
+                onClick={() => setActiveModalExam(null)}
+                className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+                aria-label="Fechar detalhes do exame"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="space-y-2">
+                <div className="inline-block px-3 py-1 rounded-full bg-[#fdf8f8] text-[#991b1b] text-xs font-bold border border-red-100">
+                  {activeModalExam.tag} · {activeModalExam.badge}
+                </div>
+                <h3 className="font-heading font-black text-2xl sm:text-3xl text-slate-900 leading-tight">
+                  {activeModalExam.title}
+                </h3>
+              </div>
+
+              <div className="space-y-4 text-slate-700 text-sm leading-relaxed">
+                <p>{activeModalExam.fullDesc}</p>
+
+                {/* Indicações */}
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-2">
+                  <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <CheckCircle2 size={15} className="text-[#991b1b]" />
+                    Quando o exame é indicado:
+                  </h4>
+                  <ul className="space-y-1.5 text-xs text-slate-600">
+                    {activeModalExam.indications.map((ind, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#991b1b] mt-1.5 flex-shrink-0" />
                         <span>{ind}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Diferenciais TOMOSID */}
+                <div className="space-y-2">
+                  <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider">
+                    Diferenciais e Vantagens na TOMOSID:
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    {activeModalExam.benefits.map((ben, i) => (
+                      <div
+                        key={i}
+                        className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 flex items-start gap-2"
+                      >
+                        <Shield size={14} className="text-[#991b1b] flex-shrink-0 mt-0.5" />
+                        <span>{ben}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedSpecialty(spec)}
-                    className="text-xs font-bold text-[#0d766e] hover:text-[#0f5f59] inline-flex items-center gap-1 transition-colors cursor-pointer"
-                  >
-                    Ver detalhes
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <GlowingButton
-                    href={getWhatsAppUrl(`Olá! Gostaria de agendar uma consulta de ${spec.title} na Clínica São Camilo.`)}
-                    target="_blank"
-                    variant="primary"
-                    size="sm"
-                  >
-                    <span>Agendar</span>
-                  </GlowingButton>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Botão Ver Mais / Ver Menos Especialidades */}
-          {filteredSpecialties.length > 4 && (
-            <div className="mt-8 flex justify-center">
-              <button
-                type="button"
-                onClick={() => setShowAllSpecialties(!showAllSpecialties)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#0d766e] hover:border-[#0d766e] font-semibold text-xs uppercase tracking-wide transition-all shadow-2xs hover:shadow-xs cursor-pointer"
-              >
-                <span>
-                  {showAllSpecialties
-                    ? "Ver menos"
-                    : `Ver mais especialidades (+${filteredSpecialties.length - 4})`}
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
-                    showAllSpecialties ? "rotate-180 text-[#0d766e]" : ""
-                  }`}
-                />
-              </button>
-            </div>
-          )}
-
-          {/* Banner de Destaque da Clínica com cores sóbrias */}
-          <div className="mt-12 bg-[#08332e] rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden border border-teal-900/60 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              <div className="lg:col-span-7">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-teal-800/50 text-teal-200 text-xs font-semibold mb-3">
-                  Atendimento Multidisciplinar
-                </span>
-                <h3 className="font-heading text-xl sm:text-2xl font-bold mb-3 leading-snug">
-                  Todas as especialidades e exames que sua família e empresa precisam em Nova Serrana.
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
-                  Pediatria, Medicina do Trabalho, Vacinas, Angiologia, Audiometria / Teste da Orelhinha, Cardiologia, Nutrição, Otorrino, Pneumologia, Psiquiatria e Urologia.
-                </p>
-                <div className="flex flex-wrap items-center gap-3">
-                  <GlowingButton
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar na Clínica São Camilo.")}
-                    target="_blank"
-                    variant="whatsapp"
-                    size="sm"
-                    className="gap-2"
-                  >
-                    <WhatsAppIcon size={15} />
-                    <span>WhatsApp: (37) 3226-2910</span>
-                  </GlowingButton>
-                  <span className="text-xs text-slate-400">
-                    Rua Antônio Ferreira do Amaral, 136 - Centro
-                  </span>
-                </div>
-              </div>
-
-              <div className="lg:col-span-5 flex justify-center">
-                <div className="relative w-full max-w-sm rounded-xl overflow-hidden border border-teal-700/40 shadow bg-white p-2">
-                  <Image
-                    src={BANNER_SRC}
-                    alt="Especialidades da Clínica São Camilo"
-                    width={500}
-                    height={280}
-                    className="w-full h-auto rounded object-contain"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Medicina do Trabalho Corporativa */}
-      <section id="medicina-trabalho" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6">
-              <div className="eyebrow mb-2.5">Saúde Ocupacional & Empresas</div>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Medicina do Trabalho ágil e sem filas para indústrias e comércios de Nova Serrana.
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-                Como polo calçadista dinâmico, Nova Serrana exige agilidade na contratação e no controle da saúde ocupacional. A Clínica São Camilo oferece estrutura completa para atender seus colaboradores, emitindo o ASO com agilidade e total conformidade com o eSocial.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-                {[
-                  {
-                    title: "ASO Admissional & Periódico",
-                    desc: "Agilidade na contratação de novos colaboradores.",
-                  },
-                  {
-                    title: "Exames no Mesmo Local",
-                    desc: "Audiometria ocupacional, espirometria e ECG centralizados.",
-                  },
-                  {
-                    title: "Demissional & Retorno",
-                    desc: "Segurança jurídica e laudos precisos para a sua empresa.",
-                  },
-                  {
-                    title: "Fluxo Sem Longas Filas",
-                    desc: "Agendamento organizado para os funcionários não perderem o dia.",
-                  },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3.5 rounded-xl bg-white border border-slate-200"
-                  >
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e]">
-                        {item.title}
-                      </h4>
-                    </div>
-                    <p className="text-xs text-slate-500">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <GlowingButton
-                  href={getWhatsAppUrl("Olá! Sou do setor de RH/empresa e gostaria de informações sobre Medicina do Trabalho / ASO.")}
-                  target="_blank"
-                  variant="primary"
-                  size="md"
-                  className="gap-2"
-                >
-                  <Briefcase className="w-4 h-4" />
-                  <span>Cadastrar Empresa / Solicitar Atendimento</span>
-                </GlowingButton>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={FOTO_ESTRUTURA_SRC}
-                    alt="Infraestrutura da Clínica São Camilo"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 550px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-xs uppercase font-bold tracking-wider text-emerald-400">
-                      Infraestrutura Completa
-                    </p>
-                    <p className="font-heading text-base font-bold">
-                      Recepção climatizada, consultórios modernos e atendimento pontual
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Sobre a Clínica */}
-      <section id="sobre" className="py-16 sm:py-20 bg-white border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5 order-2 lg:order-1 relative">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
-                <Image
-                  src={FOTO_ATENDIMENTO_SRC}
-                  alt="Corpo Clínico da Clínica São Camilo"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              <div className="mt-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                <div>
-                  <p className="text-xs uppercase font-bold text-slate-500">
-                    Reputação no Google
-                  </p>
-                  <p className="font-heading font-extrabold text-sm text-[#0d766e]">
-                    Nota 4,8 ★ (203 avaliações)
-                  </p>
-                </div>
-                <div className="flex items-center gap-0.5 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="eyebrow mb-2.5">Sobre a Clínica São Camilo</div>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Tradição, acolhimento e excelência médica no coração de Nova Serrana.
-              </h2>
-              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed">
-                <p>
-                  A <strong>Clínica São Camilo</strong> nasceu com o propósito de oferecer a Nova Serrana e cidades vizinhas uma medicina resolutiva, humanizada e com acesso facilitado a especialistas de renome.
-                </p>
-                <p>
-                  Com localização estratégica no Centro (Rua Antônio Ferreira do Amaral, 136), reunimos em um único endereço consultas médicas em mais de 11 áreas, setor exclusivo de Medicina Ocupacional para empresas, imunização e exames complementares de alta precisão como o Teste da Orelhinha e a Audiometria.
-                </p>
-                <p>
-                  Aqui, cada paciente — do bebê que vem para suas primeiras vacinas até o trabalhador que faz seu exame periódico — é acolhido com atenção, respeito ao seu tempo e a dedicação que a sua saúde merece.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-6 pt-5 border-t border-slate-100">
-                <div>
-                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
-                    Humanização
+                {/* Preparo */}
+                <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200 space-y-1.5">
+                  <h4 className="font-bold text-amber-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <Clock size={15} className="text-amber-700" />
+                    Orientações de Preparo para o Exame:
                   </h4>
-                  <p className="text-xs text-slate-500">
-                    Médicos que ouvem com atenção e explicam cada conduta.
+                  <p className="text-xs text-amber-900/90 leading-relaxed">
+                    {activeModalExam.preparo}
                   </p>
                 </div>
-                <div>
-                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
-                    Pontualidade
+
+                {/* Dúvida Frequente */}
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <h4 className="font-bold text-slate-900 text-xs">
+                    Dúvida comum: {activeModalExam.faq.q}
                   </h4>
-                  <p className="text-xs text-slate-500">
-                    Agendamentos organizados para respeitar o seu tempo.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
-                    Tudo no Mesmo Local
-                  </h4>
-                  <p className="text-xs text-slate-500">
-                    Consultas, exames e vacinas sem deslocamentos desnecessários.
+                  <p className="text-xs text-slate-600">
+                    {activeModalExam.faq.a}
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Seção Diferenciais em Deep Teal Elegante (Sem cores berrantes) */}
-      <section id="diferenciais" className="py-16 sm:py-20 bg-[#062d29] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="eyebrow-dark justify-center mb-2.5">
-              Por que nos escolher
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
-              6 Pilares que tornam a Clínica São Camilo referência em Nova Serrana
-            </h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Aliamos rigor científico, equipamentos modernos e a vocação genuína de cuidar de vidas.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              {
-                icon: Stethoscope,
-                title: "Corpo Clínico Multidisciplinar",
-                desc: "Médicos especialistas em Pediatria, Cardiologia, Pneumologia, Psiquiatria, Urologia, Angiologia, Otorrino e Nutrição atuando de forma integrada.",
-              },
-              {
-                icon: Briefcase,
-                title: "Referência em Medicina Ocupacional",
-                desc: "ASO rápido, seguro e sem filas para indústrias calçadistas e comércios de Nova Serrana, com total conformidade com o eSocial.",
-              },
-              {
-                icon: Baby,
-                title: "Cuidado com a Primeira Infância",
-                desc: "Pediatria acolhedora, Teste da Orelhinha neonatal indolor e calendário de vacinas aplicadas com carinho.",
-              },
-              {
-                icon: Activity,
-                title: "Exames no Próprio Endereço",
-                desc: "Audiometria tonal e vocal, eletrocardiograma e testes rápidos sem a necessidade de deslocamento para outros laboratórios.",
-              },
-              {
-                icon: MapPin,
-                title: "Localização Central Privilegiada",
-                desc: "Sede de fácil acesso na Rua Antônio Ferreira do Amaral, 136 - Centro, perto de tudo em Nova Serrana.",
-              },
-              {
-                icon: Star,
-                title: "Avaliação 4,8 ★ no Google",
-                desc: "Mais de 200 avaliações de pacientes confirmando a qualidade do atendimento, pontualidade e limpeza do ambiente.",
-              },
-            ].map((pillar, i) => (
-              <div
-                key={i}
-                className="rounded-xl p-5 bg-[#0a3833]/90 border border-teal-800/40 hover:border-teal-600/60 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-teal-800/50 flex items-center justify-center text-teal-300 mb-3">
-                  <pillar.icon className="w-5 h-5" />
-                </div>
-                <h3 className="font-heading font-bold text-base text-white mb-1.5">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <GlowingButton
-              href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo.")}
-              target="_blank"
-              variant="whatsapp"
-              size="md"
-              className="gap-2"
-            >
-              <WhatsAppIcon size={16} />
-              <span>Agendar Agora pelo WhatsApp</span>
-            </GlowingButton>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Depoimentos Reais / Prova Social Google 4,8★ */}
-      <section id="depoimentos" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="eyebrow justify-center mb-2.5">
-              Depoimentos de Pacientes
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-              O que dizem os pacientes da Clínica São Camilo
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Avaliação média de <strong>4,8 estrelas com mais de 203 avaliações no Google</strong>.
-            </p>
-
-            <div className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-700">
-              <span className="flex items-center gap-0.5 text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                ))}
-              </span>
-              <span>Nota Oficial 4,8 / 5,0 no Google</span>
-            </div>
-          </div>
-
-          {/* Grid de Depoimentos */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {TESTIMONIALS.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-xl bg-white border border-slate-200/90 hover:border-slate-300 transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-0.5 text-amber-400">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic mb-4">
-                    &ldquo;{item.text}&rdquo;
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-slate-100">
-                  <p className="font-heading font-bold text-xs text-slate-800">
-                    {item.author}
-                  </p>
-                  <p className="text-[11px] text-slate-400">{item.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <a
-              href={GOOGLE_SEARCH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0d766e] hover:underline"
-            >
-              <span>Ver todas as 203 avaliações no Google</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Localização & Contato */}
-      <section id="localizacao" className="py-16 sm:py-20 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6">
-              <div className="eyebrow mb-2.5">Sede & Agendamento</div>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Fácil de chegar, no centro de Nova Serrana.
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-                Estamos localizados na região central da cidade, com acesso rápido e estacionamento nas proximidades. Venha nos visitar ou agende sua consulta e exame previamente pelo WhatsApp.
-              </p>
-
-              <div className="space-y-3.5 mb-6">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-[#0d766e]" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-700">
-                      Endereço
-                    </h4>
-                    <p className="text-sm font-semibold text-slate-900">
-                      {ADDRESS_STREET} - {ADDRESS_NEIGHBORHOOD}
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      {ADDRESS_CITY} · CEP {ADDRESS_CEP}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4 text-[#0d766e]" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-700">
-                      Telefone & WhatsApp
-                    </h4>
-                    <p className="text-sm font-bold text-slate-900">
-                      {PHONE_DISPLAY}
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      Agendamentos de segunda a sexta-feira
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-[#0d766e]" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-700">
-                      Horário de Atendimento
-                    </h4>
-                    <p className="text-sm font-semibold text-slate-900">
-                      Segunda a Sexta a partir das 08:00
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      Atendimento com pontualidade e agilidade
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <GlowingButton
-                  href={GOOGLE_MAPS_URL}
-                  target="_blank"
-                  variant="primary"
-                  size="md"
-                  className="gap-2"
-                >
-                  <MapPin className="w-4 h-4" />
-                  <span>Traçar Rota no GPS</span>
-                </GlowingButton>
-
-                <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida sobre a localização da clínica.")}
-                  target="_blank"
-                  variant="outline"
-                  size="md"
-                  className="gap-2"
-                >
-                  <WhatsAppIcon size={15} />
-                  <span>Falar no WhatsApp</span>
-                </GlowingButton>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl p-6 sm:p-7 bg-[#062d29] text-white border border-teal-900/60 shadow-lg">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-teal-800/40 text-teal-300 text-xs font-semibold mb-3">
-                  <BadgeCheck className="w-3.5 h-3.5" />
-                  Ponto de Fácil Acesso
-                </div>
-
-                <h3 className="font-heading text-xl font-bold mb-2 text-white">
-                  Clínica São Camilo Nova Serrana
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
-                  Localizada na região central de Nova Serrana, a poucos metros das principais vias e do comércio, oferecendo praticidade para suas consultas e exames ocupacionais.
-                </p>
-
-                <div className="p-3.5 rounded-xl bg-teal-950/50 border border-teal-800/40 mb-5 space-y-2 text-xs text-slate-300">
-                  <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Rua Antônio Ferreira do Amaral, 136 - Centro</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Nova Serrana - MG, 35519-000</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Atendimento a pacientes de toda a região</span>
-                  </p>
-                </div>
-
-                <a
-                  href={GOOGLE_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors"
-                >
-                  <span>Abrir no Google Maps</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Dúvidas Frequentes */}
-      <section id="duvidas" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="eyebrow justify-center mb-2.5">Tire suas Dúvidas</div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-              Perguntas Frequentes
-            </h2>
-            <p className="text-sm text-slate-600">
-              Esclareça dúvidas comuns sobre consultas, exames ocupacionais e vacinas.
-            </p>
-          </div>
-
-          <div className="space-y-2.5">
-            {FAQS.map((faq, index) => {
-              const isOpen = openFaqIndex === index;
-              return (
-                <div
-                  key={index}
-                  className={`rounded-xl border transition-colors overflow-hidden ${
-                    isOpen
-                      ? "border-[#0d766e] bg-white shadow-2xs"
-                      : "border-slate-200 bg-white hover:border-slate-300"
-                  }`}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full p-4 text-left font-heading font-bold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#0d766e]"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      className={`w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#0d766e]" : ""
-                      }`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="px-4 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
-                          {faq.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-8 p-5 rounded-xl bg-teal-50/60 border border-teal-100 text-center">
-            <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
-              Ficou com alguma dúvida específica?
-            </h4>
-            <p className="text-xs text-slate-500 mb-3">
-              Nossa equipe está disponível no WhatsApp para responder prontamente.
-            </p>
-            <GlowingButton
-              href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida sobre os serviços da Clínica São Camilo.")}
-              target="_blank"
-              variant="primary"
-              size="sm"
-              className="gap-2"
-            >
-              <WhatsAppIcon size={14} />
-              <span>Falar com o Atendimento</span>
-            </GlowingButton>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer Sóbrio e Completo */}
-      <footer className="bg-[#04201d] text-white pt-14 pb-10 border-t border-teal-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-teal-900/40">
-            <div className="lg:col-span-2">
-              <a href="#" className="inline-block mb-3">
-                <div className="relative w-52 sm:w-56 h-12 sm:h-13">
-                  <Image
-                    src={LOGO_SRC}
-                    alt="Clínica São Camilo"
-                    fill
-                    sizes="230px"
-                    className="object-contain object-left brightness-105"
-                  />
-                </div>
-              </a>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5 max-w-sm">
-                Clínica médica multidisciplinar em Nova Serrana - MG. Consultas médicas com especialistas, Medicina do Trabalho completa com ASO rápido, Vacinas e Teste da Orelhinha.
-              </p>
-
-              <div className="flex items-center gap-2.5">
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-teal-900/60 border border-teal-800 text-emerald-400 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all"
-                  title="WhatsApp"
-                >
-                  <WhatsAppIcon size={15} />
-                </a>
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-teal-900/60 border border-teal-800 text-teal-300 flex items-center justify-center hover:bg-teal-600 hover:text-white transition-all"
-                  title="Instagram"
-                >
-                  <InstagramIcon size={15} />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-emerald-400 mb-3">
-                Especialidades
-              </h4>
-              <ul className="space-y-1.5 text-xs text-slate-300">
-                <li>Pediatria & Puericultura</li>
-                <li>Medicina do Trabalho (ASO)</li>
-                <li>Cardiologia</li>
-                <li>Angiologia & Varizes</li>
-                <li>Pneumologia</li>
-                <li>Psiquiatria</li>
-                <li>Otorrinolaringologia</li>
-                <li>Nutrição & Urologia</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-emerald-400 mb-3">
-                Exames & Vacinas
-              </h4>
-              <ul className="space-y-1.5 text-xs text-slate-300">
-                <li>Teste da Orelhinha (Neonatal)</li>
-                <li>Audiometria Ocupacional</li>
-                <li>Vacina da Gripe (Influenza)</li>
-                <li>ASO Admissional & Periódico</li>
-                <li>Eletrocardiograma (ECG)</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-emerald-400 mb-3">
-                Atendimento
-              </h4>
-              <ul className="space-y-2 text-xs text-slate-300">
-                <li className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-teal-400 shrink-0 mt-0.5" />
-                  <span>R. Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG</span>
-                </li>
-                <li className="flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>(37) 3226-2910</span>
-                </li>
-                <li className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-teal-400 shrink-0" />
-                  <span>Seg. a Sex. a partir das 08:00</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
-            <p>
-              © {new Date().getFullYear()} Clínica São Camilo. Todos os direitos reservados. Nova Serrana - MG.
-            </p>
-            <div className="flex items-center gap-3">
-              <a href={LINKTREE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                Linktree Oficial
-              </a>
-              <span>·</span>
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                Instagram {INSTAGRAM_HANDLE}
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      {/* Botão Flutuante de WhatsApp */}
-      <div className="fixed bottom-5 right-5 z-50">
-        <a
-          href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo em Nova Serrana.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-3.5 py-2.5 bg-[#16a34a] hover:bg-[#15803d] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 font-semibold text-xs"
-          aria-label="Falar no WhatsApp com a Clínica São Camilo"
-        >
-          <WhatsAppIcon size={18} />
-          <span className="hidden sm:inline-block">WhatsApp</span>
-        </a>
-      </div>
-
-      {/* Modal de Detalhes da Especialidade */}
-      <AnimatePresence>
-        {selectedSpecialty && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-2xs">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              className="relative w-full max-w-xl bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 max-h-[88vh] flex flex-col"
-            >
-              <div className="p-5 bg-[#0a3833] text-white flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 bg-teal-950/60 px-2 py-0.5 rounded">
-                    {selectedSpecialty.badge}
-                  </span>
-                  <h3 className="font-heading font-bold text-xl text-white mt-1">
-                    {selectedSpecialty.title}
-                  </h3>
-                </div>
+              {/* Ações do Modal */}
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <button
                   type="button"
-                  onClick={() => setSelectedSpecialty(null)}
-                  className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
-                  aria-label="Fechar modal"
+                  onClick={() => setActiveModalExam(null)}
+                  className="w-full sm:w-auto px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition-colors"
                 >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div className="p-5 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-600">
-                <div>
-                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1.5">
-                    Sobre o Atendimento
-                  </h4>
-                  <p className="leading-relaxed">{selectedSpecialty.fullDesc}</p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                    <h5 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-800 mb-2 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                      Indicações
-                    </h5>
-                    <ul className="space-y-1">
-                      {selectedSpecialty.indications.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
-                          <span className="text-[#0d766e]">·</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-teal-50/50 border border-teal-100">
-                    <h5 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-2 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-[#0d766e]" />
-                      Benefícios
-                    </h5>
-                    <ul className="space-y-1">
-                      {selectedSpecialty.benefits.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
-                          <span className="text-emerald-600 font-bold">✓</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600">
-                  <p className="font-bold text-slate-800 mb-0.5">
-                    Dúvida Comum: {selectedSpecialty.faq.q}
-                  </p>
-                  <p>{selectedSpecialty.faq.a}</p>
-                </div>
-              </div>
-
-              <div className="p-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3">
-                <button
-                  type="button"
-                  onClick={() => setSelectedSpecialty(null)}
-                  className="px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 cursor-pointer"
-                >
-                  Fechar
+                  Fechar Janela
                 </button>
 
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    `Olá! Gostaria de agendar uma consulta de ${selectedSpecialty.title} na Clínica São Camilo em Nova Serrana.`
+                    `Olá! Gostaria de agendar o exame de ${activeModalExam.title} na TOMOSID com o Dr. Frederico Cambraia.`
                   )}
                   target="_blank"
-                  variant="primary"
-                  size="sm"
-                  className="gap-1.5"
+                  variant="whatsapp"
+                  size="md"
+                  className="w-full sm:w-auto font-bold"
                 >
-                  <WhatsAppIcon size={14} />
-                  <span>Agendar {selectedSpecialty.title}</span>
+                  <WhatsAppIcon size={16} />
+                  <span>Agendar este Exame no WhatsApp</span>
                 </GlowingButton>
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
+
+      {/* 6. DESTAQUE ESPECIAL DE AUTORIDADE: DR. FREDERICO CAMBRAIA */}
+      <section
+        id="dr-frederico"
+        className="py-16 md:py-24 bg-[#121318] text-white border-y border-[#272a38] relative overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Foto e Badge do Médico */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700 bg-slate-900 shadow-xl p-6 sm:p-8 space-y-5">
+                <div className="w-16 h-16 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-200">
+                  <Stethoscope size={32} />
+                </div>
+
+                <div className="space-y-1.5">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-slate-300">
+                    CORPO CLÍNICO & RESPONSÁVEL TÉCNICO
+                  </span>
+                  <h3 className="font-heading font-black text-2xl sm:text-3xl text-white">
+                    Dr. Frederico Cambraia
+                  </h3>
+                  <p className="text-slate-300 font-semibold text-sm">
+                    Médico Radiologista · CRM-MG 34752 · RQE 10424
+                  </p>
+                </div>
+
+                <div className="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-300 leading-relaxed">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
+                    <span>Especialista em Radiologia e Diagnóstico por Imagem</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
+                    <span>Mapeamento de Endometriose Profunda & HyCoSy</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
+                    <span>Ecocardiografia Fetal & Gestação de Alto Risco</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
+                    <span>Biópsias Percutâneas Guiadas por Ultrassom</span>
+                  </div>
+                </div>
+
+                <div className="pt-3">
+                  <a
+                    href={LINKTREE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg border border-slate-700 transition-colors"
+                  >
+                    <span>Acessar Linktree Oficial do Dr. Frederico</span>
+                    <ArrowUpRight size={14} className="text-slate-300" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Texto de Apresentação e Humanização */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="eyebrow-dark">MEDICINA DIAGNÓSTICA COM ALMA E EXCELÊNCIA</div>
+
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
+                Um diagnóstico seguro exige precisão de imagem e, acima de tudo,{" "}
+                <span className="text-slate-200 underline decoration-slate-600">respeito e humanidade</span> com o paciente.
+              </h2>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Com sólida atuação médica e dedicação ao diagnóstico por imagem
+                em Campo Belo, o <strong>Dr. Frederico Cambraia</strong> consolidou
+                a TOMOSID como polo de referência diagnóstica no Sul de Minas
+                Gerais.
+              </p>
+
+              <blockquote className="p-4 rounded-xl bg-slate-900/90 border-l-4 border-[#991b1b] text-slate-200 text-xs sm:text-sm italic leading-relaxed">
+                &ldquo;Sabemos que por trás de cada solicitação de exame existe uma
+                pessoa com suas angústias, expectativas e família. Nossa missão na
+                TOMOSID é aliar a máxima acuidade tecnológica à escuta paciente,
+                clareza na comunicação e acolhimento em cada etapa.&rdquo;
+                <footer className="mt-2 text-right font-bold text-slate-300 not-italic text-xs">
+                  — Dr. Frederico Cambraia
+                </footer>
+              </blockquote>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                  <div className="font-heading font-black text-xl text-white">
+                    Clareza & Explicação
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Dúvidas esclarecidas com calma e segurança durante e após os exames.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                  <div className="font-heading font-black text-xl text-white">
+                    Gestações de Alto Risco
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Acompanhamento minucioso do coração e desenvolvimento fetal.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <GlowingButton
+                  href={getWhatsAppUrl(
+                    "Olá! Gostaria de agendar um exame diretamente com a equipe do Dr. Frederico Cambraia na TOMOSID."
+                  )}
+                  target="_blank"
+                  variant="whatsapp"
+                  size="lg"
+                  className="font-bold text-sm"
+                >
+                  <WhatsAppIcon size={16} />
+                  <span>Agendar Consulta ou Exame via WhatsApp</span>
+                </GlowingButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PILAR DE DESTAQUE: CENTRO AVANÇADO DE SAÚDE DA MULHER & MEDICINA FETAL */}
+      <section id="saude-mulher" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <div className="eyebrow justify-center">DIFERENCIAL EXCLUSIVO NA REGIÃO</div>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            Polo Especializado em Saúde da Mulher & Medicina Fetal
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Exames complexos que antes exigiam deslocamento para grandes centros
+            agora estão disponíveis em Campo Belo com o Dr. Frederico Cambraia.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
+            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
+              <Activity size={24} />
+            </div>
+            <h3 className="font-heading font-black text-lg text-slate-900">
+              Mapeamento de Endometriose
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Varredura de focos profundos na pelve, ovários, bexiga e alças
+              intestinais com protocolo preparatório rigoroso.
+            </p>
+            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
+              Indicado para cólicas e dor crônica →
+            </span>
+          </div>
+
+          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
+            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
+              <Sparkles size={24} />
+            </div>
+            <h3 className="font-heading font-black text-lg text-slate-900">
+              HyCoSy (Permeabilidade Tubária)
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Avaliação de fertilidade feminina sem radiação ionizante e sem iodo,
+              garantindo conforto e segurança no planejamento reprodutivo.
+            </p>
+            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
+              Investigação de fertilidade →
+            </span>
+          </div>
+
+          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
+            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
+              <Baby size={24} />
+            </div>
+            <h3 className="font-heading font-black text-lg text-slate-900">
+              Ecocardiografia Fetal
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Avaliação do coração do feto durante a gestação, fundamental para
+              detecção precoce de cardiopatias e tranquilidade dos pais.
+            </p>
+            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
+              Ideal entre 24ª e 28ª semana →
+            </span>
+          </div>
+
+          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
+            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
+              <Shield size={24} />
+            </div>
+            <h3 className="font-heading font-black text-lg text-slate-900">
+              Biópsias Guiadas (Mama e Tireoide)
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Punção (PAAF) e Core Biopsy guiadas em tempo real com anestesia local,
+              oferecendo resultados anatomopatológicos ágeis.
+            </p>
+            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
+              Procedimento seguro e rápido →
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. SEDE PRÓPRIA & INFRAESTRUTURA (A CLÍNICA NO CENTRO DE CAMPO BELO) */}
+      <section id="estrutura" className="py-16 md:py-24 bg-slate-100/70 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Imagem da Sede */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-900">
+                <div className="relative h-[380px] sm:h-[450px] w-full">
+                  <Image
+                    src={FACHADA_SRC}
+                    alt="Sede Física da Clínica TOMOSID na Rua Dom Pedro II, 337 - Centro de Campo Belo - MG"
+                    fill
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-slate-200">
+                  <p className="font-heading font-black text-slate-900 text-sm sm:text-base">
+                    Sede Própria TOMOSID · Campo Belo - MG
+                  </p>
+                  <p className="text-xs text-slate-600 mt-0.5">
+                    Rua Dom Pedro II, 337 - Centro · Fácil estacionamento e acessibilidade
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Informações da Estrutura */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <div className="eyebrow">ESTRUTURA FÍSICA & TECNOLÓGICA</div>
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                Espaço moderno, asséptico e planejado para o seu conforto.
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                A TOMOSID dispõe de instalações planejadas na área central de
+                Campo Belo, com ambientes climatizados, salas de exames privativas,
+                acessibilidade completa e totem com todas as modalidades
+                diagnósticas integradas em um só lugar.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Scan size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">
+                      Equipamentos Calibrados & Digitais
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Tomógrafo computadorizado multislice, ressonância magnética, ultrassons de alta definição e mamografia digital.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <HeartHandshake size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">
+                      Atendimento Humanizado & Recepção Organizada
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Equipe treinada para acolher cada paciente com empatia, respeito ao horário e esclarecimento claro das etapas.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Compass size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">
+                      Fácil Localização no Centro
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Localizada na Rua Dom Pedro II, 337, de fácil acesso tanto para moradores de Campo Belo quanto para cidades vizinhas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <GlowingButton
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  variant="outline"
+                  size="md"
+                  className="font-bold text-xs"
+                >
+                  <MapPin size={15} className="text-slate-600" />
+                  <span>Traçar Rota no Google Maps</span>
+                </GlowingButton>
+
+                <GlowingButton
+                  href={WAZE_MAPS_URL}
+                  target="_blank"
+                  variant="outline"
+                  size="md"
+                  className="font-bold text-xs"
+                >
+                  <Compass size={15} className="text-slate-600" />
+                  <span>Abrir no Waze</span>
+                </GlowingButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. PROVA SOCIAL REAL: GOOGLE REVIEWS (4,2 ESTRELAS · 124 AVALIAÇÕES) */}
+      <section id="depoimentos" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <div className="eyebrow justify-center">AVALIAÇÕES REAIS NO GOOGLE</div>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            O que dizem os pacientes que confiam na TOMOSID
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Com nota <strong>4,2 ★ e 124 avaliações</strong> verificadas no
+            Google, a confiança dos nossos pacientes é o nosso maior patrimônio.
+          </p>
+        </div>
+
+        {/* Grid de Depoimentos Reais */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {REAL_TESTIMONIALS.map((item, index) => (
+            <div
+              key={index}
+              className="card-clinical rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-slate-300"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center text-amber-400">
+                    {[...Array(item.rating)].map((_, i) => (
+                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <span className="text-[11px] font-semibold text-slate-400">
+                    {item.date}
+                  </span>
+                </div>
+
+                <p className="text-slate-700 text-xs sm:text-[13px] leading-relaxed italic">
+                  &ldquo;{item.text}&rdquo;
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm">
+                    {item.author}
+                  </h4>
+                  <p className="text-[11px] text-slate-500">{item.role}</p>
+                </div>
+                <span className="px-2 py-0.5 rounded bg-slate-100 text-[10px] font-bold text-slate-600">
+                  {item.source}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Link para Avaliar ou Ver Todas as Avaliações */}
+        <div className="text-center mt-10">
+          <a
+            href={GOOGLE_SEARCH_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-[#991b1b] transition-colors"
+          >
+            <span>Ver todas as 124 avaliações no Google Meu Negócio</span>
+            <ArrowUpRight size={14} />
+          </a>
+        </div>
+      </section>
+
+      {/* 10. CONVÊNIOS ATENDIDOS & MODALIDADE PARTICULAR */}
+      <section id="convenios" className="py-16 md:py-20 bg-[#121318] text-white border-y border-[#272a38]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="eyebrow-dark justify-center">ATENDIMENTO AMPLO & ACESSÍVEL</div>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+            Atendimento Particular & Principais Convênios
+          </h2>
+          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Oferecemos flexibilidade e suporte completo para que você realize
+            seus exames sem burocracia.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto pt-4 text-left">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div className="w-10 h-10 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center font-bold">
+                ✓
+              </div>
+              <h3 className="font-bold text-base text-white">Convênios Médicos</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Atendemos convênios regionais e nacionais. Envie a foto da sua carteirinha e pedido médico pelo WhatsApp para checagem imediata de cobertura.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div className="w-10 h-10 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center font-bold">
+                ★
+              </div>
+              <h3 className="font-bold text-base text-white">Atendimento Particular</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Tabela acessível, sem filas demoradas, com facilidade de pagamento em cartão de crédito e PIX para exames de rotina ou de urgência.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 sm:col-span-2 lg:col-span-1">
+              <div className="w-10 h-10 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center font-bold">
+                ⚡
+              </div>
+              <h3 className="font-bold text-base text-white">Agilidade de Laudos</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Laudos precisos com rapidez para que seu médico assistente possa iniciar o tratamento sem perder tempo hábil.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-4">
+            <GlowingButton
+              href={getWhatsAppUrl(
+                "Olá! Gostaria de consultar se meu convênio é aceito na TOMOSID para realizar meus exames."
+              )}
+              target="_blank"
+              variant="whatsapp"
+              size="lg"
+              className="font-bold"
+            >
+              <WhatsAppIcon size={16} />
+              <span>Consultar Cobertura do Meu Convênio</span>
+            </GlowingButton>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. PERGUNTAS FREQUENTES (FAQ) COM ACORDEÃO */}
+      <section id="faq" className="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-3 mb-10">
+          <div className="eyebrow justify-center">TIRE SUAS DÚVIDAS</div>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            Perguntas Frequentes sobre a TOMOSID
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Respostas claras para as dúvidas mais comuns sobre agendamento,
+            preparo de exames e atendimento.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {FAQ_LIST.map((faq, index) => {
+            const isOpen = openFaqIndex === index;
+            return (
+              <div
+                key={index}
+                className="card-clinical rounded-xl overflow-hidden border border-slate-200"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                  className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 font-heading font-bold text-slate-900 text-sm sm:text-base hover:text-[#991b1b] transition-colors cursor-pointer"
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    size={18}
+                    className={`text-slate-400 transition-transform flex-shrink-0 ${
+                      isOpen ? "rotate-180 text-[#991b1b]" : ""
+                    }`}
+                  />
+                </button>
+                {isOpen && (
+                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 12. CTA FINAL DE ALTA CONVERSÃO */}
+      <section className="bg-gradient-to-br from-[#121318] via-[#16171d] to-[#121318] text-white py-16 md:py-20 border-t border-[#272a38]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-block px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-bold tracking-wide">
+            AGENDAMENTO ÁGIL & PRIORITÁRIO
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+            Agende seu exame na TOMOSID com o Dr. Frederico Cambraia.
+          </h2>
+
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Envie sua solicitação pelo WhatsApp oficial e receba a confirmação
+            com orientações de preparo diretamente da nossa equipe.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <GlowingButton
+              href={getWhatsAppUrl(
+                "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia."
+              )}
+              target="_blank"
+              variant="whatsapp"
+              size="lg"
+              className="w-full sm:w-auto font-bold text-base shadow-md"
+            >
+              <WhatsAppIcon size={18} />
+              <span>Agendar Exame no WhatsApp ({PHONE_DISPLAY})</span>
+            </GlowingButton>
+
+            <GlowingButton
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto font-bold text-slate-800"
+            >
+              <MapPin size={18} className="text-slate-600" />
+              <span>Ver Localização no Centro</span>
+            </GlowingButton>
+          </div>
+
+          <div className="text-xs text-slate-400 pt-2">
+            Rua Dom Pedro II, 337 - Centro · Campo Belo - MG · Segunda a Sexta a partir das 08h00
+          </div>
+        </div>
+      </section>
+
+      {/* 13. FOOTER INSTITUCIONAL COMPLETO */}
+      <footer className="bg-[#090a0f] text-slate-400 text-xs border-t border-[#272a38] py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+          {/* Coluna 1: Logo & Sobre */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2.5">
+              <Image
+                src={LOGO_EMBLEM_SRC}
+                alt="Emblema TOMOSID"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+              <div className="flex flex-col">
+                <span className="font-heading font-black text-xl text-white">
+                  TOMO<span className="text-[#f87171]">SID</span>
+                </span>
+                <span className="text-[9px] font-bold tracking-widest uppercase text-slate-400">
+                  DIAGNÓSTICO POR IMAGEM
+                </span>
+              </div>
+            </div>
+            <p className="text-slate-400 text-[12px] leading-relaxed">
+              Centro de diagnóstico médico por imagem de alta complexidade em
+              Campo Belo - MG. Tomografia, Ressonância, Ultrassonografia,
+              Mapeamento de Endometriose, HyCoSy, Ecofetal, Biópsias e Mamografia Digital.
+            </p>
+            <div className="text-[11px] text-slate-300 font-semibold">
+              Responsável Técnico: Dr. Frederico Cambraia · CRM-MG 34752 · RQE 10424
+            </div>
+          </div>
+
+          {/* Coluna 2: Modalidades */}
+          <div className="space-y-2">
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider">
+              Exames Principais
+            </h4>
+            <ul className="space-y-1.5 text-slate-400 text-[12px]">
+              <li>Mapeamento de Endometriose Profunda</li>
+              <li>HyCoSy (Histerossalpingossoneografia)</li>
+              <li>Ecocardiografia Fetal & Morfológico</li>
+              <li>Tomografia Computadorizada Multislice 3D</li>
+              <li>Ressonância Magnética de Alto Campo</li>
+              <li>Biópsias Guiadas (Mama e Tireoide)</li>
+              <li>Mamografia Digital de Alta Resolução</li>
+              <li>Densitometria Óssea & Raio-X Digital</li>
+            </ul>
+          </div>
+
+          {/* Coluna 3: Links Rápidos */}
+          <div className="space-y-2">
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider">
+              Navegação
+            </h4>
+            <ul className="space-y-1.5 text-slate-400 text-[12px]">
+              <li>
+                <a href="#exames" className="hover:text-white transition-colors">
+                  Todos os Exames & Preparos
+                </a>
+              </li>
+              <li>
+                <a href="#dr-frederico" className="hover:text-white transition-colors">
+                  Dr. Frederico Cambraia (Radiologista)
+                </a>
+              </li>
+              <li>
+                <a href="#saude-mulher" className="hover:text-white transition-colors">
+                  Saúde da Mulher & Medicina Fetal
+                </a>
+              </li>
+              <li>
+                <a href="#estrutura" className="hover:text-white transition-colors">
+                  Estrutura & Sede Física
+                </a>
+              </li>
+              <li>
+                <a href="#depoimentos" className="hover:text-white transition-colors">
+                  Avaliações Google (4,2 ★)
+                </a>
+              </li>
+              <li>
+                <a href="#convenios" className="hover:text-white transition-colors">
+                  Convênios & Particular
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-white transition-colors">
+                  Perguntas Frequentes
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Coluna 4: Contato & Endereço */}
+          <div className="space-y-2">
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider">
+              Contato & Localização
+            </h4>
+            <div className="space-y-2 text-[12px] text-slate-400">
+              <p className="flex items-start gap-2">
+                <MapPin size={15} className="text-slate-400 flex-shrink-0 mt-0.5" />
+                <span>Rua Dom Pedro II, 337 - Centro, Campo Belo - MG, CEP 37270-000</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <Clock size={15} className="text-slate-400 flex-shrink-0" />
+                <span>Segunda a Sexta a partir das 08h00</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <WhatsAppIcon size={15} className="text-emerald-500 flex-shrink-0" />
+                <span>WhatsApp: {PHONE_DISPLAY}</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <InstagramIcon size={15} className="text-slate-400 flex-shrink-0" />
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {INSTAGRAM_HANDLE}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Linha Divisória e Disclaimer Médico */}
+        <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 text-center space-y-3">
+          <p className="text-[11px] text-slate-500 max-w-4xl mx-auto leading-relaxed">
+            As informações contidas neste website têm caráter exclusivamente
+            educativo e institucional, em rigorosa consonância com a Resolução CFM
+            nº 2.336/2023 (CODAME). Nenhum conteúdo substitui a consulta médica
+            individualizada e o exame clínico presencial. Responsável Técnico:
+            Dr. Frederico Cambraia · CRM-MG 34752 · RQE 10424.
+          </p>
+
+          <p className="text-[11px] text-slate-600">
+            © {new Date().getFullYear()} TOMOSID — Diagnóstico por Imagem. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
+
+      {/* 14. BOTÃO FLUTUANTE DE WHATSAPP OFICIAL COM STATUS ONLINE */}
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+        <a
+          href={getWhatsAppUrl(
+            "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia."
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2.5 bg-[#16a34a] hover:bg-[#15803d] text-white pl-4 pr-4 py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white/20"
+          aria-label="Agendar Exame no WhatsApp da TOMOSID"
+        >
+          <div className="relative">
+            <WhatsAppIcon size={22} className="text-white" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full" />
+          </div>
+          <div className="flex flex-col text-left">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-100 leading-tight">
+              Agendamento Online
+            </span>
+            <span className="text-xs font-black tracking-tight leading-tight">
+              (35) 99976-0750
+            </span>
+          </div>
+        </a>
+      </div>
     </div>
   );
 }

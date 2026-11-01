@@ -1,42 +1,78 @@
-# CLÍNICA SÃO CAMILO — NOVA SERRANA - MG
-## Centro Médico Multidisciplinar · Especialidades · Medicina do Trabalho · Vacinas & Exames · Avaliação 4,8 ★ no Google (203 avaliações)
+# TOMOSID — DR. FREDERICO CAMBRAIA (CAMPO BELO - MG)
+## Centro de Diagnóstico Médico por Imagem · Tomografia Computadorizada · Ressonância Magnética · Ultrassonografia · Endometriose · HyCoSy · Ecofetal · Biópsias · Avaliação 4,2 ★ no Google (124 avaliações)
 
 ---
 
 ### Visão Geral do Projeto
-Landing page institucional de alta autoridade, humanização e conversão desenvolvida em Next.js 16 (App Router) e Tailwind CSS v4, rigorosamente alinhada à identidade visual da marca extraída diretamente do logotipo oficial ("Clínica São Camilo", com formato orgânico em gradiente ciano/turquesa e verde esmeralda sobre fundo branco e menta asséptico, e seções de alto contraste em deep medical teal):
+Landing page institucional de alta autoridade, humanização e conversão desenvolvida em Next.js 16 (App Router) e Tailwind CSS v4, rigorosamente alinhada à identidade visual da marca extraída diretamente do logotipo e da fachada oficial da clínica TOMOSID em Campo Belo - MG:
 
-- **Topbar de Credibilidade Oficial:** Selo de 4,8 ★ com 203 avaliações verificadas no Google, horário de funcionamento (Seg. a Sex. a partir das 08:00), localização no Centro de Nova Serrana e canal direto de agendamento via WhatsApp: (37) 3226-2910.
-- **Hero Magnético & Acolhedor:** Imagem de consulta médica humanizada, badge de polo médico multidisciplinar e proposta de valor clara para famílias e empresas de Nova Serrana.
-- **Barra de Métricas e Autoridade:** Avaliação 4,8 ★ no Google, +11 Especialidades Médicas, Exames no Local (Audiometria e Teste da Orelhinha) e Medicina do Trabalho ágil com ASO.
-- **Catálogo Interativo de Especialidades & Exames Médicos:**
-  1. Pediatria & Puericultura
-  2. Medicina do Trabalho & ASO
-  3. Vacinas & Imunização (Vacina da Gripe)
-  4. Angiologia & Saúde Vascular
-  5. Audiometria & Teste da Orelhinha (Triagem Neonatal)
-  6. Cardiologia & Check-up
-  7. Nutrição Clínica & Esportiva
-  8. Otorrinolaringologia (Otorrino)
-  9. Pneumologia & Saúde Respiratória
-  10. Psiquiatria & Saúde Mental Humanizada
-  11. Urologia & Saúde Preventiva
-- **Banner Oficial de Especialidades:** Destaque visual do catálogo de serviços integrado harmoniosamente ao layout.
-- **Destaque em Medicina do Trabalho:** Estrutura dedicada às indústrias calçadistas e comércios de Nova Serrana, com ASO admissional, periódico e exames sem longas filas.
-- **Sobre a Clínica São Camilo:** História, compromisso com a saúde integrada e acolhimento multidisciplinar.
-- **6 Pilares da Clínica:** Seção em contraste Deep Medical Teal e acentos vibrantes verde/turquesa.
-- **Prova Social com Google Reviews Autênticos:** Depoimentos reais de pacientes e gestores de RH comprovando o padrão de excelência (nota 4,8 no Google).
-- **Sede Física no Centro de Nova Serrana - MG:** Rua Antônio Ferreira do Amaral, 136 - Centro, com traçado de rotas no Google Maps e horários.
-- **Perguntas Frequentes (FAQ):** Respostas claras sobre agendamento, exames ocupacionais, vacinas, convênios e Teste da Orelhinha.
-- **Footer Completo & Botão Flutuante de WhatsApp:** Acesso instantâneo ao atendimento oficial com badge de status ativo.
+- **Identidade Visual & Cores:**
+  - Paleta baseada no logotipo oficial: Vermelho Médico TOMOSID (`#dc2626` / `#ef4444` / `#b91c1c` / `#7f1d1d`), Deep Graphite e Slate Titanium (`#090a0f` / `#121318` / `#1e293b`), Branco Clínico Aséptico (`#ffffff` / `#f8fafc`) e toques arquitetônicos Bronze / Mocha (`#785b46` / `#624734`) extraídos da fachada real.
+  - Tipografia: Montserrat (cabeçalhos modernos e precisos, transmitindo tecnologia e exatidão radiológica) e Plus Jakarta Sans (corpo de texto acolhedor, de alta legibilidade clínica).
+
+- **Topbar de Credibilidade Oficial:**
+  - Selo Google Reviews com 4,2 ★ e 124 avaliações verificadas de pacientes.
+  - Horário de atendimento: Segunda a Sexta a partir das 08h00.
+  - Localização central: Rua Dom Pedro II, 337 - Centro, Campo Belo - MG.
+  - Agendamento ágil e direto pelo WhatsApp: (35) 99976-0750.
+
+- **Hero Magnético & Acolhedor:**
+  - Destaque para a foto oficial da fachada do centro diagnóstico com totem na Rua Dom Pedro II, 337.
+  - Headline de alta conversão: união de tecnologia de ponta com acolhimento humanizado.
+  - Badges de autoridade médica: Dr. Frederico Cambraia · CRM-MG 34752 · RQE 10424.
+
+- **Barra de Métricas e Autoridade:**
+  - 4,2 ★ no Google (124 avaliações reais).
+  - +12 Modalidades Diagnósticas Completas.
+  - Particular e Ampla Rede de Convênios.
+  - Laudos Digitais com Acesso Ágil.
+
+- **Catálogo Interativo dos 12 Exames & Diagnósticos com Modais Detalhados:**
+  1. Ultrassom com Mapeamento de Endometriose Profunda
+  2. HyCoSy (Histerossalpingossoneografia sem radiação e sem iodo)
+  3. Ecocardiografia Fetal & Morfológico
+  4. Ultrassonografia Mamária de Alta Resolução
+  5. Biópsias Guiadas por Ultrassom (Core Biopsy e PAAF)
+  6. Tomografia Computadorizada Multislice com Reconstrução 3D
+  7. Ressonância Magnética de Alto Campo
+  8. Angiotomografia Coronariana & Vascular
+  9. Ultrassonografia Geral & Doppler Colorido
+  10. Mamografia Digital de Alta Resolução
+  11. Densitometria Óssea de Corpo Inteiro
+  12. Radiografia Digital (Raio-X Ágil)
+
+- **Pilar de Destaque em Saúde da Mulher & Medicina Fetal:**
+  - Foco em endometriose profunda, fertilidade feminina (HyCoSy), gestações de alto risco e biópsias mamárias.
+
+- **Seção Dr. Frederico Cambraia:**
+  - Apresentação do médico radiologista com RQE 10424 e CRM-MG 34752.
+  - Filosofia de atendimento: aliar acuidade técnica à escuta empática e esclarecimento detalhado de dúvidas.
+  - Acesso ao Linktree e Instagram oficial (@tomosidoficial com +7.100 seguidores).
+
+- **Sede Física & Infraestrutura:**
+  - Apresentação da sede própria na Rua Dom Pedro II, 337 - Centro, Campo Belo - MG.
+  - Rotas integradas em 1 clique para Google Maps e Waze.
+
+- **Prova Social com Depoimentos Reais do Google:**
+  - Depoimentos autênticos enviados diretamente de pacientes de gestação, exames e check-up.
+
+- **Perguntas Frequentes (FAQ):**
+  - Esclarecimentos práticos sobre agendamento via WhatsApp, preparo de exames com contraste, jejum, convênios e entrega de laudos.
+
+- **Footer Completo & Botão Flutuante de WhatsApp:**
+  - Disclaimer médico de acordo com a Resolução CFM nº 2.336/2023.
+  - Canal direto e pulsante no WhatsApp para agendamento instantâneo.
 
 ---
 
 ### Informações Oficiais da Clínica
-- **Nome:** Clínica São Camilo
-- **Telefone / WhatsApp:** (37) 3226-2910 (`553732262910`)
-- **Instagram:** [@clinicasaocamilons](https://www.instagram.com/clinicasaocamilons/)
-- **Linktree:** [linktr.ee/clinicasaocamilons](https://linktr.ee/clinicasaocamilons)
-- **Endereço da Sede:** Rua Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG, CEP 35519-000, Brasil
-- **Classificação Google:** 4,8 ★ (203 avaliações)
-- **Horário:** Segunda a Sexta a partir das 08:00
+- **Nome:** TOMOSID — Dr. Frederico Cambraia
+- **Razão / Segmento:** Centro de Diagnóstico Médico por Imagem
+- **Responsável Técnico:** Dr. Frederico Cambraia (Médico Radiologista · CRM-MG 34752 · RQE 10424)
+- **Telefone / WhatsApp:** (35) 99976-0750 (`5535999760750`)
+- **E-mail:** contato@tomosid.com.br
+- **Instagram:** [@tomosidoficial](https://www.instagram.com/tomosidoficial)
+- **Linktree:** [linktr.ee/drfredericocambraia](https://linktr.ee/drfredericocambraia)
+- **Endereço da Sede:** Rua Dom Pedro II, 337 - Centro, Campo Belo - MG, CEP 37270-000, Brasil
+- **Classificação Google:** 4,2 ★ (124 avaliações reais)
+- **Horário:** Segunda a Sexta a partir das 08h00

@@ -11,10 +11,10 @@ interface GlowingButtonProps {
   size?: "sm" | "md" | "lg";
   variant?:
     | "primary"
-    | "teal"
-    | "emerald"
+    | "dark"
+    | "bronze"
     | "outline"
-    | "outlineTeal"
+    | "outlineRed"
     | "light"
     | "white"
     | "whatsapp";
@@ -26,37 +26,37 @@ export default function GlowingButton({
   target,
   onClick,
   className = "",
-  size = "md",
+  size = "sm",
   variant = "primary",
 }: GlowingButtonProps) {
   const sizeClasses = {
-    sm: "px-4 py-2 text-[12px] font-semibold tracking-wide",
+    sm: "px-3.5 py-2 text-[12.5px] font-semibold tracking-wide",
     md: "px-5 py-2.5 text-[13px] font-semibold tracking-wide",
     lg: "px-6 py-3.5 text-[14px] font-bold tracking-wide",
   }[size];
 
-  // Refined, sober medical styling — elegant, trustworthy, without loud multi-color gradients
+  // Refined medical palette: Sober ruby crimson, deep slate, architectural bronze, and friendly WhatsApp green
   const variantClasses = {
     primary:
-      "bg-[#0d766e] hover:bg-[#0f5f59] text-white shadow-sm hover:shadow transition-all border border-[#0d766e] hover:-translate-y-0.5",
-    teal:
-      "bg-[#0a3833] hover:bg-[#072a26] text-white shadow-sm hover:shadow transition-all border border-[#0a3833] hover:-translate-y-0.5",
-    emerald:
-      "bg-[#15803d] hover:bg-[#166534] text-white shadow-sm hover:shadow transition-all border border-[#15803d] hover:-translate-y-0.5",
+      "bg-[#991b1b] hover:bg-[#7f1d1d] text-white shadow-sm hover:shadow transition-all border border-[#991b1b] hover:-translate-y-0.5 active:translate-y-0",
+    dark:
+      "bg-[#121318] hover:bg-[#1f2129] text-white shadow-sm hover:shadow transition-all border border-[#272a38] hover:-translate-y-0.5 active:translate-y-0",
+    bronze:
+      "bg-[#785b46] hover:bg-[#624734] text-white shadow-sm hover:shadow transition-all border border-[#785b46] hover:-translate-y-0.5 active:translate-y-0",
     whatsapp:
-      "bg-[#16a34a] hover:bg-[#15803d] text-white shadow-sm hover:shadow transition-all border border-[#16a34a] hover:-translate-y-0.5",
+      "bg-[#16a34a] hover:bg-[#15803d] text-white shadow-sm hover:shadow transition-all border border-[#16a34a] hover:-translate-y-0.5 active:translate-y-0",
     outline:
-      "border border-slate-300 bg-white text-slate-700 hover:text-[#0d766e] hover:border-[#0d766e] hover:bg-teal-50/50 shadow-2xs hover:-translate-y-0.5",
-    outlineTeal:
-      "border border-[#0d766e] bg-transparent text-[#0d766e] hover:bg-[#0d766e] hover:text-white shadow-2xs hover:-translate-y-0.5",
+      "border border-slate-300 bg-white text-slate-800 hover:text-[#991b1b] hover:border-[#991b1b] hover:bg-slate-50 shadow-2xs hover:-translate-y-0.5 active:translate-y-0",
+    outlineRed:
+      "border border-[#991b1b] bg-transparent text-[#991b1b] hover:bg-[#991b1b] hover:text-white shadow-2xs hover:-translate-y-0.5 active:translate-y-0",
     light:
-      "border border-teal-100 bg-teal-50/80 text-[#0d766e] hover:bg-teal-100/80 shadow-2xs hover:-translate-y-0.5",
+      "border border-red-100 bg-[#fdf8f8] text-[#991b1b] hover:bg-red-50 shadow-2xs hover:-translate-y-0.5 active:translate-y-0",
     white:
-      "border border-slate-200 bg-white text-[#0a3833] hover:bg-slate-50 shadow-2xs hover:-translate-y-0.5",
+      "border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 shadow-2xs hover:-translate-y-0.5 active:translate-y-0",
   }[variant];
 
   const classes =
-    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0d766e] select-none text-center cursor-pointer " +
+    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#991b1b] select-none text-center cursor-pointer whitespace-nowrap " +
     sizeClasses +
     " " +
     variantClasses +

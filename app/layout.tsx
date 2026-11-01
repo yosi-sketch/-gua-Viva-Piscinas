@@ -17,74 +17,69 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#026c63",
+  themeColor: "#dc2626",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://clinicasaocamilons.com.br"),
+  metadataBase: new URL("https://tomosid.com.br"),
   title:
-    "Clínica São Camilo — Consultas, Especialidades, Medicina do Trabalho e Vacinas | 4,8 ★ (203 avaliações) · Nova Serrana - MG",
+    "TOMOSID — Dr. Frederico Cambraia | Centro de Diagnóstico por Imagem · Campo Belo - MG (4,2 ★ · 124 avaliações)",
   description:
-    "Clínica São Camilo em Nova Serrana - MG. Consultas médicas com especialistas (Pediatria, Cardiologia, Pneumologia, Psiquiatria, Urologia, Angiologia, Otorrino e Nutrição), Medicina do Trabalho completa com ASO rápido, Vacina da Gripe, Teste da Orelhinha e Audiometria. Avaliação 4,8 ★ no Google (203 avaliações). R. Antônio Ferreira do Amaral, 136 - Centro. Telefone / WhatsApp: (37) 3226-2910.",
+    "Centro de diagnóstico médico por imagem em Campo Belo - MG. Tomografia Computadorizada, Ressonância Magnética, Ultrassonografia, Mapeamento de Endometriose, HyCoSy, Ecofetal, Biópsias, Mamografia Digital, Raio-X e Densitometria Óssea. Responsável Técnico: Dr. Frederico Cambraia (CRM-MG 34752 / RQE 10424). R. Dom Pedro II, 337 - Centro. WhatsApp: (35) 99976-0750.",
   keywords: [
-    "Clínica São Camilo",
-    "Clínica São Camilo Nova Serrana",
-    "Médico em Nova Serrana",
-    "Clínica médica Nova Serrana",
-    "Pediatra Nova Serrana",
-    "Pediatria Nova Serrana",
-    "Medicina do Trabalho Nova Serrana",
-    "ASO Nova Serrana",
-    "Exame Admissional Nova Serrana",
-    "Exame Demissional Nova Serrana",
-    "Vacinas Nova Serrana",
-    "Vacina da Gripe Nova Serrana",
-    "Teste da Orelhinha Nova Serrana",
-    "Cardiologista Nova Serrana",
-    "Audiometria Nova Serrana",
-    "Angiologia Nova Serrana",
-    "Nutricionista Nova Serrana",
-    "Otorrino Nova Serrana",
-    "Pneumologista Nova Serrana",
-    "Psiquiatra Nova Serrana",
-    "Urologista Nova Serrana",
-    "Rua Antônio Ferreira do Amaral 136",
-    "Melhor clínica Nova Serrana MG",
+    "TOMOSID",
+    "Tomosid Campo Belo",
+    "Dr Frederico Cambraia",
+    "Frederico Cambraia Radiologista",
+    "Diagnóstico por imagem Campo Belo",
+    "Tomografia Campo Belo",
+    "Ressonância magnética Campo Belo",
+    "Ultrassom Campo Belo",
+    "Ultrassonografia Campo Belo",
+    "Endometriose Campo Belo",
+    "HyCoSy Campo Belo",
+    "Ecofetal Campo Belo",
+    "Biópsia de mama Campo Belo",
+    "Mamografia Campo Belo",
+    "Densitometria óssea Campo Belo",
+    "Raio X Campo Belo",
+    "Clínica de imagem Sul de Minas",
+    "Rua Dom Pedro II 337 Campo Belo",
   ],
-  authors: [{ name: "Clínica São Camilo — Medicina & Saúde" }],
-  creator: "Clínica São Camilo",
-  publisher: "Clínica São Camilo — Nova Serrana",
+  authors: [{ name: "TOMOSID — Diagnóstico por Imagem · Dr. Frederico Cambraia" }],
+  creator: "TOMOSID",
+  publisher: "TOMOSID — Dr. Frederico Cambraia",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=camilo1", sizes: "any" },
-      { url: "/icon-32x32.png?v=camilo1", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=camilo1", type: "image/png", sizes: "16x16" },
-      { url: "/icon-48x48.png?v=camilo1", type: "image/png", sizes: "48x48" },
-      { url: "/icon-192x192.png?v=camilo1", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=camilo1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=tomo2", sizes: "any" },
+      { url: "/icon-32x32.png?v=tomo2", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=tomo2", type: "image/png", sizes: "16x16" },
+      { url: "/icon-48x48.png?v=tomo2", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192x192.png?v=tomo2", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png?v=tomo2", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=camilo1",
-    apple: [{ url: "/apple-icon.png?v=camilo1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=tomo2",
+    apple: [{ url: "/apple-icon.png?v=tomo2", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://clinicasaocamilons.com.br",
+    url: "https://tomosid.com.br",
     title:
-      "Clínica São Camilo — Consultas, Especialidades & Medicina do Trabalho | 4,8 ★ no Google",
+      "TOMOSID — Dr. Frederico Cambraia | Diagnóstico por Imagem · 4,2 ★ no Google",
     description:
-      "Atendimento médico humanizado, pediatria, saúde ocupacional, vacinas e exames no Centro de Nova Serrana - MG. WhatsApp: (37) 3226-2910.",
-    siteName: "Clínica São Camilo",
+      "Centro de excelência em diagnóstico por imagem em Campo Belo e região. Tomografia, Ressonância, Ultrassom, Endometriose, HyCoSy, Ecofetal, Biópsias e Mamografia Digital. WhatsApp: (35) 99976-0750.",
+    siteName: "TOMOSID — Dr. Frederico Cambraia",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Clínica São Camilo — Medicina e Saúde em Nova Serrana - MG",
+        alt: "TOMOSID — Dr. Frederico Cambraia · Centro de Diagnóstico por Imagem em Campo Belo - MG",
       },
     ],
   },
@@ -97,44 +92,49 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Clínica São Camilo",
-    alternateName: "Clínica São Camilo Nova Serrana",
+    "@type": "DiagnosticLab",
+    name: "TOMOSID — Dr. Frederico Cambraia",
+    alternateName: "Tomosid Diagnóstico por Imagem",
+    description:
+      "Centro de diagnóstico por imagem de alta complexidade em Campo Belo - MG. Tomografia Computadorizada, Ressonância Magnética, Ultrassonografia, Mapeamento de Endometriose, HyCoSy, Ecofetal, Biópsias, Mamografia Digital e Densitometria Óssea.",
     medicalSpecialty: [
-      "Pediatrics",
-      "OccupationalMedicine",
+      "Radiology",
+      "DiagnosticImaging",
+      "ObstetricsGynecology",
       "Cardiology",
-      "Pulmonary",
-      "Psychiatry",
-      "Urology",
-      "Otolaryngology",
-      "DietNutrition",
     ],
-    telephone: "+55-37-3226-2910",
-    url: "https://clinicasaocamilons.com.br",
-    image: "https://clinicasaocamilons.com.br/logo.png",
+    telephone: "+55-35-99976-0750",
+    url: "https://tomosid.com.br",
+    image: "https://tomosid.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. Antônio Ferreira do Amaral, 136 - Centro",
-      addressLocality: "Nova Serrana",
+      streetAddress: "R. Dom Pedro II, 337 - Centro",
+      addressLocality: "Campo Belo",
       addressRegion: "MG",
-      postalCode: "35519-000",
+      postalCode: "37270-000",
       addressCountry: "BR",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "203",
+      ratingValue: "4.2",
+      reviewCount: "124",
+    },
+    physician: {
+      "@type": "Physician",
+      name: "Dr. Frederico Cambraia",
+      medicalSpecialty: "Radiologist",
+      identifier: "CRM-MG 34752 / RQE 10424",
     },
     areaServed: [
-      "Nova Serrana",
-      "Perdigão",
-      "Araújos",
-      "Pitangui",
-      "Leandro Ferreira",
-      "Conceição do Pará",
-      "Minas Gerais",
+      "Campo Belo",
+      "Candeias",
+      "Cristais",
+      "Aguanil",
+      "Perdões",
+      "Santana do Jacaré",
+      "Cana Verde",
+      "Sul de Minas Gerais",
     ],
     openingHoursSpecification: [
       {
@@ -151,9 +151,9 @@ export default function RootLayout({
       },
     ],
     sameAs: [
-      "https://www.instagram.com/clinicasaocamilons/",
-      "https://linktr.ee/clinicasaocamilons",
-      "https://wa.me/553732262910",
+      "https://www.instagram.com/tomosidoficial",
+      "https://linktr.ee/drfredericocambraia",
+      "https://wa.me/5535999760750",
     ],
   };
 
@@ -165,7 +165,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#f4fbf9] text-[#0a211e] antialiased selection:bg-[#026c63] selection:text-[#ffffff]">
+      <body className="min-h-screen bg-[#f8fafc] text-[#0f172a] antialiased selection:bg-[#dc2626] selection:text-[#ffffff]">
         {children}
       </body>
     </html>

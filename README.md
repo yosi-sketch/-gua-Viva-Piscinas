@@ -1,36 +1,32 @@
-# Clínica São Camilo — Nova Serrana - MG
-Landing page institucional e de alta conversão para a **Clínica São Camilo**, centro médico multidisciplinar de referência em Nova Serrana - MG.
+# TOMOSID — Dr. Frederico Cambraia
+## Centro de Diagnóstico Médico por Imagem · Campo Belo - MG
 
-## Tecnologias Utilizadas
-- **Next.js 16 (App Router)** com Turbopack
+Landing page oficial de alta conversão e credibilidade médica para a **TOMOSID — Dr. Frederico Cambraia** em Campo Belo - MG.
+
+### Stack Tecnológica
+- **Next.js 16** (App Router)
 - **React 19**
-- **Tailwind CSS v4** com CSS theme tokens
-- **Framer Motion** para animações e modais suaves
-- **Lucide React** para iconografia médica
-- **Sharp** para processamento e otimização de imagens
+- **Tailwind CSS v4**
+- **Framer Motion**
+- **Lucide React**
+- **Sharp**
 
-## Identidade Visual & Cores
-A paleta de cores e tipografia foram rigorosamente extraídas do logotipo oficial:
-- **Turquesa / Ciano Radiante:** `#01becd` / `#02c3d3`
-- **Verde Esmeralda Vital:** `#01d84b` / `#05c46b`
-- **Deep Medical Teal (Contraste):** `#021e1a` / `#032b26` / `#026c63`
-- **Canvas Clínico Asséptico:** `#f4fbf9` / `#ebf7f4` / `#ffffff`
-- **Tipografia:** Montserrat (Headings) + Plus Jakarta Sans (Body)
+### Identidade Visual
+- **Cores Oficiais:**
+  - Vermelho Médico: `#dc2626` / `#ef4444` / `#b91c1c`
+  - Titanium / Slate Dark: `#090a0f` / `#121318` / `#1e293b`
+  - Branco Clínico: `#ffffff` / `#f8fafc`
+  - Bronze Arquitetônico: `#785b46`
+- **Tipografia:** Montserrat (Títulos) + Plus Jakarta Sans (Corpo)
 
-## Estrutura de Informações
-- **Telefone / WhatsApp:** (37) 3226-2910
-- **Endereço:** R. Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG, 35519-000
-- **Avaliação:** 4,8 ★ no Google (203 avaliações)
-- **Instagram:** [@clinicasaocamilons](https://www.instagram.com/clinicasaocamilons/)
-
-## Como Executar
+### Executando o Projeto
 ```bash
-# Instalar dependências
-npm install
-
-# Iniciar servidor de desenvolvimento
 npm run dev
+```
+Porta padrão: `http://localhost:3009`
 
-# Compilar para produção
+### Build de Produção
+```bash
 npm run build
+npm run start
 ```
