@@ -1,36 +1,42 @@
-# DR. FRANK EDUARDO — ODONTOLOGIA AVANÇADA
-## Cirurgião Dentista · Reabilitação Oral, Implantes, Próteses & Estética · Igarapé - MG · Avaliação 5,0 ★ no Google (256 avaliações)
+# CLÍNICA SÃO CAMILO — NOVA SERRANA - MG
+## Centro Médico Multidisciplinar · Especialidades · Medicina do Trabalho · Vacinas & Exames · Avaliação 4,8 ★ no Google (203 avaliações)
 
 ---
 
 ### Visão Geral do Projeto
-Landing page institucional de alta autoridade e conversão desenvolvida em Next.js 16 (App Router) e Tailwind CSS v4, rigorosamente alinhada à identidade visual da marca extraída diretamente do logotipo oficial ("Dr. Frank Eduardo — ODONTOLOGIA AVANÇADA", com curvas 3D do dente em azul royal e dourado imperial sobre fundo branco/slate asséptico e midnight prestige):
+Landing page institucional de alta autoridade, humanização e conversão desenvolvida em Next.js 16 (App Router) e Tailwind CSS v4, rigorosamente alinhada à identidade visual da marca extraída diretamente do logotipo oficial ("Clínica São Camilo", com formato orgânico em gradiente ciano/turquesa e verde esmeralda sobre fundo branco e menta asséptico, e seções de alto contraste em deep medical teal):
 
-- **Topbar Institucional com Prova Social Máxima:** Google 5,0 ★ com mais de 256 avaliações de pacientes verificados em Igarapé e região, e canal direto via WhatsApp oficial: (31) 99767-0022.
-- **Hero Magnético & Elegante:** Fotografia oficial de atendimento cirúrgico do Dr. Frank Eduardo, badge oficial e proposta de valor destacando reabilitação oral, implantes e acolhimento com a famosa "mão leve".
-- **Barra de Métricas e Autoridade:** 256+ avaliações 5 estrelas no Google, precisão cirúrgica, técnica indolor e localização privilegiada no Centro de Igarapé.
-- **Catálogo de Procedimentos com Modal Interativo:**
-  1. Reabilitação Oral & Próteses
-  2. Implantes Dentários de Alta Tecnologia
-  3. Lentes de Contato Dental & Facetas
-  4. Cirurgia de Sisos & Extrações Suaves
-  5. Clareamento Dental Avançado
-  6. Restaurações Estéticas & Check-up
-- **Sobre o Dr. Frank Eduardo:** Perfil cirúrgico detalhado, transparência ética, honestidade e humanização no atendimento.
-- **Estrutura do Consultório & Equipe (Meg e Recepção):** Fotografia de alta qualidade do consultório, destaque para a recepção atenciosa da Meg e infraestrutura moderna com elevador.
-- **Diferenciais da Clínica:** Apresentação em contraste midnight navy e dourado dos 6 pilares de autoridade odontológica.
-- **Prova Social com Google Reviews Autênticos:** Depoimentos reais de pacientes (Polyana Rodrigues, Carlos Deleon, Luiz Fernando Oliveira, Mariana Neta, Nanda Oliveira, Kaah Oliver, Jessica Dos Santos, Diego Romao, Lia Portugal e Priscila Amaro).
-- **Sede Física no Centro de Igarapé - MG:** Av. Gov. Valadares, 440 - 3º Andar - Sala 202, com rotas no Google Maps e horários de atendimento.
-- **Perguntas Frequentes (FAQ):** Respostas claras sobre medo/dor, primeira avaliação, pacientes de outras cidades (Betim, Contagem) e facilidades de pagamento.
-- **Footer Institucional Completo:** Links rápidos, redes sociais, endereço e botão flutuante de WhatsApp para contato instantâneo.
+- **Topbar de Credibilidade Oficial:** Selo de 4,8 ★ com 203 avaliações verificadas no Google, horário de funcionamento (Seg. a Sex. a partir das 08:00), localização no Centro de Nova Serrana e canal direto de agendamento via WhatsApp: (37) 3226-2910.
+- **Hero Magnético & Acolhedor:** Imagem de consulta médica humanizada, badge de polo médico multidisciplinar e proposta de valor clara para famílias e empresas de Nova Serrana.
+- **Barra de Métricas e Autoridade:** Avaliação 4,8 ★ no Google, +11 Especialidades Médicas, Exames no Local (Audiometria e Teste da Orelhinha) e Medicina do Trabalho ágil com ASO.
+- **Catálogo Interativo de Especialidades & Exames Médicos:**
+  1. Pediatria & Puericultura
+  2. Medicina do Trabalho & ASO
+  3. Vacinas & Imunização (Vacina da Gripe)
+  4. Angiologia & Saúde Vascular
+  5. Audiometria & Teste da Orelhinha (Triagem Neonatal)
+  6. Cardiologia & Check-up
+  7. Nutrição Clínica & Esportiva
+  8. Otorrinolaringologia (Otorrino)
+  9. Pneumologia & Saúde Respiratória
+  10. Psiquiatria & Saúde Mental Humanizada
+  11. Urologia & Saúde Preventiva
+- **Banner Oficial de Especialidades:** Destaque visual do catálogo de serviços integrado harmoniosamente ao layout.
+- **Destaque em Medicina do Trabalho:** Estrutura dedicada às indústrias calçadistas e comércios de Nova Serrana, com ASO admissional, periódico e exames sem longas filas.
+- **Sobre a Clínica São Camilo:** História, compromisso com a saúde integrada e acolhimento multidisciplinar.
+- **6 Pilares da Clínica:** Seção em contraste Deep Medical Teal e acentos vibrantes verde/turquesa.
+- **Prova Social com Google Reviews Autênticos:** Depoimentos reais de pacientes e gestores de RH comprovando o padrão de excelência (nota 4,8 no Google).
+- **Sede Física no Centro de Nova Serrana - MG:** Rua Antônio Ferreira do Amaral, 136 - Centro, com traçado de rotas no Google Maps e horários.
+- **Perguntas Frequentes (FAQ):** Respostas claras sobre agendamento, exames ocupacionais, vacinas, convênios e Teste da Orelhinha.
+- **Footer Completo & Botão Flutuante de WhatsApp:** Acesso instantâneo ao atendimento oficial com badge de status ativo.
 
 ---
 
-### Informações Oficiais do Consultório
-- **Nome:** Dr. Frank Eduardo — Odontologia Avançada
-- **Cirurgião Dentista:** Dr. Frank Eduardo
-- **Atendimento e Recepção:** Meg
-- **WhatsApp Oficial:** (31) 99767-0022 (5531997670022)
-- **Instagram:** [@dr.frankeduardo](https://www.instagram.com/dr.frankeduardo/)
-- **Endereço da Sede:** Av. Gov. Valadares, 440 - 3º Andar - Sala 202 - Centro, Igarapé - MG, CEP 32900-000, Brasil
-- **Classificação Google:** 5,0 ★ (256 avaliações)
+### Informações Oficiais da Clínica
+- **Nome:** Clínica São Camilo
+- **Telefone / WhatsApp:** (37) 3226-2910 (`553732262910`)
+- **Instagram:** [@clinicasaocamilons](https://www.instagram.com/clinicasaocamilons/)
+- **Linktree:** [linktr.ee/clinicasaocamilons](https://linktr.ee/clinicasaocamilons)
+- **Endereço da Sede:** Rua Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG, CEP 35519-000, Brasil
+- **Classificação Google:** 4,8 ★ (203 avaliações)
+- **Horário:** Segunda a Sexta a partir das 08:00

@@ -1,35 +1,36 @@
-# Dr. Frank Eduardo — Odontologia Avançada | Landing Page Oficial
-## Cirurgião Dentista · Reabilitação Oral, Implantes, Próteses & Estética · 5,0 ★ no Google (256 avaliações) · Igarapé - MG
+# Clínica São Camilo — Nova Serrana - MG
+Landing page institucional e de alta conversão para a **Clínica São Camilo**, centro médico multidisciplinar de referência em Nova Serrana - MG.
 
-Landing page institucional de alta autoridade, conversão e refinamento visual para o **Dr. Frank Eduardo — Odontologia Avançada**, referência em **Reabilitação Oral**, **Implantes Dentários**, **Cirurgia de Sisos**, **Próteses Fixas**, **Lentes de Contato Dental & Facetas**, **Clareamento Dental** e **Atendimento Humanizado Sem Trauma (Técnica "Mão Leve")**, com sede física na **Av. Gov. Valadares, 440 - 3º Andar - Sala 202 - Centro, Igarapé - MG, CEP 32900-000** e atendimento acolhedor para pacientes de Igarapé, Betim, Contagem, Brumadinho, São Joaquim de Bicas e toda a região metropolitana.
+## Tecnologias Utilizadas
+- **Next.js 16 (App Router)** com Turbopack
+- **React 19**
+- **Tailwind CSS v4** com CSS theme tokens
+- **Framer Motion** para animações e modais suaves
+- **Lucide React** para iconografia médica
+- **Sharp** para processamento e otimização de imagens
 
----
+## Identidade Visual & Cores
+A paleta de cores e tipografia foram rigorosamente extraídas do logotipo oficial:
+- **Turquesa / Ciano Radiante:** `#01becd` / `#02c3d3`
+- **Verde Esmeralda Vital:** `#01d84b` / `#05c46b`
+- **Deep Medical Teal (Contraste):** `#021e1a` / `#032b26` / `#026c63`
+- **Canvas Clínico Asséptico:** `#f4fbf9` / `#ebf7f4` / `#ffffff`
+- **Tipografia:** Montserrat (Headings) + Plus Jakarta Sans (Body)
 
-### Identidade Visual & Design System
-- **Paleta de Cores:** Extraída diretamente do logotipo oficial:
-  - Deep Royal Navy (Primária): `#001344` / `#001a60` / `#02298a`
-  - Dourado Imperial & Âmbar Quente (Secundária): `#dea404` / `#f4c22b` / `#b78004`
-  - Branco Puro & Slate Clínico: `#ffffff` / `#f8fafc` / `#f0f4f9`
-  - Midnight Prestige (Seções escuras): `#000d2b` / `#0a1945` / `#0c1e52`
-- **Tipografia:** `Montserrat` para títulos e marcas imponentes, e `Plus Jakarta Sans` para máxima legibilidade, clareza e credibilidade médica.
-- **Assets Oficiais em `public/`:**
-  - `logo.png` e `logo-horizontal.png`: Logotipo oficial transparente em alta resolução
-  - `logo-dark-bg.png`: Logotipo adaptado com tipografia branca para fundos escuros
-  - `emblem.png`: Emblema do dente em fita tridimensional (azul e dourado)
-  - `dr-frank-eduardo.jpg`: Fotografia oficial em atendimento clínico/cirúrgico do Dr. Frank Eduardo
-  - `consultorio.jpg`: Fotografia de alta qualidade do consultório odontológico
-  - `favicon.ico`, `apple-icon.png`, `icon.png`: Favicons e ícones otimizados para navegadores e dispositivos móveis
+## Estrutura de Informações
+- **Telefone / WhatsApp:** (37) 3226-2910
+- **Endereço:** R. Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG, 35519-000
+- **Avaliação:** 4,8 ★ no Google (203 avaliações)
+- **Instagram:** [@clinicasaocamilons](https://www.instagram.com/clinicasaocamilons/)
 
----
-
-### Execução e Testes
+## Como Executar
 ```bash
-# Rodar verificação de integridade
-node scripts/verify-dr-frank.js
+# Instalar dependências
+npm install
 
 # Iniciar servidor de desenvolvimento
 npm run dev
 
-# Gerar build de produção
+# Compilar para produção
 npm run build
 ```

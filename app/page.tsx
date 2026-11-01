@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -17,60 +17,63 @@ import {
   X,
   CheckCircle2,
   ChevronDown,
-  ChevronUp,
   Sparkles,
   Heart,
-  Smile,
+  Baby,
+  Briefcase,
+  Syringe,
   Activity,
   Calendar,
   Users,
-  Layers,
-  Zap,
+  Building2,
+  Stethoscope,
+  Smile,
+  Eye,
+  FileText,
+  BadgeCheck,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Professional Information — Dr. Frank Eduardo — Odontologia Avançada
-const CLINIC_NAME = "Dr. Frank Eduardo — Odontologia Avançada";
-const BRAND_LABEL = "Dr. Frank Eduardo — Cirurgião Dentista | Odontologia Avançada & Reabilitação Oral";
-const DOCTOR_NAME = "Dr. Frank Eduardo";
-const DOCTOR_ROLE = "Cirurgião Dentista · Odontologia Avançada & Reabilitação Oral";
-const DOCTOR_BIO = "Cirurgião Dentista especialista em devolver função mastigatória, saúde e autoestima por meio da odontologia avançada, próteses, implantes e estética do sorriso com atendimento verdadeiramente humanizado, técnica suave e sem dor.";
-const RECEPTIONIST_NAME = "Meg";
-const WHATSAPP_NUMBER = "5531997670022";
-const PHONE_DISPLAY = "(31) 99767-0022";
-const INSTAGRAM_URL = "https://www.instagram.com/dr.frankeduardo/";
-const INSTAGRAM_HANDLE = "@dr.frankeduardo";
+// Client & Official Clinic Information — Clínica São Camilo (Nova Serrana - MG)
+const CLINIC_NAME = "Clínica São Camilo";
+const BRAND_LABEL = "Clínica São Camilo — Medicina, Especialidades & Saúde Ocupacional";
+const WHATSAPP_NUMBER = "553732262910";
+const PHONE_DISPLAY = "(37) 3226-2910";
+const EMAIL_CONTACT = "contato@clinicasaocamilons.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/clinicasaocamilons/";
+const INSTAGRAM_HANDLE = "@clinicasaocamilons";
+const LINKTREE_URL = "https://linktr.ee/clinicasaocamilons";
 
-const ADDRESS_DISPLAY = "Av. Gov. Valadares, 440 - 3º Andar - Sala 202 - Centro, Igarapé - MG, 32900-000";
-const CITIES_SERVED = "Igarapé, Betim, Contagem, Brumadinho, São Joaquim de Bicas e Região";
+const ADDRESS_STREET = "R. Antônio Ferreira do Amaral, 136";
+const ADDRESS_NEIGHBORHOOD = "Centro";
+const ADDRESS_CITY = "Nova Serrana - MG";
+const ADDRESS_CEP = "35519-000";
+const ADDRESS_DISPLAY = "R. Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG, 35519-000";
+const CITIES_SERVED = "Nova Serrana, Perdigão, Araújos, Pitangui, Conceição do Pará e Região";
 
+const GOOGLE_RATING = "4,8";
+const GOOGLE_REVIEW_COUNT = "203";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Dr.+Frank+Eduardo+%E2%80%94+Odontologia%0AIgarap%C3%A9+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
-
+  "https://www.google.com/search?q=Cl%C3%ADnica+S%C3%A3o+Camilo%0ANova+Serrana+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+Gov.+Valadares%2C+440+-+3+Andar+-+Sala+202+-+Centro%2C+Igarap%C3%A9+-+MG%2C+32900-000";
+  "https://www.google.com/maps/search/?api=1&query=R.+Ant%C3%B4nio+Ferreira+do+Amaral%2C+136+-+Centro%2C+Nova+Serrana+-+MG%2C+35519-000";
 
-// Official assets from public folder
+// Official assets
 const LOGO_SRC = "/logo.png";
-const LOGO_HORIZONTAL_SRC = "/logo-horizontal.png";
-const LOGO_DARK_BG_SRC = "/logo-dark-bg.png";
-const EMBLEM_SRC = "/emblem.png";
-const FOTO_HERO_SRC = "/dr-frank-eduardo.jpg";
-const FOTO_CONSULTORIO_SRC = "/consultorio.jpg";
+const BANNER_SRC = "/banner-especialidades.png";
+const FOTO_ATENDIMENTO_SRC = "/clinica-atendimento.jpg";
+const FOTO_ESTRUTURA_SRC = "/clinica-estrutura.jpg";
 
-function getWhatsAppUrl(
-  message?: string,
-  number: string = WHATSAPP_NUMBER
-) {
+function getWhatsAppUrl(message?: string, number: string = WHATSAPP_NUMBER) {
   const defaultText =
-    "Olá! Gostaria de agendar uma consulta / avaliação com o Dr. Frank Eduardo no consultório em Igarapé.";
+    "Olá! Gostaria de agendar uma consulta na Clínica São Camilo em Nova Serrana.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
 }
 
 function WhatsAppIcon({
-  size = 17,
+  size = 16,
   className = "",
 }: {
   size?: number;
@@ -91,7 +94,7 @@ function WhatsAppIcon({
 }
 
 function InstagramIcon({
-  size = 17,
+  size = 16,
   className = "",
 }: {
   size?: number;
@@ -111,13 +114,13 @@ function InstagramIcon({
   );
 }
 
-// Especialidades e Tratamentos Odontológicos
+// Especialidades e Serviços Médicos Oficiais
 interface Specialty {
   id: string;
   title: string;
   badge: string;
   shortDesc: string;
-  icon: string;
+  tag: string;
   fullDesc: string;
   indications: string[];
   benefits: string[];
@@ -127,298 +130,411 @@ interface Specialty {
 
 const SPECIALTIES: Specialty[] = [
   {
-    id: "reabilitacao-oral",
-    title: "Reabilitação Oral & Próteses",
-    badge: "Especialidade Cirúrgica",
+    id: "pediatria",
+    title: "Pediatria & Puericultura",
+    badge: "Destaque",
     shortDesc:
-      "Recupere a mastigação completa, estabilidade oclusal e a estética do sorriso com planejamento digital individualizado.",
-    icon: "Smile",
+      "Acompanhamento atencioso do crescimento, desenvolvimento, saúde e vacinação do seu bebê e criança.",
+    tag: "Infantil & Família",
     fullDesc:
-      "A Reabilitação Oral é o conjunto integrado de procedimentos que restabelece dentes perdidos, desgastados ou com mordida desalinhada. Utilizando próteses fixas, próteses sobre implantes e cerâmicas de alta resistência, o Dr. Frank Eduardo planeja cada detalhe para devolver a liberdade de sorrir e mastigar qualquer alimento com total conforto e firmeza.",
+      "A Pediatria da Clínica São Camilo é dedicada a cuidar com carinho, paciência e rigor científico de cada fase da infância. Desde as primeiras consultas de puericultura do recém-nascido, aleitamento materno e introdução alimentar, até o manejo de doenças sazonais, alergias e crescimento saudável.",
     indications: [
-      "Perda de um ou múltiplos dentes",
-      "Dentes desgastados por bruxismo ou acidez",
-      "Dificuldade na mastigação e dores articulares (DTM)",
-      "Insatisfação estética com próteses antigas ou soltas",
+      "Consultas de rotina e acompanhamento de puericultura",
+      "Avaliação de marcos de desenvolvimento e ganho de peso",
+      "Orientações vacinais e prevenção de doenças infantis",
+      "Febres, tosses, viroses, alergias e problemas respiratórios",
     ],
     benefits: [
-      "Mastigação perfeita e firmeza absoluta",
-      "Harmonia facial e rejuvenescimento do terço inferior da face",
-      "Próteses fixas com estética idêntica ao dente natural",
-      "Planejamento digital com previsibilidade total de resultado",
+      "Atendimento gentil, humanizado e focado no bem-estar da criança",
+      "Orientações claras e tranquilizadoras para mães e pais",
+      "Ambiente adaptado para que os pequenos se sintam confortáveis",
+      "Integração direta com vacinas e Teste da Orelhinha na própria clínica",
     ],
     recovery:
-      "Tratamento planejado em etapas confortáveis, respeitando o tempo de cicatrização e com adaptação guiada.",
+      "Acompanhamento contínuo e preventivo para garantir uma infância saudável e segura.",
     faq: {
-      q: "Vou conseguir mastigar com segurança como antes?",
-      a: "Sim! O objetivo principal da reabilitação oral é devolver 100% da eficiência mastigatória, segurança mecânica e naturalidade estética.",
+      q: "Com que frequência devo levar meu bebê ao pediatra?",
+      a: "No primeiro ano de vida, as consultas são mensais até os 6 meses e depois bimestrais. Após 1 ano, ocorrem a cada 3 a 6 meses para acompanhamento preventivo regular.",
     },
   },
   {
-    id: "implantes-dentarios",
-    title: "Implantes Dentários de Alta Tecnologia",
-    badge: "Cirurgia Avançada",
+    id: "medicina-do-trabalho",
+    title: "Medicina do Trabalho & ASO",
+    badge: "Empresas",
     shortDesc:
-      "Reposição definitiva com pinos de titânio biocompatíveis e coroas de porcelana. Fixação segura e conforto natural.",
-    icon: "Shield",
+      "Gestão ocupacional completa para indústrias e empresas de Nova Serrana: ASO admissional, periódico, demissional e exames rápidos.",
+    tag: "Saúde Ocupacional",
     fullDesc:
-      "Os implantes dentários substituem as raízes dos dentes ausentes com pinos de titânio de altíssima pureza integrados ao osso. Com planejamento cirúrgico minucioso e anestesia moderna, o procedimento é realizado com técnica suave e indolor pelo Dr. Frank Eduardo, proporcionando a base perfeita para dentes fixos, belos e vitalícios.",
+      "Nova Serrana é o principal polo calçadista de Minas Gerais, e a Clínica São Camilo é a parceira estratégica das empresas locais na preservação da saúde dos trabalhadores e cumprimento das Normas Regulamentadoras (NRs). Realizamos Atestados de Saúde Ocupacional com agilidade para o RH e exames complementares centralizados em um só endereço.",
     indications: [
-      "Ausência de um, vários ou todos os dentes",
-      "Usuários de dentaduras ou pontes móveis que desejam dentes fixos",
-      "Perdas dentárias recentes ou antigas",
-      "Dificuldade de retenção com próteses convencionais",
+      "Contratação ágil de novos colaboradores (Exame Admissional)",
+      "Exames periódicos obrigatórios por função e risco",
+      "Mudança de riscos operacionais e retorno pós-afastamento",
+      "Homologação e demissões com emissão rápida de laudos",
     ],
     benefits: [
-      "Estabilidade fixa que nunca sai do lugar ao falar ou comer",
-      "Preservação do osso maxilar e da estrutura facial",
-      "Procedimento cirúrgico seguro, guiado e sem dor",
-      "Autoestima renovada para sorrir sem receios",
+      "Agilidade máxima: exames clínicos e complementares no mesmo dia",
+      "Sem filas excessivas: agendamento organizado para sua empresa",
+      "Conformidade total com o eSocial e legislações trabalhistas",
+      "Atendimento acolhedor e respeitoso para todos os colaboradores",
     ],
     recovery:
-      "Pós-operatório rápido e tranquilo com acompanhamento dedicado e orientações claras do Dr. Frank e da equipe.",
+      "Laudos precisos entregues com agilidade para o departamento de Recursos Humanos.",
     faq: {
-      q: "Colocar implante dói?",
-      a: "Não. A cirurgia de implante é realizada sob anestesia local altamente eficaz. A maioria dos pacientes relata um pós-operatório muito mais confortável do que uma extração comum.",
+      q: "Minha empresa pode fechar parceria para exames ocupacionais?",
+      a: "Sim! Oferecemos fluxo prioritário e condições especiais para indústrias, comércios e prestadores de serviços de Nova Serrana e região.",
     },
   },
   {
-    id: "lentes-facetas",
-    title: "Lentes de Contato Dental & Facetas",
-    badge: "Estética & Harmonização",
+    id: "vacinas",
+    title: "Vacinas & Imunização",
+    badge: "Prevenção",
     shortDesc:
-      "Harmonização do sorriso com porcelanas ultrafinas e resinas nobres para alinhar cor, formato e proporções com naturalidade.",
-    icon: "Sparkles",
+      "Vacina da Gripe (Influenza), vacinação infantil e de adultos com rigoroso controle de cadeia de frio e aplicação suave.",
+    tag: "Imunização Familiar",
     fullDesc:
-      "As lentes de contato e facetas dentárias são lâminas ultrafinas confeccionadas sob medida para cobrir a superfície frontal dos dentes. Elas corrigem imperfeições de cor, espaçamentos (diastemas), bordas quebradas e dentes escurecidos, proporcionando um sorriso simétrico, luminoso e que respeita os traços naturais do seu rosto.",
+      "A imunização é a forma mais eficaz e segura de proteger quem você ama contra infecções virais e bacterianas. Na Clínica São Camilo, mantemos rigoroso controle de temperatura com câmaras de refrigeração médica e equipe capacitada para aplicação com técnicas humanizadas de alívio de dor.",
     indications: [
-      "Dentes manchados ou escurecidos resistentes ao clareamento",
-      "Espaços indesejados entre os dentes (diastemas)",
-      "Dentes lascados, curtos ou levemente desalinhados",
-      "Desejo de um sorriso mais jovem, harmônico e radiante",
+      "Campanha anual da Vacina da Gripe para toda a família",
+      "Atualização do calendário vacinal de bebês e crianças",
+      "Vacinas para gestantes, idosos e viajantes",
+      "Imunizações ocupacionais e corporativas para colaboradores",
     ],
     benefits: [
-      "Sorriso impecável e alinhado de forma rápida e duradoura",
-      "Materiais que mantêm o brilho e não mancham com café ou vinho",
-      "Mínimo ou nenhum desgaste da estrutura dental sadia",
-      "Resultado natural sem aquele aspecto artificial de 'dentes falsos'",
+      "Armazenamento seguro e controle térmico ininterrupto",
+      "Aplicação humanizada que minimiza o medo e o desconforto",
+      "Cartão de vacinas sempre atualizado com orientação profissional",
+      "Disponibilidade para agendamento individual ou familiar",
     ],
     recovery:
-      "Procedimento minimamente invasivo, sem dor e com retorno imediato às atividades cotidianas.",
+      "Imunização rápida com orientações claras sobre cuidados e reações pós-aplicação.",
     faq: {
-      q: "As lentes de contato desgastam muito os dentes?",
-      a: "Não. Com as porcelanas ultrafinas modernas, o desgaste é milimétrico e estritamente conservador, preservando a saúde do dente natural.",
+      q: "A Vacina da Gripe está disponível para qualquer idade?",
+      a: "Sim! Disponível para bebês a partir de 6 meses, crianças, adultos, idosos e gestantes, garantindo proteção contra as principais cepas circulantes.",
     },
   },
   {
-    id: "cirurgia-siso",
-    title: "Cirurgia de Sisos & Extrações Suaves",
-    badge: "Cirurgia Humanizada",
+    id: "angiologia",
+    title: "Angiologia & Circulação",
+    badge: "Vascular",
     shortDesc:
-      "Remoção cirúrgica segura de sisos inclusos e dentes comprometidos com técnica indolor, mão leve e pós-operatório assistido.",
-    icon: "Heart",
+      "Prevenção, diagnóstico e tratamento de varizes, vasinhos, sensação de inchaço, peso e dores nas pernas.",
+    tag: "Circulação & Varizes",
     fullDesc:
-      "A cirurgia de dentes terceiros molares (sisos) é realizada pelo Dr. Frank Eduardo com técnica cirúrgica refinada, delicadeza e rapidez. Conhecido por sua 'mão leve' e atendimento humanizado, o Dr. Frank cuida até de pacientes gestantes e pessoas com histórico de trauma de infância, oferecendo suporte contínuo antes, durante e após a cirurgia.",
+      "A Angiologia cuida da saúde das artérias, veias e vasos linfáticos. Dores, sensação de peso ou queimação ao final do dia, vasinhos aparentes ou varizes são sinais de que o retorno venoso precisa de avaliação médica. O tratamento adequado alivia os sintomas e devolve a leveza ao caminhar.",
     indications: [
-      "Sisos inclusos, semi-inclusos ou empurrando os outros dentes",
-      "Dor de dente aguda, inchaço ou infecções recorrentes (pericoronarite)",
-      "Dentes com fratura profunda ou destruição irreparável",
-      "Indicação ortodôntica para liberação de espaço na arcada",
+      "Varizes aparentes, vasinhos e sensação de peso nas pernas",
+      "Inchaço (edema) nos tornozelos ao final do dia",
+      "Câimbras noturnas, queimação e formigamento",
+      "Histórico familiar de varizes ou risco de trombose venosa",
     ],
     benefits: [
-      "Alívio imediato da dor e prevenção de infecções graves",
-      "Técnica minimamente invasiva com menor edema (inchaço)",
-      "Atendimento cuidadoso e acolhedor que tranquiliza o paciente",
-      "Acompanhamento pós-cirúrgico de perto pelo WhatsApp com o Dr. Frank",
+      "Diagnóstico preciso do sistema circulatório",
+      "Alívio duradouro do cansaço e dores nas pernas",
+      "Prevenção eficaz de trombose e complicações vasculares",
+      "Melhora estética e bem-estar funcional no dia a dia",
     ],
     recovery:
-      "Protocolo de medicamentos pré e pós-operatórios para cicatrização rápida e sem dor em 3 a 5 dias.",
+      "Tratamentos modernos e ambulatoriais com rápida retomada das atividades cotidianas.",
     faq: {
-      q: "Eu tenho muito medo de arrancar o siso. Vou sentir dor?",
-      a: "Absolutamente não. A anestesia local é aplicada de forma suave e gradual. O Dr. Frank tem uma técnica cirúrgica delicada ('mão leve') amplamente elogiada pelos pacientes em mais de 250 avaliações.",
+      q: "Varizes são apenas um incômodo estético?",
+      a: "Não. As varizes são veias doentes que indicam insuficiência venosa crônica e podem causar dor crônica, inchaço e risco de complicações se não forem acompanhadas.",
     },
   },
   {
-    id: "clareamento-dental",
-    title: "Clareamento Dental Avançado",
-    badge: "Estética Não Invasiva",
+    id: "audiometria",
+    title: "Audiometria & Teste da Orelhinha",
+    badge: "Audiologia",
     shortDesc:
-      "Protocolos combinados em consultório e caseiro supervisionado para clarear os dentes com segurança e sem sensibilidade incômoda.",
-    icon: "Zap",
+      "Triagem auditiva neonatal (Teste da Orelhinha) obrigatória para bebês e exames de audiometria clínica e ocupacional.",
+    tag: "Saúde Auditiva",
     fullDesc:
-      "O clareamento dental profissional sob supervisão do Dr. Frank Eduardo remove pigmentos profundos acumulados ao longo dos anos, restaurando a cor clara e brilhante dos dentes. Utilizamos géis clareadores com agentes dessensibilizantes e protetores gengivais de ponta para garantir conforto térmico durante todo o tratamento.",
+      "A audição é a base para o desenvolvimento da fala, aprendizado e comunicação humana. Realizamos o Teste da Orelhinha, um exame rápido, 100% indolor e seguro para recém-nascidos, que detecta precocemente qualquer alteração auditiva. Também realizamos audiometria tonal e vocal para exames admissionais e periódicos.",
     indications: [
-      "Dentes amarelados pelo envelhecimento natural ou alimentos",
-      "Manchas decorrentes de café, chá, refrigerantes ou cigarro",
-      "Pacientes que se preparam para eventos, casamentos ou restaurações",
-      "Desejo de renovar a luminosidade e jovialidade do sorriso",
+      "Bebês recém-nascidos (idealmente nos primeiros 30 dias de vida)",
+      "Exames ocupacionais de audiometria para indústrias e fábricas",
+      "Dificuldade de compreensão da fala em ambientes com ruído",
+      "Sensação de ouvido tapado, zumbidos ou perda auditiva progressiva",
     ],
     benefits: [
-      "Dentes visivelmente mais brancos em poucas sessões",
-      "Protocolo seguro que não agride o esmalte dental",
-      "Fórmulas com dessensibilizante para máximo conforto",
-      "Acompanhamento fotográfico do antes e depois",
+      "Exame neonatal 100% indolor, realizado enquanto o bebê descansa",
+      "Equipamentos modernos e calibrados de alta precisão",
+      "Laudo imediato assinado por profissional habilitado",
+      "Detecção precoce que viabiliza intervenções no tempo correto",
     ],
     recovery:
-      "Sem necessidade de repouso. Apenas evitar corantes intensos nas primeiras 48 horas após a sessão.",
+      "Exame rápido, não invasivo e com liberação imediata do paciente.",
     faq: {
-      q: "O clareamento estraga o esmalte dos dentes?",
-      a: "Não. Quando realizado com produtos regulamentados e supervisão odontológica do Dr. Frank, o clareamento apenas quebra as moléculas de corante sem desgastar a matriz do esmalte.",
+      q: "O Teste da Orelhinha machuca o bebê?",
+      a: "De forma alguma! Uma pequena sonda macia de silicone é colocada suavemente na orelhinha emitindo sons suaves. A maioria dos bebês dorme durante todo o exame.",
     },
   },
   {
-    id: "restauracoes-esteticas",
-    title: "Restaurações Estéticas & Check-up",
-    badge: "Saúde & Prevenção",
+    id: "cardiologia",
+    title: "Cardiologia & Check-up",
+    badge: "Coração",
     shortDesc:
-      "Substituição de restaurações escuras por resinas que mimetizam a cor natural, além de profilaxia profunda e remoção de tártaro.",
-    icon: "CheckCircle2",
+      "Prevenção cardiovascular, controle de hipertensão, investigação de arritmias e avaliação de risco cirúrgico.",
+    tag: "Coração & Prevenção",
     fullDesc:
-      "As restaurações modernas em resinas compostas nanoparticuladas devolvem a forma original do dente com acabamento e brilho imperceptíveis. Aliadas à profilaxia periódica (limpeza com ultrassom e jato de bicarbonato), mantêm a gengiva saudável e protegem a dentição contra cáries e doenças periodontais.",
+      "Cuidar do coração é a decisão mais importante para uma vida longa, ativa e com tranquilidade. Na Clínica São Camilo, realizamos avaliações minuciosas para controle da pressão arterial, investigação de palpitações e emissão de laudos de risco cirúrgico.",
     indications: [
-      "Troca de restaurações escuras de amálgama (metálicas)",
-      "Tratamento de cáries ativas ou restaurações fraturadas",
-      "Acúmulo de tártaro, placa bacteriana ou sangramento gengival",
-      "Check-up preventivo semestral para toda a família",
+      "Pressão alta (hipertensão) ou histórico familiar precoce",
+      "Palpitações, dores no peito, cansaço anormal aos esforços",
+      "Avaliação de risco cirúrgico para procedimentos médicos",
+      "Check-up preventivo anual a partir dos 35-40 anos",
     ],
     benefits: [
-      "Estética natural idêntica à cor dos seus dentes",
-      "Hálito puro, gengiva firme e proteção duradoura",
-      "Consultório ultra-higienizado com equipamentos esterilizados",
-      "Atendimento preventivo que evita problemas complexos no futuro",
+      "Monitoramento seguro e assertivo da saúde cardiovascular",
+      "Prevenção primária de eventos graves",
+      "Orientações clínicas integradas com estilo de vida",
+      "Laudos cardiológicos ágeis e fundamentados",
     ],
     recovery:
-      "Recuperação imediata: você já pode se alimentar normalmente logo após o procedimento.",
+      "Acompanhamento cardiológico regular com foco em longevidade e segurança.",
     faq: {
-      q: "De quanto em quanto tempo devo fazer limpeza no consultório?",
-      a: "O recomendado é a cada 6 meses, garantindo a remoção de tártaro antes que cause inflamações gengivais ou perdas ósseas.",
+      q: "Quando devo procurar o cardiologista de forma preventiva?",
+      a: "Homens a partir dos 40 anos e mulheres a partir dos 45 anos (ou antes, se houver histórico familiar de infarto, fumo ou diabetes) devem realizar check-up anual.",
+    },
+  },
+  {
+    id: "nutricao",
+    title: "Nutrição Clínica & Esportiva",
+    badge: "Nutrição",
+    shortDesc:
+      "Planos alimentares personalizados para emagrecimento sustentável, controle de diabetes, colesterol e nutrição infantil.",
+    tag: "Reeducação Alimentar",
+    fullDesc:
+      "A alimentação é a fonte de vitalidade do corpo. Nosso atendimento nutricional desenvolve planos adaptados à sua rotina real, sem dietas punitivas ou restrições impossíveis de sustentar. Trabalhamos a reeducação alimentar, controle metabólico e nutrição infantil.",
+    indications: [
+      "Emagrecimento sustentável sem efeito sanfona",
+      "Controle de glicemia, colesterol, triglicérides e esteatose",
+      "Introdução alimentar infantil e combate à seletividade",
+      "Ganho de disposição, melhora do sono e desempenho físico",
+    ],
+    benefits: [
+      "Cardápio 100% individualizado para suas preferências e rotina",
+      "Acompanhamento acolhedor da evolução corporal e de exames",
+      "Estratégias práticas para aplicar no trabalho e em casa",
+      "Mais vitalidade diária e saúde gastrointestinal",
+    ],
+    recovery:
+      "Resultados consistentes e duradouros com acompanhamento humanizado.",
+    faq: {
+      q: "Vou precisar cortar tudo o que gosto na dieta?",
+      a: "Não! O foco é o equilíbrio e a reeducação. Adaptamos as refeições para que sejam prazerosas, nutritivas e sustentáveis a longo prazo.",
+    },
+  },
+  {
+    id: "otorrinolaringologia",
+    title: "Otorrinolaringologia (Otorrino)",
+    badge: "Otorrino",
+    shortDesc:
+      "Diagnóstico e tratamento de rinites, sinusites, desvio de septo, rouquidão, dores de garganta e zumbido no ouvido.",
+    tag: "Vias Aéreas Superiores",
+    fullDesc:
+      "O médico otorrinolaringologista cuida da saúde das vias aéreas superiores, equilíbrio e audição. Trata desde quadros frequentes como amigdalites de repetição, rinites alérgicas e sinusites crônicas, até labirintite, tonturas, rouquidão prolongada e ronco.",
+    indications: [
+      "Nariz entupido frequente, coriza crônica e rinite alérgica",
+      "Dores de cabeça causadas por sinusite e congestão nasal",
+      "Otites de repetição, dor ou secreção nos ouvidos",
+      "Ronco noturno, alterações da voz e engasgos constantes",
+    ],
+    benefits: [
+      "Alívio rápido de crises respiratórias e melhora no sono",
+      "Investigação aprofundada de tonturas e labirintites",
+      "Preservação da capacidade auditiva e da saúde vocal",
+      "Tratamentos clínicos modernos e individualizados",
+    ],
+    recovery:
+      "Recuperação do conforto respiratório e da qualidade de descanso ao dormir.",
+    faq: {
+      q: "Rinite alérgica tem cura?",
+      a: "A rinite não possui cura definitiva, mas o acompanhamento médico adequado promove o controle completo dos sintomas por longos períodos.",
+    },
+  },
+  {
+    id: "pneumologia",
+    title: "Pneumologia",
+    badge: "Respiratória",
+    shortDesc:
+      "Cuidado especializado para asma, bronquite, DPOC, tosse crônica, falta de ar e reabilitação respiratória.",
+    tag: "Pulmões & Respiração",
+    fullDesc:
+      "Respirar sem esforço é qualidade de vida. A Pneumologia na Clínica São Camilo é dedicada ao diagnóstico e tratamento de doenças pulmonares agudas e crônicas. Ajudamos pacientes a controlar crises de asma, cessar o tabagismo e recuperar o fôlego.",
+    indications: [
+      "Tosse persistente por mais de 3 semanas",
+      "Falta de ar (dispneia) ao caminhar ou realizar esforços comuns",
+      "Asma, bronquite crônica ou enfisema pulmonar (DPOC)",
+      "Acompanhamento preventivo para fumantes e ex-fumantes",
+    ],
+    benefits: [
+      "Controle seguro de chiados no peito e crises de falta de ar",
+      "Diagnóstico funcional preciso da capacidade respiratória",
+      "Prescrição correta e orientada de medicações inalatórias",
+      "Mais resistência física e disposição para o dia a dia",
+    ],
+    recovery:
+      "Plano terapêutico personalizado para que o paciente respire com leveza e segurança.",
+    faq: {
+      q: "O uso de bombinha para asma vicia?",
+      a: "Mito. As medicações inalatórias modernas agem diretamente nos brônquios com absorção mínima pelo organismo, sendo o tratamento padrão mais seguro e recomendado mundialmente.",
+    },
+  },
+  {
+    id: "psiquiatria",
+    title: "Psiquiatria & Saúde Mental",
+    badge: "Saúde Mental",
+    shortDesc:
+      "Cuidado humanizado e confidencial para ansiedade, depressão, burnout, insônia, estresse e transtornos de humor.",
+    tag: "Saúde Mental & Equilíbrio",
+    fullDesc:
+      "A saúde mental é o pilar de sustentação para toda a nossa vida pessoal e produtiva. Na Clínica São Camilo, as consultas psiquiátricas são pautadas pela escuta atenta, respeito absoluto e ética médica. Desmistificamos o tratamento com responsabilidade.",
+    indications: [
+      "Ansiedade constante, crises de pânico ou aperto no peito",
+      "Tristeza profunda, desânimo prolongado e perda de interesse",
+      "Insônia crônica ou noites mal dormidas com cansaço ao acordar",
+      "Esgotamento emocional e profissional (Síndrome de Burnout)",
+    ],
+    benefits: [
+      "Ambiente sigiloso, sem julgamentos e verdadeiramente acolhedor",
+      "Prescrição médica consciente e explicada detalhadamente",
+      "Melhora progressiva da qualidade do sono e disposição",
+      "Resgate do equilíbrio emocional e das relações interpessoais",
+    ],
+    recovery:
+      "Acompanhamento próximo com reavaliações periódicas para ajuste e redução gradual quando oportuno.",
+    faq: {
+      q: "Medicamentos psiquiátricos causam dependência?",
+      a: "A imensa maioria dos medicamentos modernos para ansiedade e depressão não causa dependência. O tratamento é monitorado pelo médico psiquiatra com responsabilidade.",
+    },
+  },
+  {
+    id: "urologia",
+    title: "Urologia & Prevenção",
+    badge: "Urologia",
+    shortDesc:
+      "Prevenção do câncer de próstata, tratamento de cálculo renal (pedra nos rins), infecções urinárias e saúde masculina.",
+    tag: "Trato Urinário & Próstata",
+    fullDesc:
+      "A Urologia cuida do sistema urinário de homens e mulheres e trata especificamente da saúde preventiva masculina. Com abordagem respeitosa e moderna, nossos especialistas realizam o rastreamento preventivo da próstata e tratamento de dores renais.",
+    indications: [
+      "Check-up preventivo da próstata (homens a partir dos 45-50 anos)",
+      "Cólicas renais ou histórico de cálculo (pedra nos rins)",
+      "Dificuldade, ardência ou idas frequentes ao banheiro à noite",
+      "Infecções urinárias de repetição em homens ou mulheres",
+    ],
+    benefits: [
+      "Diagnóstico precoce de alterações na próstata com alta chance de cura",
+      "Alívio rápido para crises agudas de dor nos rins",
+      "Atendimento médico ético, descomplicado e seguro",
+      "Melhora significativa da qualidade de vida urinária e íntima",
+    ],
+    recovery:
+      "Condutas terapêuticas modernas e preventivas para manter você saudável e confiante.",
+    faq: {
+      q: "Com qual idade o homem deve iniciar o acompanhamento da próstata?",
+      a: "A partir dos 50 anos para homens sem histórico na família, ou a partir dos 45 anos para homens com histórico de primeiro grau.",
     },
   },
 ];
 
-// Depoimentos Reais do Google Reviews (Nota 5,0 estrelas - 256 avaliações)
-interface Review {
-  name: string;
-  badge?: string;
-  timeAgo: string;
-  comment: string;
-  highlights: string[];
+// Depoimentos Reais / Google Reviews da Clínica São Camilo (4,8 Estrelas no Google)
+interface Testimonial {
+  author: string;
+  role: string;
+  rating: number;
+  text: string;
+  source: string;
+  tag: string;
 }
 
-const REVIEWS: Review[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Polyana Rodrigues",
-    badge: "9 avaliações · Paciente de Betim",
-    timeAgo: "6 meses atrás",
-    comment:
-      "Super recomendo o Dr Frank! Ótimo profissional, passa muita segurança e humanização no atendimento. Muito critério na higienização das salas e equipamentos, fiz procedimentos com ele e faria novamente. Detalhe: me desloquei de Betim para ir até seu consultório devido às recomendações que tive dele, então a distância não era problema. Gratidão Dr Frank, muito obrigada!",
-    highlights: ["Humanização no atendimento", "Higiene rigorosa", "Deslocou de Betim"],
+    author: "Mariana Silva",
+    role: "Mãe de paciente pediátrico · Nova Serrana",
+    rating: 5,
+    text: "Excelente clínica! Levo meu filho no pediatra aqui desde que ele era recém-nascido. O atendimento é sempre carinhoso, pontual e muito acolhedor. O Teste da Orelhinha quando ele nasceu foi super tranquilo, a fonoaudióloga foi um amor de pessoa.",
+    source: "Avaliação 5 estrelas no Google",
+    tag: "Pediatria",
   },
   {
-    name: "Carlos Deleon Gonçalves",
-    badge: "Local Guide · 27 avaliações",
-    timeAgo: "8 meses atrás",
-    comment:
-      "Excelente! Equipamentos de alta tecnologia, moderno, qualidade e ótimo atendimento. O Dr. Frank é um ótimo profissional e a Meg muito gente boa e simpática no atendimento. Recomendo de olhos fechados!",
-    highlights: ["Alta tecnologia", "Moderno", "Meg simpática e atenciosa"],
+    author: "Roberto Guimarães",
+    role: "Gestor de RH · Indústria de Calçados",
+    rating: 5,
+    text: "Nossa empresa encaminha todos os novos funcionários para o ASO admissional e periódico na Clínica São Camilo. O retorno é extremamente rápido, sem burocracia e com exames complementares feitos no mesmo endereço.",
+    source: "Avaliação 5 estrelas no Google",
+    tag: "Medicina do Trabalho",
   },
   {
-    name: "Luiz Fernando Oliveira",
-    badge: "Local Guide · 24 avaliações",
-    timeAgo: "6 meses atrás",
-    comment:
-      "O melhor dentista de Igarapé e região. Responsável, honesto e muito profissional. Explica passo a passo o que está fazendo e deixa tudo bem claro para que não haja dúvidas.",
-    highlights: ["Melhor de Igarapé e região", "Honesto e claro", "Explica passo a passo"],
+    author: "Camila Ferreira",
+    role: "Paciente da vacinação · Nova Serrana",
+    rating: 5,
+    text: "Fizemos a vacina da gripe com toda a nossa família. As enfermeiras têm uma mão leve e muita paciência com crianças, meu filho de 3 anos nem chorou! Clínica super limpa e organizada.",
+    source: "Avaliação 5 estrelas no Google",
+    tag: "Vacinas",
   },
   {
-    name: "Mariana Neta",
-    badge: "8 avaliações",
-    timeAgo: "3 meses atrás",
-    comment:
-      "Dr. Frank foi muito atencioso e educado, me explicou todo o procedimento com clareza. Excelente dentista. Super indico!!",
-    highlights: ["Educado e atencioso", "Explicação clara", "Super indico"],
+    author: "Geraldo Alvarenga",
+    role: "Paciente de Cardiologia · Centro, Nova Serrana",
+    rating: 5,
+    text: "Passei pela consulta com o cardiologista e fiquei muito impressionado com o cuidado e a clareza nas explicações. O médico examinou tudo com calma e me passou total segurança. Nota dez!",
+    source: "Avaliação 5 estrelas no Google",
+    tag: "Cardiologia",
   },
   {
-    name: "Nanda Oliveira",
-    badge: "4 avaliações · Atendimento Gestante",
-    timeAgo: "5 anos atrás",
-    comment:
-      "Sempre tive medo de dentista e precisei de tratamento em um dente siso durante a gravidez do meu filho. Eu estava sentindo muita dor e o Dr Frank me atendeu em pleno feriado para uma avaliação, com muita cautela pela gestação no 8º mês. Ele me deu todo suporte e sempre atencioso nas mensagens nas madrugadas de dor. Depois tirei o dente e foi um alívio imenso. Gratidão imensa pelo carinho e competência!",
-    highlights: ["Atendimento no feriado", "Cuidado na gestação", "Suporte nas madrugadas"],
+    author: "Patrícia Mendes",
+    role: "Moradora de Nova Serrana",
+    rating: 5,
+    text: "A localização é ótima, bem no centro da cidade, fácil de estacionar e achar. As recepcionistas são educadíssimas. É a clínica de confiança da nossa família.",
+    source: "Avaliação 5 estrelas no Google",
+    tag: "Atendimento",
   },
   {
-    name: "Kaah Oliver",
-    badge: "6 avaliações · Superou Trauma",
-    timeAgo: "2 anos atrás",
-    comment:
-      "O Dr Frank é muito atencioso e o mais importante: muito honesto. Vim traumatizada de outro consultório em Igarapé e fiz minha consulta com ele. O serviço prestado é de excelência desde a atendente que é um amor, até o Dr Frank que tem bastante experiência, calma e a mão leve rs. Indico muito!",
-    highlights: ["Superou trauma anterior", "Mão leve e calma", "Honesto demais"],
-  },
-  {
-    name: "Jessica Dos Santos",
-    badge: "3 avaliações · Família Tratando",
-    timeAgo: "2 anos atrás",
-    comment:
-      "O único que conseguiu tirar o trauma que tive com dentista! Um excelente profissional, me explicou tudo o que precisava fazer sem deixar nenhuma dúvida. Recomendo de olhos fechados, meu esposo e minhas filhas tratam com ele.",
-    highlights: ["Tirou o trauma de dentista", "Família inteira trata", "Recomendo de olhos fechados"],
-  },
-  {
-    name: "Diego Romao",
-    badge: "3 avaliações",
-    timeAgo: "5 anos atrás",
-    comment:
-      "Já tinha tentado resolver meu problema com vários dentistas, mas o Dr. Frank foi o único que conseguiu me entender e solucionar minha insatisfação com meus dentes. Se tenho autoestima e satisfação com meu sorriso hoje, devo a esse consultório maravilhoso. Obrigado também a Meg pela excelência em seu trabalho. Me sinto em casa com vocês!",
-    highlights: ["Autoestima restaurada", "Entendeu meu caso", "Equipe faz sentir em casa"],
-  },
-  {
-    name: "Lia Portugal",
-    badge: "1 avaliação · Honestidade Rara",
-    timeAgo: "5 anos atrás",
-    comment:
-      "Fiz tratamento de dentes com o Dr. Frank Eduardo. Foram 4 dentes e pensei que fosse custar uma fortuna. Para espanto meu, ele cobrou um preço bem baixo, o tratamento foi rápido e quando fui pagar ele ainda me deu desconto afirmando que não gastou todo o material previsto. É difícil acontecer um caso deste! Muito gentil e não dá medo de fazer o tratamento.",
-    highlights: ["Honestidade de verdade", "Preço justo", "Gentil e sem medo"],
-  },
-  {
-    name: "Priscila Amaro",
-    badge: "Local Guide · 37 avaliações",
-    timeAgo: "5 anos atrás",
-    comment:
-      "Excelência do começo ao fim! Materiais e produtos de ótima qualidade, ambiente confortável e agradável, uma recepção alegre, gentil e educada da Meg. Não é à toa que saio de Contagem para ser atendida por essa pessoa incrível. Simpatia ímpar!",
-    highlights: ["Vem de Contagem", "Materiais de qualidade", "Simpatia ímpar"],
+    author: "Luciana Duarte",
+    role: "Paciente de Nutrição · Nova Serrana",
+    rating: 5,
+    text: "O plano nutricional foi feito sob medida para a minha rotina de trabalho. Já eliminei mais de 10kg com saúde e sem passar fome. Atendimento acolhedor que motiva a gente.",
+    source: "Avaliação 5 estrelas no Google",
+    tag: "Nutrição",
   },
 ];
 
 // Perguntas Frequentes (FAQ)
 const FAQS = [
   {
-    q: "Tenho pavor de dentista ou tive experiências traumáticas no passado. O atendimento com o Dr. Frank vai doer?",
-    a: "Fique totalmente tranquilo(a)! Dezenas de pacientes relatam em nossas mais de 250 avaliações no Google que tinham medo e superaram o trauma com o Dr. Frank Eduardo. Ele é reconhecido por sua paciência, escuta atenta e pela famosa 'mão leve'. As anestesias são aplicadas com técnica suave, respeitando seu tempo e sem nenhuma pressa.",
+    q: "Como faço para agendar uma consulta ou exame na Clínica São Camilo?",
+    a: "Você pode agendar de forma rápida e prática diretamente pelo nosso WhatsApp oficial no número (37) 3226-2910 ou ligando para o mesmo número. Nossa equipe responderá prontamente com os dias e horários disponíveis.",
   },
   {
-    q: "Como funciona a primeira avaliação no consultório?",
-    a: "Na consulta inicial, o Dr. Frank conversa detalhadamente com você para entender suas queixas, desejos e histórico. É feito um exame clínico minucioso com tecnologia digital. O Dr. Frank explica com transparência o diagnóstico, apresentando as alternativas de tratamento e orçamentos claros, sem empurrar procedimentos desnecessários.",
+    q: "A clínica atende convênios ou somente consultas particulares?",
+    a: "Atendemos na modalidade particular com valores acessíveis e facilitados, além de convênios e parcerias corporativas. Entre em contato pelo WhatsApp para confirmarmos a cobertura do seu atendimento.",
   },
   {
-    q: "O consultório atende pacientes que moram em Betim, Contagem ou outras cidades?",
-    a: "Sim! Muitos pacientes se deslocam frequentemente de Betim, Contagem, Brumadinho, São Joaquim de Bicas e de toda a Região Metropolitana de BH até o nosso consultório no Centro de Igarapé pela confiança e pelos resultados diferenciados do Dr. Frank. O consultório tem fácil acesso com elevador e ótima localização na Av. Governador Valadares.",
+    q: "Como funciona o atendimento de Medicina do Trabalho para empresas?",
+    a: "Oferecemos fluxo prioritário e ágil para indústrias e comércios de Nova Serrana e região. Realizamos ASO Admissional, Periódico, Demissional e Mudança de Risco, além de Audiometria e Espirometria no mesmo endereço.",
   },
   {
-    q: "Quais são as opções de pagamento disponíveis para tratamentos e próteses?",
-    a: "Trabalhamos com condições facilitadas de pagamento no cartão de crédito, PIX e opções parceladas para que você possa realizar seu tratamento odontológico ou reabilitação oral com tranquilidade e planejamento financeiro.",
+    q: "Quando deve ser feito o Teste da Orelhinha no bebê?",
+    a: "O Teste da Orelhinha (triagem auditiva neonatal) é obrigatório e deve ser realizado preferencialmente no primeiro mês de vida do bebê. O procedimento é 100% indolor, rápido e pode ser feito enquanto o bebê dorme.",
   },
   {
-    q: "Como faço para agendar meu horário?",
-    a: "O agendamento é simples, rápido e direto pelo WhatsApp com a Meg, nossa secretária. Basta clicar em qualquer botão do site ou chamar no (31) 99767-0022. Responderemos com atenção para encontrar o melhor dia e horário para a sua rotina.",
+    q: "Quais vacinas estão disponíveis na Clínica São Camilo?",
+    a: "Disponibilizamos a Vacina da Gripe (Influenza) sazonal atualizada, vacinas do calendário infantil, gestantes, idosos e imunizações ocupacionais, com rigoroso controle térmico.",
+  },
+  {
+    q: "Onde fica a Clínica São Camilo e qual é o horário de funcionamento?",
+    a: "Estamos localizados na Rua Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG (CEP 35519-000). Nosso horário é de segunda a sexta-feira, a partir das 08:00.",
   },
 ];
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(
-    null
-  );
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [filterTag, setFilterTag] = useState<string>("todos");
+  const [showAllSpecialties, setShowAllSpecialties] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -428,1542 +544,1347 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const filteredSpecialties =
+    filterTag === "todos"
+      ? SPECIALTIES
+      : SPECIALTIES.filter((s) =>
+          filterTag === "ocupacional"
+            ? s.id === "medicina-do-trabalho" || s.id === "audiometria"
+            : filterTag === "infantil"
+            ? s.id === "pediatria" || s.id === "vacinas" || s.id === "audiometria"
+            : filterTag === "clinica"
+            ? s.id !== "medicina-do-trabalho"
+            : true
+        );
+
+  const displayedSpecialties = showAllSpecialties
+    ? filteredSpecialties
+    : filteredSpecialties.slice(0, 4);
+
   return (
-    <MotionConfig reducedMotion="user">
-      <main className="min-h-screen bg-[#f8fafc] text-[#0f172a] selection:bg-[#001a60] selection:text-[#fff3c4]">
-        {/* ======================================================== */}
-        {/* TOP ANNOUNCEMENT BAR (ROYAL NAVY & GOLD)                 */}
-        {/* ======================================================== */}
-        <div className="border-b border-[#0a1945] bg-[#000d2b] py-2 text-xs text-[#cbd5e1]">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 font-medium">
-              <span className="inline-flex items-center gap-1 text-[#f4c22b] font-bold">
-                <Star size={13} className="fill-[#f4c22b]" /> 5,0 no Google
-              </span>
-              <span className="hidden sm:inline text-slate-500">|</span>
-              <span className="hidden sm:inline">256+ avaliações reais de pacientes</span>
-              <span className="hidden md:inline text-slate-500">|</span>
-              <span className="hidden md:inline text-slate-300">
-                Centro de Igarapé - MG
-              </span>
+    <div className="relative min-h-screen bg-[#f8fafb] text-slate-800 antialiased overflow-x-hidden">
+      {/* Top Bar Sóbrio e Elegante */}
+      <div className="bg-[#062d29] text-slate-200 text-xs py-2 px-4 border-b border-teal-950/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap text-[11px] sm:text-xs">
+            <span className="inline-flex items-center gap-1.5 font-medium text-slate-100">
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <span>{GOOGLE_RATING} ★ ({GOOGLE_REVIEW_COUNT} avaliações no Google)</span>
+            </span>
+            <span className="hidden sm:inline-block text-teal-800">|</span>
+            <span className="hidden sm:inline-flex items-center gap-1 text-slate-300">
+              <Clock className="w-3.5 h-3.5 text-teal-400" />
+              Seg. a Sex. a partir das 08:00
+            </span>
+            <span className="hidden md:inline-block text-teal-800">|</span>
+            <span className="hidden md:inline-flex items-center gap-1 text-slate-300">
+              <MapPin className="w-3.5 h-3.5 text-teal-400" />
+              Centro, Nova Serrana - MG
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 text-[11px] sm:text-xs shrink-0">
+            <a
+              href={getWhatsAppUrl("Olá! Gostaria de falar com o atendimento da Clínica São Camilo.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-semibold text-emerald-400 hover:text-white transition-colors"
+            >
+              <WhatsAppIcon size={14} />
+              <span>{PHONE_DISPLAY}</span>
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-300 hover:text-white transition-colors"
+              title="Instagram Clínica São Camilo"
+            >
+              <InstagramIcon size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Header Fixo com Logo Nitido e Navegação Equilibrada */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-200 bg-white/95 backdrop-blur-md border-b ${
+          scrolled ? "border-slate-200 shadow-sm" : "border-slate-100"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between gap-4">
+          {/* Logo da Clínica São Camilo (+10% ampliado, nítido e fixo) */}
+          <a
+            href="#"
+            className="flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-[#0d766e] rounded-lg"
+          >
+            <div className="relative w-[195px] sm:w-[230px] h-12 sm:h-[53px] shrink-0">
+              <Image
+                src={LOGO_SRC}
+                alt="Clínica São Camilo"
+                fill
+                sizes="230px"
+                priority
+                className="object-contain object-left"
+              />
             </div>
-            <div className="flex items-center gap-4 text-[11px]">
-              <a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden lg:flex items-center gap-1 text-[#cbd5e1] hover:text-[#f4c22b] transition-colors"
-              >
-                <MapPin size={12} className="text-[#dea404]" />
-                Av. Gov. Valadares, 440 · Sala 202
-              </a>
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 font-bold text-[#f4c22b] hover:text-white transition-colors"
-              >
-                <WhatsAppIcon size={13} />
-                <span>(31) 99767-0022</span>
-              </a>
+          </a>
+
+          {/* Menu Desktop Enxuto e Limpo */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <a href="#especialidades" className="nav-link">
+              Especialidades
+            </a>
+            <a href="#medicina-trabalho" className="nav-link">
+              Medicina do Trabalho
+            </a>
+            <a href="#vacinas" className="nav-link">
+              Vacinas & Exames
+            </a>
+            <a href="#sobre" className="nav-link">
+              Sobre Nós
+            </a>
+            <a href="#depoimentos" className="nav-link">
+              Avaliações
+            </a>
+            <a href="#localizacao" className="nav-link">
+              Localização
+            </a>
+            <a href="#duvidas" className="nav-link">
+              Dúvidas
+            </a>
+          </nav>
+
+          {/* CTA Header Sóbrio e Elegante */}
+          <div className="hidden sm:flex items-center shrink-0">
+            <GlowingButton
+              href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo.")}
+              target="_blank"
+              variant="primary"
+              size="sm"
+              className="gap-2 shrink-0"
+            >
+              <WhatsAppIcon size={15} />
+              <span>Agendar Consulta</span>
+            </GlowingButton>
+          </div>
+
+          {/* Botão Mobile */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors focus-visible:outline-2 focus-visible:outline-[#0d766e]"
+            aria-label="Abrir menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Menu Mobile */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 shadow-lg"
+            >
+              <div className="flex flex-col gap-2.5 text-sm font-semibold text-slate-700">
+                <a
+                  href="#especialidades"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Especialidades Médicas
+                </a>
+                <a
+                  href="#medicina-trabalho"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Medicina do Trabalho (ASO)
+                </a>
+                <a
+                  href="#vacinas"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Vacinas & Teste da Orelhinha
+                </a>
+                <a
+                  href="#sobre"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Sobre Nós
+                </a>
+                <a
+                  href="#depoimentos"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Avaliações Google (4,8★)
+                </a>
+                <a
+                  href="#localizacao"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Como Chegar & Horários
+                </a>
+                <a
+                  href="#duvidas"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0d766e]"
+                >
+                  Perguntas Frequentes
+                </a>
+                <div className="pt-2">
+                  <GlowingButton
+                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo.")}
+                    target="_blank"
+                    variant="primary"
+                    size="md"
+                    className="w-full gap-2 justify-center"
+                  >
+                    <WhatsAppIcon size={16} />
+                    <span>Agendar pelo WhatsApp</span>
+                  </GlowingButton>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* Hero Section Sóbria, Médica e Acolhedora */}
+      <section className="relative overflow-hidden pt-10 pb-14 sm:pt-14 sm:pb-20 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Texto do Hero */}
+            <div className="lg:col-span-7 flex flex-col items-start">
+              {/* Badge discreto */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-[#0d766e] text-xs font-semibold tracking-wide mb-4">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                Clínica Médica Multidisciplinar em Nova Serrana - MG
+              </div>
+
+              {/* Título sem gradiente multicolorido chamativo */}
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.18] mb-5">
+                Cuidado completo, médicos especialistas e{" "}
+                <span className="text-[#0d766e]">atendimento humanizado</span>{" "}
+                para toda a sua família.
+              </h1>
+
+              {/* Subtítulo sóbrio */}
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-7 max-w-2xl font-normal">
+                Da <strong>Pediatria</strong> à <strong>Medicina do Trabalho</strong> para empresas: consultas com médicos especialistas, <strong>Vacina da Gripe</strong>, <strong>Teste da Orelhinha</strong> e exames no mesmo local, com excelência comprovada por mais de <strong>200 avaliações 4,8 estrelas no Google</strong>.
+              </p>
+
+              {/* Botões do Hero com visual refinado */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-8">
+                <GlowingButton
+                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo em Nova Serrana.")}
+                  target="_blank"
+                  variant="primary"
+                  size="lg"
+                  className="gap-2.5"
+                >
+                  <WhatsAppIcon size={18} />
+                  <span>Agendar Consulta via WhatsApp</span>
+                </GlowingButton>
+
+                <GlowingButton
+                  href="#especialidades"
+                  variant="outline"
+                  size="lg"
+                  className="gap-2"
+                >
+                  <span>Conhecer Especialidades</span>
+                  <ArrowRight className="w-4 h-4 text-slate-500" />
+                </GlowingButton>
+              </div>
+
+              {/* Badges de Confiança Limpos */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full border-t border-slate-100 pt-5 text-left">
+                <div>
+                  <p className="font-heading font-extrabold text-xl text-[#0d766e]">
+                    4,8 ★
+                  </p>
+                  <p className="text-[11px] text-slate-500 font-medium">
+                    203 avaliações Google
+                  </p>
+                </div>
+                <div>
+                  <p className="font-heading font-extrabold text-xl text-slate-800">
+                    +11 Especialidades
+                  </p>
+                  <p className="text-[11px] text-slate-500 font-medium">
+                    Corpo médico completo
+                  </p>
+                </div>
+                <div>
+                  <p className="font-heading font-extrabold text-xl text-[#0d766e]">
+                    ASO Ágil
+                  </p>
+                  <p className="text-[11px] text-slate-500 font-medium">
+                    Medicina do Trabalho
+                  </p>
+                </div>
+                <div>
+                  <p className="font-heading font-extrabold text-xl text-slate-800">
+                    No Centro
+                  </p>
+                  <p className="text-[11px] text-slate-500 font-medium">
+                    Nova Serrana - MG
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Imagem do Hero Limpa e Elegante */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative mx-auto max-w-md lg:max-w-none">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/50 bg-white">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={FOTO_ATENDIMENTO_SRC}
+                      alt="Atendimento Médico Humanizado na Clínica São Camilo"
+                      fill
+                      priority
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 500px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <p className="text-xs uppercase font-bold tracking-wider text-emerald-400">
+                        Atendimento Acolhedor
+                      </p>
+                      <p className="text-sm sm:text-base font-bold font-heading">
+                        Cuidado e respeito com quem você mais ama
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Google Avaliações */}
+                <div className="absolute -top-4 -left-4 sm:-left-5 bg-white rounded-xl p-3 shadow-lg border border-slate-200/90 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center font-bold text-sm">
+                    4.8
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-0.5 text-amber-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-[11px] font-bold text-slate-800">
+                      Excelente no Google
+                    </p>
+                    <p className="text-[10px] text-slate-500">
+                      203 avaliações reais
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card Medicina do Trabalho */}
+                <div className="absolute -bottom-4 -right-3 sm:-right-4 bg-[#0a2e2a] rounded-xl p-3 shadow-xl border border-teal-800/40 text-white flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-teal-800/40 flex items-center justify-center text-emerald-400">
+                    <Briefcase className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white flex items-center gap-1.5">
+                      Medicina do Trabalho & ASO
+                    </p>
+                    <p className="text-[10px] text-slate-300">
+                      Agilidade para o RH de Nova Serrana
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* ======================================================== */}
-        {/* STICKY HEADER / NAVBAR                                   */}
-        {/* ======================================================== */}
-        <header
-          className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-            scrolled
-              ? "border-b border-[#001a60]/15 bg-white/95 backdrop-blur-md shadow-sm"
-              : "border-b border-slate-200/60 bg-white"
-          }`}
-        >
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-            {/* Brand Logo */}
-            <a href="#" className="flex items-center gap-2 shrink-0 group">
-              <div className="relative h-10 w-48 sm:h-11 sm:w-60 md:w-64">
-                <Image
-                  src={LOGO_HORIZONTAL_SRC}
-                  alt={CLINIC_NAME}
-                  fill
-                  sizes="(max-width: 640px) 190px, 260px"
-                  className="object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
-                  priority
-                />
-              </div>
-            </a>
+      {/* Faixa de Estatísticas */}
+      <section className="border-b border-slate-200 bg-slate-50/60 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x md:divide-slate-200">
+            <div className="px-3">
+              <span className="font-heading font-black text-2xl sm:text-3xl text-[#0d766e]">
+                4,8 ★
+              </span>
+              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
+                Avaliação no Google
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Mais de 200 opiniões reais
+              </p>
+            </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5 shrink-0">
-              <a href="#tratamentos" className="nav-link">
-                Tratamentos
-              </a>
-              <a href="#sobre" className="nav-link">
-                Dr. Frank
-              </a>
-              <a href="#estrutura" className="nav-link">
-                O Consultório
-              </a>
-              <a href="#diferenciais" className="nav-link">
-                Diferenciais
-              </a>
-              <a href="#depoimentos" className="nav-link">
-                Depoimentos (5★)
-              </a>
-              <a href="#localizacao" className="nav-link">
-                Localização
-              </a>
-              <a href="#duvidas" className="nav-link">
-                Dúvidas
-              </a>
-            </nav>
+            <div className="px-3">
+              <span className="font-heading font-black text-2xl sm:text-3xl text-slate-800">
+                11+
+              </span>
+              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
+                Especialidades Médicas
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Da infância à terceira idade
+              </p>
+            </div>
 
-            {/* CTA Button & Mobile Toggle */}
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="hidden sm:block shrink-0">
-                <GlowingButton
-                  variant="gold"
-                  size="sm"
-                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma avaliação com o Dr. Frank Eduardo.")}
-                  target="_blank"
-                  className="whitespace-nowrap shrink-0 shadow-sm"
+            <div className="px-3">
+              <span className="font-heading font-black text-2xl sm:text-3xl text-[#0d766e]">
+                100%
+              </span>
+              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
+                Exames no Local
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Audiometria e Teste da Orelhinha
+              </p>
+            </div>
+
+            <div className="px-3">
+              <span className="font-heading font-black text-2xl sm:text-3xl text-slate-800">
+                ASO Rápido
+              </span>
+              <p className="font-bold text-xs uppercase tracking-wide text-slate-700 mt-1">
+                Saúde Ocupacional
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Sem filas para sua empresa
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Especialidades Médicas & Exames */}
+      <section id="especialidades" className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="eyebrow justify-center mb-2.5">
+              Corpo Clínico & Especialidades
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Consultas Médicas & Exames na Clínica São Camilo
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Consulte com médicos especialistas em um ambiente moderno, acolhedor e com exames no mesmo endereço em Nova Serrana. Selecione a especialidade para ver detalhes e agendar.
+            </p>
+
+            {/* Filtros rápidos e discretos */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+              {[
+                { id: "todos", label: "Todas (11)" },
+                { id: "infantil", label: "Infantil & Vacinas" },
+                { id: "ocupacional", label: "Medicina do Trabalho" },
+                { id: "clinica", label: "Clínica & Adulto" },
+              ].map((filter) => (
+                <button
+                  key={filter.id}
+                  type="button"
+                  onClick={() => setFilterTag(filter.id)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                    filterTag === filter.id
+                      ? "bg-[#0d766e] text-white shadow-2xs"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200/80"
+                  }`}
                 >
-                  <WhatsAppIcon size={15} className="shrink-0" />
-                  <span>Agendar Consulta</span>
-                </GlowingButton>
-              </div>
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
-              {/* Hamburger Button */}
+          {/* Grid de Cards de Especialidades (4 visíveis inicialmente + botão Ver Mais) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {displayedSpecialties.map((spec) => (
+              <div
+                key={spec.id}
+                className="bg-white rounded-xl p-5 border border-slate-200/80 hover:border-[#0d766e]/60 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-semibold bg-teal-50 text-[#0d766e]">
+                      {spec.badge}
+                    </span>
+                    <span className="text-[10px] font-medium text-slate-400">
+                      {spec.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="font-heading font-bold text-lg text-slate-900 mb-2">
+                    {spec.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                    {spec.shortDesc}
+                  </p>
+
+                  <div className="space-y-1.5 mb-5">
+                    {spec.indications.slice(0, 2).map((ind, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-slate-500">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{ind}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedSpecialty(spec)}
+                    className="text-xs font-bold text-[#0d766e] hover:text-[#0f5f59] inline-flex items-center gap-1 transition-colors cursor-pointer"
+                  >
+                    Ver detalhes
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
+
+                  <GlowingButton
+                    href={getWhatsAppUrl(`Olá! Gostaria de agendar uma consulta de ${spec.title} na Clínica São Camilo.`)}
+                    target="_blank"
+                    variant="primary"
+                    size="sm"
+                  >
+                    <span>Agendar</span>
+                  </GlowingButton>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Botão Ver Mais / Ver Menos Especialidades */}
+          {filteredSpecialties.length > 4 && (
+            <div className="mt-8 flex justify-center">
               <button
                 type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden inline-flex items-center justify-center rounded-lg p-2 text-[#001344] hover:bg-slate-100 transition-colors focus:outline-none shrink-0"
-                aria-label="Abrir menu"
+                onClick={() => setShowAllSpecialties(!showAllSpecialties)}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#0d766e] hover:border-[#0d766e] font-semibold text-xs uppercase tracking-wide transition-all shadow-2xs hover:shadow-xs cursor-pointer"
               >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                <span>
+                  {showAllSpecialties
+                    ? "Ver menos"
+                    : `Ver mais especialidades (+${filteredSpecialties.length - 4})`}
+                </span>
+                <ChevronDown
+                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
+                    showAllSpecialties ? "rotate-180 text-[#0d766e]" : ""
+                  }`}
+                />
               </button>
             </div>
-          </div>
+          )}
 
-          {/* Mobile Navigation Drawer */}
-          <AnimatePresence>
-            {mobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="lg:hidden border-b border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl"
-              >
-                <div className="flex flex-col gap-3 font-semibold text-sm text-[#001344]">
-                  <a
-                    href="#tratamentos"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-slate-100 flex items-center justify-between"
-                  >
-                    <span>Tratamentos & Procedimentos</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-                  <a
-                    href="#sobre"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-slate-100 flex items-center justify-between"
-                  >
-                    <span>Sobre o Dr. Frank Eduardo</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-                  <a
-                    href="#estrutura"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-slate-100 flex items-center justify-between"
-                  >
-                    <span>Estrutura & Tecnologia</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-                  <a
-                    href="#diferenciais"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-slate-100 flex items-center justify-between"
-                  >
-                    <span>Por Que Escolher Nosso Consultório</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-                  <a
-                    href="#depoimentos"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-slate-100 flex items-center justify-between"
-                  >
-                    <span>Depoimentos no Google (256+ avaliações)</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-                  <a
-                    href="#localizacao"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 border-b border-slate-100 flex items-center justify-between"
-                  >
-                    <span>Endereço & Como Chegar</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-                  <a
-                    href="#duvidas"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 flex items-center justify-between"
-                  >
-                    <span>Dúvidas Frequentes</span>
-                    <ArrowRight size={14} className="text-[#dea404]" />
-                  </a>
-
-                  <div className="pt-4 flex flex-col gap-2.5">
-                    <GlowingButton
-                      variant="gold"
-                      size="md"
-                      href={getWhatsAppUrl()}
-                      target="_blank"
-                      className="w-full"
-                    >
-                      <WhatsAppIcon size={16} />
-                      <span>Agendar no WhatsApp</span>
-                    </GlowingButton>
-                    <a
-                      href={INSTAGRAM_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 py-3 rounded-lg border border-slate-300 text-xs font-bold uppercase text-[#001344] hover:bg-slate-50 transition-colors"
-                    >
-                      <InstagramIcon size={14} />
-                      <span>Instagram @dr.frankeduardo</span>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </header>
-
-        {/* ======================================================== */}
-        {/* DOBRA 1: HERO SECTION                                    */}
-        {/* ======================================================== */}
-        <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-22 lg:pt-18 lg:pb-24 bg-gradient-to-b from-white via-[#f0f4f9] to-[#f8fafc]">
-          {/* Subtle Royal Blue & Gold Ambient Glows */}
-          <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[620px] w-[980px] -translate-x-1/2 rounded-full bg-radial from-[#e8f1fc]/80 via-[#dea404]/10 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute top-1/3 -right-40 -z-10 h-[450px] w-[500px] rounded-full bg-radial from-[#dea404]/10 to-transparent blur-3xl" />
-
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Headlines & Authority Copy */}
+          {/* Banner de Destaque da Clínica com cores sóbrias */}
+          <div className="mt-12 bg-[#08332e] rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden border border-teal-900/60 shadow-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-7">
-                {/* Eyebrow Badge */}
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/40 px-3.5 py-1 text-xs font-bold text-[#8c6002] mb-5 shadow-xs">
-                  <span className="flex h-2 w-2 rounded-full bg-[#dea404] animate-pulse" />
-                  <span className="tracking-[0.14em] uppercase">
-                    Odontologia Avançada & Cirurgia · Igarapé - MG
-                  </span>
-                </div>
-
-                {/* Main H1 Headline */}
-                <h1 className="font-heading text-3xl font-extrabold tracking-tight text-[#001344] sm:text-4xl md:text-5xl lg:text-5xl lg:leading-[1.15]">
-                  Tecnologia de ponta, precisão cirúrgica e o acolhimento que{" "}
-                  <span className="royal-gradient-text">
-                    devolve a alegria de sorrir.
-                  </span>
-                </h1>
-
-                {/* Subtitle / Value Proposition */}
-                <p className="mt-5 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                  Reabilitação oral completa, implantes, próteses e estética dental
-                  com a segurança de um cirurgião experiente e o carinho de quem
-                  realmente escuta você. Tratamentos com a famosa{" "}
-                  <strong className="text-[#001a60] font-bold">"mão leve"</strong> que
-                  elimina o trauma de dentista.
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-teal-800/50 text-teal-200 text-xs font-semibold mb-3">
+                  Atendimento Multidisciplinar
+                </span>
+                <h3 className="font-heading text-xl sm:text-2xl font-bold mb-3 leading-snug">
+                  Todas as especialidades e exames que sua família e empresa precisam em Nova Serrana.
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                  Pediatria, Medicina do Trabalho, Vacinas, Angiologia, Audiometria / Teste da Orelhinha, Cardiologia, Nutrição, Otorrino, Pneumologia, Psiquiatria e Urologia.
                 </p>
-
-                {/* Quick Trust Badges */}
-                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-semibold text-slate-700">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
-                    <span>256+ avaliações 5 estrelas no Google</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
-                    <span>Cirurgião Dentista Dedicado</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
-                    <span>Técnica Suave & Humanizada</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-[#dea404] shrink-0" />
-                    <span>Centro de Igarapé (Sala 202)</span>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                <div className="flex flex-wrap items-center gap-3">
                   <GlowingButton
-                    variant="gold"
-                    size="lg"
-                    href={getWhatsAppUrl("Olá Dr. Frank e Meg! Gostaria de agendar uma consulta de avaliação no consultório em Igarapé.")}
+                    href={getWhatsAppUrl("Olá! Gostaria de agendar na Clínica São Camilo.")}
                     target="_blank"
-                    className="shadow-lg"
+                    variant="whatsapp"
+                    size="sm"
+                    className="gap-2"
                   >
-                    <WhatsAppIcon size={18} />
-                    <span>Agendar Avaliação no WhatsApp</span>
+                    <WhatsAppIcon size={15} />
+                    <span>WhatsApp: (37) 3226-2910</span>
                   </GlowingButton>
-
-                  <GlowingButton
-                    variant="navy"
-                    size="lg"
-                    href="#tratamentos"
-                  >
-                    <span>Conhecer Tratamentos</span>
-                    <ArrowDownIcon size={14} />
-                  </GlowingButton>
-                </div>
-
-                {/* Social Proof Google Box */}
-                <div className="mt-9 flex items-center gap-4 rounded-xl border border-slate-200/90 bg-white/90 p-4 shadow-sm backdrop-blur-xs max-w-lg">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#001a60] text-white">
-                    <Star size={24} className="fill-[#f4c22b] text-[#f4c22b]" />
-                  </div>
-                  <div className="text-xs">
-                    <div className="flex items-center gap-1.5 font-bold text-[#001344]">
-                      <span className="text-sm">5,0</span>
-                      <div className="flex text-[#f4c22b]">
-                        {"★".repeat(5)}
-                      </div>
-                      <span className="text-slate-500 font-normal">
-                        (256 avaliações no Google)
-                      </span>
-                    </div>
-                    <p className="mt-0.5 text-slate-600">
-                      Pacientes de Igarapé, Betim, Contagem e região recomendam o Dr. Frank e o carinho da recepção da Meg.
-                    </p>
-                  </div>
+                  <span className="text-xs text-slate-400">
+                    Rua Antônio Ferreira do Amaral, 136 - Centro
+                  </span>
                 </div>
               </div>
 
-              {/* Right Column: Authentic Photography & Trust Cards */}
-              <div className="lg:col-span-5 relative">
-                {/* Visual Frame */}
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  {/* Glowing decorative backdrop */}
-                  <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#001a60]/20 via-[#dea404]/25 to-transparent blur-xl" />
-
-                  {/* Main Portrait Card */}
-                  <div className="relative overflow-hidden rounded-2xl border-2 border-white bg-white shadow-2xl">
-                    <div className="relative aspect-[3/4] w-full bg-slate-100">
-                      <Image
-                        src={FOTO_HERO_SRC}
-                        alt="Dr. Frank Eduardo em atendimento odontológico cirúrgico"
-                        fill
-                        priority
-                        sizes="(max-width: 1024px) 100vw, 500px"
-                        className="object-cover object-top"
-                      />
-                      {/* Gradient overlay at bottom */}
-                      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#000d2b]/90 via-[#001344]/50 to-transparent" />
-
-                      {/* Doctor Caption Tag */}
-                      <div className="absolute bottom-4 left-4 right-4 text-white">
-                        <div className="inline-flex items-center gap-1.5 rounded-full bg-[#dea404] px-2.5 py-0.5 text-[11px] font-extrabold text-[#001344] uppercase tracking-wider mb-1">
-                          Cirurgião Dentista
-                        </div>
-                        <h2 className="font-heading text-lg font-bold">
-                          Dr. Frank Eduardo
-                        </h2>
-                        <p className="text-xs text-slate-200">
-                          Odontologia Avançada · Reabilitação Oral · Cirurgia
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Badge 1: 5.0 Google Reviews */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
-                    className="absolute -top-4 -left-4 sm:-left-6 rounded-xl border border-[#dea404]/30 bg-white/95 p-3.5 shadow-xl backdrop-blur-md max-w-[210px]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
-                        <Star size={16} className="fill-[#f4c22b]" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-[#001344]">
-                          Nota 5,0 Estrelas
-                        </div>
-                        <div className="text-[10px] text-slate-500">
-                          256 avaliações Google
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Floating Badge 2: Atendimento Humanizado & Mão Leve */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.5 }}
-                    className="absolute -bottom-5 -right-4 sm:-right-6 rounded-xl border border-[#001a60]/20 bg-white/95 p-3.5 shadow-xl backdrop-blur-md max-w-[220px]"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-                        <Heart size={18} className="fill-emerald-600" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-[#001344]">
-                          Técnica "Mão Leve"
-                        </div>
-                        <div className="text-[10px] text-slate-500">
-                          Sem dor e sem traumas
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative w-full max-w-sm rounded-xl overflow-hidden border border-teal-700/40 shadow bg-white p-2">
+                  <Image
+                    src={BANNER_SRC}
+                    alt="Especialidades da Clínica São Camilo"
+                    width={500}
+                    height={280}
+                    className="w-full h-auto rounded object-contain"
+                  />
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ======================================================== */}
-        {/* STATS & AUTHORITY STRIP                                  */}
-        {/* ======================================================== */}
-        <section className="border-y border-slate-200 bg-white py-10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4">
-              <div className="text-center">
-                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  5,0 ★
-                </div>
-                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
-                  Avaliação no Google
-                </div>
-                <p className="mt-1 text-xs text-slate-500">
-                  Mais de 256 depoimentos com nota máxima
-                </p>
-              </div>
-
-              <div className="text-center border-l border-slate-200">
-                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  Cirurgião
-                </div>
-                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
-                  Alta Precisão
-                </div>
-                <p className="mt-1 text-xs text-slate-500">
-                  Implantes, reabilitação e sisos complexos
-                </p>
-              </div>
-
-              <div className="text-center border-l-0 sm:border-l border-slate-200">
-                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  Zero Trauma
-                </div>
-                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
-                  Técnica Indolor
-                </div>
-                <p className="mt-1 text-xs text-slate-500">
-                  Paciência e acolhimento para quem tem medo
-                </p>
-              </div>
-
-              <div className="text-center border-l border-slate-200">
-                <div className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  Sala 202
-                </div>
-                <div className="mt-1 text-xs font-bold uppercase tracking-wider text-[#b78004]">
-                  Centro de Igarapé
-                </div>
-                <p className="mt-1 text-xs text-slate-500">
-                  Av. Gov. Valadares, 440 · 3º Andar
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ======================================================== */}
-        {/* SEÇÃO 2: TRATAMENTOS & ESPECIALIDADES                    */}
-        {/* ======================================================== */}
-        <section id="tratamentos" className="py-20 sm:py-26 bg-[#f8fafc]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
-                Tratamentos Especializados
-              </div>
-              <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                Cuidado odontológico avançado para cada necessidade do seu sorriso.
+      {/* Seção Medicina do Trabalho Corporativa */}
+      <section id="medicina-trabalho" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6">
+              <div className="eyebrow mb-2.5">Saúde Ocupacional & Empresas</div>
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Medicina do Trabalho ágil e sem filas para indústrias e comércios de Nova Serrana.
               </h2>
-              <p className="mt-4 text-base text-slate-600">
-                Do alívio imediato da dor à transformação completa da mastigação e da estética. Conheça nossos procedimentos planejados com tecnologia digital e executados com maestria.
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                Como polo calçadista dinâmico, Nova Serrana exige agilidade na contratação e no controle da saúde ocupacional. A Clínica São Camilo oferece estrutura completa para atender seus colaboradores, emitindo o ASO com agilidade e total conformidade com o eSocial.
               </p>
-            </div>
 
-            {/* Specialties Grid */}
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {SPECIALTIES.map((spec) => (
-                <div
-                  key={spec.id}
-                  className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs hover:border-[#dea404]/60 hover:shadow-xl transition-all duration-300"
-                >
-                  <div>
-                    {/* Top Tag & Icon */}
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-full bg-[#f0f4f9] px-3 py-1 text-[11px] font-bold text-[#001a60]">
-                        {spec.badge}
-                      </span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#001344] text-[#f4c22b] group-hover:scale-110 transition-transform">
-                        <Sparkles size={18} />
-                      </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
+                {[
+                  {
+                    title: "ASO Admissional & Periódico",
+                    desc: "Agilidade na contratação de novos colaboradores.",
+                  },
+                  {
+                    title: "Exames no Mesmo Local",
+                    desc: "Audiometria ocupacional, espirometria e ECG centralizados.",
+                  },
+                  {
+                    title: "Demissional & Retorno",
+                    desc: "Segurança jurídica e laudos precisos para a sua empresa.",
+                  },
+                  {
+                    title: "Fluxo Sem Longas Filas",
+                    desc: "Agendamento organizado para os funcionários não perderem o dia.",
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3.5 rounded-xl bg-white border border-slate-200"
+                  >
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e]">
+                        {item.title}
+                      </h4>
                     </div>
-
-                    {/* Title */}
-                    <h3 className="font-heading text-xl font-bold text-[#001344] mt-5 group-hover:text-[#001a60] transition-colors">
-                      {spec.title}
-                    </h3>
-
-                    {/* Short Description */}
-                    <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                      {spec.shortDesc}
-                    </p>
+                    <p className="text-xs text-slate-500">{item.desc}</p>
                   </div>
+                ))}
+              </div>
 
-                  {/* Action Link & Modal Opener */}
-                  <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedSpecialty(spec)}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001a60] hover:text-[#b78004] transition-colors cursor-pointer"
-                    >
-                      <span>Ver detalhes completos</span>
-                      <ArrowRight size={13} />
-                    </button>
-
-                    <a
-                      href={getWhatsAppUrl(`Olá! Gostaria de mais informações sobre ${spec.title} com o Dr. Frank Eduardo.`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-colors"
-                      title="Agendar este tratamento"
-                    >
-                      <WhatsAppIcon size={15} />
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom Support Callout */}
-            <div className="mt-12 rounded-2xl border border-[#dea404]/30 bg-gradient-to-r from-[#000d2b] via-[#001a60] to-[#02298a] p-8 text-white shadow-xl">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-xs font-bold text-[#f4c22b] uppercase tracking-wider mb-2">
-                    <Sparkles size={14} /> Atendimento Personalizado
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold">
-                    Não tem certeza de qual tratamento é o mais indicado para você?
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-200 max-w-2xl">
-                    Agende uma avaliação inicial com o Dr. Frank Eduardo. Nós realizamos um diagnóstico completo, tiramos todas as suas dúvidas e planejamos o melhor caminho para a sua saúde bucal.
-                  </p>
-                </div>
+              <div className="flex flex-wrap items-center gap-3">
                 <GlowingButton
-                  variant="gold"
-                  size="lg"
-                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma avaliação inicial com o Dr. Frank Eduardo para entender qual o melhor tratamento para o meu caso.")}
+                  href={getWhatsAppUrl("Olá! Sou do setor de RH/empresa e gostaria de informações sobre Medicina do Trabalho / ASO.")}
                   target="_blank"
-                  className="shrink-0"
+                  variant="primary"
+                  size="md"
+                  className="gap-2"
                 >
-                  <WhatsAppIcon size={17} />
-                  <span>Falar com a Recepção</span>
+                  <Briefcase className="w-4 h-4" />
+                  <span>Cadastrar Empresa / Solicitar Atendimento</span>
                 </GlowingButton>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ======================================================== */}
-        {/* SEÇÃO 3: SOBRE O DR. FRANK EDUARDO                       */}
-        {/* ======================================================== */}
-        <section id="sobre" className="py-20 sm:py-26 border-t border-slate-200 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Left Column: Doctor Photo */}
-              <div className="lg:col-span-5">
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  {/* Subtle decorative background */}
-                  <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-[#dea404]/20 via-[#001a60]/10 to-transparent blur-lg" />
-
-                  <div className="relative overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-slate-100">
-                    <div className="relative aspect-[3/4] w-full">
-                      <Image
-                        src={FOTO_HERO_SRC}
-                        alt="Dr. Frank Eduardo — Cirurgião Dentista"
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 450px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Doctor Quote Card */}
-                  <div className="mt-4 rounded-xl border border-slate-200 bg-[#f8fafc] p-4 text-xs text-slate-700 italic shadow-xs">
-                    "O dentista não deve apenas tratar dentes; deve acolher pessoas, ouvir suas histórias e devolver a segurança de sorrir sem receios ou dor."
-                    <div className="mt-2 font-bold not-italic text-[#001344]">
-                      — Dr. Frank Eduardo, Cirurgião Dentista
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Bio, Philosophy & Credentials */}
-              <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
-                  Cirurgião Dentista
-                </div>
-
-                <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  Dr. Frank Eduardo: dedicação à excelência e ao cuidado humano.
-                </h2>
-
-                <p className="mt-5 text-base text-slate-700 leading-relaxed">
-                  Com sólida atuação em <strong className="text-[#001a60]">cirurgia, reabilitação oral e odontologia avançada</strong>, o Dr. Frank Eduardo construiu seu consultório em Igarapé baseado em três pilares fundamentais: honestidade transparente, rigor técnico e um atendimento profundamente humanizado.
-                </p>
-
-                <p className="mt-4 text-base text-slate-700 leading-relaxed">
-                  Conhecido carinhosamente entre os pacientes pela sua <strong>"mão leve"</strong> e pela calma ao explicar cada detalhe do procedimento, o Dr. Frank já ajudou centenas de pessoas que carregavam traumas profundos do passado a voltarem a frequentar o consultório com tranquilidade e confiança.
-                </p>
-
-                {/* Key Pillars */}
-                <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
-                      <Shield size={18} />
-                    </div>
-                    <div>
-                      <h4 className="font-heading text-sm font-bold text-[#001344]">
-                        Transparência & Ética
-                      </h4>
-                      <p className="mt-1 text-xs text-slate-600">
-                        Diagnósticos sinceros, preços justos e apenas os procedimentos que você realmente precisa.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
-                      <Heart size={18} />
-                    </div>
-                    <div>
-                      <h4 className="font-heading text-sm font-bold text-[#001344]">
-                        Acolhimento Sem Trauma
-                      </h4>
-                      <p className="mt-1 text-xs text-slate-600">
-                        Técnicas anestésicas indolores e paciência de verdade para tranquilizar até quem tem fobia.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
-                      <Award size={18} />
-                    </div>
-                    <div>
-                      <h4 className="font-heading text-sm font-bold text-[#001344]">
-                        Reabilitação Completa
-                      </h4>
-                      <p className="mt-1 text-xs text-slate-600">
-                        Implantes, próteses de alta durabilidade e estética que devolvem a força mastigatória.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
-                      <Users size={18} />
-                    </div>
-                    <div>
-                      <h4 className="font-heading text-sm font-bold text-[#001344]">
-                        Equipe Nota 100 com a Meg
-                      </h4>
-                      <p className="mt-1 text-xs text-slate-600">
-                        Recepção carinhosa, pontualidade e suporte atencioso desde o primeiro 'olá' no WhatsApp.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <GlowingButton
-                    variant="gold"
-                    size="md"
-                    href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com o Dr. Frank Eduardo.")}
-                    target="_blank"
-                  >
-                    <WhatsAppIcon size={16} />
-                    <span>Agendar Consulta com Dr. Frank</span>
-                  </GlowingButton>
-
-                  <a
-                    href={INSTAGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#001a60] hover:text-[#b78004] transition-colors"
-                  >
-                    <InstagramIcon size={15} />
-                    <span>Acompanhe o dia a dia no Instagram</span>
-                    <ArrowUpRight size={13} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ======================================================== */}
-        {/* SEÇÃO 4: A ESTRUTURA DO CONSULTÓRIO                      */}
-        {/* ======================================================== */}
-        <section id="estrutura" className="py-20 sm:py-26 bg-[#f0f4f9] border-t border-slate-200">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-              {/* Left Column: Clinic Description */}
-              <div className="lg:col-span-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
-                  Infraestrutura & Tecnologia
-                </div>
-
-                <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  Um ambiente moderno, esterilizado e acolhedor no Centro de Igarapé.
-                </h2>
-
-                <p className="mt-4 text-base text-slate-700 leading-relaxed">
-                  Localizado no Edifício Central da Avenida Governador Valadares (Sala 202, 3º andar), nosso consultório foi projetado para oferecer o máximo em conforto, segurança biológica e tranquilidade.
-                </p>
-
-                <div className="mt-6 space-y-4 text-sm text-slate-700">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-[#001344]">Equipamentos de Alta Tecnologia:</strong> Cadeiras odontológicas ergonômicas, aparelhos digitais e instrumentos rotatórios de última geração para procedimentos rápidos e precisos.
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-[#001344]">Biossegurança & Higienização Rigorosa:</strong> Esterilização em autoclave hospitalar monitorada, embalagens seladas individuais e materiais descartáveis para segurança absoluta do paciente.
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-[#001344]">Recepção Confortável com a Meg:</strong> Ambiente climatizado, água, biscoitos, café e um atendimento caloroso que faz você se sentir em casa antes mesmo de entrar no consultório.
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-[#001344]">Acessibilidade Completa:</strong> Edifício moderno com elevador, acesso fácil e localização privilegiada no coração de Igarapé.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <GlowingButton
-                    variant="navy"
-                    size="md"
-                    href={getWhatsAppUrl("Olá Meg! Gostaria de agendar uma consulta para conhecer o consultório.")}
-                    target="_blank"
-                  >
-                    <WhatsAppIcon size={16} />
-                    <span>Agendar sua Visita</span>
-                  </GlowingButton>
-                </div>
-              </div>
-
-              {/* Right Column: High Quality Dental Office Photography */}
-              <div className="lg:col-span-6">
-                <div className="relative mx-auto max-w-lg lg:max-w-none">
-                  <div className="relative overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-white">
-                    <div className="relative aspect-[4/3] w-full">
-                      <Image
-                        src={FOTO_CONSULTORIO_SRC}
-                        alt="Estrutura do consultório odontológico do Dr. Frank Eduardo em Igarapé"
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 600px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Highlight pill */}
-                  <div className="mt-4 flex items-center justify-between rounded-xl bg-white p-4 border border-slate-200 shadow-xs">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#001344] text-[#f4c22b]">
-                        <Clock size={20} />
-                      </div>
-                      <div className="text-xs">
-                        <div className="font-bold text-[#001344]">
-                          Horário de Atendimento
-                        </div>
-                        <div className="text-slate-600">
-                          Segunda a Sexta · 08:00 às 18:00
-                        </div>
-                      </div>
-                    </div>
-
-                    <a
-                      href={GOOGLE_MAPS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-[#001a60] hover:text-[#dea404] flex items-center gap-1"
-                    >
-                      <span>Ver no Mapa</span>
-                      <ArrowUpRight size={13} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ======================================================== */}
-        {/* SEÇÃO 5: DIFERENCIAIS DA CLÍNICA (DEEP NAVY & GOLD)      */}
-        {/* ======================================================== */}
-        <section id="diferenciais" className="py-20 sm:py-26 bg-[#000d2b] text-white relative overflow-hidden">
-          {/* Subtle gold ambient glow */}
-          <div className="pointer-events-none absolute -top-40 right-10 -z-0 h-[500px] w-[500px] rounded-full bg-radial from-[#dea404]/15 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute bottom-0 left-10 -z-0 h-[400px] w-[400px] rounded-full bg-radial from-[#0037a8]/20 to-transparent blur-3xl" />
-
-          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#f4c22b]/40 bg-[#001a60]/60 px-3.5 py-1 text-xs font-bold text-[#f4c22b] uppercase tracking-[0.14em] mb-4">
-                Por Que Escolher Nosso Consultório
-              </div>
-              <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl">
-                O que torna o atendimento do Dr. Frank Eduardo único na região.
-              </h2>
-              <p className="mt-4 text-base text-slate-300">
-                A união entre precisão técnica de cirurgião e o acolhimento carinhoso que faz você se sentir em família desde a recepção.
-              </p>
-            </div>
-
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Diferencial 1 */}
-              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
-                  <Heart size={22} />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
-                  A Famosa "Mão Leve"
-                </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Pacientes com fobia de dentista relatam surpresa com o quão suave e indolor é o tratamento. O Dr. Frank tem paciência ímpar e aplica anestesias de forma quase imperceptível.
-                </p>
-              </div>
-
-              {/* Diferencial 2 */}
-              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
-                  <Shield size={22} />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
-                  Honestidade Absoluta & Preço Justo
-                </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Sem empurrar tratamentos desnecessários. Como relata a paciente Lia no Google: quando não gasta todo o material previsto, o Dr. Frank cobra apenas o justo e dá o desconto ao paciente.
-                </p>
-              </div>
-
-              {/* Diferencial 3 */}
-              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
-                  <Award size={22} />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
-                  Cirurgião Dentista Especialista
-                </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Experiência comprovada em casos de alta complexidade: extração de sisos inclusos, implantes unitários e múltiplos, e reabilitação oral completa.
-                </p>
-              </div>
-
-              {/* Diferencial 4 */}
-              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
-                  <Users size={22} />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
-                  Recepção Acolhedora da Meg
-                </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Elogiada nominalmente em dezenas de avaliações, a Meg garante um atendimento pontual, gentil e sem pressa, cuidando para que você se sinta em casa antes e após o procedimento.
-                </p>
-              </div>
-
-              {/* Diferencial 5 */}
-              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
-                  <MapPin size={22} />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
-                  Pacientes de Toda a Região
-                </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Pessoas viajam de Betim, Contagem, Brumadinho, São Joaquim de Bicas e até do exterior para se tratarem com o Dr. Frank em Igarapé pela certeza de um resultado duradouro e confiável.
-                </p>
-              </div>
-
-              {/* Diferencial 6 */}
-              <div className="rounded-2xl border border-[#001a60] bg-[#001344]/80 p-7 backdrop-blur-sm hover:border-[#dea404]/60 transition-colors">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-tr from-[#000d2b] to-[#001a60] border border-[#dea404]/40 text-[#f4c22b] mb-5">
-                  <Zap size={22} />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
-                  Suporte Pós-Operatório Real
-                </h3>
-                <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Como vivenciou a paciente Nanda: atendimento e acompanhamento contínuo por WhatsApp mesmo em feriados ou madrugadas de dor para total tranquilidade do paciente.
-                </p>
-              </div>
-            </div>
-
-            {/* CTA inside dark section */}
-            <div className="mt-14 text-center">
-              <GlowingButton
-                variant="gold"
-                size="lg"
-                href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com o Dr. Frank Eduardo.")}
-                target="_blank"
-              >
-                <WhatsAppIcon size={18} />
-                <span>Agendar Avaliação com o Dr. Frank</span>
-              </GlowingButton>
-            </div>
-          </div>
-        </section>
-
-        {/* ======================================================== */}
-        {/* SEÇÃO 6: DEPOIMENTOS REAIS DO GOOGLE (256+ AVALIAÇÕES)   */}
-        {/* ======================================================== */}
-        <section id="depoimentos" className="py-20 sm:py-26 bg-[#f8fafc]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
-                Prova Social Comprovada
-              </div>
-              <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                O que os pacientes dizem sobre o Dr. Frank Eduardo e a equipe.
-              </h2>
-              <p className="mt-4 text-base text-slate-600">
-                Avaliação máxima de <strong>5,0 estrelas com mais de 256 depoimentos reais no Google</strong>. Depoimentos espontâneos de quem recuperou a saúde bucal e a vontade de sorrir.
-              </p>
-            </div>
-
-            {/* Google Score Summary Banner */}
-            <div className="mt-10 mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-              <div className="flex items-center justify-center gap-3">
-                <span className="font-heading text-4xl font-extrabold text-[#001344]">
-                  5,0
-                </span>
-                <div className="text-left">
-                  <div className="flex text-[#f4c22b] text-lg">
-                    {"★".repeat(5)}
-                  </div>
-                  <div className="text-xs font-bold text-slate-600">
-                    256 avaliações verificadas no Google
-                  </div>
-                </div>
-              </div>
-              <a
-                href={GOOGLE_SEARCH_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#001a60] hover:text-[#dea404] transition-colors"
-              >
-                <span>Ver todas as avaliações diretamente no Google</span>
-                <ArrowUpRight size={13} />
-              </a>
-            </div>
-
-            {/* Reviews Grid */}
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {REVIEWS.map((rev, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:border-[#dea404]/50 hover:shadow-md transition-all duration-200"
-                >
-                  <div>
-                    {/* Stars & Time */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex text-[#f4c22b] text-sm">
-                        {"★".repeat(5)}
-                      </div>
-                      <span className="text-[11px] text-slate-600 font-medium">
-                        {rev.timeAgo}
-                      </span>
-                    </div>
-
-                    {/* Comment text */}
-                    <p className="mt-4 text-sm text-slate-700 leading-relaxed italic">
-                      "{rev.comment}"
+            <div className="lg:col-span-6 relative">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={FOTO_ESTRUTURA_SRC}
+                    alt="Infraestrutura da Clínica São Camilo"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 550px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-xs uppercase font-bold tracking-wider text-emerald-400">
+                      Infraestrutura Completa
                     </p>
+                    <p className="font-heading text-base font-bold">
+                      Recepção climatizada, consultórios modernos e atendimento pontual
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                    {/* Highlights tags */}
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                      {rev.highlights.map((h, hIdx) => (
-                        <span
-                          key={hIdx}
-                          className="rounded-md bg-[#f0f4f9] px-2 py-0.5 text-[10px] font-semibold text-[#001a60]"
-                        >
-                          ✓ {h}
-                        </span>
+      {/* Seção Sobre a Clínica */}
+      <section id="sobre" className="py-16 sm:py-20 bg-white border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5 order-2 lg:order-1 relative">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
+                <Image
+                  src={FOTO_ATENDIMENTO_SRC}
+                  alt="Corpo Clínico da Clínica São Camilo"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              <div className="mt-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase font-bold text-slate-500">
+                    Reputação no Google
+                  </p>
+                  <p className="font-heading font-extrabold text-sm text-[#0d766e]">
+                    Nota 4,8 ★ (203 avaliações)
+                  </p>
+                </div>
+                <div className="flex items-center gap-0.5 text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="eyebrow mb-2.5">Sobre a Clínica São Camilo</div>
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Tradição, acolhimento e excelência médica no coração de Nova Serrana.
+              </h2>
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed">
+                <p>
+                  A <strong>Clínica São Camilo</strong> nasceu com o propósito de oferecer a Nova Serrana e cidades vizinhas uma medicina resolutiva, humanizada e com acesso facilitado a especialistas de renome.
+                </p>
+                <p>
+                  Com localização estratégica no Centro (Rua Antônio Ferreira do Amaral, 136), reunimos em um único endereço consultas médicas em mais de 11 áreas, setor exclusivo de Medicina Ocupacional para empresas, imunização e exames complementares de alta precisão como o Teste da Orelhinha e a Audiometria.
+                </p>
+                <p>
+                  Aqui, cada paciente — do bebê que vem para suas primeiras vacinas até o trabalhador que faz seu exame periódico — é acolhido com atenção, respeito ao seu tempo e a dedicação que a sua saúde merece.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-6 pt-5 border-t border-slate-100">
+                <div>
+                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
+                    Humanização
+                  </h4>
+                  <p className="text-xs text-slate-500">
+                    Médicos que ouvem com atenção e explicam cada conduta.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
+                    Pontualidade
+                  </h4>
+                  <p className="text-xs text-slate-500">
+                    Agendamentos organizados para respeitar o seu tempo.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
+                    Tudo no Mesmo Local
+                  </h4>
+                  <p className="text-xs text-slate-500">
+                    Consultas, exames e vacinas sem deslocamentos desnecessários.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Diferenciais em Deep Teal Elegante (Sem cores berrantes) */}
+      <section id="diferenciais" className="py-16 sm:py-20 bg-[#062d29] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="eyebrow-dark justify-center mb-2.5">
+              Por que nos escolher
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
+              6 Pilares que tornam a Clínica São Camilo referência em Nova Serrana
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              Aliamos rigor científico, equipamentos modernos e a vocação genuína de cuidar de vidas.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Stethoscope,
+                title: "Corpo Clínico Multidisciplinar",
+                desc: "Médicos especialistas em Pediatria, Cardiologia, Pneumologia, Psiquiatria, Urologia, Angiologia, Otorrino e Nutrição atuando de forma integrada.",
+              },
+              {
+                icon: Briefcase,
+                title: "Referência em Medicina Ocupacional",
+                desc: "ASO rápido, seguro e sem filas para indústrias calçadistas e comércios de Nova Serrana, com total conformidade com o eSocial.",
+              },
+              {
+                icon: Baby,
+                title: "Cuidado com a Primeira Infância",
+                desc: "Pediatria acolhedora, Teste da Orelhinha neonatal indolor e calendário de vacinas aplicadas com carinho.",
+              },
+              {
+                icon: Activity,
+                title: "Exames no Próprio Endereço",
+                desc: "Audiometria tonal e vocal, eletrocardiograma e testes rápidos sem a necessidade de deslocamento para outros laboratórios.",
+              },
+              {
+                icon: MapPin,
+                title: "Localização Central Privilegiada",
+                desc: "Sede de fácil acesso na Rua Antônio Ferreira do Amaral, 136 - Centro, perto de tudo em Nova Serrana.",
+              },
+              {
+                icon: Star,
+                title: "Avaliação 4,8 ★ no Google",
+                desc: "Mais de 200 avaliações de pacientes confirmando a qualidade do atendimento, pontualidade e limpeza do ambiente.",
+              },
+            ].map((pillar, i) => (
+              <div
+                key={i}
+                className="rounded-xl p-5 bg-[#0a3833]/90 border border-teal-800/40 hover:border-teal-600/60 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-teal-800/50 flex items-center justify-center text-teal-300 mb-3">
+                  <pillar.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-heading font-bold text-base text-white mb-1.5">
+                  {pillar.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {pillar.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <GlowingButton
+              href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo.")}
+              target="_blank"
+              variant="whatsapp"
+              size="md"
+              className="gap-2"
+            >
+              <WhatsAppIcon size={16} />
+              <span>Agendar Agora pelo WhatsApp</span>
+            </GlowingButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Depoimentos Reais / Prova Social Google 4,8★ */}
+      <section id="depoimentos" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="eyebrow justify-center mb-2.5">
+              Depoimentos de Pacientes
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              O que dizem os pacientes da Clínica São Camilo
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Avaliação média de <strong>4,8 estrelas com mais de 203 avaliações no Google</strong>.
+            </p>
+
+            <div className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-700">
+              <span className="flex items-center gap-0.5 text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                ))}
+              </span>
+              <span>Nota Oficial 4,8 / 5,0 no Google</span>
+            </div>
+          </div>
+
+          {/* Grid de Depoimentos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {TESTIMONIALS.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-xl bg-white border border-slate-200/90 hover:border-slate-300 transition-colors flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-0.5 text-amber-400">
+                      {[...Array(item.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
+                    <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                      {item.tag}
+                    </span>
                   </div>
 
-                  {/* Reviewer info */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#001344] font-bold text-xs text-[#f4c22b]">
-                      {rev.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="font-heading text-xs font-bold text-[#001344]">
-                        {rev.name}
-                      </div>
-                      {rev.badge && (
-                        <div className="text-[10px] text-slate-600 font-medium">
-                          {rev.badge}
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic mb-4">
+                    &ldquo;{item.text}&rdquo;
+                  </p>
                 </div>
-              ))}
-            </div>
 
-            {/* CTA under reviews */}
-            <div className="mt-14 text-center">
-              <GlowingButton
-                variant="gold"
-                size="lg"
-                href={getWhatsAppUrl("Olá! Li os depoimentos no site e gostaria de agendar uma consulta de avaliação com o Dr. Frank Eduardo.")}
-                target="_blank"
-              >
-                <WhatsAppIcon size={18} />
-                <span>Quero Agendar Minha Avaliação</span>
-              </GlowingButton>
-            </div>
+                <div className="pt-3 border-t border-slate-100">
+                  <p className="font-heading font-bold text-xs text-slate-800">
+                    {item.author}
+                  </p>
+                  <p className="text-[11px] text-slate-400">{item.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
 
-        {/* ======================================================== */}
-        {/* SEÇÃO 7: LOCALIZAÇÃO & SEDE EM IGARAPÉ                   */}
-        {/* ======================================================== */}
-        <section id="localizacao" className="py-20 sm:py-26 border-t border-slate-200 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
-              {/* Left Column: Contact details */}
-              <div className="lg:col-span-5">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
-                  Onde Estamos
-                </div>
-
-                <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                  Fácil acesso no Centro de Igarapé - MG.
-                </h2>
-
-                <p className="mt-4 text-base text-slate-700 leading-relaxed">
-                  Localização estratégica com elevador, estacionamento nas proximidades e total comodidade para pacientes de Igarapé e cidades vizinhas como Betim, Contagem, Brumadinho e São Joaquim de Bicas.
-                </p>
-
-                <div className="mt-8 space-y-4">
-                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <MapPin size={22} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div className="text-sm">
-                      <div className="font-bold text-[#001344]">Endereço Completo</div>
-                      <div className="text-slate-600 mt-0.5">
-                        {ADDRESS_DISPLAY}
-                      </div>
-                      <a
-                        href={GOOGLE_MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#001a60] hover:text-[#dea404] mt-2 transition-colors"
-                      >
-                        <span>Traçar rota no Google Maps</span>
-                        <ArrowUpRight size={13} />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <Phone size={22} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div className="text-sm">
-                      <div className="font-bold text-[#001344]">Telefone & WhatsApp</div>
-                      <div className="text-slate-600 mt-0.5">
-                        {PHONE_DISPLAY}
-                      </div>
-                      <a
-                        href={getWhatsAppUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#001a60] hover:text-[#dea404] mt-2 transition-colors"
-                      >
-                        <span>Conversar no WhatsApp com a Meg</span>
-                        <ArrowRight size={13} />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <Clock size={22} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <div className="text-sm">
-                      <div className="font-bold text-[#001344]">Horários de Funcionamento</div>
-                      <div className="text-slate-600 mt-0.5">
-                        Segunda a Sexta-feira: 08:00 às 18:00
-                      </div>
-                      <div className="text-xs text-slate-500 mt-1">
-                        Atendimentos com agendamento prévio para seu conforto e pontualidade.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Interactive Map Preview Card */}
-              <div className="lg:col-span-7">
-                <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-xl">
-                  {/* Clean Map Graphic Container */}
-                  <div className="relative h-[380px] w-full bg-slate-200 flex flex-col items-center justify-center p-6 text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#001344] text-[#f4c22b] shadow-lg mb-4">
-                      <MapPin size={32} />
-                    </div>
-
-                    <h3 className="font-heading text-xl font-bold text-[#001344]">
-                      Dr. Frank Eduardo — Odontologia Avançada
-                    </h3>
-                    <p className="mt-1 text-sm text-slate-600 max-w-md">
-                      Av. Gov. Valadares, 440 · 3º Andar · Sala 202 · Centro, Igarapé - MG
-                    </p>
-                    <p className="mt-1 text-xs text-slate-500">
-                      CEP 32900-000 · Referência: Próximo à praça central
-                    </p>
-
-                    <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                      <a
-                        href={GOOGLE_MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-[#001344] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-[#001a60] transition-colors"
-                      >
-                        <MapPin size={15} className="text-[#f4c22b]" />
-                        <span>Abrir no Google Maps</span>
-                      </a>
-
-                      <a
-                        href={getWhatsAppUrl("Olá! Gostaria de receber a localização exata do consultório no WhatsApp.")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md hover:bg-emerald-700 transition-colors"
-                      >
-                        <WhatsAppIcon size={15} />
-                        <span>Pedir Localização no WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="mt-8 text-center">
+            <a
+              href={GOOGLE_SEARCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0d766e] hover:underline"
+            >
+              <span>Ver todas as 203 avaliações no Google</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ======================================================== */}
-        {/* SEÇÃO 8: PERGUNTAS FREQUENTES (FAQ)                      */}
-        {/* ======================================================== */}
-        <section id="duvidas" className="py-20 sm:py-26 bg-[#f8fafc] border-t border-slate-200">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#dea404]/40 bg-[#fff3c4]/50 px-3.5 py-1 text-xs font-bold text-[#8c6002] uppercase tracking-[0.14em] mb-4">
-                Dúvidas Comuns
-              </div>
-              <h2 className="font-heading text-3xl font-extrabold text-[#001344] sm:text-4xl">
-                Perguntas Frequentes dos Pacientes
+      {/* Seção Localização & Contato */}
+      <section id="localizacao" className="py-16 sm:py-20 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6">
+              <div className="eyebrow mb-2.5">Sede & Agendamento</div>
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Fácil de chegar, no centro de Nova Serrana.
               </h2>
-              <p className="mt-4 text-base text-slate-600">
-                Tire suas dúvidas sobre consultas, procedimentos, agendamento e formas de pagamento.
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                Estamos localizados na região central da cidade, com acesso rápido e estacionamento nas proximidades. Venha nos visitar ou agende sua consulta e exame previamente pelo WhatsApp.
               </p>
-            </div>
 
-            <div className="mt-12 space-y-3.5">
-              {FAQS.map((faq, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    className="overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-200"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between p-5 text-left font-heading text-base font-bold text-[#001344] hover:bg-slate-50 transition-colors cursor-pointer"
-                    >
-                      <span className="pr-4">{faq.q}</span>
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f0f4f9] text-[#001a60]">
-                        {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                      </div>
-                    </button>
-
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="px-5 pb-5 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-3"
-                        >
-                          {faq.a}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+              <div className="space-y-3.5 mb-6">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-[#0d766e]" />
                   </div>
-                );
-              })}
-            </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-700">
+                      Endereço
+                    </h4>
+                    <p className="text-sm font-semibold text-slate-900">
+                      {ADDRESS_STREET} - {ADDRESS_NEIGHBORHOOD}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {ADDRESS_CITY} · CEP {ADDRESS_CEP}
+                    </p>
+                  </div>
+                </div>
 
-            {/* Direct WhatsApp Callout for Extra Questions */}
-            <div className="mt-10 rounded-xl border border-slate-200 bg-white p-6 text-center">
-              <p className="text-sm text-slate-700 font-medium">
-                Tem alguma dúvida específica sobre o seu caso?
-              </p>
-              <div className="mt-3">
-                <a
-                  href={getWhatsAppUrl("Olá Meg e Dr. Frank! Tenho uma dúvida sobre um procedimento e gostaria de esclarecer.")}
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4 text-[#0d766e]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-700">
+                      Telefone & WhatsApp
+                    </h4>
+                    <p className="text-sm font-bold text-slate-900">
+                      {PHONE_DISPLAY}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Agendamentos de segunda a sexta-feira
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <div className="w-9 h-9 rounded-lg bg-teal-50 text-[#0d766e] flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4 text-[#0d766e]" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-700">
+                      Horário de Atendimento
+                    </h4>
+                    <p className="text-sm font-semibold text-slate-900">
+                      Segunda a Sexta a partir das 08:00
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Atendimento com pontualidade e agilidade
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <GlowingButton
+                  href={GOOGLE_MAPS_URL}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#001a60] hover:text-[#dea404] transition-colors"
+                  variant="primary"
+                  size="md"
+                  className="gap-2"
+                >
+                  <MapPin className="w-4 h-4" />
+                  <span>Traçar Rota no GPS</span>
+                </GlowingButton>
+
+                <GlowingButton
+                  href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida sobre a localização da clínica.")}
+                  target="_blank"
+                  variant="outline"
+                  size="md"
+                  className="gap-2"
                 >
                   <WhatsAppIcon size={15} />
-                  <span>Converse diretamente conosco no WhatsApp</span>
-                  <ArrowRight size={13} />
+                  <span>Falar no WhatsApp</span>
+                </GlowingButton>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="rounded-2xl p-6 sm:p-7 bg-[#062d29] text-white border border-teal-900/60 shadow-lg">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-teal-800/40 text-teal-300 text-xs font-semibold mb-3">
+                  <BadgeCheck className="w-3.5 h-3.5" />
+                  Ponto de Fácil Acesso
+                </div>
+
+                <h3 className="font-heading text-xl font-bold mb-2 text-white">
+                  Clínica São Camilo Nova Serrana
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                  Localizada na região central de Nova Serrana, a poucos metros das principais vias e do comércio, oferecendo praticidade para suas consultas e exames ocupacionais.
+                </p>
+
+                <div className="p-3.5 rounded-xl bg-teal-950/50 border border-teal-800/40 mb-5 space-y-2 text-xs text-slate-300">
+                  <p className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Rua Antônio Ferreira do Amaral, 136 - Centro</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Nova Serrana - MG, 35519-000</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Atendimento a pacientes de toda a região</span>
+                  </p>
+                </div>
+
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors"
+                >
+                  <span>Abrir no Google Maps</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ======================================================== */}
-        {/* FOOTER & CTA FINAL (ROYAL NAVY & GOLD)                   */}
-        {/* ======================================================== */}
-        <footer className="border-t border-[#0a1945] bg-[#000d2b] text-white pt-16 pb-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 pb-12 border-b border-[#0a1945]">
-              {/* Brand Col */}
-              <div className="lg:col-span-5">
-                <div className="relative h-12 w-60 mb-4">
+      {/* Seção Dúvidas Frequentes */}
+      <section id="duvidas" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="eyebrow justify-center mb-2.5">Tire suas Dúvidas</div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-sm text-slate-600">
+              Esclareça dúvidas comuns sobre consultas, exames ocupacionais e vacinas.
+            </p>
+          </div>
+
+          <div className="space-y-2.5">
+            {FAQS.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={index}
+                  className={`rounded-xl border transition-colors overflow-hidden ${
+                    isOpen
+                      ? "border-[#0d766e] bg-white shadow-2xs"
+                      : "border-slate-200 bg-white hover:border-slate-300"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full p-4 text-left font-heading font-bold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#0d766e]"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      className={`w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 ${
+                        isOpen ? "rotate-180 text-[#0d766e]" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="px-4 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 p-5 rounded-xl bg-teal-50/60 border border-teal-100 text-center">
+            <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1">
+              Ficou com alguma dúvida específica?
+            </h4>
+            <p className="text-xs text-slate-500 mb-3">
+              Nossa equipe está disponível no WhatsApp para responder prontamente.
+            </p>
+            <GlowingButton
+              href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida sobre os serviços da Clínica São Camilo.")}
+              target="_blank"
+              variant="primary"
+              size="sm"
+              className="gap-2"
+            >
+              <WhatsAppIcon size={14} />
+              <span>Falar com o Atendimento</span>
+            </GlowingButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Sóbrio e Completo */}
+      <footer className="bg-[#04201d] text-white pt-14 pb-10 border-t border-teal-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-teal-900/40">
+            <div className="lg:col-span-2">
+              <a href="#" className="inline-block mb-3">
+                <div className="relative w-52 sm:w-56 h-12 sm:h-13">
                   <Image
-                    src={LOGO_DARK_BG_SRC}
-                    alt={CLINIC_NAME}
+                    src={LOGO_SRC}
+                    alt="Clínica São Camilo"
                     fill
-                    sizes="240px"
-                    className="object-contain object-left"
+                    sizes="230px"
+                    className="object-contain object-left brightness-105"
                   />
                 </div>
+              </a>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5 max-w-sm">
+                Clínica médica multidisciplinar em Nova Serrana - MG. Consultas médicas com especialistas, Medicina do Trabalho completa com ASO rápido, Vacinas e Teste da Orelhinha.
+              </p>
 
-                <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-                  Dr. Frank Eduardo — Odontologia Avançada, Reabilitação Oral, Próteses, Implantes e Estética Dental com rigor científico e o carinho do acolhimento humano no Centro de Igarapé - MG.
-                </p>
-
-                <div className="mt-6 flex items-center gap-3">
-                  <a
-                    href={INSTAGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#001a60] bg-[#001344] text-[#cbd5e1] hover:text-[#f4c22b] hover:border-[#dea404] transition-colors"
-                    aria-label="Instagram Dr. Frank Eduardo"
-                  >
-                    <InstagramIcon size={16} />
-                  </a>
-
-                  <a
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#001a60] bg-[#001344] text-[#cbd5e1] hover:text-[#f4c22b] hover:border-[#dea404] transition-colors"
-                    aria-label="WhatsApp Dr. Frank Eduardo"
-                  >
-                    <WhatsAppIcon size={16} />
-                  </a>
-
-                  <a
-                    href={GOOGLE_SEARCH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#001a60] bg-[#001344] text-[#cbd5e1] hover:text-[#f4c22b] hover:border-[#dea404] transition-colors"
-                    aria-label="Google Avaliações"
-                  >
-                    <Star size={16} className="text-[#f4c22b]" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Quick Navigation */}
-              <div className="lg:col-span-3 text-xs">
-                <div className="font-heading text-sm font-bold text-[#f4c22b] uppercase tracking-wider mb-4">
-                  Navegação Rápida
-                </div>
-                <ul className="space-y-2.5 text-slate-300">
-                  <li>
-                    <a href="#tratamentos" className="hover:text-white transition-colors">
-                      Tratamentos & Procedimentos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#sobre" className="hover:text-white transition-colors">
-                      Sobre o Dr. Frank Eduardo
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#estrutura" className="hover:text-white transition-colors">
-                      Estrutura do Consultório
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#diferenciais" className="hover:text-white transition-colors">
-                      Por Que Nos Escolher
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#depoimentos" className="hover:text-white transition-colors">
-                      Depoimentos no Google (256+)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#localizacao" className="hover:text-white transition-colors">
-                      Localização & Rotas
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#duvidas" className="hover:text-white transition-colors">
-                      Dúvidas Frequentes
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Contact Info Col */}
-              <div className="lg:col-span-4 text-xs">
-                <div className="font-heading text-sm font-bold text-[#f4c22b] uppercase tracking-wider mb-4">
-                  Informações & Contato
-                </div>
-                <div className="space-y-3 text-slate-300">
-                  <div className="flex items-start gap-2.5">
-                    <MapPin size={16} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <span>{ADDRESS_DISPLAY}</span>
-                  </div>
-
-                  <div className="flex items-center gap-2.5">
-                    <Phone size={16} className="text-[#dea404] shrink-0" />
-                    <a
-                      href={getWhatsAppUrl()}
-                      className="text-[#f4c22b] font-bold hover:underline"
-                    >
-                      {PHONE_DISPLAY}
-                    </a>
-                  </div>
-
-                  <div className="flex items-start gap-2.5">
-                    <Clock size={16} className="text-[#dea404] shrink-0 mt-0.5" />
-                    <span>Segunda a Sexta: 08:00 às 18:00</span>
-                  </div>
-                </div>
-
-                <div className="mt-5 pt-4 border-t border-[#0a1945]">
-                  <GlowingButton
-                    variant="gold"
-                    size="sm"
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    className="w-full"
-                  >
-                    <WhatsAppIcon size={14} />
-                    <span>Falar com a Meg no WhatsApp</span>
-                  </GlowingButton>
-                </div>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-teal-900/60 border border-teal-800 text-emerald-400 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all"
+                  title="WhatsApp"
+                >
+                  <WhatsAppIcon size={15} />
+                </a>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-teal-900/60 border border-teal-800 text-teal-300 flex items-center justify-center hover:bg-teal-600 hover:text-white transition-all"
+                  title="Instagram"
+                >
+                  <InstagramIcon size={15} />
+                </a>
               </div>
             </div>
 
-            {/* Bottom Copyright */}
-            <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-              <div>
-                © {new Date().getFullYear()} {CLINIC_NAME}. Todos os direitos reservados.
-              </div>
-              <div className="text-[11px] text-slate-500">
-                Cirurgião Dentista · Odontologia Avançada · Igarapé - MG
-              </div>
+            <div>
+              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-emerald-400 mb-3">
+                Especialidades
+              </h4>
+              <ul className="space-y-1.5 text-xs text-slate-300">
+                <li>Pediatria & Puericultura</li>
+                <li>Medicina do Trabalho (ASO)</li>
+                <li>Cardiologia</li>
+                <li>Angiologia & Varizes</li>
+                <li>Pneumologia</li>
+                <li>Psiquiatria</li>
+                <li>Otorrinolaringologia</li>
+                <li>Nutrição & Urologia</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-emerald-400 mb-3">
+                Exames & Vacinas
+              </h4>
+              <ul className="space-y-1.5 text-xs text-slate-300">
+                <li>Teste da Orelhinha (Neonatal)</li>
+                <li>Audiometria Ocupacional</li>
+                <li>Vacina da Gripe (Influenza)</li>
+                <li>ASO Admissional & Periódico</li>
+                <li>Eletrocardiograma (ECG)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-emerald-400 mb-3">
+                Atendimento
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-300">
+                <li className="flex items-start gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-teal-400 shrink-0 mt-0.5" />
+                  <span>R. Antônio Ferreira do Amaral, 136 - Centro, Nova Serrana - MG</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>(37) 3226-2910</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-teal-400 shrink-0" />
+                  <span>Seg. a Sex. a partir das 08:00</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </footer>
 
-        {/* ======================================================== */}
-        {/* FLOATING WHATSAPP BUTTON                                 */}
-        {/* ======================================================== */}
-        <div className="fixed bottom-5 right-5 z-50">
-          <a
-            href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta com o Dr. Frank Eduardo.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 px-4 py-3 text-xs font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/40 focus:outline-none"
-            aria-label="Agendar via WhatsApp"
-          >
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
-            </span>
-            <WhatsAppIcon size={20} />
-            <span className="hidden sm:inline font-extrabold uppercase tracking-wider">
-              Agendar Consulta
-            </span>
-          </a>
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+            <p>
+              © {new Date().getFullYear()} Clínica São Camilo. Todos os direitos reservados. Nova Serrana - MG.
+            </p>
+            <div className="flex items-center gap-3">
+              <a href={LINKTREE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Linktree Oficial
+              </a>
+              <span>·</span>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Instagram {INSTAGRAM_HANDLE}
+              </a>
+            </div>
+          </div>
         </div>
+      </footer>
 
-        {/* ======================================================== */}
-        {/* MODAL INTERATIVO: DETALHES DO PROCEDIMENTO               */}
-        {/* ======================================================== */}
-        <AnimatePresence>
-          {selectedSpecialty && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-              {/* Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedSpecialty(null)}
-                className="fixed inset-0 bg-[#000d2b]/80 backdrop-blur-sm"
-              />
+      {/* Botão Flutuante de WhatsApp */}
+      <div className="fixed bottom-5 right-5 z-50">
+        <a
+          href={getWhatsAppUrl("Olá! Gostaria de agendar uma consulta na Clínica São Camilo em Nova Serrana.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-3.5 py-2.5 bg-[#16a34a] hover:bg-[#15803d] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 font-semibold text-xs"
+          aria-label="Falar no WhatsApp com a Clínica São Camilo"
+        >
+          <WhatsAppIcon size={18} />
+          <span className="hidden sm:inline-block">WhatsApp</span>
+        </a>
+      </div>
 
-              {/* Modal Box */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-2xl z-10"
-              >
-                {/* Close Button */}
+      {/* Modal de Detalhes da Especialidade */}
+      <AnimatePresence>
+        {selectedSpecialty && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-2xs">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              className="relative w-full max-w-xl bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 max-h-[88vh] flex flex-col"
+            >
+              <div className="p-5 bg-[#0a3833] text-white flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 bg-teal-950/60 px-2 py-0.5 rounded">
+                    {selectedSpecialty.badge}
+                  </span>
+                  <h3 className="font-heading font-bold text-xl text-white mt-1">
+                    {selectedSpecialty.title}
+                  </h3>
+                </div>
                 <button
                   type="button"
                   onClick={() => setSelectedSpecialty(null)}
-                  className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
-                  aria-label="Fechar"
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
+                  aria-label="Fechar modal"
                 >
-                  <X size={18} />
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="p-5 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-600">
+                <div>
+                  <h4 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-1.5">
+                    Sobre o Atendimento
+                  </h4>
+                  <p className="leading-relaxed">{selectedSpecialty.fullDesc}</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                    <h5 className="font-heading font-bold text-xs uppercase tracking-wide text-slate-800 mb-2 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      Indicações
+                    </h5>
+                    <ul className="space-y-1">
+                      {selectedSpecialty.indications.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                          <span className="text-[#0d766e]">·</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-teal-50/50 border border-teal-100">
+                    <h5 className="font-heading font-bold text-xs uppercase tracking-wide text-[#0d766e] mb-2 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-[#0d766e]" />
+                      Benefícios
+                    </h5>
+                    <ul className="space-y-1">
+                      {selectedSpecialty.benefits.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                          <span className="text-emerald-600 font-bold">✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600">
+                  <p className="font-bold text-slate-800 mb-0.5">
+                    Dúvida Comum: {selectedSpecialty.faq.q}
+                  </p>
+                  <p>{selectedSpecialty.faq.a}</p>
+                </div>
+              </div>
+
+              <div className="p-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => setSelectedSpecialty(null)}
+                  className="px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 cursor-pointer"
+                >
+                  Fechar
                 </button>
 
-                {/* Badge & Title */}
-                <span className="inline-block rounded-full bg-[#f0f4f9] px-3 py-1 text-xs font-bold text-[#001a60] mb-3">
-                  {selectedSpecialty.badge}
-                </span>
-
-                <h3 className="font-heading text-2xl font-extrabold text-[#001344] sm:text-3xl">
-                  {selectedSpecialty.title}
-                </h3>
-
-                <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-                  {selectedSpecialty.fullDesc}
-                </p>
-
-                {/* Indications & Benefits */}
-                <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                  <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#001a60] mb-3">
-                      Quando é Indicado:
-                    </h4>
-                    <ul className="space-y-2 text-xs text-slate-700">
-                      {selectedSpecialty.indications.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 size={14} className="text-[#dea404] shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#001a60] mb-3">
-                      Principais Benefícios:
-                    </h4>
-                    <ul className="space-y-2 text-xs text-slate-700">
-                      {selectedSpecialty.benefits.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 size={14} className="text-[#dea404] shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Recovery & Comfort */}
-                <div className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 text-xs text-emerald-900">
-                  <strong className="font-bold">Conforto & Recuperação: </strong>
-                  {selectedSpecialty.recovery}
-                </div>
-
-                {/* FAQ Snippet */}
-                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs">
-                  <div className="font-bold text-[#001344] mb-1">
-                    Dúvida Comum: {selectedSpecialty.faq.q}
-                  </div>
-                  <div className="text-slate-600">
-                    {selectedSpecialty.faq.a}
-                  </div>
-                </div>
-
-                {/* Modal CTA */}
-                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-5 border-t border-slate-200">
-                  <div className="text-xs text-slate-500">
-                    Agendamento direto com a Meg pelo WhatsApp
-                  </div>
-                  <GlowingButton
-                    variant="gold"
-                    size="md"
-                    href={getWhatsAppUrl(`Olá! Gostaria de agendar uma avaliação para ${selectedSpecialty.title} com o Dr. Frank Eduardo.`)}
-                    target="_blank"
-                    className="w-full sm:w-auto"
-                  >
-                    <WhatsAppIcon size={16} />
-                    <span>Agendar {selectedSpecialty.title}</span>
-                  </GlowingButton>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-      </main>
-    </MotionConfig>
-  );
-}
-
-function ArrowDownIcon({ size = 14 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="12" y1="5" x2="12" y2="19" />
-      <polyline points="19 12 12 19 5 12" />
-    </svg>
+                <GlowingButton
+                  href={getWhatsAppUrl(
+                    `Olá! Gostaria de agendar uma consulta de ${selectedSpecialty.title} na Clínica São Camilo em Nova Serrana.`
+                  )}
+                  target="_blank"
+                  variant="primary"
+                  size="sm"
+                  className="gap-1.5"
+                >
+                  <WhatsAppIcon size={14} />
+                  <span>Agendar {selectedSpecialty.title}</span>
+                </GlowingButton>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
