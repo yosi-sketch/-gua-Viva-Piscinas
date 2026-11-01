@@ -3,40 +3,43 @@
 :root {
   color-scheme: light;
   
-  /* TOMOSID Sober Medical Ruby / Carmine Spectrum (Elegante e Suave) */
-  --brand-red-primary: #991b1b;
-  --brand-red-hover: #7f1d1d;
-  --brand-red-deep: #701a1e;
-  --brand-red-darkest: #4c0d11;
-  --brand-red-vibrant: #b91c1c;
-  --brand-red-light: #f87171;
-  --brand-red-surface: #fdf8f8;
-  --brand-red-border: #f3dada;
+  /* CLÍNICA VIVÁLIA — Deep Pine Teal Spectrum (Extraído diretamente do logotipo) */
+  --brand-teal-primary: #066e69;
+  --brand-teal-hover: #055955;
+  --brand-teal-deep: #044441;
+  --brand-teal-darkest: #022927;
+  --brand-teal-vibrant: #0a8e87;
+  --brand-teal-light: #14a39b;
+  --brand-teal-surface: #f0f8f7;
+  --brand-teal-border: #cde6e4;
   
-  /* TOMOSID Dark Charcoal & Titanium Slate */
-  --brand-charcoal-darkest: #090a0f;
-  --brand-charcoal-deep: #121318;
-  --brand-charcoal-card: #181a24;
-  --brand-charcoal-border: #272a38;
+  /* CLÍNICA VIVÁLIA — Warm Ochre Gold / Âmbar Acolhedor (Extraído do logotipo) */
+  --brand-gold-primary: #b3844e;
+  --brand-gold-hover: #996d3c;
+  --brand-gold-deep: #7d5427;
+  --brand-gold-light: #d8a46b;
+  --brand-gold-surface: #fbf7f1;
+  --brand-gold-border: #ecd8be;
+  
+  /* Deep Pine Charcoal & Dark Night Canvas */
+  --brand-charcoal-darkest: #051514;
+  --brand-charcoal-deep: #0c201e;
+  --brand-charcoal-card: #122c2a;
+  --brand-charcoal-border: #1e3e3b;
   --brand-slate-primary: #1e293b;
   --brand-slate-muted: #64748b;
   
-  /* Architectural Bronze / Warm Mocha (da fachada da clínica) */
-  --brand-bronze-primary: #785b46;
-  --brand-bronze-hover: #624734;
-  --brand-bronze-light: #f7f3ee;
-  --brand-bronze-border: #e8ded4;
-  
   /* Clinical Clean & Sober Canvas */
   --brand-canvas-white: #ffffff;
-  --brand-canvas-light: #f8fafc;
-  --brand-canvas-alt: #f1f5f9;
-  --brand-canvas-border: #e2e8f0;
-  --brand-canvas-ink: #0f172a;
-  --brand-canvas-muted: #475569;
+  --brand-canvas-light: #f8faf9;
+  --brand-canvas-alt: #f0f4f3;
+  --brand-canvas-border: #e2e8e7;
+  --brand-canvas-ink: #0d1e1c;
+  --brand-canvas-muted: #475a58;
   
   /* WhatsApp */
   --brand-whatsapp: #16a34a;
+  --brand-whatsapp-hover: #15803d;
 }
 
 @theme inline {
@@ -44,17 +47,21 @@
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-red-primary: #991b1b;
-  --color-brand-red-deep: #701a1e;
-  --color-brand-red-darkest: #4c0d11;
-  --color-brand-red-vibrant: #b91c1c;
-  --color-brand-red-surface: #fdf8f8;
+  --color-brand-teal-primary: #066e69;
+  --color-brand-teal-deep: #044441;
+  --color-brand-teal-darkest: #022927;
+  --color-brand-teal-vibrant: #0a8e87;
+  --color-brand-teal-surface: #f0f8f7;
   
-  --color-brand-charcoal-darkest: #090a0f;
-  --color-brand-charcoal-deep: #121318;
-  --color-brand-charcoal-card: #181a24;
+  --color-brand-gold-primary: #b3844e;
+  --color-brand-gold-deep: #7d5427;
+  --color-brand-gold-surface: #fbf7f1;
   
-  --color-brand-canvas-light: #f8fafc;
+  --color-brand-charcoal-darkest: #051514;
+  --color-brand-charcoal-deep: #0c201e;
+  --color-brand-charcoal-card: #122c2a;
+  
+  --color-brand-canvas-light: #f8faf9;
   --color-brand-canvas-surface: #ffffff;
 }
 
@@ -64,13 +71,13 @@ html {
 }
 
 body {
-  background: #f8fafc;
-  color: #0f172a;
+  background: #f8faf9;
+  color: #0d1e1c;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 ::selection {
-  background: #991b1b;
+  background: #066e69;
   color: #ffffff;
 }
 
@@ -87,7 +94,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #991b1b;
+  color: #066e69;
 }
 
 .eyebrow-dark {
@@ -99,14 +106,14 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #f87171;
+  color: #d8a46b;
 }
 
 .eyebrow::before {
   width: 1.5rem;
   height: 2px;
   flex: none;
-  background: #991b1b;
+  background: #066e69;
   content: "";
   border-radius: 999px;
 }
@@ -115,7 +122,7 @@ body {
   width: 1.5rem;
   height: 2px;
   flex: none;
-  background: #ef4444;
+  background: #b3844e;
   content: "";
   border-radius: 999px;
 }
@@ -123,27 +130,27 @@ body {
 /* Glassmorphism & Card Styles */
 .card-clinical {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8e7;
+  box-shadow: 0 1px 3px 0 rgba(6, 110, 105, 0.04), 0 1px 2px -1px rgba(6, 110, 105, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clinical:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  border-color: #cde6e4;
+  box-shadow: 0 10px 25px -5px rgba(6, 110, 105, 0.08), 0 8px 10px -6px rgba(6, 110, 105, 0.04);
   transform: translateY(-2px);
 }
 
 .card-clinical-dark {
-  background: #121318;
-  border: 1px solid #272a38;
+  background: #0c201e;
+  border: 1px solid #1e3e3b;
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-clinical-dark:hover {
-  border-color: #991b1b;
-  box-shadow: 0 12px 30px -5px rgba(153, 27, 27, 0.2);
+  border-color: #066e69;
+  box-shadow: 0 12px 30px -5px rgba(6, 110, 105, 0.3);
   transform: translateY(-2px);
 }
 
@@ -170,14 +177,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f0f4f3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #c2d6d4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #066e69;
 }

@@ -31,52 +31,53 @@ import {
   Compass,
   AlertCircle,
   Share2,
-  Radio,
-  Scan,
-  Layers,
+  Users,
+  Check,
+  UserCheck,
   HeartHandshake,
+  Sparkle,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Client & Official Clinic Information — TOMOSID · Dr. Frederico Cambraia (Campo Belo - MG)
-const CLINIC_NAME = "TOMOSID";
-const CLINIC_FULL_NAME = "TOMOSID — Dr. Frederico Cambraia";
-const BRAND_LABEL = "Centro de Diagnóstico Médico por Imagem";
-const PHYSICIAN_NAME = "Dr. Frederico Cambraia";
-const PHYSICIAN_TITLE = "Médico Radiologista · CRM-MG 34752 · RQE 10424";
+// Informações Oficiais da Clínica Vivália — Juatuba / MG
+const CLINIC_NAME = "Clínica Vivália";
+const CLINIC_FULL_NAME = "Vivália Clínica Médica";
+const BRAND_SLOGAN = "Acolhimento humanizado e ético.";
+const BRAND_SUBTITLE = "Um sonho se tornando realidade no coração de Juatuba.";
 
-const WHATSAPP_NUMBER = "5535999760750";
-const PHONE_DISPLAY = "(35) 99976-0750";
-const EMAIL_CONTACT = "contato@tomosid.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/tomosidoficial";
-const INSTAGRAM_HANDLE = "@tomosidoficial";
-const LINKTREE_URL = "https://linktr.ee/drfredericocambraia";
+const WHATSAPP_NUMBER = "5531996622315";
+const PHONE_DISPLAY = "(31) 99662-2315";
+const EMAIL_CONTACT = "contato@clinicavivalia.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/clinicavivalia/";
+const INSTAGRAM_HANDLE = "@clinicavivalia";
+const LINKTREE_URL = "https://linktr.ee/clinicavivalia";
 
-const ADDRESS_STREET = "R. Dom Pedro II, 337";
+const ADDRESS_STREET = "Av. Tânus Saliba, 71A";
 const ADDRESS_NEIGHBORHOOD = "Centro";
-const ADDRESS_CITY = "Campo Belo - MG";
-const ADDRESS_CEP = "37270-000";
-const ADDRESS_DISPLAY = "R. Dom Pedro II, 337 - Centro, Campo Belo - MG, 37270-000";
-const CITIES_SERVED = "Campo Belo, Candeias, Cristais, Aguanil, Perdões, Santana do Jacaré e Região Sul de Minas";
+const ADDRESS_CITY = "Juatuba - MG";
+const ADDRESS_CEP = "35675-000";
+const ADDRESS_DISPLAY = "Av. Tânus Saliba, 71A - Centro, Juatuba - MG, 35675-000";
+const CITIES_SERVED = "Juatuba, Betim, Mateus Leme, Igarapé, Florestal, Itaúna e Região Metropolitana de BH";
 
-const GOOGLE_RATING = "4,2";
-const GOOGLE_REVIEW_COUNT = "124";
+const GOOGLE_RATING = "5,0";
+const GOOGLE_REVIEW_COUNT = "71";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Tomosid+%E2%80%94+Dr.+Frederico+Cambraia%0ACampo+Belo+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Cl%C3%ADnica+Viv%C3%A1lia%0AJuatuba+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=R.+Dom+Pedro+II%2C+337+-+Centro%2C+Campo+Belo+-+MG%2C+37270-000";
+  "https://www.google.com/maps/search/?api=1&query=Av.+T%C3%A2nus+Saliba%2C+71A+-+Centro%2C+Juatuba+-+MG%2C+35675-000";
 const WAZE_MAPS_URL =
-  "https://waze.com/ul?q=Rua+Dom+Pedro+II+337+Centro+Campo+Belo+MG";
+  "https://waze.com/ul?q=Avenida+Tanus+Saliba+71A+Centro+Juatuba+MG";
 
-// Official assets
+// Assets Oficiais da Clínica Vivália
 const LOGO_SRC = "/logo.png";
-const LOGO_DARK_SRC = "/logo-dark.png";
-const LOGO_EMBLEM_SRC = "/logo-emblem.png";
-const FACHADA_SRC = "/fachada-clinica.jpg";
+const LOGO_HORIZONTAL_SRC = "/logo-horizontal.png";
+const LOGO_HORIZONTAL_LIGHT_SRC = "/logo-horizontal-light.png";
+const DOCTOR_PHOTO_SRC = "/dr-alessandro-galvao.jpg";
+const CORRIDOR_PHOTO_SRC = "/clinica-espaco-corredor.jpg";
 
 function getWhatsAppUrl(message?: string, number: string = WHATSAPP_NUMBER) {
   const defaultText =
-    "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia.";
+    "Olá! Gostaria de agendar uma consulta na Clínica Vivália em Juatuba.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -124,11 +125,11 @@ function InstagramIcon({
   );
 }
 
-// Especialidades e Serviços Diagnósticos Oficiais da TOMOSID
-interface ExamService {
+// Especialidades e Serviços da Clínica Vivália
+interface SpecialtyService {
   id: string;
   title: string;
-  category: "mulher" | "alta_complexidade" | "ultrassom" | "preventivo";
+  category: "familia" | "mulher_infantil" | "clinicas" | "diagnosticos";
   badge: string;
   shortDesc: string;
   tag: string;
@@ -139,358 +140,358 @@ interface ExamService {
   faq: { q: string; a: string };
 }
 
-const EXAM_SERVICES: ExamService[] = [
+const SPECIALTY_SERVICES: SpecialtyService[] = [
   {
-    id: "endometriose",
-    title: "Ultrassom com Mapeamento de Endometriose",
-    category: "mulher",
-    badge: "Especialidade Referência",
+    id: "clinica-geral",
+    title: "Clínica Geral & Medicina da Família",
+    category: "familia",
+    badge: "Acolhimento Integral",
     shortDesc:
-      "Protocolo avançado com preparo intestinal específico para diagnóstico preciso e mapeamento de focos profundos da endometriose.",
-    tag: "Saúde da Mulher",
+      "Avaliação completa de saúde, diagnóstico precoce, check-up preventivo e acompanhamento contínuo para você e sua família.",
+    tag: "Atenção Primária & Check-up",
     fullDesc:
-      "O mapeamento de endometriose por ultrassonografia é um exame altamente especializado conduzido pelo Dr. Frederico Cambraia. Permite identificar nódulos e aderências da endometriose profunda na pelve, retrocervical, ovários, ligamentos útero-sacros, bexiga e intestino, fornecendo ao ginecologista um mapa cirúrgico e clínico detalhado.",
+      "A consulta de Clínica Geral na Clínica Vivália é centrada no paciente de forma integral e humanizada. Conduzida por profissionais como o Dr. Alessandro Galvão e o Dr. Elissander, combina escuta atenta, investigação detalhada dos sintomas, solicitação e interpretação criteriosa de exames e acompanhamento contínuo de doenças crônicas como hipertensão e diabetes.",
     indications: [
-      "Cólicas menstruais intensas (dismenorreia incapacitante)",
-      "Dor pélvica crônica ou dor durante relações sexuais (dispareunia)",
-      "Alterações intestinais ou urinárias durante o período menstrual",
-      "Dificuldade para engravidar e investigação de infertilidade",
+      "Check-up médico preventivo anual e avaliação de rotina",
+      "Controle de pressão alta (hipertensão) e diabetes mellitus",
+      "Investigação de sintomas como fadiga crônica, dores ou mal-estar",
+      "Orientação médica inicial e encaminhamento para especialistas",
     ],
     benefits: [
-      "Mapeamento minucioso dos compartimentos anterior e posterior da pelve",
-      "Execução especializada com conforto e respeito ao tempo da paciente",
-      "Laudo com documentação anatômica detalhada para conduta médica",
-      "Evita cirurgias diagnósticas desnecessárias com visualização prévia",
+      "Tempo adequado de consulta sem pressa para escutar suas queixas",
+      "Visão holística da saúde física, emocional e do estilo de vida",
+      "Prescrições claras e esclarecimento de todas as dúvidas",
+      "Ambiente acolhedor e seguro no coração de Juatuba",
     ],
     preparo:
-      "Requer preparo intestinal simples no dia anterior orientado pela equipe no momento do agendamento para permitir visão limpa das alças intestinais.",
+      "Traga seus exames recentes, receitas e uma lista dos medicamentos de uso contínuo para uma avaliação detalhada.",
     faq: {
-      q: "O exame de mapeamento de endometriose é doloroso?",
-      a: "O exame é realizado com extrema delicadeza pelo Dr. Frederico Cambraia, respeitando o limite e o conforto da paciente em cada etapa do procedimento.",
+      q: "Com que frequência devo consultar um clínico geral?",
+      a: "Recomenda-se realizar uma consulta de check-up preventivo ao menos uma vez ao ano, ou sempre que houver sintomas que exijam investigação diagnóstica.",
     },
   },
   {
-    id: "hycosy",
-    title: "HyCoSy (Histerossalpingossoneografia)",
-    category: "mulher",
-    badge: "Fertilidade Feminina",
+    id: "pediatria",
+    title: "Pediatria & Puericultura",
+    category: "mulher_infantil",
+    badge: "Amor & Atenção Infantil",
     shortDesc:
-      "Avaliação moderna da permeabilidade das trompas uterinas com contraste ultrassonográfico sem radiação e sem uso de iodo.",
-    tag: "Fertilidade & Trompas",
+      "Acompanhamento afetuoso do desenvolvimento, crescimento, vacinação e saúde do bebê, da criança e do adolescente.",
+    tag: "Saúde da Criança",
     fullDesc:
-      "A HyCoSy é a técnica mais moderna e segura para investigar a fertilidade feminina e a desobstrução das trompas de Falópio. Diferente da histerossalpingografia tradicional com raio-x, a HyCoSy utiliza ultrassom de alta resolução com solução fisiológica e microbolhas sem radiação e sem os riscos de alergia ao iodo.",
+      "O atendimento pediátrico na Vivália é reconhecido pelo carinho e paciência com os pequenos. Acompanhamos cada fase do crescimento da criança, desde os primeiros dias de vida com a puericultura, orientações sobre amamentação, introdução alimentar saudável, calendário vacinal, até o tratamento ágil de viroses e infecções respiratórias comuns da infância.",
     indications: [
-      "Investigação de causas de infertilidade e dificuldade para engravidar",
-      "Avaliação da permeabilidade tubária prévia a tratamentos reprodutivos",
-      "Estudo da morfologia e contorno da cavidade uterina",
-      "Histórico de infecções pélvicas ou cirurgias prévias com risco de aderência",
+      "Acompanhamento regular de puericultura do recém-nascido e lactente",
+      "Monitoramento de ganho de peso, estatura e marcos do desenvolvimento",
+      "Febre, tosse, viroses, resfriados, alergias e infecções respiratórias",
+      "Dúvidas sobre sono, aleitamento materno e introdução alimentar",
     ],
     benefits: [
-      "Sem exposição à radiação ionizante para os ovários e útero",
-      "Sem utilização de contraste iodado (100% seguro para alérgicos)",
-      "Procedimento ambulatorial rápido com retorno imediato à rotina",
-      "Exame dinâmico com avaliação em tempo real pelo especialista",
+      "Ambiente lúdico e tranquilo que reduz o estresse da consulta para a criança",
+      "Médica atenciosa e paciente que escuta com sensibilidade os pais",
+      "Orientações preventivas que trazem segurança e tranquilidade à família",
+      "Acolhimento elogiado por mães de Juatuba e região",
     ],
     preparo:
-      "Realizado preferencialmente na primeira fase do ciclo menstrual (entre o 7º e o 12º dia após o início da menstruação), sem estar menstruada.",
+      "Traga a Caderneta de Vacinação da criança e anote dúvidas sobre a rotina, sono e alimentação para esclarecer durante a consulta.",
     faq: {
-      q: "Qual a diferença entre a HyCoSy e a Histerossalpingografia comum?",
-      a: "A HyCoSy é guiada por ultrassom em vez de raio-x, não utiliza radiação nem iodo, gerando muito menos desconforto e permitindo avaliação completa do útero no mesmo procedimento.",
+      q: "Qual a periodicidade das consultas do bebê nos primeiros meses?",
+      a: "No primeiro ano de vida, as consultas são mensais até os 6 meses e depois a cada dois meses até completar 1 ano, garantindo um acompanhamento minucioso do crescimento.",
     },
   },
   {
-    id: "ecofetal",
-    title: "Ecocardiografia Fetal & Morfológico",
-    category: "mulher",
-    badge: "Medicina Fetal",
+    id: "cardiologia",
+    title: "Cardiologia & Saúde do Coração",
+    category: "clinicas",
+    badge: "Prevenção Cardiovascular",
     shortDesc:
-      "Avaliação cardiológica minuciosa do coração do bebê durante a gestação e ultrassom morfológico de alta precisão.",
-    tag: "Gestação de Alto Risco",
-    fullDesc:
-      "A ecocardiografia fetal é o exame padrão-ouro para detectar precocemente alterações anatômicas e do ritmo cardíaco do feto ainda no útero. Realizado com equipamentos com doppler de última geração, oferece tranquilidade aos pais e segurança absoluta para o planejamento do parto em gestações comuns e de alto risco.",
-    indications: [
-      "Idade materna avançada ou gestação gemelar",
-      "Histórico familiar de cardiopatias congênitas",
-      "Diabetes gestacional, hipertensão ou doenças autoimunes na mãe",
-      "Alterações suspeitas no ultrassom morfológico ou translucência nucal",
-    ],
-    benefits: [
-      "Diagnóstico precoce que salva vidas e planeja o suporte neonatal",
-      "Análise hemodinâmica detalhada das valvas e vasos fetais",
-      "Acolhimento empático que tranquiliza a gestante e sua família",
-      "Integração direta com o obstetra assistente",
-    ],
-    preparo:
-      "Geralmente indicado entre a 24ª e 28ª semana de gestação. Não necessita jejum; recomenda-se refeição leve e hidratação normal antes do exame.",
-    faq: {
-      q: "O ecocardiograma fetal substitui o ultrassom morfológico?",
-      a: "Eles são exames complementares. O morfológico analisa toda a anatomia fetal, enquanto o ecofetal foca profundamente na estrutura e fisiologia do coração do feto.",
-    },
-  },
-  {
-    id: "ultrassom-mama",
-    title: "Ultrassonografia Mamária de Alta Resolução",
-    category: "mulher",
-    badge: "Saúde das Mamas",
-    shortDesc:
-      "Diferenciação precisa entre nódulos sólidos e cistos líquidos, ideal para mamas densas e acompanhamento preventivo contínuo.",
-    tag: "Diagnóstico Mamário",
-    fullDesc:
-      "A ultrassonografia mamária utiliza transdutores lineares de alta frequência para avaliar o tecido glandular, ductos e axilas. É indispensável na avaliação complementar da mamografia, especialmente em mulheres jovens com tecido mamário denso, garantindo diagnóstico precoce e tranquilidade.",
-    indications: [
-      "Complementação diagnóstica de mamografias com mamas densas",
-      "Avaliação de nódulos palpáveis ou dor mamária localizada",
-      "Diferenciação clara entre cistos benignos e lesões sólidas",
-      "Acompanhamento de próteses de silicone e integridade dos implantes",
-    ],
-    benefits: [
-      "Exame 100% indolor, rápido e sem radiação",
-      "Avaliação detalhada com classificação padronizada BI-RADS",
-      "Inspeção simultânea das cadeias linfáticas axilares",
-      "Orientação direta para biópsias quando houver indicação médica",
-    ],
-    preparo:
-      "Não requer jejum. Recomenda-se levar exames anteriores de ultrassom e mamografia para estudo comparativo evolutivo.",
-    faq: {
-      q: "O ultrassom substitui a mamografia anual?",
-      a: "Não. Em mulheres acima de 40 anos, os dois exames se complementam: a mamografia detecta microcalcificações iniciais e o ultrassom detalha nódulos e mamas densas.",
-    },
-  },
-  {
-    id: "biopsias",
-    title: "Biópsias Guiadas por Ultrassom",
-    category: "mulher",
-    badge: "Precisão Intervencionista",
-    shortDesc:
-      "Punções e biópsias percutâneas (Core Biopsy e PAAF) de mama, tireoide e tecidos moles com anestesia local e visualização contínua.",
-    tag: "Procedimentos Guiados",
-    fullDesc:
-      "Procedimentos intervencionistas minimamente invasivos realizados com precisão milimétrica guiados em tempo real por ultrassom. A coleta de fragmentos teciduais (Core Biopsy) ou células (PAAF) permite o diagnóstico anatomopatológico definitivo de nódulos de mama, tireoide e linfonodos com total conforto e segurança.",
-    indications: [
-      "Nódulos mamários classificados como BI-RADS 4 ou 5",
-      "Nódulos de tireoide suspeitos com indicação de PAAF",
-      "Investigação de linfonodomegalias cervicais ou axilares",
-      "Lesões de partes moles que exigem definição histológica",
-    ],
-    benefits: [
-      "Visualização contínua da agulha em tempo real pelo ultrassom",
-      "Procedimento ambulatorial com anestesia local sem internação",
-      "Amostras precisas que garantem resultado laboratorial conclusivo",
-      "Pós-procedimento tranquilo com recuperação rápida no mesmo dia",
-    ],
-    preparo:
-      "Avisar previamente sobre o uso de medicamentos anticoagulantes ou antiagregantes plaquetários. Orientações personalizadas são passadas na véspera.",
-    faq: {
-      q: "A biópsia guiada por ultrassom dói?",
-      a: "O procedimento é realizado sob anestesia local cuidadosa, tornando a coleta muito bem tolerada e praticamente indolor durante a execução.",
-    },
-  },
-  {
-    id: "tomografia",
-    title: "Tomografia Computadorizada Multislice",
-    category: "alta_complexidade",
-    badge: "Alta Tecnologia 3D",
-    shortDesc:
-      "Varredura tomográfica rápida com cortes submilimétricos e reconstruções 3D para crânio, tórax, abdome, pelve e ossos.",
-    tag: "Alta Resolução Anatômica",
-    fullDesc:
-      "O tomógrafo computadorizado da TOMOSID realiza aquisições ultrarrápidas de imagens em alta definição, permitindo reconstruções multiplanares e 3D de altíssima fidelidade. É essencial para o diagnóstico de urgências, investigações oncológicas, avaliação do tórax, abdome agudo, traumas e pós-operatórios.",
-    indications: [
-      "Investigação de cefaleias agudas, AVC e traumas cranianos",
-      "Avaliação de tórax (nódulos pulmonares, infecções e embolia)",
-      "Abdome e pelve (apendicite, cálculos renais, diverticulite)",
-      "Reconstruções ósseas tridimensionais para planejamento cirúrgico",
-    ],
-    benefits: [
-      "Velocidade de aquisição que reduz o tempo de permanência no aparelho",
-      "Doses otimizadas de radiação com protocolos seguros",
-      "Reconstruções anatômicas tridimensionais (3D)",
-      "Laudos rápidos emitidos por radiologistas experientes",
-    ],
-    preparo:
-      "Para exames com contraste iodado, requer jejum de 4 a 6 horas e avaliação prévia da função renal (ureia e creatinina).",
-    faq: {
-      q: "Todo exame de tomografia precisa de contraste?",
-      a: "Não. Exames ósseos e de crânio simples geralmente não utilizam contraste. Quando necessário para avaliação vascular ou abdominal, o paciente é avaliado com segurança.",
-    },
-  },
-  {
-    id: "ressonancia",
-    title: "Ressonância Magnética de Alto Campo",
-    category: "alta_complexidade",
-    badge: "Máxima Definição",
-    shortDesc:
-      "Estudo aprofundado do sistema nervoso, coluna vertebral, articulações e tecidos moles sem emissão de radiação ionizante.",
-    tag: "Neuro & Articular",
-    fullDesc:
-      "A ressonância magnética é a mais avançada técnica diagnóstica não invasiva para visualização do cérebro, medula espinhal, coluna, tendões, cartilagens e órgãos internos. Proporciona imagens com contraste incomparável entre diferentes tecidos moles, sem qualquer radiação ionizante.",
-    indications: [
-      "Hérnias de disco, dores lombares e cervicais crônicas",
-      "Lesões de ligamentos e meniscos do joelho, ombro e tornozelo",
-      "Investigação de doenças neurológicas, esclerose, tonturas e memória",
-      "Estudo detalhado do fígado, vias biliares (colangiorressonância) e pelve",
-    ],
-    benefits: [
-      "Sem radiação ionizante: segurança absoluta para o paciente",
-      "Diferenciação celular e tecidual superior a qualquer outro método",
-      "Ambiente planejado com equipe que acolhe pacientes com claustrofobia",
-      "Laudos especializados que orientam com clareza o tratamento médico",
-    ],
-    preparo:
-      "Retirar qualquer objeto metálico, brincos, relógio e piercing. Informar se possui marca-passo, próteses ou clipes cirúrgicos metálicos.",
-    faq: {
-      q: "Quem tem medo de lugares fechados consegue fazer o exame?",
-      a: "Sim! Nossa equipe é treinada para acolher pacientes ansiosos, com comunicação contínua via fone de ouvido, ventilação e apoio passo a passo.",
-    },
-  },
-  {
-    id: "angiotomografia",
-    title: "Angiotomografia Coronariana & Vascular",
-    category: "alta_complexidade",
-    badge: "Cardiovascular",
-    shortDesc:
-      "Visualização não invasiva da luz interna das artérias coronárias, carótidas, aorta e circulação periférica.",
+      "Prevenção e tratamento de doenças cardíacas, arritmias, controle pressórico e risco cirúrgico cardiovascular.",
     tag: "Coração & Vasos",
     fullDesc:
-      "A angiotomografia permite avaliar detalhadamente a anatomia dos vasos sanguíneos de forma rápida e minimamente invasiva. Na área coronariana, identifica placas de gordura e cálcio que obstruem a circulação antes que causem eventos graves como o infarto agudo do miocárdio.",
+      "O serviço de cardiologia da Vivália oferece avaliação cardiológica minuciosa voltada à prevenção de infartos, controle rigoroso da pressão arterial, diagnóstico de alterações no ritmo cardíaco e liberação para atividades físicas e cirurgias com total segurança diagnóstica.",
     indications: [
-      "Investigação de dor torácica atípica e suspeita de doença coronária",
-      "Rastreamento de aneurismas da aorta torácica e abdominal",
-      "Avaliação de carótidas e artérias vertebrais para prevenção de AVC",
-      "Estenoses e oclusões vasculares nas pernas e abdome",
+      "Sensação de aperto, dor no peito ou palpitações cardíacas",
+      "Histórico familiar precoce de infarto ou doenças cardiovasculares",
+      "Controle de colesterol alto, triglicerídeos e hipertensão arterial",
+      "Avaliação de risco cirúrgico pré-operatório e aptidão para exercícios",
     ],
     benefits: [
-      "Alternativa não invasiva e rápida ao cateterismo convencional para triagem",
-      "Visualização em cortes milimétricos e reconstruções 3D de alta nitidez",
-      "Segurança diagnóstica para cardiologistas e cirurgiões vasculares",
-      "Liberação rápida do paciente após o procedimento",
+      "Avaliação personalizada do perfil de risco cardiovascular individual",
+      "Planejamento de mudanças de estilo de vida aliadas a terapias modernas",
+      "Laudos e relatórios ágeis para cirurgias e procedimentos",
+      "Orientação médica preventiva que preserva a sua longevidade",
     ],
     preparo:
-      "Jejum orientado, controle de frequência cardíaca quando indicado para angiotomografia de coronárias e checagem de exames de função renal.",
+      "Não ingerir bebidas energéticas ou excesso de cafeína no dia da consulta e levar histórico de exames laboratoriais ou eletrocardiogramas anteriores.",
     faq: {
-      q: "A angiotomografia substitui o cateterismo?",
-      a: "Em muitos casos de diagnóstico preventivo sim, pois oferece visão precisa dos vasos sem necessidade de punção arterial ou internação hospitalar.",
+      q: "Quando devo procurar um cardiologista pela primeira vez?",
+      a: "Homens a partir dos 40 anos e mulheres a partir dos 45 anos (ou antes, se houver histórico familiar de problemas cardíacos precoces) devem realizar consulta preventiva regular.",
     },
   },
   {
-    id: "ultrassom-geral",
-    title: "Ultrassonografia Geral & Doppler Colorido",
-    category: "ultrassom",
-    badge: "Rotina & Check-up",
+    id: "ginecologia",
+    title: "Ginecologia & Saúde Integral da Mulher",
+    category: "mulher_infantil",
+    badge: "Cuidado Feminino",
     shortDesc:
-      "Exames de abdome total, vias urinárias, tireoide, próstata, aparelho locomotor e estudo do fluxo sanguíneo com Doppler.",
-    tag: "Ultrassom Multidisciplinar",
+      "Atendimento sensível e privativo para todas as fases da vida da mulher, exames preventivos, contracepção e menopausa.",
+    tag: "Saúde Feminina",
     fullDesc:
-      "O serviço de ultrassonografia geral da TOMOSID alia a experiência de radiologistas dedicados com aparelhos equipados com software Doppler colorido de alta sensibilidade. Fundamental para investigar dores abdominais, pedras na vesícula ou nos rins, esteatose hepática, tireoide e circulação.",
+      "Um espaço seguro, ético e empático para cuidar da saúde da mulher. Nossas consultas ginecológicas abrangem exames preventivos (como preventivo/Papanicolau), orientação contraceptiva individualizada, tratamento de infecções ginecológicas, manejo da endometriose, climatério e reposição hormonal com respaldo técnico.",
     indications: [
-      "Check-up preventivo de rotina de órgãos abdominais e pelve",
-      "Investigação de pedras na vesícula (colelitíase) e nos rins (litíase)",
-      "Avaliação de gordura no fígado (esteatose) e aumento de volume",
-      "Nódulos de tireoide, próstata, bolsa escrotal e partes moles",
+      "Exame preventivo anual e rastreamento do colo do útero",
+      "Cólicas intensas, irregularidades menstruais e suspeita de endometriose",
+      "Planejamento reprodutivo, contracepção e métodos de barreira",
+      "Sintomas da menopausa, ondas de calor e alterações hormonais",
     ],
     benefits: [
-      "Método seguro, sem radiação e acessível para qualquer faixa etária",
-      "Doppler colorido em tempo real que mapeia a circulação sanguínea",
-      "Explicação verbal do Dr. Frederico Cambraia durante a consulta",
-      "Resultados rápidos com imagens fotográficas de alta resolução",
+      "Atendimento privativo, humanizado e com escuta sem julgamentos",
+      "Explicações claras sobre as opções de tratamento disponíveis",
+      "Acompanhamento em todas as fases da juventude à maturidade",
+      "Ambiente higienizado e confortável",
     ],
     preparo:
-      "Para abdome total: jejum de 6 horas e bexiga cheia (beber 4 copos de água 1 hora antes). Para tireoide e músculo esquelético: não requer jejum.",
+      "Para realização de preventivo, recomenda-se abstinência sexual e não utilizar duchas ou cremes vaginais nas 48 horas anteriores.",
     faq: {
-      q: "Por que preciso estar de bexiga cheia para certos ultrassons?",
-      a: "A bexiga cheia atua como uma janela acústica transparente, empurrando as alças intestinais e permitindo visualizar com clareza o útero, ovários ou próstata.",
+      q: "A partir de que idade a mulher deve consultar o ginecologista?",
+      a: "Recomenda-se a primeira consulta na adolescência, logo após a primeira menstruação, para sanar dúvidas e iniciar o acompanhamento preventivo da saúde reprodutiva.",
     },
   },
   {
-    id: "mamografia",
-    title: "Mamografia Digital de Alta Resolução",
-    category: "preventivo",
-    badge: "Prevenção do Câncer",
+    id: "ortopedia",
+    title: "Ortopedia & Aparelho Locomotor",
+    category: "clinicas",
+    badge: "Alívio da Dor & Mobilidade",
     shortDesc:
-      "Rastreamento precoce de microcalcificações e alterações mamárias iniciais com tecnologia digital e dose reduzida de radiação.",
-    tag: "Rastreamento Mamário",
+      "Diagnóstico e tratamento de dores articulares, coluna vertebral, tendinites, artrose e lesões musculoesqueléticas.",
+    tag: "Ossos & Articulações",
     fullDesc:
-      "A mamografia digital da TOMOSID é o exame mais comprovadamente eficaz para a detecção precoce do câncer de mama, identificando microcalcificações e lesões milimétricas anos antes de se tornarem palpáveis ao exame físico. Nosso equipamento digital otimiza a compressão para maior conforto da paciente.",
+      "A especialidade de ortopedia visa restabelecer o movimento, a força e o alívio das dores que limitam a rotina. Tratamos dores crônicas na coluna, bursites, tendinites, desgastes articulares (artrose) em joelhos e ombros, além de reabilitação pós-traumática.",
     indications: [
-      "Rastreamento anual recomendado para todas as mulheres a partir dos 40 anos",
-      "Mulheres com histórico familiar direto de câncer de mama (a partir dos 35 anos)",
-      "Presença de nódulos palpáveis, retração da pele ou secreção papilar",
-      "Acompanhamento evolutivo pós-tratamento oncológico",
+      "Dores agudas ou crônicas na lombar, coluna cervical ou ciático",
+      "Dor, estalo ou limitação de movimento no joelho, quadril e ombro",
+      "Entorses, lesões ligamentares ou recuperação de contusões",
+      "Artrose, artrite, tendinites por esforço repetitivo (LER/DORT)",
     ],
     benefits: [
-      "Detecta lesões em fases iniciais com chances de cura superiores a 95%",
-      "Menor tempo de compressão e software que suaviza a pressão nas mamas",
-      "Processamento digital da imagem que aumenta o contraste anatômico",
-      "Equipe feminina atenciosa e ambiente totalmente privativo e acolhedor",
+      "Tratamentos conservadores modernos para preservação das articulações",
+      "Combinação de terapia medicamentosa, infiltrações e fisioterapia indicada",
+      "Recuperação da qualidade de vida e mobilidade sem sofrimento",
+      "Atendimento ágil para casos de dor que não podem esperar",
     ],
     preparo:
-      "Não usar desodorante, talco, cremes ou perfumes nas axilas e mamas no dia do exame, pois resíduos podem simular microcalcificações na imagem.",
+      "Traga exames de imagem anteriores (raio-x, tomografias ou ressonâncias) e roupas confortáveis que facilitem o exame físico da articulação afetada.",
     faq: {
-      q: "A mamografia dói muito?",
-      a: "Nossa equipe realiza a compressão de maneira gradual e suave, apenas pelo tempo estritamente necessário para obter a imagem nítida, minimizando desconfortos.",
+      q: "Quando a dor nas costas requer avaliação imediata?",
+      a: "Se a dor irradiar para as pernas com dormência, formigamento, fraqueza muscular ou persistir por mais de uma semana sem melhora, consulte um ortopedista.",
     },
   },
   {
-    id: "densitometria",
-    title: "Densitometria Óssea de Corpo Inteiro",
-    category: "preventivo",
-    badge: "Saúde Óssea",
+    id: "geriatria",
+    title: "Geriatria & Cuidado com a Melhor Idade",
+    category: "familia",
+    badge: "Respeito & Longevidade",
     shortDesc:
-      "Diagnóstico preciso e quantificação de osteopenia e osteoporose na coluna lombar, fêmur proximal e antebraço.",
-    tag: "Prevenção de Fraturas",
+      "Atenção especializada na saúde, autonomia e bem-estar do idoso, com carinho, paciência e acompanhamento familiar.",
+    tag: "Saúde do Idoso",
     fullDesc:
-      "A densitometria óssea é o padrão internacional para medir a densidade mineral dos ossos e calcular o risco de fraturas por fragilidade. Essencial para mulheres na menopausa, idosos e pessoas em uso prolongado de corticoides, permite o tratamento antes da ocorrência de quedas e quebras graves.",
+      "Celebrada nos depoimentos dos nossos pacientes pelo carinho com avós e idosos (como no atendimento do Dr. Elissander), nossa abordagem geriátrica prioriza a qualidade de vida, prevenção de quedas, ajuste minucioso de múltiplos medicamentos, memória e estímulo à autonomia física e mental.",
     indications: [
-      "Mulheres na pós-menopausa ou homens acima de 60 anos",
-      "Pessoas com histórico familiar de osteoporose ou fratura de fêmur",
-      "Uso contínuo de medicamentos como corticoides ou anticonvulsivantes",
-      "Monitoramento da eficácia de reposição de cálcio e medicações ósseas",
+      "Acompanhamento preventivo integral a partir dos 60 anos",
+      "Uso de muitos medicamentos (polifarmácia) que necessitam de ajuste",
+      "Queixas de perda de memória, confusão mental ou alterações do humor",
+      "Prevenção de quedas, perda de força muscular e desequilíbrio",
     ],
     benefits: [
-      "Exame ultrarrápido (cerca de 10 a 15 minutos) totalmente indolor",
-      "Dose de radiação extremamente baixa (inferior a um voo comercial)",
-      "Relatório gráfico claro comparando seus ossos com a média da população",
-      "Orienta condutas precoces que evitam perda de mobilidade",
+      "Tempo estendido de escuta e acolhimento afetuoso ao paciente idoso",
+      "Comunicação clara e próxima com os familiares e cuidadores",
+      "Foco na manutenção da independência e bem-estar diário",
+      "Consultório com fácil acessibilidade e conforto absoluto",
     ],
     preparo:
-      "Não ingerir suplementos de cálcio nas 24 horas que antecedem o exame. Vestir roupas confortáveis sem botões, zíperes ou detalhes metálicos.",
+      "Solicitamos que o idoso venha acompanhado de familiar ou cuidador e traga todas as receitas e caixas dos medicamentos em uso.",
     faq: {
-      q: "Com qual frequência devo repetir a densitometria óssea?",
-      a: "Normalmente a cada 1 ou 2 anos, conforme a avaliação do seu médico para acompanhar a estabilidade ou melhora da massa óssea após o início do tratamento.",
+      q: "Por que o atendimento geriátrico é diferente da clínica comum?",
+      a: "O geriatra avalia a interação de múltiplos problemas e remédios simultâneos, equilibrando o tratamento para evitar efeitos colaterais e priorizar a vitalidade do paciente.",
     },
   },
   {
-    id: "raiox",
-    title: "Radiografia Digital (Raio-X Digital)",
-    category: "preventivo",
-    badge: "Agilidade & Nitidez",
+    id: "dermatologia",
+    title: "Dermatologia Clínica & Cuidado da Pele",
+    category: "clinicas",
+    badge: "Pele, Cabelos & Unhas",
     shortDesc:
-      "Exames esqueléticos e torácicos com visualização digital imediata, alta definição e baixa exposição à radiação.",
-    tag: "Raio-X Ágil",
+      "Diagnóstico e controle de doenças da pele, alergias, acne, melasma, queda de cabelo e mapeamento preventivo de sinais.",
+    tag: "Dermatologia",
     fullDesc:
-      "O Raio-X Digital substitui os antigos filmes químicos por sensores digitais de altíssima sensibilidade. Isso significa menor exposição do paciente à radiação, imagem instantânea na tela para o técnico e radiologista, e possibilidade de zoom e ajuste de contraste para laudos rápidos e certeiros.",
+      "A pele é o maior órgão do corpo e merece cuidados médicos especializados. Na Vivália, você conta com atendimento dermatológico ético para tratar alergias, psoríase, dermatites, queda capilar, micoses e avaliar manchas ou pintas suspeitas de câncer de pele.",
     indications: [
-      "Investigação de fraturas ósseas, entorses e luxações articulares",
-      "Avaliação de dores na coluna, bico de papagaio e artrose",
-      "Raio-X de tórax para diagnóstico de pneumonias, bronquites e tosse",
-      "Exames admissionais e periódicos para colaboradores e empresas",
+      "Pintas, manchas escuras ou sinais na pele que mudaram de formato ou cor",
+      "Queda excessiva de cabelo, afinamento ou alterações no couro cabeludo",
+      "Acne severa, cravos inflamatórios e cicatrizes",
+      "Dermatite, eczema, psoríase, coceiras persistentes e micoses",
     ],
     benefits: [
-      "Aquisição instantânea da imagem sem espera por revelação química",
-      "Dose de radiação significativamente menor que no raio-x analógico",
-      "Imagens arquivadas digitalmente para comparação com exames futuros",
-      "Atendimento ágil para casos que requerem rapidez na conduta médica",
+      "Avaliação dermatoscópica minuciosa de cada pinta e lesão cutânea",
+      "Tratamentos comprovados cientificamente e seguros para a pele",
+      "Planos de cuidados diários adaptados ao seu tipo de pele e rotina",
+      "Atendimento com respeito, empatia e sem promessas irrealistas",
     ],
     preparo:
-      "Não necessita jejum. Recomenda-se apenas retirar correntes, botões metálicos ou sutiãs com aro de metal na região que será examinada.",
+      "Compareça à consulta sem maquiagem ou esmaltes escuros caso queira avaliar a face ou as unhas.",
     faq: {
-      q: "Posso pegar o laudo no mesmo dia?",
-      a: "Sim, os exames de raio-x contam com fluxo prioritário de digitação e emissão para que você apresente ao seu médico assistente rapidamente.",
+      q: "Com qual regularidade devo examinar minhas pintas?",
+      a: "O mapeamento dermatológico de sinais deve ser feito anualmente, ou antes se notar qualquer sinal que cresça rápido, sangre ou mude de cor.",
+    },
+  },
+  {
+    id: "nutricao",
+    title: "Nutrição Clínica & Reeducação Alimentar",
+    category: "familia",
+    badge: "Saúde Metabólica",
+    shortDesc:
+      "Planos alimentares personalizados para perda de peso sustentável, controle de glicemia, colesterol e disposição.",
+    tag: "Nutrição & Bem-Estar",
+    fullDesc:
+      "Alimentação que cura e transforma. Nosso acompanhamento nutricional não foca em dietas restritivas ou passageiras, mas em uma reeducação alimentar prática, gostosa e viável na sua rotina diária em Juatuba, para você conquistar energia, saúde digestiva e atingir suas metas corporais.",
+    indications: [
+      "Emagrecimento com preservação de massa magra e sem efeito sanfona",
+      "Controle nutricional para diabetes, gordura no fígado e colesterol",
+      "Melhora de sintomas digestivos (azia, gastrite, refluxo e constipação)",
+      "Nutrição esportiva para rendimento e hipertrofia",
+    ],
+    benefits: [
+      "Cardápios adaptados à sua rotina real, orçamento e preferências",
+      "Avaliação da composição corporal e metas progressivas",
+      "Apoio constante para construir uma relação saudável com a comida",
+      "Integração direta com o médico assistente da clínica",
+    ],
+    preparo:
+      "Anote nos três dias anteriores tudo o que costuma comer e beber para auxiliar a análise detalhada dos seus hábitos.",
+    faq: {
+      q: "Preciso cortar tudo o que gosto para emagrecer com saúde?",
+      a: "Não! A reeducação alimentar sustentável ensina equilíbrio e proporções, permitindo que você aprecie suas comidas preferidas sem culpa.",
+    },
+  },
+  {
+    id: "psicologia",
+    title: "Psicologia Clínica & Saúde Emocional",
+    category: "familia",
+    badge: "Acolhimento & Escuta",
+    shortDesc:
+      "Psicoterapia individual para ansiedade, depressão, estresse, luto e desenvolvimento pessoal com total sigilo.",
+    tag: "Saúde Mental",
+    fullDesc:
+      "Cuidar da mente é essencial para o corpo viver bem. Oferecemos um espaço terapêutico acolhedor, ético e confidencial para ajudar você a compreender suas emoções, superar momentos difíceis, lidar com a ansiedade e construir recursos para viver com mais leveza e equilíbrio.",
+    indications: [
+      "Ansiedade excessiva, crises de pânico, medos ou pensamentos acelerados",
+      "Tristeza profunda, falta de ânimo, esgotamento mental e depressão",
+      "Dificuldades nos relacionamentos, conflitos familiares ou término",
+      "Sobrecarga de trabalho (burnout), luto e momentos de transição de vida",
+    ],
+    benefits: [
+      "Ambiente privativo com sigilo profissional rigoroso (Código de Ética)",
+      "Escuta acolhedora, humana e sem qualquer julgamento",
+      "Técnicas terapêuticas para regulação emocional e autoconhecimento",
+      "Consultas presenciais no coração de Juatuba",
+    ],
+    preparo:
+      "Não há preparo prévio. Basta vir com a mente aberta para falar sobre seus sentimentos e desafios no seu próprio ritmo.",
+    faq: {
+      q: "Qual a duração média de uma sessão de psicoterapia?",
+      a: "As sessões têm duração padrão de aproximadamente 50 minutos e são agendadas em horário exclusivo para o seu conforto.",
+    },
+  },
+  {
+    id: "otorrino",
+    title: "Otorrinolaringologia & Cabeça e Pescoço",
+    category: "clinicas",
+    badge: "Ouvido, Nariz & Garganta",
+    shortDesc:
+      "Diagnóstico e tratamento de rinite, sinusite, zumbido, perda auditiva, ronco, apneia e alterações da voz com a Dra. Nicole Pardini.",
+    tag: "Otorrino",
+    fullDesc:
+      "A consulta de Otorrinolaringologia com a Dra. Nicole Pardini na Clínica Vivália trata problemas de ouvido, nariz e garganta em crianças e adultos. Investigamos causas de infecções respiratórias recorrentes, dores de garganta, desvio de septo, rinites alérgicas, sinusites, tonturas (labirintite) e distúrbios do sono.",
+    indications: [
+      "Rinite alérgica persistente, obstrução nasal crônica e sinusite",
+      "Perda de audição, zumbido no ouvido, dor ou sensação de ouvido tapado",
+      "Dores de garganta frequentes, rouquidão contínua e amigdalite",
+      "Ronco noturno, respiração pela boca e engasgos durante o sono",
+    ],
+    benefits: [
+      "Avaliação especializada com a Dra. Nicole Pardini",
+      "Planos terapêuticos modernos para alívio respiratório e auditivo",
+      "Tratamento humanizado para crianças e adultos",
+      "Acompanhamento clínico e cirúrgico seguro",
+    ],
+    preparo:
+      "Traga exames anteriores (audiometria, raio-x ou tomografias da face) caso já tenha realizado.",
+    faq: {
+      q: "Quando a rouquidão exige consulta com o otorrino?",
+      a: "Se a rouquidão durar mais de 15 dias sem melhora, uma avaliação da laringe e cordas vocais é fundamental para descartar lesões.",
+    },
+  },
+  {
+    id: "fisioterapia",
+    title: "Fisioterapia & Reabilitação Funcional",
+    category: "clinicas",
+    badge: "Recuperação & Alívio",
+    shortDesc:
+      "Tratamento da dor, reabilitação motora, alívio de tensões e recuperação pós-lesão com cuidado integral.",
+    tag: "Reabilitação",
+    fullDesc:
+      "O atendimento de fisioterapia na Clínica Vivália é planejado de forma individualizada para restaurar sua mobilidade, aliviar dores musculares e articulares, recuperar a postura e proporcionar qualidade de vida com exercícios terapêuticos e técnicas manuais.",
+    indications: [
+      "Dores musculares e articulares crônicas ou agudas",
+      "Reabilitação pós-fratura, cirurgia ou entorse",
+      "Correção postural e alívio de tensões diárias",
+      "Fortalecimento muscular e prevenção de limitações",
+    ],
+    benefits: [
+      "Sessões personalizadas e acompanhamento próximo",
+      "Técnicas manuais e cinesioterapia direcionadas ao seu caso",
+      "Recuperação progressiva da autonomia e conforto físico",
+      "Integração com a equipe médica da clínica",
+    ],
+    preparo:
+      "Venha com roupas confortáveis que facilitem o movimento e tragam eventuais exames de imagem anteriores.",
+    faq: {
+      q: "Quantas sessões de fisioterapia são necessárias?",
+      a: "A quantidade varia de acordo com a avaliação fisioterapêutica inicial e a evolução do quadro clínico de cada paciente.",
+    },
+  },
+  {
+    id: "exames-checkup",
+    title: "Exames Preventivos & Check-up Diagnóstico",
+    category: "diagnosticos",
+    badge: "Precisão & Confiabilidade",
+    shortDesc:
+      "Coletas de rotina, exames preventivos e encaminhamentos integrados para garantir diagnósticos certeiros.",
+    tag: "Diagnósticos",
+    fullDesc:
+      "A agilidade no diagnóstico é decisiva para o sucesso do tratamento. Na Clínica Vivália, facilitamos o seu cuidado com a realização de exames preventivos essenciais e integração direta entre os médicos da equipe para que você não perca tempo e receba orientações rápidas.",
+    indications: [
+      "Exames de sangue, urina e fezes de rotina anual",
+      "Avaliação de glicemia, função renal, hepática e tireoidiana",
+      "Eletrocardiograma e risco cirúrgico para procedimentos",
+      "Rastreamento preventivo oncológico inicial",
+    ],
+    benefits: [
+      "Ambiente asséptico, organizado e impecavelmente limpo",
+      "Resultados com análise médica integrada pelo seu doutor",
+      "Equipe de enfermagem e atendimento treinada para cuidado delicado",
+      "Praticidade de consultar e receber orientações em um só lugar",
+    ],
+    preparo:
+      "Orientações específicas sobre tempo de jejum e coleta são informadas no momento do agendamento pelo WhatsApp da clínica.",
+    faq: {
+      q: "Posso agendar meus exames junto com a consulta médica?",
+      a: "Sim! Nossa equipe organiza os agendamentos para otimizar sua visita à clínica, garantindo praticidade para você e sua família.",
     },
   },
 ];
 
-// Depoimentos Reais / Google Reviews da TOMOSID e Dr. Frederico Cambraia (4,2 Estrelas · 124 avaliações reais)
+// Depoimentos Reais dos Pacientes no Google Meu Negócio da Clínica Vivália (5,0 ★ · 71 avaliações)
 interface Testimonial {
   author: string;
   role: string;
@@ -503,98 +504,116 @@ interface Testimonial {
 
 const REAL_TESTIMONIALS: Testimonial[] = [
   {
-    author: "MARIANA WERNECK",
-    role: "Paciente de Gestação de Alto Risco",
+    author: "Alice Santos",
+    role: "Paciente da Clínica Vivália",
     rating: 5,
-    text: "A MELHOR CLÍNICA DA CIDADE! O melhor atendimento que eu e minha esposa recebemos na gestação. Dr. Fred, um exemplo de humanidade! Excelente profissional. Gostaria de deixar meu sincero agradecimento ao Dr. Frederico pelo acompanhamento na minha gestação de alto risco, pela dedicação e competência nos exames.",
+    text: "Sem defeitos! Atendimento impecável desde a recepcionista até o médico! Lugar limpo e organizado. Qualquer valor que cobrar ainda seria barato. Parabéns!",
     source: "Google Reviews",
-    tag: "Gestação de Alto Risco & Ecofetal",
-    date: "9 meses atrás",
-  },
-  {
-    author: "Bruna Silva",
-    role: "Paciente da Tomosid",
-    rating: 5,
-    text: "Tive uma ótima experiência na Tomosid. O agendamento foi rápido, o atendimento muito organizado e os profissionais demonstraram um cuidado enorme comigo durante os exames. Dá pra sentir o comprometimento e o respeito com o paciente. Super recomendo! Dr Frederico Cambraia excelente médico.",
-    source: "Google Reviews",
-    tag: "Atendimento Humanizado",
-    date: "9 meses atrás",
-  },
-  {
-    author: "Luiz Celso Rogana Freire",
-    role: "Paciente de Exames Especializados",
-    rating: 5,
-    text: "Dr. Frederico é um excelente profissional, com muita experiência e domínio do que faz. Foi extremamente atencioso, explicou tudo com clareza e passou muita segurança durante todo o atendimento. Dá pra perceber o cuidado e a seriedade no trabalho. Recomendo de olhos fechados!",
-    source: "Google Reviews",
-    tag: "Segurança & Clareza",
-    date: "9 meses atrás",
-  },
-  {
-    author: "Douglas Freire",
-    role: "Morador de Campo Belo",
-    rating: 5,
-    text: "Não há comparação: é, disparada, a melhor clínica de imagem da região. Além da estrutura e da qualidade dos exames, destaco o profissionalismo e a atenção de toda a equipe. Um atendimento que realmente faz a diferença.",
-    source: "Google Reviews",
-    tag: "Estrutura & Tecnologia",
-    date: "9 meses atrás",
-  },
-  {
-    author: "Alberto Messias",
-    role: "Local Guide Google",
-    rating: 5,
-    text: "Fui muito bem atendido desde a recepção até o exame. Equipe atenciosa, ambiente acolhedor e profissionais que realmente se preocupam com o paciente. Atendimento super humanizado. Recomendo!",
-    source: "Google Reviews",
-    tag: "Acolhimento & Recepção",
-    date: "9 meses atrás",
-  },
-  {
-    author: "Luiz Antunes",
-    role: "Paciente Frequente da Tomosid",
-    rating: 5,
-    text: "Sempre que procuro a Tomosid para efetuar exames, sempre fui muito bem atendido pelas recepcionistas e excelentes profissionais. Parabéns, Dr. Frederico Cambraia, sua clínica é modelo e o senhor, um excelente profissional.",
-    source: "Google Reviews",
-    tag: "Clínica Modelo",
-    date: "8 meses atrás",
-  },
-  {
-    author: "Thamila Silva Rezende",
-    role: "Paciente da Tomosid",
-    rating: 5,
-    text: "Ótimo atendimento, totalmente humanizado, Dr. Frederico super atencioso e esclarece todas as nossas dúvidas. Indico para todos em Campo Belo e região!",
-    source: "Google Reviews",
-    tag: "Esclarecimento de Dúvidas",
+    tag: "Atendimento Impecável",
     date: "1 ano atrás",
   },
   {
-    author: "Iago Lucas",
-    role: "Comunicador Regional",
+    author: "Daniella Saliba",
+    role: "Paciente da Clínica Vivália",
     rating: 5,
-    text: "Profissional de excelência! Dr Frederico um ser humano iluminado! Atendimento nota 1000! Parabéns pelo carinho e respeito dedicado a cada paciente.",
+    text: "Os médicos da clínica são verdadeiros especialistas, demonstrando conhecimento, empatia e dedicação. O ambiente é tranquilo, confortável e impecavelmente limpo, proporcionando uma experiência de atendimento médico de alta qualidade. A combinação de profissionais excelentes e infraestrutura excepcional torna a clínica uma referência em saúde. Recomendo!",
     source: "Google Reviews",
-    tag: "Humanidade Médica",
-    date: "9 meses atrás",
+    tag: "Referência em Saúde",
+    date: "2 anos atrás",
   },
   {
-    author: "Dalmy Cassio",
-    role: "Paciente Tomosid",
+    author: "Leo Souza",
+    role: "Paciente do Dr. Elissander",
     rating: 5,
-    text: "Equipe muito profissional, excelentes médicos, equipamentos modernos, laudos rápidos! Uma clínica que dá orgulho para Campo Belo.",
+    text: "Ótimo atendimento, agilidade, pontualidade e um médico excelente Dr Elissander.",
     source: "Google Reviews",
-    tag: "Laudos Rápidos",
-    date: "9 meses atrás",
+    tag: "Agilidade & Pontualidade",
+    date: "3 meses atrás",
   },
   {
-    author: "Astir Abrahão",
-    role: "Paciente da Tomosid",
+    author: "LUCAS SANTOS",
+    role: "Local Guide Google",
     rating: 5,
-    text: "Referência em qualidade diagnóstica, destaca pela excelência técnica, precisão nos exames e compromisso com o paciente! Parabéns a toda equipe.",
+    text: "Excelente atendimento. Havia tempos que a cidade precisava de uma clínica que tratasse sua gente com amor, carinho e atenção. Super indico.",
     source: "Google Reviews",
-    tag: "Precisão Técnica",
-    date: "9 meses atrás",
+    tag: "Amor & Carinho com a Cidade",
+    date: "2 anos atrás",
+  },
+  {
+    author: "Isabela",
+    role: "Familiar de Paciente",
+    rating: 5,
+    text: "Minha avó foi atendida pelo Dr. Elissander e estamos muito satisfeitas e agradecidas tanto pelo profissionalismo, quanto pela capacidade técnica e pelo carinho.",
+    source: "Google Reviews",
+    tag: "Carinho com Idosos",
+    date: "1 ano atrás",
+  },
+  {
+    author: "jessica poliane",
+    role: "Mãe de Paciente Pediátrico",
+    rating: 5,
+    text: "Atendimento, estrutura, tudo com excelente qualidade. Profissionais sensacionais, meu filho amou sua nova pediatra!",
+    source: "Google Reviews",
+    tag: "Pediatria com Amor",
+    date: "1 ano atrás",
+  },
+  {
+    author: "Glaucilaine",
+    role: "Paciente Vivália",
+    rating: 5,
+    text: "Local agradável, excelente profissional, desde a recepção até o médico.",
+    source: "Google Reviews",
+    tag: "Local Agradável",
+    date: "3 meses atrás",
+  },
+  {
+    author: "Jessica Fonseca",
+    role: "Paciente Vivália",
+    rating: 5,
+    text: "Excelente atendimento, profissionais qualificados e ambiente muito aconchegante 🥰",
+    source: "Google Reviews",
+    tag: "Ambiente Aconchegante",
+    date: "2 anos atrás",
+  },
+  {
+    author: "Raquel Rodrigues",
+    role: "Paciente Vivália",
+    rating: 5,
+    text: "Clínica maravilhosa!! Profissionais com grande experiência. Ambiente super limpo, aconchegante. Excelente atendimento. Muito atenciosos. Localização de fácil acesso.",
+    source: "Google Reviews",
+    tag: "Fácil Acesso & Limpeza",
+    date: "2 anos atrás",
+  },
+  {
+    author: "Lisye Saliba",
+    role: "Paciente Vivália",
+    rating: 5,
+    text: "Além de profissionais incríveis, a clínica oferece um atendimento humanizado e muita comodidade para o paciente.",
+    source: "Google Reviews",
+    tag: "Atendimento Humanizado",
+    date: "2 anos atrás",
+  },
+  {
+    author: "Bárbara Dias",
+    role: "Paciente Vivália",
+    rating: 5,
+    text: "Clínica super moderna, ambiente muito agradável e com ótimos profissionais. Super recomendo!",
+    source: "Google Reviews",
+    tag: "Super Moderna",
+    date: "2 anos atrás",
+  },
+  {
+    author: "Ludmila Vale Vidal",
+    role: "Paciente Vivália",
+    rating: 5,
+    text: "Estrutura física maravilhosa e possui uma excelente equipe de profissionais!",
+    source: "Google Reviews",
+    tag: "Estrutura Física Maravilhosa",
+    date: "2 anos atrás",
   },
 ];
 
-// Perguntas Frequentes
+// Perguntas Frequentes sobre a Clínica Vivália
 interface FAQItem {
   question: string;
   answer: string;
@@ -603,63 +622,50 @@ interface FAQItem {
 
 const FAQ_LIST: FAQItem[] = [
   {
-    question: "Como funciona o agendamento de exames na TOMOSID?",
+    question: "Como funciona o agendamento de consultas na Clínica Vivália?",
     answer:
-      "O agendamento é feito com prioridade e praticidade diretamente pelo nosso WhatsApp oficial (35) 99976-0750. Você pode enviar a foto do seu pedido médico, informar o convênio ou preferência particular e nossa equipe responde com os horários disponíveis e instruções completas de preparo, sem necessidade de esperar no telefone.",
+      "O agendamento é feito de forma rápida, acolhedora e personalizada direto pelo nosso WhatsApp oficial: (31) 99662-2315. Nossa equipe recepciona sua mensagem, verifica os horários mais convenientes para você e sua família e fornece todas as orientações necessárias.",
     category: "Agendamento",
   },
   {
-    question: "A TOMOSID atende convênios ou somente exames particulares?",
+    question: "A Clínica Vivália atende convênios ou somente consultas particulares?",
     answer:
-      "Atendemos pacientes particulares com condições acessíveis e opções de parcelamento, além de termos parceria com os principais convênios médicos atuantes em Campo Belo e no Sul de Minas. Envie a foto da sua carteirinha de convênio pelo WhatsApp para confirmarmos a autorização instantaneamente.",
+      "Oferecemos consultas particulares com valores justos e acessíveis, além de trabalharmos com parcerias e convênios para atender os moradores de Juatuba e região. Entre em contato pelo WhatsApp enviando a foto do seu plano para confirmarmos o atendimento imediatamente.",
     category: "Convênios",
   },
   {
-    question: "O exame de HyCoSy é realizado pelo Dr. Frederico Cambraia?",
+    question: "Quais são os médicos e especialidades presentes na clínica?",
     answer:
-      "Sim! A HyCoSy (Histerossalpingossoneografia) é realizada pessoalmente pelo Dr. Frederico Cambraia, médico radiologista especialista. O procedimento é guiado por ultrassom de alta resolução, sem radiação e sem uso de iodo, garantindo conforto e acompanhamento atencioso na investigação da fertilidade.",
-    category: "Exames Especiais",
+      "A Clínica Vivália conta com médicos experientes como o Dr. Alessandro Galvão e o Dr. Elissander, além de especialistas dedicados em Pediatria, Cardiologia, Ginecologia, Ortopedia, Geriatria, Dermatologia, Nutrição Clínica, Psicologia e exames preventivos.",
+    category: "Corpo Clínico",
   },
   {
-    question: "O que é o ultrassom com mapeamento de endometriose profunda?",
+    question: "Onde a Clínica Vivália fica localizada em Juatuba?",
     answer:
-      "É um exame ultrassonográfico pélvico e transvaginal altamente especializado com preparo intestinal prévio. Ele mapeia detalhadamente nódulos de endometriose que não aparecem em ultrassons de rotina comuns, avaliando ligamentos, ovários, bexiga e alças intestinais.",
-    category: "Saúde da Mulher",
-  },
-  {
-    question: "Em quanto tempo os laudos dos exames ficam prontos?",
-    answer:
-      "Os laudos da TOMOSID são emitidos com rigor e agilidade. A maioria dos exames de ultrassonografia e raio-x contam com liberação imediata ou no mesmo dia. Tomografias e ressonâncias que exigem reconstruções 3D e estudos minuciosos têm entrega rápida informada no momento da realização.",
-    category: "Laudos & Resultados",
-  },
-  {
-    question: "Como devo me preparar para exames com contraste?",
-    answer:
-      "Exames de tomografia ou angiotomografia que necessitam de contraste iodado exigem jejum de 4 a 6 horas e apresentação de exame de creatinina recente para avaliar a função renal. Nossa equipe orienta detalhadamente todos os cuidados no agendamento.",
-    category: "Preparo de Exames",
-  },
-  {
-    question: "A TOMOSID realiza biópsias guiadas por imagem?",
-    answer:
-      "Sim. Realizamos punções aspirativas por agulha fina (PAAF) de tireoide e core biopsy de mama e tecidos moles guiadas em tempo real por ultrassom, com anestesia local e sem necessidade de internação hospitalar.",
-    category: "Procedimentos",
-  },
-  {
-    question: "Qual o horário de funcionamento e endereço da TOMOSID?",
-    answer:
-      "Estamos localizados em sede própria moderna na Rua Dom Pedro II, 337 - Centro, Campo Belo - MG (próximo aos principais pontos de referência do Centro). Atendemos de segunda a sexta-feira a partir das 08h00.",
+      "Estamos estrategicamente localizados no Centro de Juatuba - MG, na Av. Tânus Saliba, 71A. O local conta com fácil acesso para quem chega a pé, de carro ou de transporte público, além de estacionamento nas imediações e total acessibilidade.",
     category: "Localização",
+  },
+  {
+    question: "Quais são os horários de atendimento da clínica?",
+    answer:
+      "Nosso atendimento presencial ocorre de segunda a sexta-feira a partir das 08h00. O canal de agendamento no WhatsApp também está à disposição para dúvidas e reserva de consultas.",
+    category: "Horários",
+  },
+  {
+    question: "Como é a estrutura da clínica para crianças e idosos?",
+    answer:
+      "Nossa clínica foi cuidadosamente planejada para proporcionar calma e aconchego. Dispomos de corredores amplos, ambiente climatizado, higienização rigorosa e consultórios preparados para receber desde recém-nascidos até a melhor idade com respeito, comodidade e acolhimento.",
+    category: "Estrutura",
   },
 ];
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<
-    "todos" | "mulher" | "alta_complexidade" | "ultrassom" | "preventivo"
-  >("todos");
-  const [activeModalExam, setActiveModalExam] = useState<ExamService | null>(
-    null
-  );
+    "todas" | "familia" | "mulher_infantil" | "clinicas" | "diagnosticos"
+  >("todas");
+  const [activeModalSpecialty, setActiveModalSpecialty] =
+    useState<SpecialtyService | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [scrolled, setScrolled] = useState(false);
 
@@ -671,17 +677,17 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const filteredExams =
-    selectedCategory === "todos"
-      ? EXAM_SERVICES
-      : EXAM_SERVICES.filter((e) => e.category === selectedCategory);
+  const filteredSpecialties =
+    selectedCategory === "todas"
+      ? SPECIALTY_SERVICES
+      : SPECIALTY_SERVICES.filter((s) => s.category === selectedCategory);
 
   return (
-    <div className="relative min-h-screen bg-[#f8fafc] text-[#0f172a] selection:bg-[#991b1b] selection:text-white">
+    <div className="relative min-h-screen bg-[#f8faf9] text-[#0d1e1c] selection:bg-[#066e69] selection:text-white">
       {/* 1. TOPBAR DE CREDIBILIDADE MÉDICA OFICIAL */}
       <aside
         aria-label="Avisos e Informações de Atendimento"
-        className="bg-[#121318] text-slate-300 text-[12px] border-b border-[#272a38] py-2 px-4 transition-all"
+        className="bg-[#051514] text-slate-300 text-[12px] border-b border-[#1e3e3b] py-2 px-4 transition-all"
       >
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -707,12 +713,14 @@ export default function HomePage() {
             </a>
 
             <div className="hidden md:flex items-center gap-1.5 text-slate-400">
-              <MapPin size={13} className="text-slate-400" />
-              <span className="text-slate-300">R. Dom Pedro II, 337 - Centro · Campo Belo - MG</span>
+              <MapPin size={13} className="text-[#d8a46b]" />
+              <span className="text-slate-300">
+                Av. Tânus Saliba, 71A - Centro · Juatuba - MG
+              </span>
             </div>
 
             <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
-              <Clock size={13} className="text-slate-400" />
+              <Clock size={13} className="text-[#d8a46b]" />
               <span className="text-slate-300">Seg. a Sex. a partir das 08h00</span>
             </div>
           </div>
@@ -724,7 +732,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
             >
-              <InstagramIcon size={13} className="text-slate-400" />
+              <InstagramIcon size={13} className="text-[#d8a46b]" />
               <span className="text-slate-300">{INSTAGRAM_HANDLE}</span>
             </a>
 
@@ -741,99 +749,82 @@ export default function HomePage() {
         </div>
       </aside>
 
-      {/* 2. HEADER NAVEGAÇÃO PRINCIPAL (LIMPO, EQUILIBRADO E SEM QUEBRAS INDESEJADAS) */}
+      {/* 2. HEADER NAVEGAÇÃO PRINCIPAL */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 py-3"
-            : "bg-white border-b border-slate-100 py-3.5"
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#e2e8e7] py-3"
+            : "bg-white border-b border-[#edf2f1] py-3.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-          {/* Logo Oficial TOMOSID */}
+          {/* Logo Oficial Clínica Vivália (Exatamente a imagem enviada) */}
           <a
             href="#"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#991b1b] rounded-lg flex-shrink-0"
+            className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#066e69] rounded-lg flex-shrink-0 py-1"
+            aria-label="Clínica Vivália - Página Inicial"
           >
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 transition-transform group-hover:scale-105">
-              <Image
-                src={LOGO_EMBLEM_SRC}
-                alt="Emblema TOMOSID"
-                width={44}
-                height={44}
-                priority
-                className="object-contain"
-              />
-            </div>
-            <div className="flex flex-col flex-shrink-0 min-w-0">
-              <div className="flex items-baseline leading-none mb-1">
-                <span className="font-heading font-black text-2xl tracking-tight text-slate-900">
-                  TOMO
-                </span>
-                <span className="font-heading font-black text-2xl tracking-tight text-[#991b1b]">
-                  SID
-                </span>
-              </div>
-              <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-slate-600 leading-tight whitespace-nowrap">
-                DIAGNÓSTICO POR IMAGEM
-              </span>
-              <span className="text-[9.5px] font-medium text-slate-500 leading-tight whitespace-nowrap">
-                Dr. Frederico Cambraia · CRM-MG 34752
-              </span>
-            </div>
+            <Image
+              src={LOGO_HORIZONTAL_SRC}
+              alt="Clínica Vivália — Clínica Médica"
+              width={220}
+              height={55}
+              priority
+              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-102"
+            />
           </a>
 
-          {/* Links de navegação desktop (Linha única, sem quebra, espaçamento harmonioso) */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-6 text-[13px] xl:text-[13.5px] font-semibold text-slate-600">
+          {/* Links de navegação desktop */}
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-6 text-[13px] xl:text-[13.5px] font-semibold text-slate-700">
             <a
-              href="#exames"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              href="#especialidades"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
-              Exames
+              Especialidades & Exames
             </a>
             <a
-              href="#dr-frederico"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              href="#sobre"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
-              Dr. Frederico
+              A Clínica
             </a>
             <a
-              href="#saude-mulher"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              href="#medicos"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
-              Saúde da Mulher
+              Corpo Clínico
             </a>
             <a
               href="#estrutura"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
-              Estrutura
+              Estrutura & Ambiente
             </a>
             <a
               href="#depoimentos"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
-              Depoimentos
+              Depoimentos (5,0 ★)
             </a>
             <a
               href="#convenios"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
               Convênios
             </a>
             <a
               href="#faq"
-              className="hover:text-[#991b1b] transition-colors py-1 whitespace-nowrap"
+              className="hover:text-[#066e69] transition-colors py-1 whitespace-nowrap"
             >
               Dúvidas
             </a>
           </nav>
 
-          {/* Ação CTA Direta no Header: WhatsApp Verde Oficial (Elimina o bloco vermelho agressivo) */}
+          {/* Ação CTA Direta no Header */}
           <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
             <GlowingButton
               href={getWhatsAppUrl(
-                "Olá! Gostaria de verificar horários para agendar um exame na TOMOSID."
+                "Olá! Gostaria de verificar horários disponíveis para consulta na Clínica Vivália."
               )}
               target="_blank"
               variant="whatsapp"
@@ -841,7 +832,7 @@ export default function HomePage() {
               className="shadow-sm font-bold whitespace-nowrap px-4 py-2 text-[12.5px]"
             >
               <WhatsAppIcon size={15} className="flex-shrink-0" />
-              <span className="whitespace-nowrap">Agendar Exame</span>
+              <span className="whitespace-nowrap">Agendar Consulta</span>
             </GlowingButton>
           </div>
 
@@ -849,7 +840,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-700 hover:text-[#991b1b] focus:outline-none"
+            className="lg:hidden p-2 text-slate-700 hover:text-[#066e69] focus:outline-none"
             aria-label="Abrir menu de navegação"
           >
             {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -863,61 +854,61 @@ export default function HomePage() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-4 shadow-lg"
+              className="lg:hidden bg-white border-b border-[#e2e8e7] px-6 py-5 space-y-4 shadow-lg"
             >
               <nav className="flex flex-col space-y-3 font-semibold text-slate-800 text-[15px]">
                 <a
-                  href="#exames"
+                  href="#especialidades"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
-                  Exames & Serviços
+                  Especialidades & Exames
                 </a>
                 <a
-                  href="#dr-frederico"
+                  href="#sobre"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
-                  Dr. Frederico Cambraia (Radiologista)
+                  A Clínica (Um Sonho em Juatuba)
                 </a>
                 <a
-                  href="#saude-mulher"
+                  href="#medicos"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
-                  Saúde da Mulher & Fetal (Endometriose / HyCoSy)
+                  Corpo Clínico & Médicos
                 </a>
                 <a
                   href="#estrutura"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
-                  Estrutura na R. Dom Pedro II, 337
+                  Estrutura na Av. Tânus Saliba, 71A
                 </a>
                 <a
                   href="#depoimentos"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
-                  Depoimentos de Pacientes (4,2 ★)
+                  Avaliações de Pacientes (5,0 ★ no Google)
                 </a>
                 <a
                   href="#convenios"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
                   Convênios & Particular
                 </a>
                 <a
                   href="#faq"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 hover:text-[#991b1b]"
+                  className="py-1 hover:text-[#066e69]"
                 >
                   Perguntas Frequentes
                 </a>
               </nav>
 
-              <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+              <div className="pt-3 border-t border-[#f0f4f3] flex flex-col gap-2.5">
                 <GlowingButton
                   href={getWhatsAppUrl()}
                   target="_blank"
@@ -929,7 +920,7 @@ export default function HomePage() {
                   <span>Agendamento no WhatsApp: {PHONE_DISPLAY}</span>
                 </GlowingButton>
                 <div className="text-center text-[12px] text-slate-500">
-                  R. Dom Pedro II, 337 - Centro · Campo Belo - MG
+                  Av. Tânus Saliba, 71A - Centro · Juatuba - MG
                 </div>
               </div>
             </motion.div>
@@ -937,56 +928,55 @@ export default function HomePage() {
         </AnimatePresence>
       </header>
 
-      {/* 3. HERO SECTION DE ALTA CONVERSÃO & AUTORIDADE */}
-      <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-white via-[#fcfbf9] to-[#f8fafc]">
-        {/* Glow de fundo suave e discreto */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-red-50/50 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-80 h-80 bg-slate-200/40 rounded-full blur-3xl pointer-events-none" />
+      {/* 3. HERO SECTION DE ALTA CONVERSÃO & HUMANIZAÇÃO */}
+      <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-white via-[#f7faf9] to-[#f0f6f5]">
+        {/* Glow de fundo orgânico e suave */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Coluna Texto & Proposta de Valor */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-slate-700 text-[12px] font-bold tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-[#991b1b]" />
-                CENTRO DE DIAGNÓSTICO MÉDICO POR IMAGEM · CAMPO BELO - MG
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f0f8f7] border border-[#cde6e4] text-[#066e69] text-[12px] font-bold tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-[#066e69]" />
+                ACOLHIMENTO HUMANIZADO E ÉTICO · CENTRO DE JUATUBA - MG
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.14]">
-                Precisão diagnóstica com tecnologia avançada e o{" "}
-                <span className="text-[#991b1b] underline decoration-slate-300 underline-offset-4">
-                  cuidado humanizado
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
+                Cuidado médico de excelência com o{" "}
+                <span className="text-[#066e69] underline decoration-[#b3844e] underline-offset-4">
+                  acolhimento humano
                 </span>{" "}
-                que você merece.
+                que você e sua família merecem.
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-                Na <strong>TOMOSID</strong>, unimos equipamentos de ponta à
-                experiência e acolhimento do{" "}
-                <strong className="text-slate-900">Dr. Frederico Cambraia</strong>{" "}
-                (CRM-MG 34752 / RQE 10424). Realize seus exames de Tomografia,
-                Ressonância Magnética, Ultrassonografia, Mapeamento de
-                Endometriose, HyCoSy e Ecofetal em Campo Belo com segurança e agilidade.
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl">
+                A realização de um grande sonho no coração de Juatuba. Na{" "}
+                <strong className="text-[#066e69]">Clínica Vivália</strong>, unimos
+                médicos especialistas dedicados, ambiente aconchegante e
+                infraestrutura moderna para oferecer a você e à sua família o
+                melhor em atendimento de saúde, com escuta atenta, respeito e afeto.
               </p>
 
               {/* Badges de Credenciais Rápidas */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-                  <BadgeCheck size={18} className="text-[#991b1b] flex-shrink-0" />
-                  <span className="text-[12px] font-bold text-slate-800">
-                    Dr. Frederico Cambraia
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#e2e8e7] shadow-2xs">
                   <Star size={18} className="text-amber-500 fill-amber-500 flex-shrink-0" />
                   <span className="text-[12px] font-bold text-slate-800">
-                    4,2 ★ Google (124 avaliações)
+                    5,0 ★ Google (71 avaliações)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs col-span-2 sm:col-span-1">
-                  <Shield size={18} className="text-[#991b1b] flex-shrink-0" />
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#e2e8e7] shadow-2xs">
+                  <HeartHandshake size={18} className="text-[#066e69] flex-shrink-0" />
                   <span className="text-[12px] font-bold text-slate-800">
-                    Convênios & Particular
+                    Atendimento Humanizado
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#e2e8e7] shadow-2xs col-span-2 sm:col-span-1">
+                  <MapPin size={18} className="text-[#b3844e] flex-shrink-0" />
+                  <span className="text-[12px] font-bold text-slate-800">
+                    Av. Tânus Saliba, 71A
                   </span>
                 </div>
               </div>
@@ -995,7 +985,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia."
+                    "Olá! Gostaria de agendar uma consulta na Clínica Vivália em Juatuba."
                   )}
                   target="_blank"
                   variant="whatsapp"
@@ -1003,88 +993,97 @@ export default function HomePage() {
                   className="font-bold text-base shadow-sm"
                 >
                   <WhatsAppIcon size={18} />
-                  <span>Agendar Exame no WhatsApp</span>
+                  <span>Agendar Consulta no WhatsApp</span>
                 </GlowingButton>
 
                 <GlowingButton
-                  href="#exames"
+                  href="#especialidades"
                   variant="outline"
                   size="lg"
-                  className="font-bold text-slate-700"
+                  className="font-bold text-slate-800"
                 >
-                  <Scan size={18} className="text-slate-600" />
-                  <span>Ver Exames & Preparos</span>
+                  <Stethoscope size={18} className="text-[#066e69]" />
+                  <span>Ver Especialidades & Exames</span>
                 </GlowingButton>
               </div>
 
               {/* Alerta de facilidade de agendamento */}
-              <div className="flex items-center gap-2 text-[12.5px] text-slate-500 pt-1">
-                <CheckCircle2 size={15} className="text-emerald-600 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-[12.5px] text-slate-600 pt-1">
+                <CheckCircle2 size={15} className="text-[#16a34a] flex-shrink-0" />
                 <span>
-                  Atendimento ágil direto pelo WhatsApp: sem espera na linha telefônica.
+                  Atendimento ágil pelo WhatsApp: tire dúvidas e escolha o melhor dia e horário sem filas.
                 </span>
               </div>
             </div>
 
-            {/* Coluna Visual: Fachada Oficial e Totem */}
+            {/* Coluna Visual: Composé com Fotos Reais da Clínica e do Médico */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Moldura do card fotográfico */}
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 group">
-                  <div className="relative h-[380px] sm:h-[420px] w-full">
+                {/* Card Principal: Foto Oficial de Apresentação */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+                  <div className="relative h-[420px] sm:h-[480px] w-full">
                     <Image
-                      src={FACHADA_SRC}
-                      alt="Fachada Oficial da Clínica TOMOSID na Rua Dom Pedro II, 337 - Centro de Campo Belo - MG"
+                      src={DOCTOR_PHOTO_SRC}
+                      alt="Dr. Alessandro Galvão e Equipe Médica da Clínica Vivália em Juatuba - MG"
                       fill
                       priority
-                      className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-102 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#051514]/90 via-[#051514]/20 to-transparent" />
                   </div>
 
                   {/* Informações sobrepostas na imagem */}
                   <div className="absolute bottom-0 inset-x-0 p-5 text-white">
-                    <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <span className="inline-block px-2.5 py-0.5 rounded bg-[#991b1b] text-white text-[10px] font-black uppercase tracking-wider">
-                        SEDE PRÓPRIA NO CENTRO
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="inline-block px-2.5 py-1 rounded bg-[#066e69] text-white text-[10px] font-black uppercase tracking-wider">
+                        UM SONHO SE TORNANDO REALIDADE
                       </span>
-                      <span className="text-[11px] font-bold text-amber-400 flex items-center gap-1">
-                        ★ 4,2 no Google
+                      <span className="text-[11px] font-bold text-amber-300 flex items-center gap-1">
+                        ★ 5,0 no Google
                       </span>
                     </div>
                     <p className="font-heading font-black text-xl text-white leading-tight">
-                      TOMOSID · Diagnóstico por Imagem
+                      Clínica Vivália · Centro Médico
                     </p>
                     <p className="text-slate-200 text-xs mt-1 flex items-center gap-1">
-                      <MapPin size={12} className="text-slate-300 flex-shrink-0" />
-                      Rua Dom Pedro II, 337 - Centro, Campo Belo - MG
+                      <MapPin size={12} className="text-[#d8a46b] flex-shrink-0" />
+                      Av. Tânus Saliba, 71A - Centro · Juatuba - MG
                     </p>
                   </div>
                 </div>
 
-                {/* Badge Flutuante: Especialidades do Totem */}
-                <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl p-3.5 shadow-xl max-w-[260px] hidden sm:block">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#991b1b]" />
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-800">
-                      Exames no Local
-                    </span>
+                {/* Badge Flutuante: Foto do Espaço da Clínica (Corredor Aconchegante) */}
+                <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md border border-[#cde6e4] rounded-xl p-2.5 shadow-xl max-w-[260px] hidden sm:flex items-center gap-3">
+                  <div className="relative w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border border-slate-200">
+                    <Image
+                      src={CORRIDOR_PHOTO_SRC}
+                      alt="Espaço Aconchegante da Clínica Vivália"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <p className="text-[11.5px] text-slate-600 leading-snug font-medium">
-                    Tomografia · Ressonância · Ultrassom · Mapeamento de Endometriose · HyCoSy · Biópsias
-                  </p>
+                  <div>
+                    <div className="text-[10px] font-black uppercase tracking-wider text-[#066e69]">
+                      Ambiente Acolhedor
+                    </div>
+                    <p className="text-[11px] text-slate-700 leading-tight font-medium mt-0.5">
+                      Estrutura moderna, calma e impecavelmente limpa.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Badge Flutuante: Responsável Técnico */}
-                <div className="absolute -top-4 -right-4 sm:-right-6 bg-[#121318] text-white rounded-xl p-3 shadow-xl border border-slate-700 hidden sm:block">
-                  <div className="text-[10px] uppercase font-bold text-slate-300 tracking-wider">
-                    RESPONSÁVEL TÉCNICO
+                {/* Badge Flutuante: Nota Máxima no Google */}
+                <div className="absolute -top-4 -right-4 sm:-right-6 bg-[#0c201e] text-white rounded-xl p-3 shadow-xl border border-[#1e3e3b] hidden sm:block">
+                  <div className="flex items-center gap-1 text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={11} className="fill-amber-400 text-amber-400" />
+                    ))}
                   </div>
-                  <div className="text-xs font-black text-white mt-0.5">
-                    Dr. Frederico Cambraia
+                  <div className="text-xs font-black text-white mt-1">
+                    5,0 ★ Nota Máxima
                   </div>
                   <div className="text-[10px] text-slate-400">
-                    CRM-MG 34752 · RQE 10424
+                    71 avaliações no Google
                   </div>
                 </div>
               </div>
@@ -1093,82 +1092,85 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. BARRA DE MÉTRICAS & CREDIBILIDADE DIAGNÓSTICA */}
-      <section className="bg-[#121318] text-white border-y border-[#272a38] py-8">
+      {/* 4. BARRA DE MÉTRICAS & CREDIBILIDADE MÉDICA */}
+      <section className="bg-[#051514] text-white border-y border-[#1e3e3b] py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="space-y-1">
               <div className="font-heading font-black text-3xl sm:text-4xl text-amber-400">
-                4,2 ★
+                5,0 ★
               </div>
               <div className="text-xs sm:text-sm font-bold text-white">
                 Avaliação no Google
               </div>
               <div className="text-[11px] text-slate-400">
-                124 avaliações reais de pacientes
+                71 avaliações verificadas de pacientes
               </div>
             </div>
 
             <div className="space-y-1">
-              <div className="font-heading font-black text-3xl sm:text-4xl text-white">
-                +12
-              </div>
-              <div className="text-xs sm:text-sm font-bold text-white">
-                Modalidades Diagnósticas
-              </div>
-              <div className="text-[11px] text-slate-400">
-                Tomografia, Ressonância, Ultrassom e mais
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <div className="font-heading font-black text-3xl sm:text-4xl text-slate-200">
-                RQE 10424
-              </div>
-              <div className="text-xs sm:text-sm font-bold text-white">
-                Dr. Frederico Cambraia
-              </div>
-              <div className="text-[11px] text-slate-400">
-                CRM-MG 34752 · Radiologista Especialista
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <div className="font-heading font-black text-3xl sm:text-4xl text-white">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-[#d8a46b]">
                 100%
               </div>
               <div className="text-xs sm:text-sm font-bold text-white">
-                Atendimento Integrado
+                Acolhimento Humanizado
               </div>
               <div className="text-[11px] text-slate-400">
-                Particular & Ampla Rede de Convênios
+                Cuidado empático da recepção ao médico
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-white">
+                +10
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white">
+                Especialidades & Cuidados
+              </div>
+              <div className="text-[11px] text-slate-400">
+                Cuidado integral para todas as idades
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="font-heading font-black text-3xl sm:text-4xl text-[#14a39b]">
+                Juatuba
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-white">
+                No Coração da Cidade
+              </div>
+              <div className="text-[11px] text-slate-400">
+                Av. Tânus Saliba, 71A - Centro
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. CATÁLOGO INTERATIVO DE EXAMES & DIAGNÓSTICOS */}
-      <section id="exames" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 5. CATÁLOGO INTERATIVO DE ESPECIALIDADES & EXAMES */}
+      <section
+        id="especialidades"
+        className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-          <div className="eyebrow justify-center">CATÁLOGO COMPLETO DE SERVIÇOS</div>
+          <div className="eyebrow justify-center">CUIDADO INTEGRAL & ESPECIALIZADO</div>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            Exames de Alta Precisão & Imagem Médica Avançada
+            Especialidades Médicas & Serviços de Saúde
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Consulte todas as modalidades diagnósticas realizadas na TOMOSID em
-            Campo Belo. Clique em qualquer exame para visualizar indicações,
-            preparo necessário e orientações clínicas.
+            Consulte as especialidades médicas e serviços clínicos disponíveis na
+            Clínica Vivália em Juatuba. Clique em qualquer especialidade para ver
+            detalhes, orientações e agendar sua consulta.
           </p>
 
           {/* Filtros por Categoria */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
             {[
-              { id: "todos", label: "Todos os Exames (12)" },
-              { id: "mulher", label: "Saúde da Mulher & Fetal (5)" },
-              { id: "alta_complexidade", label: "Alta Complexidade / 3D (3)" },
-              { id: "ultrassom", label: "Ultrassonografia Geral (2)" },
-              { id: "preventivo", label: "Preventivos & Raio-X (2)" },
+              { id: "todas", label: "Todas as Especialidades (12)" },
+              { id: "familia", label: "Medicina da Família & Idoso (4)" },
+              { id: "mulher_infantil", label: "Pediatria & Mulher (2)" },
+              { id: "clinicas", label: "Especialidades Clínicas (5)" },
+              { id: "diagnosticos", label: "Exames & Check-up (1)" },
             ].map((cat) => (
               <button
                 key={cat.id}
@@ -1176,17 +1178,17 @@ export default function HomePage() {
                 onClick={() =>
                   setSelectedCategory(
                     cat.id as
-                      | "todos"
-                      | "mulher"
-                      | "alta_complexidade"
-                      | "ultrassom"
-                      | "preventivo"
+                      | "todas"
+                      | "familia"
+                      | "mulher_infantil"
+                      | "clinicas"
+                      | "diagnosticos"
                   )
                 }
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   selectedCategory === cat.id
-                    ? "bg-[#1e293b] text-white shadow-sm"
-                    : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                    ? "bg-[#066e69] text-white shadow-sm"
+                    : "bg-white text-slate-700 border border-[#e2e8e7] hover:border-[#cde6e4] hover:bg-[#f0f8f7]"
                 }`}
               >
                 {cat.label}
@@ -1195,41 +1197,41 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Grid de Cards dos Exames */}
+        {/* Grid de Cards das Especialidades */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredExams.map((exam) => (
+          {filteredSpecialties.map((specialty) => (
             <div
-              key={exam.id}
-              className="card-clinical rounded-xl p-6 flex flex-col justify-between hover:border-slate-400 transition-all group"
+              key={specialty.id}
+              className="card-clinical rounded-xl p-6 flex flex-col justify-between hover:border-[#066e69] transition-all group"
             >
               <div className="space-y-3.5">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#fdf8f8] text-[#991b1b] border border-red-100">
-                    {exam.tag}
+                  <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#f0f8f7] text-[#066e69] border border-[#cde6e4]">
+                    {specialty.tag}
                   </span>
-                  <span className="text-[11px] font-semibold text-slate-500">
-                    {exam.badge}
+                  <span className="text-[11px] font-semibold text-[#b3844e]">
+                    {specialty.badge}
                   </span>
                 </div>
 
-                <h3 className="font-heading font-black text-lg text-slate-900 group-hover:text-[#991b1b] transition-colors leading-snug">
-                  {exam.title}
+                <h3 className="font-heading font-black text-lg text-slate-900 group-hover:text-[#066e69] transition-colors leading-snug">
+                  {specialty.title}
                 </h3>
 
                 <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed line-clamp-3">
-                  {exam.shortDesc}
+                  {specialty.shortDesc}
                 </p>
 
                 <div className="space-y-1.5 pt-1">
                   <div className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
-                    Principais Indicações:
+                    Principais Atuações:
                   </div>
                   <ul className="space-y-1 text-slate-600 text-xs">
-                    {exam.indications.slice(0, 2).map((ind, i) => (
+                    {specialty.indications.slice(0, 2).map((ind, i) => (
                       <li key={i} className="flex items-start gap-1.5">
                         <CheckCircle2
                           size={13}
-                          className="text-[#991b1b] flex-shrink-0 mt-0.5"
+                          className="text-[#066e69] flex-shrink-0 mt-0.5"
                         />
                         <span className="line-clamp-1">{ind}</span>
                       </li>
@@ -1238,19 +1240,19 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+              <div className="pt-5 mt-4 border-t border-[#f0f4f3] flex items-center justify-between gap-3">
                 <button
                   type="button"
-                  onClick={() => setActiveModalExam(exam)}
-                  className="text-xs font-bold text-slate-800 hover:text-[#991b1b] inline-flex items-center gap-1 transition-colors cursor-pointer"
+                  onClick={() => setActiveModalSpecialty(specialty)}
+                  className="text-xs font-bold text-slate-800 hover:text-[#066e69] inline-flex items-center gap-1 transition-colors cursor-pointer"
                 >
-                  <span>Ver Detalhes & Preparo</span>
+                  <span>Ver Detalhes</span>
                   <ArrowRight size={13} />
                 </button>
 
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    `Olá! Gostaria de agendar o exame de ${exam.title} na TOMOSID.`
+                    `Olá! Gostaria de agendar uma consulta de ${specialty.title} na Clínica Vivália.`
                   )}
                   target="_blank"
                   variant="whatsapp"
@@ -1266,90 +1268,90 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MODAL DETALHADO DO EXAME */}
+      {/* MODAL DETALHADO DA ESPECIALIDADE */}
       <AnimatePresence>
-        {activeModalExam && (
+        {activeModalSpecialty && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6 relative"
+              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#cde6e4] p-6 sm:p-8 space-y-6 relative"
             >
               {/* Botão Fechar */}
               <button
                 type="button"
-                onClick={() => setActiveModalExam(null)}
+                onClick={() => setActiveModalSpecialty(null)}
                 className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
-                aria-label="Fechar detalhes do exame"
+                aria-label="Fechar detalhes da especialidade"
               >
                 <X size={20} />
               </button>
 
               <div className="space-y-2">
-                <div className="inline-block px-3 py-1 rounded-full bg-[#fdf8f8] text-[#991b1b] text-xs font-bold border border-red-100">
-                  {activeModalExam.tag} · {activeModalExam.badge}
+                <div className="inline-block px-3 py-1 rounded-full bg-[#f0f8f7] text-[#066e69] text-xs font-bold border border-[#cde6e4]">
+                  {activeModalSpecialty.tag} · {activeModalSpecialty.badge}
                 </div>
                 <h3 className="font-heading font-black text-2xl sm:text-3xl text-slate-900 leading-tight">
-                  {activeModalExam.title}
+                  {activeModalSpecialty.title}
                 </h3>
               </div>
 
               <div className="space-y-4 text-slate-700 text-sm leading-relaxed">
-                <p>{activeModalExam.fullDesc}</p>
+                <p>{activeModalSpecialty.fullDesc}</p>
 
                 {/* Indicações */}
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-2">
+                <div className="bg-[#f8faf9] p-4 rounded-xl border border-[#e2e8e7] space-y-2">
                   <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
-                    <CheckCircle2 size={15} className="text-[#991b1b]" />
-                    Quando o exame é indicado:
+                    <CheckCircle2 size={15} className="text-[#066e69]" />
+                    Quando procurar esta especialidade:
                   </h4>
                   <ul className="space-y-1.5 text-xs text-slate-600">
-                    {activeModalExam.indications.map((ind, i) => (
+                    {activeModalSpecialty.indications.map((ind, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#991b1b] mt-1.5 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#066e69] mt-1.5 flex-shrink-0" />
                         <span>{ind}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Diferenciais TOMOSID */}
+                {/* Diferenciais Vivália */}
                 <div className="space-y-2">
                   <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider">
-                    Diferenciais e Vantagens na TOMOSID:
+                    Diferenciais do Cuidado na Clínica Vivália:
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                    {activeModalExam.benefits.map((ben, i) => (
+                    {activeModalSpecialty.benefits.map((ben, i) => (
                       <div
                         key={i}
-                        className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 flex items-start gap-2"
+                        className="p-2.5 rounded-lg bg-[#f0f8f7] border border-[#cde6e4] flex items-start gap-2"
                       >
-                        <Shield size={14} className="text-[#991b1b] flex-shrink-0 mt-0.5" />
+                        <Shield size={14} className="text-[#066e69] flex-shrink-0 mt-0.5" />
                         <span>{ben}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Preparo */}
+                {/* Orientações */}
                 <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200 space-y-1.5">
                   <h4 className="font-bold text-amber-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
                     <Clock size={15} className="text-amber-700" />
-                    Orientações de Preparo para o Exame:
+                    Orientações para o Dia da Consulta:
                   </h4>
                   <p className="text-xs text-amber-900/90 leading-relaxed">
-                    {activeModalExam.preparo}
+                    {activeModalSpecialty.preparo}
                   </p>
                 </div>
 
                 {/* Dúvida Frequente */}
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                   <h4 className="font-bold text-slate-900 text-xs">
-                    Dúvida comum: {activeModalExam.faq.q}
+                    Dúvida comum: {activeModalSpecialty.faq.q}
                   </h4>
                   <p className="text-xs text-slate-600">
-                    {activeModalExam.faq.a}
+                    {activeModalSpecialty.faq.a}
                   </p>
                 </div>
               </div>
@@ -1358,7 +1360,7 @@ export default function HomePage() {
               <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <button
                   type="button"
-                  onClick={() => setActiveModalExam(null)}
+                  onClick={() => setActiveModalSpecialty(null)}
                   className="w-full sm:w-auto px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition-colors"
                 >
                   Fechar Janela
@@ -1366,7 +1368,7 @@ export default function HomePage() {
 
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    `Olá! Gostaria de agendar o exame de ${activeModalExam.title} na TOMOSID com o Dr. Frederico Cambraia.`
+                    `Olá! Gostaria de agendar uma consulta de ${activeModalSpecialty.title} na Clínica Vivália.`
                   )}
                   target="_blank"
                   variant="whatsapp"
@@ -1374,7 +1376,7 @@ export default function HomePage() {
                   className="w-full sm:w-auto font-bold"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Agendar este Exame no WhatsApp</span>
+                  <span>Agendar esta Consulta no WhatsApp</span>
                 </GlowingButton>
               </div>
             </motion.div>
@@ -1382,48 +1384,48 @@ export default function HomePage() {
         )}
       </AnimatePresence>
 
-      {/* 6. DESTAQUE ESPECIAL DE AUTORIDADE: DR. FREDERICO CAMBRAIA */}
+      {/* 6. SOBRE A CLÍNICA VIVÁLIA: UM SONHO SE TORNANDO REALIDADE */}
       <section
-        id="dr-frederico"
-        className="py-16 md:py-24 bg-[#121318] text-white border-y border-[#272a38] relative overflow-hidden"
+        id="sobre"
+        className="py-16 md:py-24 bg-[#0c201e] text-white border-y border-[#1e3e3b] relative overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Foto e Badge do Médico */}
+            {/* Foto e Card da Clínica */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden border-2 border-slate-700 bg-slate-900 shadow-xl p-6 sm:p-8 space-y-5">
-                <div className="w-16 h-16 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-200">
-                  <Stethoscope size={32} />
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#1e3e3b] bg-[#051514] shadow-xl p-6 sm:p-8 space-y-5">
+                <div className="w-16 h-16 rounded-xl bg-[#066e69]/20 border border-[#066e69]/40 flex items-center justify-center text-[#14a39b]">
+                  <HeartHandshake size={32} />
                 </div>
 
                 <div className="space-y-1.5">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-slate-300">
-                    CORPO CLÍNICO & RESPONSÁVEL TÉCNICO
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#d8a46b]">
+                    NOSSA HISTÓRIA & PROPÓSITO
                   </span>
                   <h3 className="font-heading font-black text-2xl sm:text-3xl text-white">
-                    Dr. Frederico Cambraia
+                    Clínica Vivália
                   </h3>
                   <p className="text-slate-300 font-semibold text-sm">
-                    Médico Radiologista · CRM-MG 34752 · RQE 10424
+                    Acolhimento humanizado e ético no coração de Juatuba
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-300 leading-relaxed">
+                <div className="space-y-2 pt-2 border-t border-[#1e3e3b] text-xs text-slate-300 leading-relaxed">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
-                    <span>Especialista em Radiologia e Diagnóstico por Imagem</span>
+                    <CheckCircle2 size={15} className="text-[#14a39b] flex-shrink-0" />
+                    <span>Realização de um grande sonho trazido para Juatuba</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
-                    <span>Mapeamento de Endometriose Profunda & HyCoSy</span>
+                    <CheckCircle2 size={15} className="text-[#14a39b] flex-shrink-0" />
+                    <span>Corpo clínico qualificado e comprometido com o paciente</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
-                    <span>Ecocardiografia Fetal & Gestação de Alto Risco</span>
+                    <CheckCircle2 size={15} className="text-[#14a39b] flex-shrink-0" />
+                    <span>Estrutura física acolhedora, limpa e moderna</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={15} className="text-slate-300 flex-shrink-0" />
-                    <span>Biópsias Percutâneas Guiadas por Ultrassom</span>
+                    <CheckCircle2 size={15} className="text-[#14a39b] flex-shrink-0" />
+                    <span>Atendimento elogiado com 5,0 estrelas no Google</span>
                   </div>
                 </div>
 
@@ -1432,10 +1434,10 @@ export default function HomePage() {
                     href={LINKTREE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg border border-slate-700 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#066e69] hover:bg-[#055955] px-4 py-2 rounded-lg transition-colors"
                   >
-                    <span>Acessar Linktree Oficial do Dr. Frederico</span>
-                    <ArrowUpRight size={14} className="text-slate-300" />
+                    <span>Acessar Linktree Oficial da Clínica</span>
+                    <ArrowUpRight size={14} className="text-white" />
                   </a>
                 </div>
               </div>
@@ -1443,45 +1445,44 @@ export default function HomePage() {
 
             {/* Texto de Apresentação e Humanização */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="eyebrow-dark">MEDICINA DIAGNÓSTICA COM ALMA E EXCELÊNCIA</div>
+              <div className="eyebrow-dark">UM SONHO SE TORNANDO REALIDADE</div>
 
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
-                Um diagnóstico seguro exige precisão de imagem e, acima de tudo,{" "}
-                <span className="text-slate-200 underline decoration-slate-600">respeito e humanidade</span> com o paciente.
+                A realização deste grande sonho nos trouxe para o coração de{" "}
+                <span className="text-[#d8a46b] underline decoration-[#066e69]">Juatuba</span>.
               </h2>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Com sólida atuação médica e dedicação ao diagnóstico por imagem
-                em Campo Belo, o <strong>Dr. Frederico Cambraia</strong> consolidou
-                a TOMOSID como polo de referência diagnóstica no Sul de Minas
-                Gerais.
+                Estamos prontos para oferecer a você e sua família o melhor em
+                atendimento de saúde. Acreditamos que a medicina deve ser
+                exercida com amor, respeito ao tempo de cada pessoa e rigor ético.
               </p>
 
-              <blockquote className="p-4 rounded-xl bg-slate-900/90 border-l-4 border-[#991b1b] text-slate-200 text-xs sm:text-sm italic leading-relaxed">
-                &ldquo;Sabemos que por trás de cada solicitação de exame existe uma
-                pessoa com suas angústias, expectativas e família. Nossa missão na
-                TOMOSID é aliar a máxima acuidade tecnológica à escuta paciente,
-                clareza na comunicação e acolhimento em cada etapa.&rdquo;
-                <footer className="mt-2 text-right font-bold text-slate-300 not-italic text-xs">
-                  — Dr. Frederico Cambraia
+              <blockquote className="p-4 rounded-xl bg-[#051514]/80 border-l-4 border-[#b3844e] text-slate-200 text-xs sm:text-sm italic leading-relaxed">
+                &ldquo;Priorize sua saúde e bem-estar! Agende sua consulta hoje
+                mesmo e dê o primeiro passo para uma vida mais feliz. Nossa equipe de
+                profissionais está à sua disposição para proporcionar um atendimento
+                humanizado e de máxima qualidade.&rdquo;
+                <footer className="mt-2 text-right font-bold text-[#d8a46b] not-italic text-xs">
+                  — Equipe Clínica Vivália
                 </footer>
               </blockquote>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="font-heading font-black text-xl text-white">
-                    Clareza & Explicação
+                <div className="p-4 rounded-xl bg-[#051514]/60 border border-[#1e3e3b]">
+                  <div className="font-heading font-black text-lg text-white">
+                    Escuta Paciente & Empática
                   </div>
                   <p className="text-xs text-slate-400 mt-1">
-                    Dúvidas esclarecidas com calma e segurança durante e após os exames.
+                    Consultas sem correria, onde cada dúvida é explicada com carinho e clareza.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="font-heading font-black text-xl text-white">
-                    Gestações de Alto Risco
+                <div className="p-4 rounded-xl bg-[#051514]/60 border border-[#1e3e3b]">
+                  <div className="font-heading font-black text-lg text-white">
+                    Cuidado para Toda a Família
                   </div>
                   <p className="text-xs text-slate-400 mt-1">
-                    Acompanhamento minucioso do coração e desenvolvimento fetal.
+                    Do recém-nascido na pediatria ao idoso, saúde integrada sob o mesmo teto.
                   </p>
                 </div>
               </div>
@@ -1489,7 +1490,7 @@ export default function HomePage() {
               <div className="pt-2">
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    "Olá! Gostaria de agendar um exame diretamente com a equipe do Dr. Frederico Cambraia na TOMOSID."
+                    "Olá! Gostaria de conversar com a equipe da Clínica Vivália para agendar uma consulta."
                   )}
                   target="_blank"
                   variant="whatsapp"
@@ -1497,7 +1498,7 @@ export default function HomePage() {
                   className="font-bold text-sm"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Agendar Consulta ou Exame via WhatsApp</span>
+                  <span>Falar com Nossa Equipe no WhatsApp</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1505,108 +1506,191 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. PILAR DE DESTAQUE: CENTRO AVANÇADO DE SAÚDE DA MULHER & MEDICINA FETAL */}
-      <section id="saude-mulher" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 7. CORPO CLÍNICO: MÉDICOS E ESPECIALISTAS DEDICADOS */}
+      <section id="medicos" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="eyebrow justify-center">DIFERENCIAL EXCLUSIVO NA REGIÃO</div>
+          <div className="eyebrow justify-center">PROFISSIONAIS QUALIFICADOS</div>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            Polo Especializado em Saúde da Mulher & Medicina Fetal
+            Corpo Clínico & Equipe Multidisciplinar
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Exames complexos que antes exigiam deslocamento para grandes centros
-            agora estão disponíveis em Campo Belo com o Dr. Frederico Cambraia.
+            Médicos e profissionais elogiados pela comunidade de Juatuba pelo
+            conhecimento técnico, pontualidade e gentileza no acolhimento.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
-            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
-              <Activity size={24} />
+          {/* Card Dr. Elissander Saliba Santos */}
+          <div className="card-clinical rounded-2xl p-6 space-y-4 border-t-4 border-t-[#b3844e] flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#b3844e] flex items-center justify-center">
+                <Heart size={26} />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#b3844e]">
+                  RESPONSÁVEL TÉCNICO
+                </span>
+                <h3 className="font-heading font-black text-lg text-slate-900">
+                  Dr. Elissander Saliba
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                  Cardiologista & Clínico Geral · CRM-MG 69828
+                </p>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Médico cardiologista e clínico geral, elogiado pelo acolhimento humano, pontualidade e dedicação a pacientes e idosos. Atua em check-ups cardiológicos, risco cirúrgico e emagrecimento saudável.
+              </p>
             </div>
-            <h3 className="font-heading font-black text-lg text-slate-900">
-              Mapeamento de Endometriose
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Varredura de focos profundos na pelve, ovários, bexiga e alças
-              intestinais com protocolo preparatório rigoroso.
-            </p>
-            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
-              Indicado para cólicas e dor crônica →
-            </span>
+            <div className="pt-4 border-t border-slate-100">
+              <a
+                href={getWhatsAppUrl(
+                  "Olá! Gostaria de agendar consulta com o Dr. Elissander Saliba na Clínica Vivália."
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-[#b3844e] hover:underline flex items-center gap-1"
+              >
+                <span>Agendar com Dr. Elissander</span>
+                <ArrowRight size={13} />
+              </a>
+            </div>
           </div>
 
-          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
-            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
-              <Sparkles size={24} />
+          {/* Card Dr. Alessandro Galvão */}
+          <div className="card-clinical rounded-2xl p-6 space-y-4 border-t-4 border-t-[#066e69] flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-[#f0f8f7] text-[#066e69] flex items-center justify-center">
+                <Stethoscope size={26} />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#066e69]">
+                  CORPO CLÍNICO
+                </span>
+                <h3 className="font-heading font-black text-lg text-slate-900">
+                  Dr. Alessandro Galvão
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                  Médico · Atenção Integral & Saúde da Família
+                </p>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Profissional dedicado ao acolhimento ético e resolutivo, unindo conhecimento clínico a uma escuta empática que valoriza a saúde e a história de cada paciente.
+              </p>
             </div>
-            <h3 className="font-heading font-black text-lg text-slate-900">
-              HyCoSy (Permeabilidade Tubária)
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Avaliação de fertilidade feminina sem radiação ionizante e sem iodo,
-              garantindo conforto e segurança no planejamento reprodutivo.
-            </p>
-            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
-              Investigação de fertilidade →
-            </span>
+            <div className="pt-4 border-t border-slate-100">
+              <a
+                href={getWhatsAppUrl(
+                  "Olá! Gostaria de verificar agenda para consulta com o Dr. Alessandro Galvão."
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-[#066e69] hover:underline flex items-center gap-1"
+              >
+                <span>Agendar com Dr. Alessandro</span>
+                <ArrowRight size={13} />
+              </a>
+            </div>
           </div>
 
-          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
-            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
-              <Baby size={24} />
+          {/* Card Dra. Nicole Pardini */}
+          <div className="card-clinical rounded-2xl p-6 space-y-4 border-t-4 border-t-[#14a39b] flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-teal-50 text-[#14a39b] flex items-center justify-center">
+                <Sparkles size={26} />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#14a39b]">
+                  CORPO CLÍNICO
+                </span>
+                <h3 className="font-heading font-black text-lg text-slate-900">
+                  Dra. Nicole Pardini
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                  Médica Otorrinolaringologista
+                </p>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Especialista em Otorrinolaringologia e Cirurgia de Cabeça e Pescoço, dedicada ao diagnóstico e tratamento preciso de distúrbios da audição, respiração, rinite, sinusite e garganta.
+              </p>
             </div>
-            <h3 className="font-heading font-black text-lg text-slate-900">
-              Ecocardiografia Fetal
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Avaliação do coração do feto durante a gestação, fundamental para
-              detecção precoce de cardiopatias e tranquilidade dos pais.
-            </p>
-            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
-              Ideal entre 24ª e 28ª semana →
-            </span>
+            <div className="pt-4 border-t border-slate-100">
+              <a
+                href={getWhatsAppUrl(
+                  "Olá! Gostaria de agendar consulta com a Dra. Nicole Pardini na Clínica Vivália."
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-[#14a39b] hover:underline flex items-center gap-1"
+              >
+                <span>Agendar com Dra. Nicole</span>
+                <ArrowRight size={13} />
+              </a>
+            </div>
           </div>
 
-          <div className="card-clinical rounded-2xl p-6 space-y-3 border-t-2 border-t-[#991b1b]">
-            <div className="w-12 h-12 rounded-xl bg-slate-100 text-[#991b1b] flex items-center justify-center">
-              <Shield size={24} />
+          {/* Card Equipe Multidisciplinar */}
+          <div className="card-clinical rounded-2xl p-6 space-y-4 border-t-4 border-t-[#066e69] flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-[#f0f8f7] text-[#066e69] flex items-center justify-center">
+                <Users size={26} />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#066e69]">
+                  CUIDADO MULTIDISCIPLINAR
+                </span>
+                <h3 className="font-heading font-black text-lg text-slate-900">
+                  Pediatria, Nutrição & Mais
+                </h3>
+                <p className="text-xs text-slate-500 font-semibold mt-0.5">
+                  Especialistas Dedicados à Sua Família
+                </p>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Pediatra que as crianças adoram, nutrição clínica, fisioterapia, ortopedia, ginecologia, dermatologia e exames preventivos reunidos em um só lugar.
+              </p>
             </div>
-            <h3 className="font-heading font-black text-lg text-slate-900">
-              Biópsias Guiadas (Mama e Tireoide)
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Punção (PAAF) e Core Biopsy guiadas em tempo real com anestesia local,
-              oferecendo resultados anatomopatológicos ágeis.
-            </p>
-            <span className="inline-block text-[11px] font-bold text-[#991b1b]">
-              Procedimento seguro e rápido →
-            </span>
+            <div className="pt-4 border-t border-slate-100">
+              <a
+                href={getWhatsAppUrl(
+                  "Olá! Gostaria de consultar a grade de horários de especialistas na Clínica Vivália."
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-[#066e69] hover:underline flex items-center gap-1"
+              >
+                <span>Ver Especialidades</span>
+                <ArrowRight size={13} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 8. SEDE PRÓPRIA & INFRAESTRUTURA (A CLÍNICA NO CENTRO DE CAMPO BELO) */}
-      <section id="estrutura" className="py-16 md:py-24 bg-slate-100/70 border-t border-slate-200">
+      {/* 8. ESTRUTURA FÍSICA & AMBIENTE ACONCHEGANTE */}
+      <section
+        id="estrutura"
+        className="py-16 md:py-24 bg-[#f0f5f4] border-t border-[#e2e8e7]"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Imagem da Sede */}
+            {/* Imagem Real do Corredor e Plantas */}
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-900">
-                <div className="relative h-[380px] sm:h-[450px] w-full">
+                <div className="relative h-[380px] sm:h-[460px] w-full">
                   <Image
-                    src={FACHADA_SRC}
-                    alt="Sede Física da Clínica TOMOSID na Rua Dom Pedro II, 337 - Centro de Campo Belo - MG"
+                    src={CORRIDOR_PHOTO_SRC}
+                    alt="Corredor interno da Clínica Vivália com piso em madeira, iluminação acolhedora e plantas ornamentais"
                     fill
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-slate-200">
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-[#cde6e4]">
                   <p className="font-heading font-black text-slate-900 text-sm sm:text-base">
-                    Sede Própria TOMOSID · Campo Belo - MG
+                    Espaço Físico da Clínica Vivália · Juatuba - MG
                   </p>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    Rua Dom Pedro II, 337 - Centro · Fácil estacionamento e acessibilidade
+                    Av. Tânus Saliba, 71A - Centro · Ambiente calmo, aconchegante e impecavelmente limpo
                   </p>
                 </div>
               </div>
@@ -1614,56 +1698,56 @@ export default function HomePage() {
 
             {/* Informações da Estrutura */}
             <div className="lg:col-span-6 space-y-6 text-left">
-              <div className="eyebrow">ESTRUTURA FÍSICA & TECNOLÓGICA</div>
+              <div className="eyebrow">ESTRUTURA FÍSICA & ACOLHIMENTO</div>
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Espaço moderno, asséptico e planejado para o seu conforto.
+                Ambiente planejado para o seu conforto, calma e biossegurança.
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                A TOMOSID dispõe de instalações planejadas na área central de
-                Campo Belo, com ambientes climatizados, salas de exames privativas,
-                acessibilidade completa e totem com todas as modalidades
-                diagnósticas integradas em um só lugar.
+                Quem visita a Clínica Vivália nota a diferença logo na recepção.
+                Projetamos cada detalhe — da iluminação suave ao piso aconchegante
+                e às plantas naturais — para que você e sua família se sintam
+                em paz e bem cuidados desde o primeiro instante.
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200">
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Scan size={20} />
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#e2e8e7]">
+                  <div className="w-9 h-9 rounded-lg bg-[#f0f8f7] text-[#066e69] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Sparkles size={20} />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">
-                      Equipamentos Calibrados & Digitais
+                      Limpeza Impecável & Organização Rigorosa
                     </h4>
                     <p className="text-xs text-slate-600 mt-0.5">
-                      Tomógrafo computadorizado multislice, ressonância magnética, ultrassons de alta definição e mamografia digital.
+                      Padrão de assepsia e higiene hospitalar, garantindo um ambiente seguro e agradável para consultas e exames.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200">
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#e2e8e7]">
+                  <div className="w-9 h-9 rounded-lg bg-[#f0f8f7] text-[#066e69] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <HeartHandshake size={20} />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">
-                      Atendimento Humanizado & Recepção Organizada
+                      Recepção Atenciosa & Sem Esperas Extensas
                     </h4>
                     <p className="text-xs text-slate-600 mt-0.5">
-                      Equipe treinada para acolher cada paciente com empatia, respeito ao horário e esclarecimento claro das etapas.
+                      Agendamentos organizados para respeitar o seu horário, com equipe atenta e prestativa em todas as etapas.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200">
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#e2e8e7]">
+                  <div className="w-9 h-9 rounded-lg bg-[#f0f8f7] text-[#066e69] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Compass size={20} />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">
-                      Fácil Localização no Centro
+                      Localização Central & Fácil Acesso
                     </h4>
                     <p className="text-xs text-slate-600 mt-0.5">
-                      Localizada na Rua Dom Pedro II, 337, de fácil acesso tanto para moradores de Campo Belo quanto para cidades vizinhas.
+                      No coração de Juatuba, na Av. Tânus Saliba, 71A, com acesso facilitado para todas as regiões da cidade e municípios vizinhos.
                     </p>
                   </div>
                 </div>
@@ -1677,7 +1761,7 @@ export default function HomePage() {
                   size="md"
                   className="font-bold text-xs"
                 >
-                  <MapPin size={15} className="text-slate-600" />
+                  <MapPin size={15} className="text-[#066e69]" />
                   <span>Traçar Rota no Google Maps</span>
                 </GlowingButton>
 
@@ -1688,7 +1772,7 @@ export default function HomePage() {
                   size="md"
                   className="font-bold text-xs"
                 >
-                  <Compass size={15} className="text-slate-600" />
+                  <Compass size={15} className="text-[#b3844e]" />
                   <span>Abrir no Waze</span>
                 </GlowingButton>
               </div>
@@ -1697,16 +1781,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. PROVA SOCIAL REAL: GOOGLE REVIEWS (4,2 ESTRELAS · 124 AVALIAÇÕES) */}
-      <section id="depoimentos" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 9. PROVA SOCIAL REAL: GOOGLE REVIEWS (5,0 ESTRELAS · 71 AVALIAÇÕES) */}
+      <section
+        id="depoimentos"
+        className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
           <div className="eyebrow justify-center">AVALIAÇÕES REAIS NO GOOGLE</div>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            O que dizem os pacientes que confiam na TOMOSID
+            O que dizem os pacientes que confiam na Clínica Vivália
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Com nota <strong>4,2 ★ e 124 avaliações</strong> verificadas no
-            Google, a confiança dos nossos pacientes é o nosso maior patrimônio.
+            Com nota máxima de <strong>5,0 ★ e 71 avaliações</strong> verificadas no
+            Google, o carinho e o reconhecimento dos nossos pacientes é a nossa
+            maior motivação diária.
           </p>
         </div>
 
@@ -1715,13 +1803,17 @@ export default function HomePage() {
           {REAL_TESTIMONIALS.map((item, index) => (
             <div
               key={index}
-              className="card-clinical rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-slate-300"
+              className="card-clinical rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-[#066e69]"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center text-amber-400">
                     {[...Array(item.rating)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                      <Star
+                        key={i}
+                        size={14}
+                        className="fill-amber-400 text-amber-400"
+                      />
                     ))}
                   </div>
                   <span className="text-[11px] font-semibold text-slate-400">
@@ -1741,7 +1833,7 @@ export default function HomePage() {
                   </h4>
                   <p className="text-[11px] text-slate-500">{item.role}</p>
                 </div>
-                <span className="px-2 py-0.5 rounded bg-slate-100 text-[10px] font-bold text-slate-600">
+                <span className="px-2 py-0.5 rounded bg-[#f0f8f7] text-[10px] font-bold text-[#066e69]">
                   {item.source}
                 </span>
               </div>
@@ -1755,85 +1847,106 @@ export default function HomePage() {
             href={GOOGLE_SEARCH_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-[#991b1b] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-[#066e69] transition-colors"
           >
-            <span>Ver todas as 124 avaliações no Google Meu Negócio</span>
+            <span>Ver todas as 71 avaliações no Google Meu Negócio</span>
             <ArrowUpRight size={14} />
           </a>
         </div>
       </section>
 
-      {/* 10. CONVÊNIOS ATENDIDOS & MODALIDADE PARTICULAR */}
-      <section id="convenios" className="py-16 md:py-20 bg-[#121318] text-white border-y border-[#272a38]">
+      {/* 10. CONVÊNIOS ATENDIDOS, VIVÁLIA CARD & ATENDIMENTO PARTICULAR */}
+      <section
+        id="convenios"
+        className="py-16 md:py-20 bg-[#0c201e] text-white border-y border-[#1e3e3b]"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="eyebrow-dark justify-center">ATENDIMENTO AMPLO & ACESSÍVEL</div>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
-            Atendimento Particular & Principais Convênios
+            Vivália Card, Convênios & Atendimento Particular
           </h2>
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Oferecemos flexibilidade e suporte completo para que você realize
-            seus exames sem burocracia.
+            Criamos opções pensadas para facilitar o seu acesso e de sua família
+            a uma saúde médica de excelência em Juatuba, sem complicação.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto pt-4 text-left">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <div className="w-10 h-10 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center font-bold">
+            <div className="p-6 rounded-2xl bg-[#051514]/80 border-2 border-[#b3844e] space-y-2 relative overflow-hidden">
+              <div className="absolute top-3 right-3 px-2 py-0.5 rounded bg-[#b3844e] text-slate-950 text-[10px] font-black uppercase tracking-wider">
+                EXCLUSIVO VIVÁLIA
+              </div>
+              <div className="w-10 h-10 rounded-lg bg-[#b3844e]/30 text-[#d8a46b] flex items-center justify-center font-bold">
+                💳
+              </div>
+              <h3 className="font-bold text-base text-white">Vivália Card</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Cartão de benefícios próprio da clínica, idealizado para que a população de Juatuba e região tenha acesso a consultas e exames com condições especiais e descontos exclusivos.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#051514]/80 border border-[#1e3e3b] space-y-2">
+              <div className="w-10 h-10 rounded-lg bg-[#066e69]/30 text-[#14a39b] flex items-center justify-center font-bold">
                 ✓
               </div>
-              <h3 className="font-bold text-base text-white">Convênios Médicos</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Atendemos convênios regionais e nacionais. Envie a foto da sua carteirinha e pedido médico pelo WhatsApp para checagem imediata de cobertura.
+              <h3 className="font-bold text-base text-white">Convênios & Parcerias</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Atendemos parcerias e planos de saúde da região. Envie a foto da sua carteirinha pelo WhatsApp para verificação imediata de cobertura.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <div className="w-10 h-10 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center font-bold">
+            <div className="p-6 rounded-2xl bg-[#051514]/80 border border-[#1e3e3b] space-y-2 sm:col-span-2 lg:col-span-1">
+              <div className="w-10 h-10 rounded-lg bg-[#066e69]/30 text-[#14a39b] flex items-center justify-center font-bold">
                 ★
               </div>
-              <h3 className="font-bold text-base text-white">Atendimento Particular</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Tabela acessível, sem filas demoradas, com facilidade de pagamento em cartão de crédito e PIX para exames de rotina ou de urgência.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 sm:col-span-2 lg:col-span-1">
-              <div className="w-10 h-10 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center font-bold">
-                ⚡
-              </div>
-              <h3 className="font-bold text-base text-white">Agilidade de Laudos</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Laudos precisos com rapidez para que seu médico assistente possa iniciar o tratamento sem perder tempo hábil.
+              <h3 className="font-bold text-base text-white">Consultas Particulares</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Valores justos e acessíveis, atendimento pontual, com pagamento facilitado em cartão de crédito, débito e PIX.
               </p>
             </div>
           </div>
 
-          <div className="pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
             <GlowingButton
               href={getWhatsAppUrl(
-                "Olá! Gostaria de consultar se meu convênio é aceito na TOMOSID para realizar meus exames."
+                "Olá! Gostaria de mais informações sobre o Vivália Card e como aderir aos benefícios."
+              )}
+              target="_blank"
+              variant="gold"
+              size="lg"
+              className="w-full sm:w-auto font-bold"
+            >
+              <span>Saber Mais sobre o Vivália Card</span>
+            </GlowingButton>
+
+            <GlowingButton
+              href={getWhatsAppUrl(
+                "Olá! Gostaria de consultar se meu convênio é atendido na Clínica Vivália."
               )}
               target="_blank"
               variant="whatsapp"
               size="lg"
-              className="font-bold"
+              className="w-full sm:w-auto font-bold"
             >
               <WhatsAppIcon size={16} />
-              <span>Consultar Cobertura do Meu Convênio</span>
+              <span>Consultar Convênio no WhatsApp</span>
             </GlowingButton>
           </div>
         </div>
       </section>
 
       {/* 11. PERGUNTAS FREQUENTES (FAQ) COM ACORDEÃO */}
-      <section id="faq" className="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        id="faq"
+        className="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="text-center space-y-3 mb-10">
           <div className="eyebrow justify-center">TIRE SUAS DÚVIDAS</div>
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            Perguntas Frequentes sobre a TOMOSID
+            Perguntas Frequentes sobre a Clínica Vivália
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Respostas claras para as dúvidas mais comuns sobre agendamento,
-            preparo de exames e atendimento.
+            consultas, especialidades e localização.
           </p>
         </div>
 
@@ -1843,23 +1956,23 @@ export default function HomePage() {
             return (
               <div
                 key={index}
-                className="card-clinical rounded-xl overflow-hidden border border-slate-200"
+                className="card-clinical rounded-xl overflow-hidden border border-[#e2e8e7]"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                  className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 font-heading font-bold text-slate-900 text-sm sm:text-base hover:text-[#991b1b] transition-colors cursor-pointer"
+                  className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 font-heading font-bold text-slate-900 text-sm sm:text-base hover:text-[#066e69] transition-colors cursor-pointer"
                 >
                   <span>{faq.question}</span>
                   <ChevronDown
                     size={18}
                     className={`text-slate-400 transition-transform flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-[#991b1b]" : ""
+                      isOpen ? "rotate-180 text-[#066e69]" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-[#f0f4f3] pt-3">
                     {faq.answer}
                   </div>
                 )}
@@ -1869,26 +1982,100 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. CTA FINAL DE ALTA CONVERSÃO */}
-      <section className="bg-gradient-to-br from-[#121318] via-[#16171d] to-[#121318] text-white py-16 md:py-20 border-t border-[#272a38]">
+      {/* 12. LOCALIZAÇÃO & COMO CHEGAR */}
+      <section className="py-16 bg-[#f8faf9] border-t border-[#e2e8e7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="card-clinical rounded-2xl p-8 sm:p-10 border border-[#cde6e4] bg-gradient-to-br from-white to-[#f0f8f7]">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-7 space-y-4">
+                <div className="inline-block px-3 py-1 rounded-full bg-[#f0f8f7] text-[#066e69] text-xs font-bold border border-[#cde6e4]">
+                  LOCALIZAÇÃO PRIVILEGIADA NO CENTRO
+                </div>
+                <h3 className="font-heading font-black text-2xl sm:text-3xl text-slate-900">
+                  Venha conhecer a Clínica Vivália em Juatuba
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Estamos localizados na <strong>Av. Tânus Saliba, 71A - Centro</strong>,
+                  Juatuba - MG. Ponto de fácil localização, próximo aos principais
+                  comércios e serviços da cidade, com comodidade e segurança.
+                </p>
+                <div className="space-y-2 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={16} className="text-[#066e69] flex-shrink-0" />
+                    <span>{ADDRESS_DISPLAY}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock size={16} className="text-[#066e69] flex-shrink-0" />
+                    <span>Atendimento de Segunda a Sexta a partir das 08h00</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone size={16} className="text-[#066e69] flex-shrink-0" />
+                    <span>Telefone e WhatsApp: {PHONE_DISPLAY}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="md:col-span-5 flex flex-col gap-3">
+                <GlowingButton
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  variant="primary"
+                  size="lg"
+                  className="w-full justify-center font-bold"
+                >
+                  <MapPin size={18} />
+                  <span>Abrir Rota no Google Maps</span>
+                </GlowingButton>
+
+                <GlowingButton
+                  href={WAZE_MAPS_URL}
+                  target="_blank"
+                  variant="gold"
+                  size="lg"
+                  className="w-full justify-center font-bold"
+                >
+                  <Compass size={18} />
+                  <span>Navegar pelo Waze</span>
+                </GlowingButton>
+
+                <GlowingButton
+                  href={getWhatsAppUrl(
+                    "Olá! Gostaria de orientações sobre como chegar à Clínica Vivália."
+                  )}
+                  target="_blank"
+                  variant="outline"
+                  size="md"
+                  className="w-full justify-center font-bold text-slate-800"
+                >
+                  <WhatsAppIcon size={16} />
+                  <span>Pedir Localização no WhatsApp</span>
+                </GlowingButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 13. CTA FINAL DE ALTA CONVERSÃO */}
+      <section className="bg-gradient-to-br from-[#051514] via-[#0c201e] to-[#051514] text-white py-16 md:py-20 border-t border-[#1e3e3b]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-block px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-bold tracking-wide">
-            AGENDAMENTO ÁGIL & PRIORITÁRIO
+          <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#122c2a] border border-[#1e3e3b] text-[#d8a46b] text-xs font-bold tracking-wide">
+            PRIORIZE SUA SAÚDE & BEM-ESTAR
           </div>
 
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-            Agende seu exame na TOMOSID com o Dr. Frederico Cambraia.
+            Agende sua consulta na Clínica Vivália hoje mesmo.
           </h2>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Envie sua solicitação pelo WhatsApp oficial e receba a confirmação
-            com orientações de preparo diretamente da nossa equipe.
+            Dê o primeiro passo para uma vida mais feliz com o acolhimento, o
+            respeito e a atenção técnica que você e sua família merecem.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <GlowingButton
               href={getWhatsAppUrl(
-                "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia."
+                "Olá! Gostaria de agendar uma consulta na Clínica Vivália em Juatuba."
               )}
               target="_blank"
               variant="whatsapp"
@@ -1896,7 +2083,7 @@ export default function HomePage() {
               className="w-full sm:w-auto font-bold text-base shadow-md"
             >
               <WhatsAppIcon size={18} />
-              <span>Agendar Exame no WhatsApp ({PHONE_DISPLAY})</span>
+              <span>Agendar Consulta no WhatsApp ({PHONE_DISPLAY})</span>
             </GlowingButton>
 
             <GlowingButton
@@ -1906,63 +2093,53 @@ export default function HomePage() {
               size="lg"
               className="w-full sm:w-auto font-bold text-slate-800"
             >
-              <MapPin size={18} className="text-slate-600" />
+              <MapPin size={18} className="text-[#066e69]" />
               <span>Ver Localização no Centro</span>
             </GlowingButton>
           </div>
 
           <div className="text-xs text-slate-400 pt-2">
-            Rua Dom Pedro II, 337 - Centro · Campo Belo - MG · Segunda a Sexta a partir das 08h00
+            Av. Tânus Saliba, 71A - Centro · Juatuba - MG · Segunda a Sexta a partir das 08h00
           </div>
         </div>
       </section>
 
-      {/* 13. FOOTER INSTITUCIONAL COMPLETO */}
-      <footer className="bg-[#090a0f] text-slate-400 text-xs border-t border-[#272a38] py-12 px-4 sm:px-6 lg:px-8">
+      {/* 14. FOOTER INSTITUCIONAL COMPLETO */}
+      <footer className="bg-[#051514] text-slate-400 text-xs border-t border-[#1e3e3b] py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* Coluna 1: Logo & Sobre */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2.5">
-              <Image
-                src={LOGO_EMBLEM_SRC}
-                alt="Emblema TOMOSID"
-                width={36}
-                height={36}
-                className="object-contain"
-              />
-              <div className="flex flex-col">
-                <span className="font-heading font-black text-xl text-white">
-                  TOMO<span className="text-[#f87171]">SID</span>
-                </span>
-                <span className="text-[9px] font-bold tracking-widest uppercase text-slate-400">
-                  DIAGNÓSTICO POR IMAGEM
-                </span>
-              </div>
-            </div>
+          <div className="space-y-4">
+            <Image
+              src={LOGO_HORIZONTAL_LIGHT_SRC}
+              alt="Clínica Vivália — Clínica Médica"
+              width={190}
+              height={48}
+              className="h-10 w-auto object-contain"
+            />
             <p className="text-slate-400 text-[12px] leading-relaxed">
-              Centro de diagnóstico médico por imagem de alta complexidade em
-              Campo Belo - MG. Tomografia, Ressonância, Ultrassonografia,
-              Mapeamento de Endometriose, HyCoSy, Ecofetal, Biópsias e Mamografia Digital.
+              Centro médico humanizado e ético no coração de Juatuba - MG.
+              Consultas em diversas especialidades médicas, pediatria, clínica
+              geral, exames e cuidado integral para toda a família.
             </p>
             <div className="text-[11px] text-slate-300 font-semibold">
-              Responsável Técnico: Dr. Frederico Cambraia · CRM-MG 34752 · RQE 10424
+              Corpo Clínico: Dr. Alessandro Galvão, Dr. Elissander e Especialistas
             </div>
           </div>
 
-          {/* Coluna 2: Modalidades */}
+          {/* Coluna 2: Especialidades */}
           <div className="space-y-2">
             <h4 className="font-bold text-white text-sm uppercase tracking-wider">
-              Exames Principais
+              Especialidades
             </h4>
             <ul className="space-y-1.5 text-slate-400 text-[12px]">
-              <li>Mapeamento de Endometriose Profunda</li>
-              <li>HyCoSy (Histerossalpingossoneografia)</li>
-              <li>Ecocardiografia Fetal & Morfológico</li>
-              <li>Tomografia Computadorizada Multislice 3D</li>
-              <li>Ressonância Magnética de Alto Campo</li>
-              <li>Biópsias Guiadas (Mama e Tireoide)</li>
-              <li>Mamografia Digital de Alta Resolução</li>
-              <li>Densitometria Óssea & Raio-X Digital</li>
+              <li>Clínica Geral & Medicina da Família</li>
+              <li>Pediatria & Puericultura</li>
+              <li>Cardiologia & Check-up Cardiovascular</li>
+              <li>Ginecologia & Saúde da Mulher</li>
+              <li>Ortopedia & Aparelho Locomotor</li>
+              <li>Geriatria & Cuidado ao Idoso</li>
+              <li>Dermatologia Clínica</li>
+              <li>Nutrição Clínica & Psicologia</li>
             </ul>
           </div>
 
@@ -1973,28 +2150,28 @@ export default function HomePage() {
             </h4>
             <ul className="space-y-1.5 text-slate-400 text-[12px]">
               <li>
-                <a href="#exames" className="hover:text-white transition-colors">
-                  Todos os Exames & Preparos
+                <a href="#especialidades" className="hover:text-white transition-colors">
+                  Todas as Especialidades & Exames
                 </a>
               </li>
               <li>
-                <a href="#dr-frederico" className="hover:text-white transition-colors">
-                  Dr. Frederico Cambraia (Radiologista)
+                <a href="#sobre" className="hover:text-white transition-colors">
+                  A Clínica (Um Sonho em Juatuba)
                 </a>
               </li>
               <li>
-                <a href="#saude-mulher" className="hover:text-white transition-colors">
-                  Saúde da Mulher & Medicina Fetal
+                <a href="#medicos" className="hover:text-white transition-colors">
+                  Corpo Clínico & Médicos
                 </a>
               </li>
               <li>
                 <a href="#estrutura" className="hover:text-white transition-colors">
-                  Estrutura & Sede Física
+                  Estrutura & Ambiente Acolhedor
                 </a>
               </li>
               <li>
                 <a href="#depoimentos" className="hover:text-white transition-colors">
-                  Avaliações Google (4,2 ★)
+                  Avaliações Google (5,0 ★)
                 </a>
               </li>
               <li>
@@ -2017,11 +2194,11 @@ export default function HomePage() {
             </h4>
             <div className="space-y-2 text-[12px] text-slate-400">
               <p className="flex items-start gap-2">
-                <MapPin size={15} className="text-slate-400 flex-shrink-0 mt-0.5" />
-                <span>Rua Dom Pedro II, 337 - Centro, Campo Belo - MG, CEP 37270-000</span>
+                <MapPin size={15} className="text-[#d8a46b] flex-shrink-0 mt-0.5" />
+                <span>Av. Tânus Saliba, 71A - Centro, Juatuba - MG, CEP 35675-000</span>
               </p>
               <p className="flex items-center gap-2">
-                <Clock size={15} className="text-slate-400 flex-shrink-0" />
+                <Clock size={15} className="text-[#d8a46b] flex-shrink-0" />
                 <span>Segunda a Sexta a partir das 08h00</span>
               </p>
               <p className="flex items-center gap-2">
@@ -2029,14 +2206,14 @@ export default function HomePage() {
                 <span>WhatsApp: {PHONE_DISPLAY}</span>
               </p>
               <p className="flex items-center gap-2">
-                <InstagramIcon size={15} className="text-slate-400 flex-shrink-0" />
+                <InstagramIcon size={15} className="text-[#d8a46b] flex-shrink-0" />
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  {INSTAGRAM_HANDLE}
+                  {INSTAGRAM_HANDLE} (3.367 seguidores)
                 </a>
               </p>
             </div>
@@ -2044,31 +2221,30 @@ export default function HomePage() {
         </div>
 
         {/* Linha Divisória e Disclaimer Médico */}
-        <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 text-center space-y-3">
-          <p className="text-[11px] text-slate-500 max-w-4xl mx-auto leading-relaxed">
+        <div className="max-w-7xl mx-auto pt-8 border-t border-[#1e3e3b] text-center space-y-3">
+          <p className="text-[11px] text-slate-400 max-w-4xl mx-auto leading-relaxed">
             As informações contidas neste website têm caráter exclusivamente
             educativo e institucional, em rigorosa consonância com a Resolução CFM
             nº 2.336/2023 (CODAME). Nenhum conteúdo substitui a consulta médica
-            individualizada e o exame clínico presencial. Responsável Técnico:
-            Dr. Frederico Cambraia · CRM-MG 34752 · RQE 10424.
+            individualizada e o exame clínico presencial. Clínica Vivália · Juatuba - MG.
           </p>
 
-          <p className="text-[11px] text-slate-600">
-            © {new Date().getFullYear()} TOMOSID — Diagnóstico por Imagem. Todos os direitos reservados.
+          <p className="text-[11px] text-slate-500">
+            © {new Date().getFullYear()} Clínica Vivália — Centro Médico. Todos os direitos reservados.
           </p>
         </div>
       </footer>
 
-      {/* 14. BOTÃO FLUTUANTE DE WHATSAPP OFICIAL COM STATUS ONLINE */}
+      {/* 15. BOTÃO FLUTUANTE DE WHATSAPP OFICIAL COM STATUS ONLINE */}
       <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
         <a
           href={getWhatsAppUrl(
-            "Olá! Gostaria de agendar um exame na TOMOSID em Campo Belo com o Dr. Frederico Cambraia."
+            "Olá! Gostaria de agendar uma consulta na Clínica Vivália em Juatuba."
           )}
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-2.5 bg-[#16a34a] hover:bg-[#15803d] text-white pl-4 pr-4 py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white/20"
-          aria-label="Agendar Exame no WhatsApp da TOMOSID"
+          aria-label="Agendar Consulta no WhatsApp da Clínica Vivália"
         >
           <div className="relative">
             <WhatsAppIcon size={22} className="text-white" />
@@ -2080,7 +2256,7 @@ export default function HomePage() {
               Agendamento Online
             </span>
             <span className="text-xs font-black tracking-tight leading-tight">
-              (35) 99976-0750
+              (31) 99662-2315
             </span>
           </div>
         </a>

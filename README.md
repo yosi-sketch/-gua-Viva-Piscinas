@@ -1,32 +1,27 @@
-# TOMOSID — Dr. Frederico Cambraia
-## Centro de Diagnóstico Médico por Imagem · Campo Belo - MG
+# Clínica Vivália — Centro Médico em Juatuba - MG
 
-Landing page oficial de alta conversão e credibilidade médica para a **TOMOSID — Dr. Frederico Cambraia** em Campo Belo - MG.
+Landing page moderna, rápida e de alta autoridade para a **Clínica Vivália (Vivália Clínica Médica)**, centro médico com nota máxima 5,0 ★ no Google em Juatuba - Minas Gerais.
 
-### Stack Tecnológica
-- **Next.js 16** (App Router)
-- **React 19**
-- **Tailwind CSS v4**
-- **Framer Motion**
-- **Lucide React**
-- **Sharp**
+## Tecnologias Utilizadas
+- **Framework:** Next.js 16 (App Router)
+- **Linguagem:** TypeScript
+- **Estilização:** Tailwind CSS v4
+- **Animações:** Framer Motion
+- **Ícones:** Lucide React
+- **Tipografia:** Montserrat & Plus Jakarta Sans
 
-### Identidade Visual
-- **Cores Oficiais:**
-  - Vermelho Médico: `#dc2626` / `#ef4444` / `#b91c1c`
-  - Titanium / Slate Dark: `#090a0f` / `#121318` / `#1e293b`
-  - Branco Clínico: `#ffffff` / `#f8fafc`
-  - Bronze Arquitetônico: `#785b46`
-- **Tipografia:** Montserrat (Títulos) + Plus Jakarta Sans (Corpo)
+## Rodando o Projeto
 
-### Executando o Projeto
 ```bash
+# Instalar dependências
+npm install
+
+# Iniciar servidor de desenvolvimento (porta 3009)
 npm run dev
-```
-Porta padrão: `http://localhost:3009`
 
-### Build de Produção
-```bash
+# Gerar build de produção
 npm run build
-npm run start
+
+# Iniciar servidor de produção
+npm start
 ```
