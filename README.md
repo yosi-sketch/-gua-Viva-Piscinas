@@ -1,27 +1,18 @@
-# Clínica Vivália — Centro Médico em Juatuba - MG
+# Água Viva Piscinas — Belo Horizonte - MG
+## Piscinas de Fibra, Vinil e Azulejo · Aquecedores · Químicos HTH e Genco · Filtros e Assistência Técnica
 
-Landing page moderna, rápida e de alta autoridade para a **Clínica Vivália (Vivália Clínica Médica)**, centro médico com nota máxima 5,0 ★ no Google em Juatuba - Minas Gerais.
+Landing page moderna, ultra-rápida e de alta conversão para a **Água Viva Piscinas (Água Viva Aquecedores e Piscinas)**, tradicional loja física e fornecedor com mais de 62 avaliações no Google na Av. Portugal, 1879 - Santa Amélia, Belo Horizonte - Minas Gerais.
 
-## Tecnologias Utilizadas
-- **Framework:** Next.js 16 (App Router)
-- **Linguagem:** TypeScript
-- **Estilização:** Tailwind CSS v4
-- **Animações:** Framer Motion
-- **Ícones:** Lucide React
-- **Tipografia:** Montserrat & Plus Jakarta Sans
+### Tecnologias
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React
+- Sharp (Geração de favicons, icons e OG Image)
 
-## Rodando o Projeto
-
-```bash
-# Instalar dependências
-npm install
-
-# Iniciar servidor de desenvolvimento (porta 3009)
-npm run dev
-
-# Gerar build de produção
-npm run build
-
-# Iniciar servidor de produção
-npm start
-```
+### Contatos Oficiais
+- **WhatsApp:** (31) 98988-7599
+- **Telefone Fixo:** (31) 3491-7955
+- **Endereço:** Av. Portugal, 1879 - Santa Amélia, Belo Horizonte - MG, CEP 31555-000
+- **Instagram:** [@aguavivapiscinasbh](https://www.instagram.com/aguavivapiscinasbh/)

@@ -17,67 +17,70 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#066e69",
+  themeColor: "#0077b6",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://clinicavivalia.com.br"),
+  metadataBase: new URL("https://aguavivapiscinas.com.br"),
   title:
-    "Clínica Vivália — Centro Médico em Juatuba - MG | 5,0 ★ no Google (71 avaliações)",
+    "Água Viva Piscinas — Tudo para Piscinas e Aquecedores em BH | Mais de 62 Avaliações no Google",
   description:
-    "Centro médico humanizado e ético no coração de Juatuba - MG. Consultas médicas especializadas, exames diagnósticos, atendimento acolhedor para você e sua família. Dr. Alessandro Galvão, Dr. Elissander e equipe de especialistas. Av. Tânus Saliba, 71A - Centro. WhatsApp: (31) 99662-2315.",
+    "Tudo para sua piscina e aquecimento em um só lugar em Belo Horizonte. Piscinas de fibra, vinil e azulejo, aquecedores solares e elétricos, filtros, bombas, produtos químicos HTH e Genco, e assistência técnica. Av. Portugal, 1879 - Santa Amélia. WhatsApp: (31) 98988-7599.",
   keywords: [
-    "Clínica Vivália",
-    "Vivália Clínica Médica",
-    "Clínica Vivália Juatuba",
-    "Centro médico Juatuba",
-    "Médico em Juatuba",
-    "Dr Alessandro Galvão",
-    "Dr Elissander Juatuba",
-    "Consultas médicas Juatuba MG",
-    "Pediatra em Juatuba",
-    "Cardiologista em Juatuba",
-    "Clínica geral Juatuba",
-    "Ginecologista Juatuba",
-    "Exames em Juatuba",
-    "Avenida Tanus Saliba 71A",
-    "Clínica médica Betim Mateus Leme Juatuba",
-    "Atendimento médico humanizado",
+    "Água Viva Piscinas",
+    "Água Viva Aquecedores e Piscinas",
+    "Piscinas Belo Horizonte",
+    "Piscinas Santa Amélia BH",
+    "Piscinas Pampulha BH",
+    "Loja de piscinas Av Portugal BH",
+    "Aquecedores de piscina BH",
+    "Aquecedor solar piscina BH",
+    "Trocador de calor BH",
+    "Piscinas de fibra Belo Horizonte",
+    "Piscinas de vinil BH",
+    "Piscinas de azulejo",
+    "Produtos químicos piscina BH",
+    "Cloro HTH BH",
+    "Cloro Genco BH",
+    "Filtros e bombas para piscina BH",
+    "Manutenção de piscinas BH",
+    "Saunas e Spas Belo Horizonte",
+    "Diagnóstico de água piscina WhatsApp",
   ],
-  authors: [{ name: "Clínica Vivália — Centro Médico · Juatuba - MG" }],
-  creator: "Clínica Vivália",
-  publisher: "Clínica Vivália",
+  authors: [{ name: "Água Viva Piscinas — Belo Horizonte - MG" }],
+  creator: "Água Viva Piscinas",
+  publisher: "Água Viva Piscinas",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=viv2", sizes: "any" },
-      { url: "/icon-32x32.png?v=viv2", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=viv2", type: "image/png", sizes: "16x16" },
-      { url: "/icon-48x48.png?v=viv2", type: "image/png", sizes: "48x48" },
-      { url: "/icon-192x192.png?v=viv2", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=viv2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=av1", sizes: "any" },
+      { url: "/icon-32x32.png?v=av1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=av1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-48x48.png?v=av1", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192x192.png?v=av1", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png?v=av1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=viv2",
-    apple: [{ url: "/apple-icon.png?v=viv2", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=av1",
+    apple: [{ url: "/apple-icon.png?v=av1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://clinicavivalia.com.br",
+    url: "https://aguavivapiscinas.com.br",
     title:
-      "Clínica Vivália — Centro Médico em Juatuba - MG | 5,0 ★ no Google",
+      "Água Viva Piscinas — Tudo para Piscinas e Aquecedores em BH",
     description:
-      "Acolhimento humanizado e ético no coração de Juatuba. Consultas médicas, exames e cuidado para toda a sua família. WhatsApp: (31) 99662-2315.",
-    siteName: "Clínica Vivália",
+      "Piscinas de fibra, vinil e azulejo, aquecedores, filtros, bombas, químicos (HTH e Genco) e assistência técnica especializada em Belo Horizonte. WhatsApp: (31) 98988-7599.",
+    siteName: "Água Viva Piscinas",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Clínica Vivália — Centro Médico em Juatuba - MG",
+        alt: "Água Viva Piscinas — Belo Horizonte - MG",
       },
     ],
   },
@@ -90,63 +93,38 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Clínica Vivália",
-    alternateName: "Vivália Clínica Médica",
+    "@type": "HomeGoodsStore",
+    name: "Água Viva Piscinas",
+    alternateName: "Água Viva Aquecedores e Piscinas",
     description:
-      "Centro médico com acolhimento humanizado e ético no coração de Juatuba - MG. Consultas em diversas especialidades médicas, pediatria, clínica geral, exames e acompanhamento contínuo da saúde de toda a família.",
-    medicalSpecialty: [
-      "PrimaryCare",
-      "Pediatrics",
-      "Cardiology",
-      "Gynecology",
-      "Orthopedics",
-      "Dermatology",
-      "GeneralPractice",
-    ],
-    telephone: "+55-31-99662-2315",
-    url: "https://clinicavivalia.com.br",
-    image: "https://clinicavivalia.com.br/logo.png",
+      "Loja completa e fornecedor especializado em piscinas, aquecedores solares e elétricos, filtros, bombas, saunas, spas, produtos químicos e manutenção de piscinas em Belo Horizonte - MG.",
+    telephone: "+553134917955",
+    url: "https://aguavivapiscinas.com.br",
+    image: "https://aguavivapiscinas.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Tânus Saliba, 71A - Centro",
-      addressLocality: "Juatuba",
+      streetAddress: "Av. Portugal, 1879",
+      addressLocality: "Belo Horizonte",
       addressRegion: "MG",
-      postalCode: "35675-000",
+      postalCode: "31555-000",
       addressCountry: "BR",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "71",
+      reviewCount: "62",
     },
-    physician: [
-      {
-        "@type": "Physician",
-        name: "Dr. Elissander Saliba Santos",
-        medicalSpecialty: ["Cardiology", "GeneralPractice"],
-        identifier: "CRM-MG 69828",
-      },
-      {
-        "@type": "Physician",
-        name: "Dr. Alessandro Galvão",
-        medicalSpecialty: "GeneralPractice",
-      },
-      {
-        "@type": "Physician",
-        name: "Dra. Nicole Pardini",
-        medicalSpecialty: "Otolaryngology",
-      },
-    ],
     areaServed: [
-      "Juatuba",
+      "Belo Horizonte",
+      "Santa Amélia",
+      "Pampulha",
+      "Venda Nova",
+      "Lagoa Santa",
+      "Vespasiano",
+      "Contagem",
       "Betim",
-      "Mateus Leme",
-      "Igarapé",
-      "Florestal",
-      "Itaúna",
-      "Região Metropolitana de Belo Horizonte",
+      "Nova Lima",
+      "Grande BH",
     ],
     openingHoursSpecification: [
       {
@@ -165,13 +143,13 @@ export default function RootLayout({
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Saturday"],
         opens: "08:00",
-        closes: "12:00",
+        closes: "13:00",
       },
     ],
     sameAs: [
-      "https://www.instagram.com/clinicavivalia",
-      "https://linktr.ee/clinicavivalia",
-      "https://wa.me/5531996622315",
+      "https://www.instagram.com/aguavivapiscinasbh/",
+      "https://wa.me/5531989887599",
+      "https://contate.me/aguaviva-piscinas",
     ],
   };
 
@@ -183,7 +161,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#f8faf9] text-[#0d1e1c] antialiased selection:bg-[#066e69] selection:text-[#ffffff]">
+      <body className="min-h-screen bg-[#f8fafc] text-[#0f172a] antialiased selection:bg-[#0096c7] selection:text-[#ffffff]">
         {children}
       </body>
     </html>
